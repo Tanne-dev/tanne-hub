@@ -1,0 +1,92 @@
+[
+  {
+    "id": "joan",
+    "file": "01-joan.png",
+    "portraitUrl": "/champions/raid-roster-apr03/01-joan.png"
+  },
+  {
+    "id": "androc",
+    "file": "02-androc.png",
+    "portraitUrl": "/champions/raid-roster-apr03/02-androc.png"
+  },
+  {
+    "id": "lord-champfort",
+    "file": "03-lord-champfort.png",
+    "portraitUrl": "/champions/raid-roster-apr03/03-lord-champfort.png"
+  },
+  {
+    "id": "sethallia",
+    "file": "04-sethallia.png",
+    "portraitUrl": "/champions/raid-roster-apr03/04-sethallia.png"
+  },
+  {
+    "id": "cillian",
+    "file": "05-cillian.png",
+    "portraitUrl": "/champions/raid-roster-apr03/05-cillian.png"
+  },
+  {
+    "id": "sigmund",
+    "file": "06-sigmund.png",
+    "portraitUrl": "/champions/raid-roster-apr03/06-sigmund.png"
+  },
+  {
+    "id": "ronda",
+    "file": "07-ronda.png",
+    "portraitUrl": "/champions/raid-roster-apr03/07-ronda.png"
+  },
+  {
+    "id": "black-knight",
+    "file": "08-black-knight.png",
+    "portraitUrl": "/champions/raid-roster-apr03/08-black-knight.png"
+  },
+  {
+    "id": "staltus",
+    "file": "09-staltus.png",
+    "portraitUrl": "/champions/raid-roster-apr03/09-staltus.png"
+  },
+  {
+    "id": "minaya",
+    "file": "10-minaya.png",
+    "portraitUrl": "/champions/raid-roster-apr03/10-minaya.png"
+  },
+  {
+    "id": "slot-11",
+    "file": "11-slot-11.png",
+    "portraitUrl": "/champions/raid-roster-apr03/11-slot-11.png"
+  },
+  {
+    "id": "slot-12",
+    "file": "12-slot-12.png",
+    "portraitUrl": "/champions/raid-roster-apr03/12-slot-12.png"
+  },
+  {
+    "id": "slot-13",
+    "file": "13-slot-13.png",
+    "portraitUrl": "/champions/raid-roster-apr03/13-slot-13.png"
+  },
+  {
+    "id": "slot-14",
+    "file": "14-slot-14.png",
+    "portraitUrl": "/champions/raid-roster-apr03/14-slot-14.png"
+  },
+  {
+    "id": "slot-15",
+    "file": "15-slot-15.png",
+    "portraitUrl": "/champions/raid-roster-apr03/15-slot-15.png"
+  },
+  {
+    "id": "slot-16",
+    "file": "16-slot-16.png",
+    "portraitUrl": "/champions/raid-roster-apr03/16-slot-16.png"
+  },
+  {
+    "id": "slot-17",
+    "file": "17-slot-17.png",
+    "portraitUrl": "/champions/raid-roster-apr03/17-slot-17.png"
+  },
+  {
+    "id": "slot-18",
+    "file": "18-slot-18.png",
+    "portraitUrl": "/champions/raid-roster-apr03/18-slot-18.png"
+  }
+]
