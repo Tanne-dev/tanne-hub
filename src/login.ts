@@ -123,27 +123,6 @@ export function isMemberAdmin(): boolean {
   return getSession()?.role === "admin";
 }
 
-/** Đã đăng nhập thành viên (member hoặc admin). */
-export function isMemberLoggedIn(): boolean {
-  return getSession() !== null;
-}
-
-export function getLoggedInMemberEmail(): string | null {
-  const s = getSession();
-  const e = s?.email?.trim();
-  return e ? e : null;
-}
-
-/** Mở modal đăng nhập (ví dụ từ trang thanh toán / giỏ hàng). */
-export function requestLoginModal(): void {
-  if (getSession()) return;
-  const modal = document.querySelector<HTMLElement>("#login-modal");
-  const emailInput = document.querySelector<HTMLInputElement>("#login-email");
-  if (!modal || !emailInput) return;
-  modal.classList.remove("hidden");
-  emailInput.focus();
-}
-
 function setSession(session: MemberSession): void {
   localStorage.setItem(MEMBER_SESSION_KEY, JSON.stringify(session));
   window.dispatchEvent(new CustomEvent("tanne-auth-changed"));

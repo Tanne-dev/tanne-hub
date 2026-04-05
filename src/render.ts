@@ -1,13 +1,5 @@
 import { ACCOUNT_HERO_MORE_EPIC_LABEL, ACCOUNT_HERO_MORE_LEGENDARY_LABEL } from "./content";
 import { pageInner } from "./layout";
-import {
-  checkoutIconBinance,
-  checkoutIconPayPal,
-  checkoutIconRemitly,
-  checkoutIconRevolut,
-  checkoutIconStripeCard,
-  checkoutIconWise,
-} from "./partials/checkoutPaymentMethodIcons";
 import { escapeHtml, renderPostArticleBodyHtml } from "./postBody";
 import { getPostByIdRemote, getPosts, savePosts } from "./postsStore";
 import { getSellingAccounts } from "./sellingAccountsStore";
@@ -232,9 +224,6 @@ export function renderAdminDashboardPage(root: HTMLElement): void {
           <div id="admin-dashboard-guest" class="theme-smooth rounded-[14px] border border-[var(--admin-border)] bg-[var(--panel-bg)] p-6 text-[var(--panel-text)] shadow-[0_4px_14px_rgba(31,36,51,0.06)]">
             <h1 class="text-xl font-bold text-[var(--admin-heading)]">Admin dashboard</h1>
             <p class="mt-2 text-sm text-[var(--panel-muted)]">Please sign in with an admin account to access this dashboard.</p>
-            <p class="mt-2 text-xs leading-relaxed text-[var(--panel-muted)]">
-              <span class="font-semibold text-[var(--admin-accent-muted)]">Giỏ hàng / Cart:</span> sau khi đăng nhập admin, mở đúng trang này — khối <strong class="text-[var(--panel-text)]">Cart</strong> nằm <strong class="text-[var(--panel-text)]">bên trái</strong> (trên mobile nằm phía trên menu). Trang chủ shop không có giỏ admin.
-            </p>
             <button
               type="button"
               id="admin-open-login-from-dashboard"
@@ -249,48 +238,12 @@ export function renderAdminDashboardPage(root: HTMLElement): void {
             <div class="mb-6 flex flex-wrap items-end justify-between gap-3">
               <div>
                 <h1 class="text-2xl font-extrabold text-[var(--admin-heading)]">Admin dashboard</h1>
-                <p class="mt-1 text-sm text-[var(--panel-muted)]">Cart on the left; pick a section beside it (stacked on small screens).</p>
+                <p class="mt-1 text-sm text-[var(--panel-muted)]">Pick a section from the menu (stacked on small screens).</p>
               </div>
               <a href="/" class="text-xs font-semibold text-[var(--admin-accent)] hover:underline">← Back to home</a>
             </div>
 
-            <div class="flex flex-col gap-6 lg:flex-row lg:items-start lg:gap-6">
-              <aside
-                id="admin-cart-aside"
-                class="admin-cart-aside shrink-0 rounded-xl border-2 border-[var(--admin-tab-active-border)]/55 bg-[color-mix(in_srgb,var(--admin-inner-bg)_88%,var(--admin-tab-active-bg)_12%)] p-3 shadow-[0_4px_20px_rgba(127,233,255,0.08)] md:p-4 lg:sticky lg:top-24 lg:w-[min(100%,280px)] lg:self-start"
-                aria-label="Admin shopping cart"
-              >
-                <div class="flex items-center justify-between gap-2 border-b border-[var(--admin-border)] pb-2.5">
-                  <h2 class="flex items-center gap-2 text-[13px] font-extrabold uppercase tracking-[0.12em] text-[var(--admin-heading)]">
-                    <svg class="h-5 w-5 shrink-0 text-[var(--admin-accent)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                      <circle cx="9" cy="21" r="1"></circle>
-                      <circle cx="20" cy="21" r="1"></circle>
-                      <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                    </svg>
-                    Cart
-                  </h2>
-                  <span
-                    id="admin-cart-badge"
-                    class="min-w-[1.5rem] rounded-full bg-[var(--admin-tab-active-bg)] px-2 py-0.5 text-center text-[11px] font-bold tabular-nums text-[var(--admin-accent-muted)]"
-                    >0</span>
-                </div>
-                <p class="mt-2 text-[11px] leading-snug text-[var(--admin-muted)]">
-                  Shortlist Raid listings. Add from <span class="font-semibold text-[var(--admin-accent-muted)]">Active listed accounts</span> (Raid tab).
-                </p>
-                <div
-                  id="admin-cart-lines"
-                  class="mt-3 max-h-[min(46vh,380px)] space-y-2 overflow-y-auto overscroll-contain pr-0.5 [-ms-overflow-style:none] [scrollbar-width:thin] [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-[var(--admin-border)]"
-                ></div>
-                <button
-                  type="button"
-                  id="admin-cart-clear"
-                  class="mt-3 w-full rounded-lg border border-[var(--admin-input-border)] py-2 text-xs font-semibold text-[var(--admin-btn-ghost-text)] transition hover:bg-[var(--admin-tab-idle-hover)]"
-                >
-                  Clear cart
-                </button>
-              </aside>
-
-              <div class="flex min-w-0 flex-1 flex-col gap-6 lg:flex-row lg:gap-8">
+            <div class="flex flex-col gap-6 lg:flex-row lg:items-start lg:gap-8">
               <nav class="flex shrink-0 flex-col gap-1.5 lg:w-[240px]" aria-label="Admin sections">
                 <button type="button" data-admin-tab="posts" id="admin-tab-posts" class="rounded-lg border border-[var(--admin-tab-active-border)] bg-[var(--admin-tab-active-bg)] px-3 py-2.5 text-left text-sm font-semibold text-[var(--admin-accent-muted)]">
                   1. Posts & Raid news
@@ -489,229 +442,6 @@ export function renderAdminDashboardPage(root: HTMLElement): void {
               </div>
             </div>
           </div>
-        </main>
-        ${renderSiteFooter()}
-      </div>
-    </div>
-  `;
-}
-
-/** Giỏ mua Raid — bước 1 xem lại, bước 2 hướng dẫn liên hệ. */
-export function renderCartPage(root: HTMLElement): void {
-  root.innerHTML = `
-    <div class="relative min-h-screen w-full bg-[var(--page-bg)]">
-      <div
-        id="site-bg-base"
-        class="pointer-events-none absolute inset-0 -z-10 bg-cover bg-center opacity-20"
-      ></div>
-      <div
-        id="site-bg-slide"
-        class="pointer-events-none absolute inset-0 -z-10 bg-cover bg-center opacity-20 hidden"
-      ></div>
-
-      <div class="relative z-0">
-        ${renderHeader()}
-        <main id="shop-cart-page" class="${pageInner} space-y-6 py-6 sm:space-y-8 sm:py-8">
-          <div class="flex flex-wrap items-center gap-3">
-            <a
-              href="/"
-              class="inline-flex min-h-11 items-center rounded-lg border border-[#7fe9ff]/45 px-4 py-2.5 text-[15px] font-semibold text-[#7fe9ff] transition hover:bg-[#7fe9ff]/10 active:opacity-90 sm:min-h-0 sm:px-3 sm:py-2 sm:text-[14px]"
-            >
-              ← Home
-            </a>
-            <a
-              href="/?page=raid-accounts"
-              class="inline-flex min-h-11 items-center rounded-lg border border-[var(--news-card-border)] px-4 py-2.5 text-[15px] font-semibold text-[var(--panel-text)] transition hover:bg-[var(--icon-bg)] active:opacity-90 sm:min-h-0 sm:px-3 sm:py-2 sm:text-[14px]"
-            >
-              More listings
-            </a>
-          </div>
-
-          <section class="gloss-hover-frame theme-smooth rounded-[14px] p-4 text-[var(--panel-text)] shadow-[0_4px_14px_rgba(31,36,51,0.06)] sm:p-6 md:p-7">
-            <h1 class="text-[22px] font-bold tracking-tight sm:text-2xl md:text-3xl">Giỏ hàng &amp; thanh toán</h1>
-            <p class="mt-1 max-w-2xl text-[15px] leading-snug text-[var(--panel-muted)]">
-              Bước 1: giỏ hàng. Bước 2: đăng nhập &amp; email liên kết. Bước 3: họ tên, ngày sinh và chọn phương thức thanh toán (sẽ kết nối cổng thanh toán theo kế hoạch triển khai).
-            </p>
-
-            <ol class="mt-5 flex flex-wrap gap-3 text-sm font-semibold" aria-label="Các bước thanh toán">
-              <li class="rounded-full border border-[#7fe9ff]/50 bg-[#7fe9ff]/10 px-4 py-2 text-[#7fe9ff]">1. Giỏ hàng</li>
-              <li class="rounded-full border border-[var(--news-card-border)] px-4 py-2 text-[var(--panel-muted)]">2. Email &amp; thành viên</li>
-              <li class="rounded-full border border-[var(--news-card-border)] px-4 py-2 text-[var(--panel-muted)]">3. Thanh toán</li>
-            </ol>
-
-            <div id="shop-cart-lines" class="mt-6 space-y-3"></div>
-
-            <div class="mt-6 flex flex-wrap items-center gap-3">
-              <button
-                type="button"
-                id="shop-cart-clear"
-                class="rounded-lg border border-[var(--news-card-border)] px-4 py-2.5 text-sm font-semibold text-[var(--panel-text)] transition hover:bg-[var(--icon-bg)]"
-              >
-                Clear cart
-              </button>
-            </div>
-          </section>
-
-          <section
-            id="shop-cart-step-contact"
-            class="gloss-hover-frame theme-smooth rounded-[14px] border border-[var(--news-card-border)] bg-[var(--panel-bg)] p-4 text-[var(--panel-text)] shadow-[0_4px_14px_rgba(31,36,51,0.06)] sm:p-6"
-          >
-            <h2 class="text-lg font-bold text-[var(--panel-text)]">Bước 2 — Email liên kết &amp; thành viên</h2>
-            <p class="mt-2 text-[15px] leading-relaxed text-[var(--panel-muted)]">
-              <strong class="text-[var(--panel-text)]">Thành viên mua tài khoản bắt buộc đăng nhập</strong> để quản lý tình trạng đơn hàng và tài khoản đã mua (theo dõi, hỗ trợ, cập nhật).
-            </p>
-            <p class="mt-2 text-[15px] leading-relaxed text-[var(--panel-muted)]">
-              Nhập <strong class="text-[var(--panel-text)]">địa chỉ email</strong> bạn muốn liên kết với đơn mua — chúng tôi dùng để xác minh, liên hệ và gửi thông tin giao nhận.
-            </p>
-
-            <div
-              id="shop-checkout-login-required"
-              class="mt-4 rounded-xl border border-amber-500/40 bg-amber-500/10 px-4 py-3 text-[15px] text-[var(--panel-text)]"
-            >
-              <p class="font-semibold text-amber-200/95">Bạn chưa đăng nhập</p>
-              <p class="mt-1 text-sm leading-snug text-[var(--panel-muted)]">
-                Vui lòng đăng nhập tài khoản thành viên trước khi hoàn tất mua — cần thiết để quản lý tình trạng tài khoản sau khi thanh toán.
-              </p>
-              <button
-                type="button"
-                id="shop-checkout-open-login"
-                class="mt-3 inline-flex min-h-11 items-center rounded-lg border border-[#7fe9ff]/55 bg-[#7fe9ff]/15 px-4 py-2.5 text-sm font-bold text-[#7fe9ff] transition hover:bg-[#7fe9ff]/25"
-              >
-                Đăng nhập
-              </button>
-            </div>
-
-            <div id="shop-checkout-logged-in" class="mt-4 hidden rounded-xl border border-emerald-500/35 bg-emerald-500/10 px-4 py-3 text-sm text-[var(--panel-text)]">
-              <p class="font-semibold text-emerald-200/95">Đã đăng nhập thành viên</p>
-              <p class="mt-1 font-mono text-[13px] text-[var(--panel-muted)]">
-                <span id="shop-checkout-member-email"></span>
-              </p>
-            </div>
-
-            <div class="mt-5">
-              <label for="shop-checkout-email" class="block text-sm font-semibold text-[var(--panel-text)]">
-                Email liên kết với đơn mua
-              </label>
-              <input
-                id="shop-checkout-email"
-                type="email"
-                name="checkout-email"
-                autocomplete="email"
-                inputmode="email"
-                placeholder="email@example.com"
-                disabled
-                class="shop-checkout-email-input mt-2 min-h-11 w-full max-w-md rounded-lg border border-[var(--news-card-border)] bg-[var(--icon-bg)] px-3 py-2.5 text-[16px] text-[var(--panel-text)] outline-none placeholder:text-[var(--panel-muted)] focus:border-[#7fe9ff]/60 disabled:cursor-not-allowed disabled:opacity-55 sm:text-[15px]"
-              />
-              <p class="mt-1.5 text-xs leading-snug text-[var(--panel-muted)]">
-                Sau khi đăng nhập, bạn có thể chỉnh email liên hệ nếu khác email đăng nhập.
-              </p>
-            </div>
-
-            <p class="mt-4 text-[15px] leading-relaxed text-[var(--panel-muted)]">
-              Sau bước 3: dùng <strong class="text-[var(--panel-text)]">hỗ trợ 24/7</strong> trên header hoặc cổng thanh toán đã chọn để xác nhận và giao tài khoản an toàn.
-            </p>
-          </section>
-
-          <section
-            id="shop-cart-step-payment"
-            class="gloss-hover-frame theme-smooth rounded-[14px] border border-[var(--news-card-border)] bg-[var(--panel-bg)] p-4 text-[var(--panel-text)] shadow-[0_4px_14px_rgba(31,36,51,0.06)] sm:p-6"
-          >
-            <h2 class="text-lg font-bold text-[var(--panel-text)]">Bước 3 — Họ tên, ngày sinh &amp; phương thức thanh toán</h2>
-            <p class="mt-2 text-[15px] leading-relaxed text-[var(--panel-muted)]">
-              Điền <strong class="text-[var(--panel-text)]">họ tên đầy đủ</strong> và <strong class="text-[var(--panel-text)]">ngày sinh</strong> để đối chiếu khi thanh toán và hỗ trợ. Chọn một phương thức — hệ thống sẽ hướng dẫn thanh toán sau khi bạn kết nối cổng (Stripe, PayPal, v.v.).
-            </p>
-
-            <div class="mt-5 grid gap-4 sm:max-w-lg">
-              <div>
-                <label for="shop-checkout-full-name" class="block text-sm font-semibold text-[var(--panel-text)]">Họ và tên</label>
-                <input
-                  id="shop-checkout-full-name"
-                  type="text"
-                  name="checkout-full-name"
-                  autocomplete="name"
-                  disabled
-                  class="mt-2 min-h-11 w-full rounded-lg border border-[var(--news-card-border)] bg-[var(--icon-bg)] px-3 py-2.5 text-[16px] text-[var(--panel-text)] outline-none placeholder:text-[var(--panel-muted)] focus:border-[#7fe9ff]/60 disabled:cursor-not-allowed disabled:opacity-55 sm:text-[15px]"
-                  placeholder="Nguyễn Văn A"
-                />
-              </div>
-              <div>
-                <label for="shop-checkout-birth-date" class="block text-sm font-semibold text-[var(--panel-text)]">Ngày sinh</label>
-                <input
-                  id="shop-checkout-birth-date"
-                  type="date"
-                  name="checkout-birth-date"
-                  disabled
-                  class="mt-2 min-h-11 w-full rounded-lg border border-[var(--news-card-border)] bg-[var(--icon-bg)] px-3 py-2.5 text-[16px] text-[var(--panel-text)] outline-none focus:border-[#7fe9ff]/60 disabled:cursor-not-allowed disabled:opacity-55 sm:text-[15px]"
-                />
-                <p class="mt-1 text-xs leading-snug text-[var(--panel-muted)]">Dùng để xác minh danh tính khi cần (tuổi tính từ ngày sinh).</p>
-              </div>
-            </div>
-
-            <fieldset class="mt-6 border-0 p-0">
-              <legend class="text-sm font-semibold text-[var(--panel-text)]">Phương thức thanh toán</legend>
-              <ul class="mt-3 space-y-2.5 text-[15px] text-[var(--panel-text)]">
-                <li class="flex items-center gap-3 rounded-lg border border-[var(--news-card-border)] bg-[var(--icon-bg)]/40 px-3 py-2.5 has-[:disabled]:opacity-55">
-                  <input
-                    id="shop-pay-stripe"
-                    type="radio"
-                    name="shop-payment-method"
-                    value="stripe_card"
-                    disabled
-                    class="h-4 w-4 shrink-0 accent-[#7fe9ff]"
-                  />
-                  ${checkoutIconStripeCard}
-                  <label for="shop-pay-stripe" class="min-w-0 flex-1 cursor-pointer leading-snug">
-                    <span class="font-semibold">Thẻ Visa / Mastercard</span>
-                    <span class="mt-0.5 block text-sm text-[var(--panel-muted)]">Qua Stripe (Checkout hoặc Payment Element)</span>
-                  </label>
-                </li>
-                <li class="flex items-center gap-3 rounded-lg border border-[var(--news-card-border)] bg-[var(--icon-bg)]/40 px-3 py-2.5 has-[:disabled]:opacity-55">
-                  <input id="shop-pay-paypal" type="radio" name="shop-payment-method" value="paypal" disabled class="h-4 w-4 shrink-0 accent-[#7fe9ff]" />
-                  ${checkoutIconPayPal}
-                  <label for="shop-pay-paypal" class="min-w-0 flex-1 cursor-pointer leading-snug">
-                    <span class="font-semibold">PayPal</span>
-                    <span class="mt-0.5 block text-sm text-[var(--panel-muted)]">Tích hợp PayPal Commerce / nút thanh toán riêng</span>
-                  </label>
-                </li>
-                <li class="flex items-center gap-3 rounded-lg border border-[var(--news-card-border)] bg-[var(--icon-bg)]/40 px-3 py-2.5 has-[:disabled]:opacity-55">
-                  <input id="shop-pay-wise" type="radio" name="shop-payment-method" value="wise" disabled class="h-4 w-4 shrink-0 accent-[#7fe9ff]" />
-                  ${checkoutIconWise}
-                  <label for="shop-pay-wise" class="min-w-0 flex-1 cursor-pointer leading-snug">
-                    <span class="font-semibold">Wise</span>
-                    <span class="mt-0.5 block text-sm text-[var(--panel-muted)]">Chuyển khoản / thông tin Wise Business</span>
-                  </label>
-                </li>
-                <li class="flex items-center gap-3 rounded-lg border border-[var(--news-card-border)] bg-[var(--icon-bg)]/40 px-3 py-2.5 has-[:disabled]:opacity-55">
-                  <input id="shop-pay-binance" type="radio" name="shop-payment-method" value="binance" disabled class="h-4 w-4 shrink-0 accent-[#7fe9ff]" />
-                  ${checkoutIconBinance}
-                  <label for="shop-pay-binance" class="min-w-0 flex-1 cursor-pointer leading-snug">
-                    <span class="font-semibold">Binance</span>
-                    <span class="mt-0.5 block text-sm text-[var(--panel-muted)]">Binance Pay / USDT (API hoặc hướng dẫn thủ công)</span>
-                  </label>
-                </li>
-                <li class="flex items-center gap-3 rounded-lg border border-[var(--news-card-border)] bg-[var(--icon-bg)]/40 px-3 py-2.5 has-[:disabled]:opacity-55">
-                  <input id="shop-pay-remitly" type="radio" name="shop-payment-method" value="remitly" disabled class="h-4 w-4 shrink-0 accent-[#7fe9ff]" />
-                  ${checkoutIconRemitly}
-                  <label for="shop-pay-remitly" class="min-w-0 flex-1 cursor-pointer leading-snug">
-                    <span class="font-semibold">Remitly</span>
-                    <span class="mt-0.5 block text-sm text-[var(--panel-muted)]">Thường là chuyển tiền theo hướng dẫn + mã đơn</span>
-                  </label>
-                </li>
-                <li class="flex items-center gap-3 rounded-lg border border-[var(--news-card-border)] bg-[var(--icon-bg)]/40 px-3 py-2.5 has-[:disabled]:opacity-55">
-                  <input id="shop-pay-revolut" type="radio" name="shop-payment-method" value="revolut" disabled class="h-4 w-4 shrink-0 accent-[#7fe9ff]" />
-                  ${checkoutIconRevolut}
-                  <label for="shop-pay-revolut" class="min-w-0 flex-1 cursor-pointer leading-snug">
-                    <span class="font-semibold">Revolut</span>
-                    <span class="mt-0.5 block text-sm text-[var(--panel-muted)]">Revolut Business / liên kết thẻ qua Stripe nếu khách trả bằng thẻ Revolut</span>
-                  </label>
-                </li>
-              </ul>
-            </fieldset>
-
-            <p class="mt-4 text-xs leading-relaxed text-[var(--panel-muted)]">
-              Chi tiết kết nối API, webhook và lưu đơn: xem <code class="rounded bg-[var(--icon-bg)] px-1 py-0.5 font-mono text-[11px] text-[#7fe9ff]">docs/checkout-payment-plan.md</code> trong mã nguồn.
-            </p>
-          </section>
         </main>
         ${renderSiteFooter()}
       </div>

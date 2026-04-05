@@ -1,10 +1,4 @@
 import {
-  clearAdminCart,
-  pruneAdminCart,
-  removeAdminCartEntry,
-  upsertAdminCartEntry,
-} from "./adminCartStore";
-import {
   getEpicSevenAccountNotes,
   getRaidAccountNotes,
   saveEpicSevenAccountNotes,
@@ -154,10 +148,6 @@ export function initAdminDashboardPage(): void {
 
   const guestEl = document.querySelector<HTMLElement>("#admin-dashboard-guest");
   const contentEl = document.querySelector<HTMLElement>("#admin-dashboard-content");
-  const adminCartLines = document.querySelector<HTMLElement>("#admin-cart-lines");
-  const adminCartBadge = document.querySelector<HTMLElement>("#admin-cart-badge");
-  const adminCartClear = document.querySelector<HTMLButtonElement>("#admin-cart-clear");
-  const adminCartReady = Boolean(adminCartLines && adminCartBadge && adminCartClear);
   const openLoginBtn = document.querySelector<HTMLButtonElement>("#admin-open-login-from-dashboard");
   const tabPosts = document.querySelector<HTMLButtonElement>("#admin-tab-posts");
   const tabRaid = document.querySelector<HTMLButtonElement>("#admin-tab-raid");
@@ -276,7 +266,6 @@ export function initAdminDashboardPage(): void {
       saveRaidSelectedChampionIds([]);
       raidChampionSearch.value = "";
       renderRaidSellingAccounts();
-      renderAdminCart();
       syncRarityFilterButtonStyles();
       renderChampionGrid();
       renderSelectedChampionTags();
@@ -518,7 +507,6 @@ export function initAdminDashboardPage(): void {
             <p class="font-mono text-xs font-semibold text-[var(--admin-heading)]">ID: ${escapeHtml(acc.id)}</p>
             <div class="flex flex-wrap items-center justify-end gap-1.5">
               <p class="text-xs font-bold text-[var(--admin-accent)]">${escapeHtml(acc.priceLabel)}</p>
-              <button type="button" data-admin-cart-add="${escapeHtml(acc.id)}" class="rounded border border-[var(--admin-border)] px-1.5 py-0.5 text-[10px] font-semibold text-[var(--admin-subtle)] transition hover:bg-[var(--admin-tab-idle-hover)]" title="Add to cart">Cart</button>
               <button data-raid-selling-edit-id="${escapeHtml(acc.id)}" type="button" class="rounded border border-[var(--admin-tab-active-border)] px-1.5 py-0.5 text-[10px] font-semibold text-[var(--admin-accent-muted)] hover:bg-[var(--admin-tab-active-bg)]">Edit</button>
               <button data-raid-selling-delete-id="${escapeHtml(acc.id)}" type="button" class="rounded border border-[var(--admin-danger-border)] px-1.5 py-0.5 text-[10px] font-semibold text-[var(--admin-danger-text)] hover:bg-red-500/10">Delete</button>
             </div>
@@ -527,41 +515,6 @@ export function initAdminDashboardPage(): void {
         </article>`;
       })
       .join("");
-  };
-
-  const renderAdminCart = () => {
-    try {
-      if (!adminCartReady || !adminCartLines || !adminCartBadge) return;
-      const accounts = getSellingAccounts();
-      const ids = new Set(accounts.map((a) => a.id.trim()).filter((x) => x.length > 0));
-      const lines = pruneAdminCart(ids);
-      adminCartBadge.textContent = String(lines.length);
-      if (lines.length === 0) {
-        adminCartLines.innerHTML =
-          '<p class="rounded-md border border-dashed border-[var(--admin-border)] px-2 py-5 text-center text-[11px] leading-relaxed text-[var(--admin-muted)]">Cart is empty.<br /><span class="mt-1 block text-[10px] opacity-80">Add from Raid → Active listed accounts.</span></p>';
-        return;
-      }
-      adminCartLines.innerHTML = lines
-        .map((line) => {
-          const acc = accounts.find((a) => a.id === line.accountId);
-          const price = escapeHtml(acc?.priceLabel ?? line.priceLabel);
-          const prev = escapeHtml(line.preview || "—");
-          return `
-        <div class="rounded-md border border-[var(--admin-input-border)] bg-[var(--admin-input-bg)] p-2">
-          <div class="flex items-start justify-between gap-1.5">
-            <div class="min-w-0 flex-1">
-              <p class="font-mono text-[11px] font-semibold text-[var(--admin-heading)]">ID: ${escapeHtml(line.accountId)}</p>
-              <p class="mt-0.5 text-[11px] font-bold text-[var(--admin-accent)]">${price}</p>
-              <p class="mt-1 line-clamp-2 text-[10px] leading-snug text-[var(--admin-muted)]">${prev}</p>
-            </div>
-            <button type="button" data-admin-cart-remove="${escapeHtml(line.accountId)}" class="shrink-0 rounded border border-[var(--admin-input-border)] px-1.5 py-0.5 text-[10px] font-semibold text-[var(--admin-muted)] transition hover:bg-[var(--admin-tab-idle-hover)]" aria-label="Remove from cart">×</button>
-          </div>
-        </div>`;
-        })
-        .join("");
-    } finally {
-      window.dispatchEvent(new CustomEvent("tanne-admin-cart-updated"));
-    }
   };
 
   const setRaidSellingFeedback = (msg: string, kind: "success" | "error" | "warn") => {
@@ -832,9 +785,7 @@ export function initAdminDashboardPage(): void {
       return;
     }
     await syncSellingAccountsFromRemote();
-    removeAdminCartEntry(accountId);
     renderRaidSellingAccounts();
-    renderAdminCart();
     window.dispatchEvent(new CustomEvent("tanne-selling-accounts-updated"));
     flash(raidFb, "Account removed from listed inventory.");
     resetRaidSellingForm();
@@ -1064,43 +1015,5 @@ export function initAdminDashboardPage(): void {
   window.addEventListener("tanne-auth-changed", setVisibility);
   window.addEventListener("tanne-selling-accounts-updated", () => {
     renderRaidSellingAccounts();
-    renderAdminCart();
   });
-
-  contentEl.addEventListener("click", (event) => {
-    const target = event.target as HTMLElement;
-    const addBtn = target.closest<HTMLButtonElement>("[data-admin-cart-add]");
-    if (addBtn) {
-      const id = addBtn.getAttribute("data-admin-cart-add");
-      if (!id) return;
-      const acc = getSellingAccounts().find((a) => a.id === id);
-      if (!acc) return;
-      const preview =
-        sortHeroesByRarity(acc.heroes)
-          .slice(0, 3)
-          .map((h) => h.name)
-          .join(", ") ||
-        (acc.description?.trim().slice(0, 96) ?? "");
-      upsertAdminCartEntry({
-        accountId: acc.id,
-        priceLabel: acc.priceLabel,
-        preview,
-      });
-      renderAdminCart();
-      return;
-    }
-    const rmBtn = target.closest<HTMLButtonElement>("[data-admin-cart-remove]");
-    if (rmBtn) {
-      const id = rmBtn.getAttribute("data-admin-cart-remove");
-      if (id) removeAdminCartEntry(id);
-      renderAdminCart();
-    }
-  });
-
-  if (adminCartClear) {
-    adminCartClear.addEventListener("click", () => {
-      clearAdminCart();
-      renderAdminCart();
-    });
-  }
 }

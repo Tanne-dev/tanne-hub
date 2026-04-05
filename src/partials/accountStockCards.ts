@@ -125,15 +125,13 @@ function accountCard(item: AccountStockCard): string {
       ${descBlock}
       ${shortHint}
       ${championsBlock}
-      <div class="mt-3.5 flex flex-col gap-2 sm:mt-4 sm:flex-row sm:gap-2.5">
-        <button
-          type="button"
-          data-account-buy="${id}"
-          class="account-stock-buy min-h-12 w-full flex-1 rounded-lg bg-[#7fe9ff] px-3 py-3 text-center text-[15px] font-extrabold text-[#0b1f35] shadow-[0_2px_12px_rgba(127,233,255,0.35)] transition hover:brightness-110 active:scale-[0.99] sm:min-h-11 sm:py-3.5 sm:text-base"
-          aria-label="Buy account ${id}"
+      <div class="mt-3.5 flex flex-col gap-2 sm:mt-4 sm:flex-row sm:items-stretch sm:gap-2.5">
+        <div
+          class="flex min-h-12 flex-1 items-center justify-center rounded-lg border border-[var(--news-card-border)] bg-[color-mix(in_srgb,var(--icon-bg)_85%,transparent)] px-3 py-3 sm:min-h-11"
+          aria-label="Price"
         >
-          Buy · ${escapeHtml(item.priceLabel)}
-        </button>
+          <span class="text-[17px] font-extrabold text-[#7fe9ff] sm:text-base">${escapeHtml(item.priceLabel)}</span>
+        </div>
         <button
           type="button"
           data-account-details="${id}"

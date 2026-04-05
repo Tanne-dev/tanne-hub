@@ -1,6 +1,5 @@
 import { sortHeroesByRarity, type AccountHeroPreview } from "./content";
 import { escapeHtml } from "./postBody";
-import { upsertShopCartEntry } from "./shopCartStore";
 import { getSellingAccounts } from "./sellingAccountsStore";
 
 const rarityDrawerClass: Record<AccountHeroPreview["rarity"], string> = {
@@ -190,30 +189,6 @@ export function initAccountStockUi(): void {
         else if (sliderDot) {
           const i = Number(sliderDot.dataset.accountSliderDot);
           if (Number.isFinite(i)) viewport.scrollTo({ left: i * w, behavior: "smooth" });
-        }
-      }
-      return;
-    }
-
-    const buyBtn = (event.target as HTMLElement).closest<HTMLButtonElement>("[data-account-buy]");
-    if (buyBtn) {
-      const id = buyBtn.getAttribute("data-account-buy");
-      if (id) {
-        const account = getSellingAccounts().find((a) => a.id === id);
-        if (account) {
-          const preview =
-            sortHeroesByRarity(account.heroes)
-              .slice(0, 3)
-              .map((h) => h.name)
-              .join(", ") ||
-            (account.description?.trim().slice(0, 96) ?? "");
-          upsertShopCartEntry({
-            accountId: account.id,
-            priceLabel: account.priceLabel,
-            preview,
-          });
-          window.dispatchEvent(new CustomEvent("tanne-shop-cart-updated"));
-          window.location.assign("/?page=cart");
         }
       }
       return;

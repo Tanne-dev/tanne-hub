@@ -19,33 +19,6 @@ export function renderHeader(): string {
             </a>
 
             <div class="mr-[30px] flex shrink-0 items-center justify-end gap-2 sm:col-start-3 sm:row-start-1">
-              <a
-                id="header-shop-cart-link"
-                href="/?page=cart"
-                class="relative inline-flex min-h-11 min-w-11 shrink-0 items-center justify-center rounded-md border border-[var(--header-login-border)] text-[var(--header-login-text)] transition hover:bg-[var(--header-login-hover-bg)] active:opacity-90 sm:min-h-10 sm:min-w-10 sm:rounded-lg"
-                aria-label="Shopping cart"
-                title="Your cart — Raid listings"
-              >
-                <svg
-                  class="h-[22px] w-[22px] shrink-0 sm:h-5 sm:w-5"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  aria-hidden="true"
-                >
-                  <circle cx="9" cy="21" r="1"></circle>
-                  <circle cx="20" cy="21" r="1"></circle>
-                  <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                </svg>
-                <span
-                  id="header-shop-cart-badge"
-                  class="pointer-events-none absolute -right-1 -top-1 flex h-[18px] min-w-[18px] items-center justify-center rounded-full bg-[#7fe9ff] px-1 text-[10px] font-extrabold leading-none text-[#0b1f35] shadow-sm hidden"
-                  aria-hidden="true"
-                  >0</span>
-              </a>
               <div id="account-menu-wrap" class="relative">
                 <button
                   id="open-login-modal"

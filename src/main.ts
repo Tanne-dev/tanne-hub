@@ -2,14 +2,11 @@ import "./style.css";
 import { initAdminDashboardPage } from "./adminDashboardPage";
 import {
   renderAdminDashboardPage,
-  renderCartPage,
   renderLanding,
   renderNewsArchive,
   renderPostDetail,
   renderRaidAccountsPage,
 } from "./render";
-import { initCartPage } from "./cartPage";
-import { initHeaderShopCart } from "./headerShopCart";
 import { initLogin } from "./login";
 import { initNewsArchive } from "./newsArchive";
 import { initPostsManager } from "./postsManager";
@@ -39,14 +36,11 @@ if (postId) {
   renderRaidAccountsPage(root);
 } else if (page === "dashboard") {
   renderAdminDashboardPage(root);
-} else if (page === "cart") {
-  renderCartPage(root);
 } else {
   renderLanding(root);
 }
 
 initLogin();
-initHeaderShopCart();
 initPostsManager();
 initHeroHotNews();
 initNewsArchive();
@@ -54,5 +48,4 @@ initAdminDashboardPage();
 initTheme();
 initWelcomeLetter();
 initAccountStockUi();
-initCartPage();
 initSellingAccountsManager();
