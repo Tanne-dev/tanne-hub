@@ -15,6 +15,20 @@ export function createEmptyTextBlock(): HTMLElement {
         <button type="button" class="admin-body-remove rounded border border-[var(--admin-danger-border)] px-2 py-0.5 text-[10px] text-[var(--admin-danger-text)] hover:bg-red-500/10">Remove</button>
       </div>
     </div>
+    <div class="flex flex-wrap items-center gap-1.5 rounded border border-[var(--admin-input-border)] bg-[var(--admin-input-bg)] px-2 py-1">
+      <button type="button" data-admin-text-action="h1" class="admin-body-format rounded border border-[var(--admin-input-border)] px-2 py-0.5 text-[11px] font-semibold text-[var(--admin-input-text)] hover:bg-[var(--admin-tab-idle-hover)]">H1</button>
+      <button type="button" data-admin-text-action="bold" class="admin-body-format rounded border border-[var(--admin-input-border)] px-2 py-0.5 text-[11px] font-bold text-[var(--admin-input-text)] hover:bg-[var(--admin-tab-idle-hover)]">B</button>
+      <button type="button" data-admin-text-action="italic" class="admin-body-format rounded border border-[var(--admin-input-border)] px-2 py-0.5 text-[11px] italic text-[var(--admin-input-text)] hover:bg-[var(--admin-tab-idle-hover)]">I</button>
+      <button type="button" data-admin-text-action="italic-tag" class="admin-body-format rounded border border-[var(--admin-input-border)] px-2 py-0.5 text-[11px] italic text-[var(--admin-input-text)] hover:bg-[var(--admin-tab-idle-hover)]">Tag I</button>
+      <button type="button" data-admin-text-action="h2" class="admin-body-format rounded border border-[var(--admin-input-border)] px-2 py-0.5 text-[11px] font-semibold text-[var(--admin-input-text)] hover:bg-[var(--admin-tab-idle-hover)]">H2</button>
+      <button type="button" data-admin-text-action="bullet" class="admin-body-format rounded border border-[var(--admin-input-border)] px-2 py-0.5 text-[11px] text-[var(--admin-input-text)] hover:bg-[var(--admin-tab-idle-hover)]">• List</button>
+      <button type="button" data-admin-text-action="newline" class="admin-body-format rounded border border-[var(--admin-input-border)] px-2 py-0.5 text-[11px] text-[var(--admin-input-text)] hover:bg-[var(--admin-tab-idle-hover)]">↵ Line</button>
+      <input type="color" value="#ffaa00" class="admin-body-color h-6 w-8 cursor-pointer rounded border border-[var(--admin-input-border)] bg-transparent p-0.5" title="Text color" />
+      <button type="button" data-admin-text-action="color" class="admin-body-format rounded border border-[var(--admin-input-border)] px-2 py-0.5 text-[11px] text-[var(--admin-input-text)] hover:bg-[var(--admin-tab-idle-hover)]">Apply color</button>
+      <button type="button" data-admin-text-action="save-tag-style" class="admin-body-format rounded border border-[var(--admin-input-border)] px-2 py-0.5 text-[11px] text-[var(--admin-input-text)] hover:bg-[var(--admin-tab-idle-hover)]">Save Tag</button>
+      <button type="button" data-admin-text-action="tag-preset" class="admin-body-format rounded border border-[var(--admin-tab-active-border)] bg-[var(--admin-tab-active-bg)] px-2 py-0.5 text-[11px] font-semibold text-[var(--admin-accent-muted)] hover:brightness-110">Tag</button>
+    </div>
+    <p class="text-[10px] text-[var(--admin-muted)]">Tip: select text then click B/I/Color. Use blank line to start a new paragraph.</p>
     <textarea class="admin-body-text min-h-[100px] w-full rounded border border-[var(--admin-input-border)] bg-[var(--admin-input-bg)] px-2 py-2 text-sm text-[var(--admin-input-text)] outline-none placeholder:text-[var(--admin-muted)] focus:border-[var(--admin-accent)]" rows="5" placeholder="Write paragraph..."></textarea>
   `;
   return wrap;

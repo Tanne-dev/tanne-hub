@@ -130,12 +130,15 @@ export function renderPostDetail(root: HTMLElement, postId: string): void {
                   <p class="mt-2 text-sm" style="color: color-mix(in srgb, var(--news-card-text) 72%, transparent);">This article may have been removed.</p>
                   <a href="/?page=news" class="mt-4 inline-flex rounded-md border border-[#7fe9ff]/45 px-3 py-2 text-sm font-semibold text-[#7fe9ff] hover:bg-[#7fe9ff]/10">Back to Raid news</a>
                 </section>`
-              : `<article class="raid-article rounded-[14px] bg-[var(--panel-bg)] p-5 shadow-[0_4px_14px_rgba(31,36,51,0.06)] md:p-6">
+              : `<article class="raid-article raid-article-shell mx-auto max-w-[980px] rounded-[14px] bg-[var(--panel-bg)] p-5 shadow-[0_4px_14px_rgba(31,36,51,0.06)] md:p-6 md:px-7">
                   <a href="/?page=news" class="inline-flex rounded-md border border-[#7fe9ff]/45 px-3 py-1.5 text-xs font-semibold text-[#7fe9ff] hover:bg-[#7fe9ff]/10">← Raid news</a>
-                  <h1 class="mt-3 text-2xl font-bold text-[var(--news-card-text)]">${escapeHtml(post.title)}</h1>
+                  <h1 class="raid-article-main-title mt-3 text-2xl font-extrabold">${escapeHtml(post.title)}</h1>
+                  <p class="mt-1.5 text-[12px] font-semibold tracking-[0.01em]" style="color: color-mix(in srgb, #ffaa00 80%, var(--news-card-text) 20%);">
+                    Updated: ${new Date(post.createdAt).toLocaleString()}
+                  </p>
                   ${post.caption ? `<p class="mt-2 text-sm" style="color: color-mix(in srgb, var(--news-card-text) 78%, transparent);">${escapeHtml(post.caption)}</p>` : ""}
-                  <div class="raid-article-body mt-4 text-[var(--news-card-text)]">${renderPostArticleBodyHtml(post)}</div>
-                  <p class="mt-4 text-xs" style="color: color-mix(in srgb, var(--news-card-text) 72%, transparent);">By ${escapeHtml(post.authorEmail)} · ${new Date(post.createdAt).toLocaleString()}</p>
+                  <div class="raid-article-body mt-5 text-[var(--news-card-text)]">${renderPostArticleBodyHtml(post)}</div>
+                  <p class="mt-4 text-xs" style="color: color-mix(in srgb, var(--news-card-text) 72%, transparent);">By Tanne Hub · ${new Date(post.createdAt).toLocaleString()}</p>
                 </article>`
           }
         </main>
@@ -263,12 +266,24 @@ export function renderAdminDashboardPage(root: HTMLElement): void {
                   <form id="admin-post-create-form" class="mt-4 space-y-2.5">
                     <input id="admin-post-title" type="text" maxlength="120" required placeholder="Title" class="admin-dash-input w-full rounded-md border border-[var(--admin-input-border)] bg-[var(--admin-input-bg)] px-3 py-2 text-sm text-[var(--admin-input-text)] outline-none placeholder:text-[var(--admin-muted)] focus:border-[var(--admin-accent)]" />
                     <input id="admin-post-caption" type="text" maxlength="180" placeholder="Caption (optional)" class="admin-dash-input w-full rounded-md border border-[var(--admin-input-border)] bg-[var(--admin-input-bg)] px-3 py-2 text-sm text-[var(--admin-input-text)] outline-none placeholder:text-[var(--admin-muted)] focus:border-[var(--admin-accent)]" />
-                    <div>
-                      <p class="mb-1 text-xs font-semibold text-[var(--admin-subtle)]">Content</p>
-                      <div id="admin-post-body-blocks" class="space-y-2"></div>
-                      <div class="mt-2 flex flex-wrap gap-2">
-                        <button id="admin-post-add-text" type="button" class="rounded-md border border-[var(--admin-tab-active-border)] bg-transparent px-3 py-1.5 text-xs font-semibold text-[var(--admin-accent-muted)] hover:bg-[var(--admin-tab-active-bg)]">+ Paragraph</button>
-                        <button id="admin-post-add-image" type="button" class="rounded-md border border-[var(--admin-input-border)] bg-transparent px-3 py-1.5 text-xs font-semibold text-[var(--admin-btn-ghost-text)] hover:bg-[var(--admin-tab-idle-hover)]">+ Image</button>
+                    <div class="rounded-md border border-[var(--admin-border)] bg-[var(--admin-card-bg)] px-3 py-2 text-[11px] text-[var(--admin-subtle)]">
+                      Editor supports <strong>bold</strong>, <em>italic</em>, line breaks, bullets, and text color via toolbar in each paragraph block.
+                    </div>
+                    <div class="grid grid-cols-1 gap-3 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] lg:items-start">
+                      <div class="min-w-0">
+                        <p class="mb-1 text-xs font-semibold text-[var(--admin-subtle)]">Content</p>
+                        <div id="admin-post-body-blocks" class="space-y-2"></div>
+                        <div class="mt-2 flex flex-wrap gap-2">
+                          <button id="admin-post-add-text" type="button" class="rounded-md border border-[var(--admin-tab-active-border)] bg-transparent px-3 py-1.5 text-xs font-semibold text-[var(--admin-accent-muted)] hover:bg-[var(--admin-tab-active-bg)]">+ Paragraph</button>
+                          <button id="admin-post-add-image" type="button" class="rounded-md border border-[var(--admin-input-border)] bg-transparent px-3 py-1.5 text-xs font-semibold text-[var(--admin-btn-ghost-text)] hover:bg-[var(--admin-tab-idle-hover)]">+ Image</button>
+                        </div>
+                      </div>
+                      <div class="min-w-0 rounded-lg border border-[var(--admin-border)] bg-[var(--admin-card-bg)] p-3 lg:sticky lg:top-3">
+                        <div class="mb-2 flex items-center justify-between gap-2">
+                          <p class="text-xs font-semibold text-[var(--admin-accent-muted)]">Live preview</p>
+                          <span class="text-[10px] text-[var(--admin-muted)]">Auto updates while editing</span>
+                        </div>
+                        <div id="admin-post-live-preview" class="max-h-[68vh] min-h-[420px] overflow-auto rounded-md border border-[var(--admin-input-border)] bg-[var(--admin-inner-bg)] p-3"></div>
                       </div>
                     </div>
                     <p id="admin-post-feedback" class="hidden rounded-md px-3 py-2 text-xs"></p>
@@ -339,7 +354,7 @@ export function renderAdminDashboardPage(root: HTMLElement): void {
                         Clear selection
                       </button>
                     </div>
-                    <p class="mt-2 text-[11px] text-[var(--admin-muted)]">Quick tags (bật/tắt — luôn hiện ngoài lưới):</p>
+                    <p class="mt-2 text-[11px] text-[var(--admin-muted)]">Quick tags (toggle on/off - always shown outside the grid):</p>
                     <div id="admin-raid-champion-quick-extras" class="mt-1.5 flex flex-wrap gap-2">
                       <button
                         type="button"
@@ -364,12 +379,12 @@ export function renderAdminDashboardPage(root: HTMLElement): void {
                       placeholder="Search champion by name..."
                       class="admin-dash-input mt-2.5 w-full rounded-md border border-[var(--admin-input-border)] bg-[var(--admin-input-bg)] px-3 py-2 text-sm text-[var(--admin-input-text)] outline-none placeholder:text-[var(--admin-muted)] focus:border-[var(--admin-accent)]"
                     />
-                    <p class="mt-2 text-[11px] text-[var(--admin-muted)]">Rarity (bật/tắt để lọc):</p>
+                    <p class="mt-2 text-[11px] text-[var(--admin-muted)]">Rarity (toggle on/off to filter):</p>
                     <div
                       id="admin-raid-champion-rarity-filters"
                       class="mt-1.5 flex flex-wrap gap-2"
                       role="group"
-                      aria-label="Lọc theo rarity"
+                      aria-label="Filter by rarity"
                     >
                       <button
                         type="button"

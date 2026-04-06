@@ -53,7 +53,7 @@ function renderArchiveList(posts: PostItem[], page: number): void {
             }
             <div class="min-w-0">
               <h2 class="news-title text-lg font-bold leading-tight group-hover:text-[#9be8ff]">${escapeHtml(post.title)}</h2>
-              <p class="news-muted mt-1 text-[12px]">${formatDate(post.createdAt)} · ${escapeHtml(post.authorEmail)}</p>
+              <p class="news-muted mt-1 text-[12px]">${formatDate(post.createdAt)} · Tanne Hub</p>
               <p class="news-title mt-2 text-[13px] leading-[1.55] opacity-90">${toPreviewText(postPlainBodyForPreview(post), 220)}</p>
             </div>
           </div>

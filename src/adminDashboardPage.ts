@@ -8,6 +8,7 @@ import {
 import {
   escapeHtml,
   postToInitialBlocks,
+  renderPostArticleBodyHtml,
   serializePostBody,
   type PostBodyBlock,
 } from "./postBody";
@@ -25,6 +26,7 @@ import {
   getPosts,
   savePosts,
   syncPostsFromRemote,
+  type PostItem,
   updatePostRemote,
 } from "./postsStore";
 import {
@@ -135,6 +137,30 @@ function isAdminSession(): boolean {
 }
 
 type AdminTab = "posts" | "raid" | "epic";
+const ADMIN_POST_TAG_STYLE_STORAGE_KEY = "tanne-admin-post-tag-style-v1";
+
+function readSavedTagColor(): string {
+  const fallback = "#ffaa00";
+  try {
+    const raw = window.localStorage.getItem(ADMIN_POST_TAG_STYLE_STORAGE_KEY);
+    if (!raw) return fallback;
+    const parsed = JSON.parse(raw) as { color?: string };
+    if (parsed?.color && /^#[0-9a-fA-F]{6}$/.test(parsed.color)) return parsed.color;
+  } catch {
+    // ignore malformed local storage payload
+  }
+  return fallback;
+}
+
+function saveTagColor(color: string): void {
+  if (!/^#[0-9a-fA-F]{6}$/.test(color)) return;
+  window.localStorage.setItem(
+    ADMIN_POST_TAG_STYLE_STORAGE_KEY,
+    JSON.stringify({
+      color: color.toLowerCase(),
+    }),
+  );
+}
 
 function tabFromUrl(): AdminTab {
   const t = new URLSearchParams(window.location.search).get("tab");
@@ -198,6 +224,7 @@ export function initAdminDashboardPage(): void {
   const postTitleInput = document.querySelector<HTMLInputElement>("#admin-post-title");
   const postCaptionInput = document.querySelector<HTMLInputElement>("#admin-post-caption");
   const postBodyBlocksContainer = document.querySelector<HTMLElement>("#admin-post-body-blocks");
+  const postLivePreview = document.querySelector<HTMLElement>("#admin-post-live-preview");
   const postAddTextBtn = document.querySelector<HTMLButtonElement>("#admin-post-add-text");
   const postAddImageBtn = document.querySelector<HTMLButtonElement>("#admin-post-add-image");
 
@@ -241,6 +268,7 @@ export function initAdminDashboardPage(): void {
     !postTitleInput ||
     !postCaptionInput ||
     !postBodyBlocksContainer ||
+    !postLivePreview ||
     !postAddTextBtn ||
     !postAddImageBtn
   )
@@ -810,12 +838,148 @@ export function initAdminDashboardPage(): void {
     return { imagePosition: "top" };
   };
 
+  const gatherDraftBlocksForPreview = (): PostBodyBlock[] => {
+    const blocks: PostBodyBlock[] = [];
+    for (const child of [...postBodyBlocksContainer.children]) {
+      const block = child as HTMLElement;
+      if (!block.classList.contains("admin-post-body-block")) continue;
+      const ta = block.querySelector<HTMLTextAreaElement>(".admin-body-text");
+      if (ta) {
+        blocks.push({ type: "text", text: ta.value });
+        continue;
+      }
+      const url = block.querySelector<HTMLInputElement>(".admin-body-image-url")?.value.trim() ?? "";
+      if (!url) continue;
+      const alignRaw = block.querySelector<HTMLSelectElement>(".admin-body-align")?.value ?? "full";
+      const align = ["full", "center", "left", "right"].includes(alignRaw) ? alignRaw : "full";
+      const caption = block.querySelector<HTMLInputElement>(".admin-body-caption")?.value.trim() || undefined;
+      blocks.push({ type: "image", url, align: align as "full" | "center" | "left" | "right", caption });
+    }
+    return blocks.length > 0 ? blocks : [{ type: "text", text: "" }];
+  };
+
+  const renderLivePreview = () => {
+    const blocks = gatherDraftBlocksForPreview();
+    const content = serializePostBody(blocks);
+    const draftPost = {
+      id: "__draft__",
+      title: postTitleInput.value.trim() || "Untitled draft",
+      caption: postCaptionInput.value.trim() || undefined,
+      imageUrl: undefined,
+      imagePosition: "top",
+      content,
+      ownerId: "",
+      authorEmail: "you@preview.local",
+      createdAt: Date.now(),
+    } as PostItem;
+    postLivePreview.innerHTML = `
+      <article class="raid-article raid-article-shell rounded-[12px] p-3.5 md:p-4">
+        <h3 class="text-lg font-bold text-[var(--news-card-text)]">${escapeHtml(draftPost.title)}</h3>
+        ${draftPost.caption ? `<p class="mt-1.5 text-sm" style="color: color-mix(in srgb, var(--news-card-text) 78%, transparent);">${escapeHtml(draftPost.caption)}</p>` : ""}
+        <div class="raid-article-body mt-3 text-[var(--news-card-text)]">${renderPostArticleBodyHtml(draftPost)}</div>
+      </article>
+    `;
+  };
+
+  const hydrateTextToolbarColorDefaults = () => {
+    const color = readSavedTagColor();
+    for (const picker of postBodyBlocksContainer.querySelectorAll<HTMLInputElement>(".admin-body-color")) {
+      if (!picker.value || picker.value.toLowerCase() === "#9be8ff") {
+        picker.value = color;
+      }
+    }
+  };
+
   postAddTextBtn.addEventListener("click", () => {
     postBodyBlocksContainer.appendChild(createEmptyTextBlock());
+    hydrateTextToolbarColorDefaults();
+    renderLivePreview();
   });
   postAddImageBtn.addEventListener("click", () => {
     postBodyBlocksContainer.appendChild(buildImageBlockEl({ url: "", align: "full", caption: "" }));
+    renderLivePreview();
   });
+
+  const replaceSelection = (
+    ta: HTMLTextAreaElement,
+    replacer: (selected: string, start: number, end: number, source: string) => string,
+  ) => {
+    const source = ta.value;
+    const start = ta.selectionStart ?? 0;
+    const end = ta.selectionEnd ?? start;
+    const selected = source.slice(start, end);
+    const replacement = replacer(selected, start, end, source);
+    ta.value = source.slice(0, start) + replacement + source.slice(end);
+    const cursor = start + replacement.length;
+    ta.focus();
+    ta.setSelectionRange(cursor, cursor);
+  };
+
+  const toggleLinePrefix = (selected: string, prefix: string): string => {
+    const rows = (selected || "").split("\n");
+    if (rows.length === 0) return `${prefix}`;
+    const allPrefixed = rows.every((row) => row.trim().length === 0 || row.startsWith(prefix));
+    return rows
+      .map((row) => {
+        if (!row.trim()) return row;
+        return allPrefixed ? row.replace(prefix, "") : `${prefix}${row}`;
+      })
+      .join("\n");
+  };
+
+  const applyTextAction = (block: HTMLElement, action: string) => {
+    const ta = block.querySelector<HTMLTextAreaElement>(".admin-body-text");
+    if (!ta) return;
+    switch (action) {
+      case "h1":
+        replaceSelection(ta, (selected) => `# ${selected || "Main section title"}`);
+        break;
+      case "bold":
+        replaceSelection(ta, (selected) => `**${selected || "bold text"}**`);
+        break;
+      case "italic":
+        replaceSelection(ta, (selected) => `*${selected || "italic text"}*`);
+        break;
+      case "italic-tag":
+        replaceSelection(ta, (selected) => `*${selected || "tag italic"}*`);
+        break;
+      case "h2":
+        replaceSelection(ta, (selected) => `## ${selected || "Section title"}`);
+        break;
+      case "bullet":
+        replaceSelection(ta, (selected) => toggleLinePrefix(selected || "List item", "- "));
+        break;
+      case "newline":
+        replaceSelection(ta, () => "\n");
+        break;
+      case "color": {
+        const colorPicker = block.querySelector<HTMLInputElement>(".admin-body-color");
+        const color = colorPicker?.value?.trim() || "#ffaa00";
+        replaceSelection(ta, (selected) => `[color=${color}]${selected || "highlight text"}[/color]`);
+        break;
+      }
+      case "save-tag-style": {
+        const colorPicker = block.querySelector<HTMLInputElement>(".admin-body-color");
+        const color = colorPicker?.value?.trim() || "#ffaa00";
+        saveTagColor(color);
+        setPostFeedback(`Saved Tag style color: ${color}`, "success");
+        break;
+      }
+      case "tag-preset": {
+        const color = readSavedTagColor();
+        const colorPicker = block.querySelector<HTMLInputElement>(".admin-body-color");
+        if (colorPicker) colorPicker.value = color;
+        replaceSelection(
+          ta,
+          (selected) => `## [color=${color}]**${selected || "Section heading"}**[/color]`,
+        );
+        break;
+      }
+      default:
+        break;
+    }
+  };
+
   postBodyBlocksContainer.addEventListener("click", (e) => {
     const t = e.target as HTMLElement;
     const block = t.closest<HTMLElement>(".admin-post-body-block");
@@ -824,7 +988,33 @@ export function initAdminDashboardPage(): void {
     else if (t.classList.contains("admin-body-move-down")) moveBlockElement(block, 1);
     else if (t.classList.contains("admin-body-remove"))
       removeBlockElement(block, postBodyBlocksContainer);
+    else if (t.classList.contains("admin-body-format")) {
+      const action = t.getAttribute("data-admin-text-action");
+      if (action) applyTextAction(block, action);
+    }
+    renderLivePreview();
   });
+  postBodyBlocksContainer.addEventListener("input", () => {
+    renderLivePreview();
+  });
+  postBodyBlocksContainer.addEventListener("change", () => {
+    renderLivePreview();
+  });
+  postBodyBlocksContainer.addEventListener("keydown", (e) => {
+    const target = e.target as HTMLElement;
+    if (!(target instanceof HTMLTextAreaElement) || !target.classList.contains("admin-body-text")) return;
+    const block = target.closest<HTMLElement>(".admin-post-body-block");
+    if (!block) return;
+    if ((e.metaKey || e.ctrlKey) && !e.shiftKey && e.key.toLowerCase() === "b") {
+      e.preventDefault();
+      applyTextAction(block, "bold");
+    } else if ((e.metaKey || e.ctrlKey) && !e.shiftKey && e.key.toLowerCase() === "i") {
+      e.preventDefault();
+      applyTextAction(block, "italic");
+    }
+  });
+  postTitleInput.addEventListener("input", renderLivePreview);
+  postCaptionInput.addEventListener("input", renderLivePreview);
 
   const setPostFeedback = (message: string, kind: "success" | "error" | "warn") => {
     adminPostFeedback.textContent = message;
@@ -843,6 +1033,8 @@ export function initAdminDashboardPage(): void {
     editingPostId = null;
     adminPostForm.reset();
     mountPostBodyBlocks(postBodyBlocksContainer, [{ type: "text", text: "" }]);
+    hydrateTextToolbarColorDefaults();
+    renderLivePreview();
     if (postSubmitBtn) {
       postSubmitBtn.textContent = "Publish post";
     }
@@ -985,6 +1177,8 @@ export function initAdminDashboardPage(): void {
       postTitleInput.value = post.title;
       postCaptionInput.value = post.caption ?? "";
       mountPostBodyBlocks(postBodyBlocksContainer, postToInitialBlocks(post));
+      hydrateTextToolbarColorDefaults();
+      renderLivePreview();
       if (postSubmitBtn) {
         postSubmitBtn.textContent = "Update post";
       }

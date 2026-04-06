@@ -240,6 +240,59 @@
     color: var(--news-card-muted);
   }
 
+  .raid-article-shell {
+    border: 1px solid color-mix(in srgb, var(--news-card-border) 82%, transparent);
+    background:
+      linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--panel-bg) 96%, #0a1118 4%),
+        color-mix(in srgb, var(--panel-bg) 92%, #060a10 8%)
+      );
+  }
+
+  .raid-article-main-title {
+    color: #ffaa00;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.35);
+    letter-spacing: 0.01em;
+  }
+
+  .raid-article-body {
+    max-width: 780px;
+    letter-spacing: 0.01em;
+    text-wrap: pretty;
+  }
+
+  .raid-article-body .raid-article-p {
+    color: color-mix(in srgb, var(--news-card-text) 92%, #f3f8ff 8%);
+  }
+
+  .raid-article-body .raid-article-h1,
+  .raid-article-body .raid-article-h2,
+  .raid-article-body .raid-article-h3,
+  .raid-article-body .raid-article-h4 {
+    color: #ffd27a;
+    text-transform: uppercase;
+  }
+
+  .raid-article-body .raid-article-skill-title {
+    color: #ffc86a;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.35);
+  }
+
+  .raid-article-body .raid-article-skill-key {
+    color: #ffaa00;
+  }
+
+  .raid-article-body .raid-article-ul,
+  .raid-article-body .raid-article-ol {
+    color: color-mix(in srgb, var(--news-card-text) 90%, #f9fbff 10%);
+  }
+
+  .raid-article-body .raid-article-figure {
+    border-color: color-mix(in srgb, #b88a3d 45%, rgba(255, 255, 255, 0.12));
+    background: color-mix(in srgb, #0a1016 86%, transparent);
+  }
+
   .gloss-hover-frame {
     position: relative;
     overflow: hidden;
