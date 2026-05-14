@@ -1,8 +1,11 @@
 import { brandLogoImg } from "../partials/brandLogo";
 import { pageInner } from "../layout";
+import { renderNavbarPromoCodeHtml } from "../promoCodeNav";
 
 /** Thanh điều hướng trên cùng: logo, ô tìm kiếm, ngôn ngữ. */
 export function renderHeader(): string {
+  const promoHtml = renderNavbarPromoCodeHtml();
+
   return `
       <header id="site-header" class="sticky top-0 z-20 w-full transition-[background-image,background-color] duration-300">
         <div class="${pageInner}">
@@ -54,6 +57,7 @@ export function renderHeader(): string {
                     <a role="menuitem" class="block min-h-11 rounded px-3 py-2.5 text-[14px] leading-snug text-[#d6dbf0] hover:bg-white/5 hover:text-white" href="/?page=dashboard&tab=posts">1. Posts & Raid news</a>
                     <a role="menuitem" class="block min-h-11 rounded px-3 py-2.5 text-[14px] leading-snug text-[#d6dbf0] hover:bg-white/5 hover:text-white" href="/?page=dashboard&tab=raid">2. Raid Shadow Legends accounts</a>
                     <a role="menuitem" class="block min-h-11 rounded px-3 py-2.5 text-[14px] leading-snug text-[#d6dbf0] hover:bg-white/5 hover:text-white" href="/?page=dashboard&tab=epic">3. Epic Seven accounts</a>
+                    <a role="menuitem" class="block min-h-11 rounded px-3 py-2.5 text-[14px] leading-snug text-[#d6dbf0] hover:bg-white/5 hover:text-white" href="/?page=dashboard&tab=promo">4. Promo code</a>
                   </div>
                   <button id="account-logout-option" type="button" role="menuitem" class="min-h-11 w-full rounded px-3 py-2.5 text-left text-[14px] font-semibold text-[#d6dbf0] transition hover:bg-white/10 hover:text-white">
                     Logout
@@ -164,23 +168,11 @@ export function renderHeader(): string {
                 </div>
               </div>
               <a class="group inline-flex shrink-0 items-center gap-1.5 whitespace-nowrap rounded-md px-2 py-2 text-[var(--header-nav-text)] transition hover:text-[var(--header-nav-hover)] active:bg-white/5 sm:min-h-0 sm:px-0 sm:py-0" href="/?page=news">Raid News</a>
-              <a class="group inline-flex shrink-0 items-center gap-1 whitespace-nowrap rounded-md px-2 py-2 text-[var(--header-nav-text)] transition hover:text-[var(--header-nav-hover)] active:bg-white/5 sm:min-h-0 sm:px-0 sm:py-0" href="#">Earn Play
-                <svg
-                  viewBox="0 0 12 12"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.6"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="h-3 w-3 opacity-80 transition-transform duration-200 group-hover:-rotate-180"
-                  aria-hidden="true"
-                >
-                  <path d="M2.5 4.5L6 8l3.5-3.5"></path>
-                </svg>
-              </a>
+              <a class="group inline-flex shrink-0 items-center gap-1.5 whitespace-nowrap rounded-md px-2 py-2 text-[var(--header-nav-text)] transition hover:text-[var(--header-nav-hover)] active:bg-white/5 sm:min-h-0 sm:px-0 sm:py-0" href="/?page=honeygain">Idle Internet Rewards</a>
             </nav>
 
             <div class="flex shrink-0 items-center justify-between gap-2 border-t border-[var(--header-nav-border)] pt-2 text-[13px] text-[var(--header-muted)] sm:justify-end sm:border-t-0 sm:pt-0 sm:text-sm">
+              ${promoHtml}
               <span class="inline-flex items-center gap-1.5">
                 <span class="text-[var(--header-brand-text)]" aria-hidden="true">◷</span>
                 <span class="sm:hidden">24/7</span>

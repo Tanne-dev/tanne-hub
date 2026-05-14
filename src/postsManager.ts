@@ -1,6 +1,6 @@
 import { refreshHeroHotNewsAfterPostsChange } from "./heroHotNews";
 import { escapeHtml, getFirstImageUrlFromPost, postPlainBodyForPreview } from "./postBody";
-import { getPosts, removeLegacySeedPosts, savePosts, syncPostsFromRemote } from "./postsStore";
+import { getPosts, removeLegacySeedPosts, syncPostsFromRemote } from "./postsStore";
 import type { PostItem } from "./postsStore";
 
 const NEWS_SLIDER_MS = 10_000;

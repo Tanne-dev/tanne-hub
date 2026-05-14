@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "typecheck": "tsc --noEmit",
+    "check": "npm run typecheck && npm run build",
     "preview": "vite preview",
     "fetch:champions": "node scripts/fetch-hellhades-champions.mjs",
     "sync:champions": "node scripts/sync-raid-champions-to-supabase.mjs",

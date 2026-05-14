@@ -1,10 +1,4 @@
-import {
-  getEpicSevenAccountNotes,
-  getRaidAccountNotes,
-  saveEpicSevenAccountNotes,
-  saveRaidAccountNotes,
-  saveRaidSelectedChampionIds,
-} from "./adminGameAccountsStore";
+import { saveRaidSelectedChampionIds } from "./adminGameAccountsStore";
 import {
   escapeHtml,
   postToInitialBlocks,
@@ -30,6 +24,12 @@ import {
   updatePostRemote,
 } from "./postsStore";
 import {
+  getPromoCodeSettings,
+  savePromoCodeSettingsRemote,
+  syncPromoCodeSettingsFromRemote,
+  type PromoCodeEntry,
+} from "./promoCodeStore";
+import {
   deleteSellingAccountRemote,
   getSellingAccounts,
   saveSellingAccounts,
@@ -47,6 +47,56 @@ import {
   type AccountHeroPreview,
   type AccountStockCard,
 } from "./content";
+
+function createRaidNewsTemplateBlocks(): PostBodyBlock[] {
+  return [
+    { type: "image", url: "", align: "full", caption: "[Replace with image caption]" },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Quick summary**[/color]",
+        "- [Replace with the main update in one sentence]",
+        "- [Replace with the most important gameplay/shop impact]",
+        "- [Replace with date, event window, or requirement if relevant]",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**What's new**[/color]",
+        "[Replace with the core announcement. Keep this paragraph short and direct.]",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Details**[/color]",
+        "[Replace with specific details: champion skills, event steps, rewards, account changes, or patch notes.]",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Why it matters**[/color]",
+        "[Replace with what buyers or players should do next.]",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Tanne note**[/color]",
+        "[Replace with your final recommendation or shop note.]",
+      ].join("\n\n"),
+    },
+  ];
+}
+
+function hasUnfilledPostTemplatePlaceholder(blocks: PostBodyBlock[]): boolean {
+  return blocks.some((block) => {
+    if (block.type === "text") return /\[Replace\b/i.test(block.text);
+    return /\[Replace\b/i.test(block.caption ?? "");
+  });
+}
 
 /** ID 3 chữ số 000–999, không trùng listing khác (bỏ qua giá trị đang gõ trong ô — để đổi ID khi sửa). */
 /** Hiển thị trong ô giá (bỏ $ và hậu tố USD nếu có). */
@@ -136,7 +186,7 @@ function isAdminSession(): boolean {
   return readSession()?.role === "admin";
 }
 
-type AdminTab = "posts" | "raid" | "epic";
+type AdminTab = "posts" | "raid" | "epic" | "promo";
 const ADMIN_POST_TAG_STYLE_STORAGE_KEY = "tanne-admin-post-tag-style-v1";
 
 function readSavedTagColor(): string {
@@ -164,7 +214,7 @@ function saveTagColor(color: string): void {
 
 function tabFromUrl(): AdminTab {
   const t = new URLSearchParams(window.location.search).get("tab");
-  if (t === "raid" || t === "epic" || t === "posts") return t;
+  if (t === "raid" || t === "epic" || t === "posts" || t === "promo") return t;
   return "posts";
 }
 
@@ -178,12 +228,12 @@ export function initAdminDashboardPage(): void {
   const tabPosts = document.querySelector<HTMLButtonElement>("#admin-tab-posts");
   const tabRaid = document.querySelector<HTMLButtonElement>("#admin-tab-raid");
   const tabEpic = document.querySelector<HTMLButtonElement>("#admin-tab-epic");
+  const tabPromo = document.querySelector<HTMLButtonElement>("#admin-tab-promo");
   const panelPosts = document.querySelector<HTMLElement>("#admin-panel-posts");
   const panelRaid = document.querySelector<HTMLElement>("#admin-panel-raid");
   const panelEpic = document.querySelector<HTMLElement>("#admin-panel-epic");
+  const panelPromo = document.querySelector<HTMLElement>("#admin-panel-promo");
 
-  const raidNotes = document.querySelector<HTMLTextAreaElement>("#admin-raid-accounts-notes");
-  const raidSave = document.querySelector<HTMLButtonElement>("#admin-raid-accounts-save");
   const raidFb = document.querySelector<HTMLElement>("#admin-raid-accounts-feedback");
   const raidChampionSearch = document.querySelector<HTMLInputElement>("#admin-raid-champion-search");
   const raidChampionRarityFilters = document.querySelector<HTMLElement>(
@@ -214,10 +264,6 @@ export function initAdminDashboardPage(): void {
   const raidSellingSubmit = document.querySelector<HTMLButtonElement>("#admin-raid-selling-submit");
   const raidClearChampions = document.querySelector<HTMLButtonElement>("#admin-raid-clear-champions");
   const raidCopyChampions = document.querySelector<HTMLButtonElement>("#admin-raid-copy-champions");
-  const epicNotes = document.querySelector<HTMLTextAreaElement>("#admin-epic-accounts-notes");
-  const epicSave = document.querySelector<HTMLButtonElement>("#admin-epic-accounts-save");
-  const epicFb = document.querySelector<HTMLElement>("#admin-epic-accounts-feedback");
-
   const adminPostForm = document.querySelector<HTMLFormElement>("#admin-post-create-form");
   const adminPostFeedback = document.querySelector<HTMLElement>("#admin-post-feedback");
   const adminPostsList = document.querySelector<HTMLElement>("#admin-posts-list");
@@ -227,6 +273,16 @@ export function initAdminDashboardPage(): void {
   const postLivePreview = document.querySelector<HTMLElement>("#admin-post-live-preview");
   const postAddTextBtn = document.querySelector<HTMLButtonElement>("#admin-post-add-text");
   const postAddImageBtn = document.querySelector<HTMLButtonElement>("#admin-post-add-image");
+  const postUseRaidTemplateBtn = document.querySelector<HTMLButtonElement>(
+    "#admin-post-use-raid-template",
+  );
+  const promoCodeForm = document.querySelector<HTMLFormElement>("#admin-promo-code-form");
+  const promoActiveInput = document.querySelector<HTMLInputElement>("#admin-promo-active");
+  const promoCodeInput = document.querySelector<HTMLInputElement>("#admin-promo-code");
+  const promoDescriptionInput = document.querySelector<HTMLTextAreaElement>("#admin-promo-description");
+  const promoExpiresInput = document.querySelector<HTMLInputElement>("#admin-promo-expires");
+  const promoFeedback = document.querySelector<HTMLElement>("#admin-promo-feedback");
+  const promoHistoryList = document.querySelector<HTMLElement>("#admin-promo-history-list");
 
   if (
     !guestEl ||
@@ -234,11 +290,11 @@ export function initAdminDashboardPage(): void {
     !tabPosts ||
     !tabRaid ||
     !tabEpic ||
+    !tabPromo ||
     !panelPosts ||
     !panelRaid ||
     !panelEpic ||
-    !raidNotes ||
-    !raidSave ||
+    !panelPromo ||
     !raidFb ||
     !raidChampionSearch ||
     !raidChampionRarityFilters ||
@@ -259,9 +315,6 @@ export function initAdminDashboardPage(): void {
     !raidCopyChampions ||
     !raidChampionExtraLegendary ||
     !raidChampionExtraEpic ||
-    !epicNotes ||
-    !epicSave ||
-    !epicFb ||
     !adminPostForm ||
     !adminPostFeedback ||
     !adminPostsList ||
@@ -270,7 +323,15 @@ export function initAdminDashboardPage(): void {
     !postBodyBlocksContainer ||
     !postLivePreview ||
     !postAddTextBtn ||
-    !postAddImageBtn
+    !postAddImageBtn ||
+    !postUseRaidTemplateBtn ||
+    !promoCodeForm ||
+    !promoActiveInput ||
+    !promoCodeInput ||
+    !promoDescriptionInput ||
+    !promoExpiresInput ||
+    !promoFeedback ||
+    !promoHistoryList
   )
     return;
 
@@ -284,7 +345,6 @@ export function initAdminDashboardPage(): void {
     guestEl.classList.toggle("hidden", admin);
     contentEl.classList.toggle("hidden", !admin);
     if (admin) {
-      raidNotes.value = getRaidAccountNotes();
       void syncSellingAccountsFromRemote().then(() => {
         renderRaidSellingAccounts();
         window.dispatchEvent(new CustomEvent("tanne-selling-accounts-updated"));
@@ -302,10 +362,12 @@ export function initAdminDashboardPage(): void {
         renderChampionGrid();
         renderSelectedChampionTags();
       });
-      epicNotes.value = getEpicSevenAccountNotes();
       setActiveTab(tabFromUrl());
       renderAdminPostsList();
       resetPostComposer();
+      void syncPromoCodeSettingsFromRemote().then(() => {
+        refreshPromoAdminUi();
+      });
     }
   };
 
@@ -314,6 +376,7 @@ export function initAdminDashboardPage(): void {
       { id: "posts", btn: tabPosts, panel: panelPosts },
       { id: "raid", btn: tabRaid, panel: panelRaid },
       { id: "epic", btn: tabEpic, panel: panelEpic },
+      { id: "promo", btn: tabPromo, panel: panelPromo },
     ];
     for (const { id, btn, panel } of tabs) {
       const on = id === tab;
@@ -331,6 +394,7 @@ export function initAdminDashboardPage(): void {
   tabPosts.addEventListener("click", () => setActiveTab("posts"));
   tabRaid.addEventListener("click", () => setActiveTab("raid"));
   tabEpic.addEventListener("click", () => setActiveTab("epic"));
+  tabPromo.addEventListener("click", () => setActiveTab("promo"));
 
   openLoginBtn?.addEventListener("click", () => {
     loginBtn?.click();
@@ -596,11 +660,6 @@ export function initAdminDashboardPage(): void {
     renderSelectedChampionTags();
   };
 
-  raidSave.addEventListener("click", () => {
-    saveRaidAccountNotes(raidNotes.value);
-    flash(raidFb, "Saved.");
-  });
-
   raidChampionSearch.addEventListener("input", renderChampionGrid);
   raidChampionRarityFilters.addEventListener("click", (event) => {
     const btn = (event.target as HTMLElement).closest<HTMLButtonElement>("[data-rarity-filter]");
@@ -819,11 +878,6 @@ export function initAdminDashboardPage(): void {
     resetRaidSellingForm();
   });
 
-  epicSave.addEventListener("click", () => {
-    saveEpicSevenAccountNotes(epicNotes.value);
-    flash(epicFb, "Saved.");
-  });
-
   const legacyCoverFromBlocks = (
     blocks: PostBodyBlock[],
   ): { imageUrl?: string; imagePosition: "top" | "left" | "right" } => {
@@ -898,6 +952,12 @@ export function initAdminDashboardPage(): void {
   postAddImageBtn.addEventListener("click", () => {
     postBodyBlocksContainer.appendChild(buildImageBlockEl({ url: "", align: "full", caption: "" }));
     renderLivePreview();
+  });
+  postUseRaidTemplateBtn.addEventListener("click", () => {
+    mountPostBodyBlocks(postBodyBlocksContainer, createRaidNewsTemplateBlocks());
+    hydrateTextToolbarColorDefaults();
+    renderLivePreview();
+    setPostFeedback("Raid news template loaded. Replace every [Replace ...] placeholder before publishing.", "warn");
   });
 
   const replaceSelection = (
@@ -1026,13 +1086,165 @@ export function initAdminDashboardPage(): void {
           : "rounded-md px-3 py-2 text-xs bg-[var(--admin-feedback-err-bg)] text-[var(--admin-feedback-err-text)]";
   };
 
+  const setPromoFeedback = (message: string, kind: "success" | "error" | "warn") => {
+    promoFeedback.textContent = message;
+    promoFeedback.className =
+      kind === "success"
+        ? "rounded-md px-3 py-2 text-xs bg-[var(--admin-feedback-ok-bg)] text-[var(--admin-feedback-ok-text)]"
+        : kind === "warn"
+          ? "rounded-md px-3 py-2 text-xs bg-[var(--admin-feedback-warn-bg)] text-[var(--admin-feedback-warn-text)]"
+          : "rounded-md px-3 py-2 text-xs bg-[var(--admin-feedback-err-bg)] text-[var(--admin-feedback-err-text)]";
+  };
+
+  const fillPromoCodeForm = () => {
+    const promo = getPromoCodeSettings();
+    promoActiveInput.checked = promo.isActive;
+    promoCodeInput.value = "";
+    promoDescriptionInput.value = "";
+    promoExpiresInput.value = new Date().toISOString().slice(0, 10);
+  };
+
+  const renderPromoHistoryList = () => {
+    const promo = getPromoCodeSettings();
+    if (promo.history.length === 0) {
+      promoHistoryList.innerHTML = `
+        <div class="rounded-md border border-dashed border-[var(--admin-border)] px-3 py-3 text-xs text-[var(--admin-muted)]">
+          No saved RSL promo codes yet.
+        </div>
+      `;
+      return;
+    }
+
+    promoHistoryList.innerHTML = [...promo.history]
+      .map((entry: PromoCodeEntry, index) => ({ entry, index }))
+      .reverse()
+      .map(
+        ({ entry, index }) => `
+          <div class="rounded-md border border-[var(--admin-border)] bg-[var(--admin-inner-bg)] p-3">
+            <div class="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
+              <div class="min-w-0">
+                <p class="break-all font-mono text-sm font-extrabold text-[var(--admin-heading)]">${escapeHtml(entry.code)}</p>
+                ${entry.reward ? `<p class="mt-1 text-xs leading-snug text-[var(--admin-subtle)]">Reward: ${escapeHtml(entry.reward)}</p>` : ""}
+                ${entry.updatedAt ? `<p class="mt-1 text-[11px] font-semibold text-[var(--admin-muted)]">Updated: ${escapeHtml(entry.updatedAt)}</p>` : ""}
+              </div>
+              <button
+                type="button"
+                data-promo-delete-index="${index}"
+                class="shrink-0 rounded-md border border-red-400/40 px-3 py-2 text-xs font-bold text-red-500 transition hover:bg-red-500/10"
+              >
+                Delete
+              </button>
+            </div>
+          </div>
+        `,
+      )
+      .join("");
+  };
+
+  const refreshPromoAdminUi = () => {
+    fillPromoCodeForm();
+    renderPromoHistoryList();
+  };
+
+  promoCodeForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    promoFeedback.className = "hidden rounded-md px-3 py-2 text-xs";
+    promoFeedback.textContent = "";
+
+    const session = readSession();
+    if (!session || session.role !== "admin") {
+      setPromoFeedback("Admin permission required.", "error");
+      return;
+    }
+
+    const code = promoCodeInput.value.trim().toUpperCase();
+    if (promoActiveInput.checked && !code) {
+      setPromoFeedback("Enter a promo code or turn off home page display.", "error");
+      return;
+    }
+    const existingPromo = getPromoCodeSettings();
+    const reward = promoDescriptionInput.value.trim();
+    const updatedAt = promoExpiresInput.value.trim() || undefined;
+    const newEntries = code
+      .split(/[,\n;]/)
+      .map((item) => item.trim().toUpperCase())
+      .filter(Boolean)
+      .map((item) => ({ code: item, reward, updatedAt }));
+
+    const result = await savePromoCodeSettingsRemote(
+      {
+        isActive: promoActiveInput.checked,
+        code,
+        reward,
+        updatedAt,
+        history: [...existingPromo.history, ...newEntries],
+      },
+      session.userId,
+    );
+
+    if (!result.ok) {
+      setPromoFeedback(`Save failed: ${result.error ?? "Unknown error"}`, "error");
+      return;
+    }
+
+    refreshPromoAdminUi();
+    window.dispatchEvent(new CustomEvent("tanne-promo-code-updated"));
+    setPromoFeedback("Promo code updated.", "success");
+  });
+
+  promoHistoryList.addEventListener("click", async (event) => {
+    const deleteBtn = (event.target as HTMLElement).closest<HTMLButtonElement>(
+      "[data-promo-delete-index]",
+    );
+    if (!deleteBtn) return;
+
+    const session = readSession();
+    if (!session || session.role !== "admin") {
+      setPromoFeedback("Admin permission required.", "error");
+      return;
+    }
+
+    const index = Number(deleteBtn.dataset.promoDeleteIndex);
+    const existingPromo = getPromoCodeSettings();
+    const target = existingPromo.history[index];
+    if (!Number.isInteger(index) || !target) return;
+
+    const ok = window.confirm(`Delete expired promo code "${target.code}"?`);
+    if (!ok) return;
+
+    deleteBtn.disabled = true;
+    deleteBtn.textContent = "Deleting...";
+    const nextHistory = existingPromo.history.filter((_, itemIndex) => itemIndex !== index);
+    const latest = nextHistory.at(-1);
+    const result = await savePromoCodeSettingsRemote(
+      {
+        isActive: existingPromo.isActive,
+        code: latest?.code ?? "",
+        reward: latest?.reward ?? "",
+        updatedAt: latest?.updatedAt,
+        history: nextHistory,
+      },
+      session.userId,
+    );
+
+    if (!result.ok) {
+      setPromoFeedback(`Delete failed: ${result.error ?? "Unknown error"}`, "error");
+      renderPromoHistoryList();
+      return;
+    }
+
+    refreshPromoAdminUi();
+    window.dispatchEvent(new CustomEvent("tanne-promo-code-updated"));
+    setPromoFeedback(`Deleted promo code ${target.code}.`, "success");
+  });
+
   let editingPostId: string | null = null;
   const postSubmitBtn = adminPostForm.querySelector<HTMLButtonElement>('button[type="submit"]');
 
   const resetPostComposer = () => {
     editingPostId = null;
     adminPostForm.reset();
-    mountPostBodyBlocks(postBodyBlocksContainer, [{ type: "text", text: "" }]);
+    mountPostBodyBlocks(postBodyBlocksContainer, createRaidNewsTemplateBlocks());
     hydrateTextToolbarColorDefaults();
     renderLivePreview();
     if (postSubmitBtn) {
@@ -1112,6 +1324,10 @@ export function initAdminDashboardPage(): void {
     const read = await readPostBodyBlocksFromEditor(postBodyBlocksContainer, uploadOne);
     if (!read.ok) {
       setPostFeedback(read.error, "error");
+      return;
+    }
+    if (hasUnfilledPostTemplatePlaceholder(read.blocks)) {
+      setPostFeedback("Replace all [Replace ...] template placeholders before publishing.", "error");
       return;
     }
 

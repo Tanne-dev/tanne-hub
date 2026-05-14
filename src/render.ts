@@ -10,6 +10,7 @@ import { renderPromos } from "./sections/promos";
 import { renderRaidNewsSection } from "./sections/raidNews";
 import { renderSafeTrading } from "./sections/safeTrading";
 import { renderSiteFooter } from "./sections/siteFooter";
+import { HONEYGAIN_REFERRAL_URL } from "./referralLinks";
 
 /**
  * Ghép trang từ từng phần trong `src/sections/`.
@@ -97,6 +98,137 @@ export function renderRaidAccountsPage(root: HTMLElement): void {
 
             <div id="account-stock-grid" class="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 lg:gap-6">
               ${stockHtml}
+            </div>
+          </section>
+        </main>
+        ${renderSiteFooter()}
+      </div>
+    </div>
+  `;
+}
+
+export function renderHoneygainPage(root: HTMLElement): void {
+  root.innerHTML = `
+    <div class="relative min-h-screen w-full bg-[var(--page-bg)]">
+      <div
+        id="site-bg-base"
+        class="pointer-events-none absolute inset-0 -z-10 bg-cover bg-center opacity-20"
+      ></div>
+      <div
+        id="site-bg-slide"
+        class="pointer-events-none absolute inset-0 -z-10 bg-cover bg-center opacity-20 hidden"
+      ></div>
+
+      <div class="relative z-0">
+        ${renderHeader()}
+        <main class="${pageInner} py-6 sm:py-8">
+          <a
+            href="/"
+            class="inline-flex min-h-11 items-center rounded-lg border border-[#7fe9ff]/45 px-4 py-2.5 text-[15px] font-semibold text-[#7fe9ff] transition hover:bg-[#7fe9ff]/10 active:opacity-90 sm:min-h-0 sm:px-3 sm:py-2 sm:text-[14px]"
+          >
+            ← Home
+          </a>
+
+          <section class="mt-5 overflow-hidden rounded-[14px] border border-[var(--admin-border)] bg-[var(--panel-bg)] text-[var(--panel-text)] shadow-[0_4px_14px_rgba(31,36,51,0.06)]">
+            <div class="grid gap-0 lg:grid-cols-[1.05fr_0.95fr]">
+              <div class="p-5 sm:p-7 lg:p-9">
+                <p class="inline-flex rounded-full border border-[#f6c44c]/45 bg-[#f6c44c]/10 px-3 py-1 text-[11px] font-extrabold uppercase tracking-[0.12em] text-[#c58a10]">
+                  Passive earning app
+                </p>
+                <h1 class="mt-4 max-w-3xl text-[30px] font-extrabold leading-[1.05] tracking-tight text-[var(--panel-text)] sm:text-[42px] lg:text-[52px]">
+                  Turn your unused internet into small rewards
+                </h1>
+                <p class="mt-4 max-w-2xl text-[16px] leading-relaxed text-[var(--panel-muted)] sm:text-[18px]">
+                  Honeygain is an app that can run quietly in the background and lets you earn credits by sharing a small part of your unused internet bandwidth with its secure network.
+                </p>
+                <div class="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                  <a
+                    href="${HONEYGAIN_REFERRAL_URL}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex min-h-11 items-center justify-center rounded-md bg-[#f6c44c] px-5 py-3 text-[15px] font-extrabold text-[#182033] transition hover:bg-[#ffd873]"
+                  >
+                    Try Honeygain
+                  </a>
+                  <a
+                    href="#how-honeygain-works"
+                    class="inline-flex min-h-11 items-center justify-center rounded-md border border-[#7fe9ff]/45 px-5 py-3 text-[15px] font-bold text-[#7fe9ff] transition hover:bg-[#7fe9ff]/10"
+                  >
+                    How it works
+                  </a>
+                </div>
+              </div>
+
+              <div class="border-t border-[var(--admin-border)] bg-[linear-gradient(145deg,rgba(127,233,255,0.18),rgba(246,196,76,0.18))] p-5 sm:p-7 lg:border-l lg:border-t-0 lg:p-9">
+                <div class="grid h-full content-center gap-3">
+                  <div class="rounded-lg border border-white/20 bg-black/20 p-4 text-white shadow-[0_16px_40px_rgba(0,0,0,0.18)]">
+                    <p class="text-[12px] font-bold uppercase tracking-[0.14em] text-[#7fe9ff]">The simple idea</p>
+                    <p class="mt-2 text-[28px] font-extrabold leading-tight">Install. Stay online. Earn credits.</p>
+                    <p class="mt-3 text-[14px] leading-relaxed text-[#dbeafe]">
+                      Earnings depend on network demand in your region, connection uptime, and active devices. You stay in control and can pause usage whenever needed.
+                    </p>
+                  </div>
+                  <div class="grid grid-cols-3 gap-2 text-center text-[12px] font-bold text-[var(--panel-text)]">
+                    <div class="rounded-md border border-[var(--admin-border)] bg-[var(--panel-bg)] px-2 py-3">Desktop</div>
+                    <div class="rounded-md border border-[var(--admin-border)] bg-[var(--panel-bg)] px-2 py-3">Mobile</div>
+                    <div class="rounded-md border border-[var(--admin-border)] bg-[var(--panel-bg)] px-2 py-3">Passive</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="mt-5 overflow-hidden rounded-[14px] border border-[var(--admin-border)] bg-[var(--panel-bg)] text-[var(--panel-text)] shadow-[0_4px_14px_rgba(31,36,51,0.06)]">
+            <img
+              src="/honeygain-dashboard.jpg"
+              alt="Honeygain dashboard showing current balance, earnings chart, achievements, and referral rewards"
+              class="h-auto w-full object-cover"
+              loading="eager"
+              width="2048"
+              height="1100"
+            />
+            <div class="border-t border-[var(--admin-border)] p-4 sm:p-5">
+              <p class="text-[13px] font-extrabold uppercase tracking-[0.12em] text-[#c58a10]">Dashboard preview</p>
+              <p class="mt-1 text-sm leading-relaxed text-[var(--panel-muted)]">
+                Honeygain shows balance, earning activity, achievements, and referral progress in one dashboard, so users can follow how their credits build up over time.
+              </p>
+            </div>
+          </section>
+
+          <section id="how-honeygain-works" class="mt-5 grid gap-4 md:grid-cols-3">
+            <article class="rounded-[10px] border border-[var(--admin-border)] bg-[var(--panel-bg)] p-5 text-[var(--panel-text)] shadow-[0_4px_14px_rgba(31,36,51,0.06)]">
+              <p class="text-[13px] font-extrabold text-[#c58a10]">1. Install the app</p>
+              <h2 class="mt-2 text-xl font-extrabold">Set it up once</h2>
+              <p class="mt-2 text-sm leading-relaxed text-[var(--panel-muted)]">Honeygain is available on common desktop and mobile platforms, so users can choose the device that fits their routine.</p>
+            </article>
+            <article class="rounded-[10px] border border-[var(--admin-border)] bg-[var(--panel-bg)] p-5 text-[var(--panel-text)] shadow-[0_4px_14px_rgba(31,36,51,0.06)]">
+              <p class="text-[13px] font-extrabold text-[#c58a10]">2. Share unused bandwidth</p>
+              <h2 class="mt-2 text-xl font-extrabold">Runs in the background</h2>
+              <p class="mt-2 text-sm leading-relaxed text-[var(--panel-muted)]">The app uses idle internet capacity for Honeygain's network while you continue using your device normally.</p>
+            </article>
+            <article class="rounded-[10px] border border-[var(--admin-border)] bg-[var(--panel-bg)] p-5 text-[var(--panel-text)] shadow-[0_4px_14px_rgba(31,36,51,0.06)]">
+              <p class="text-[13px] font-extrabold text-[#c58a10]">3. Collect rewards</p>
+              <h2 class="mt-2 text-xl font-extrabold">Cash out later</h2>
+              <p class="mt-2 text-sm leading-relaxed text-[var(--panel-muted)]">Credits can be converted after the minimum payout threshold is reached, with payout options such as PayPal or JMPT.</p>
+            </article>
+          </section>
+
+          <section class="mt-5 rounded-[14px] border border-[#7fe9ff]/30 bg-[#7fe9ff]/10 p-5 text-[var(--panel-text)] sm:p-6">
+            <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <h2 class="text-2xl font-extrabold">Curious enough to try it?</h2>
+                <p class="mt-1 max-w-2xl text-sm leading-relaxed text-[var(--panel-muted)]">
+                  Use this referral link if you want to start from Tanne Hub. Always check Honeygain's current terms, payout rules, and availability in your country before using it.
+                </p>
+              </div>
+              <a
+                href="${HONEYGAIN_REFERRAL_URL}"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex min-h-11 shrink-0 items-center justify-center rounded-md bg-[#f6c44c] px-5 py-3 text-[15px] font-extrabold text-[#182033] transition hover:bg-[#ffd873]"
+              >
+                Open Honeygain
+              </a>
             </div>
           </section>
         </main>
@@ -254,9 +386,12 @@ export function renderAdminDashboardPage(root: HTMLElement): void {
                 <button type="button" data-admin-tab="raid" id="admin-tab-raid" class="rounded-lg border border-[var(--admin-tab-idle-border)] px-3 py-2.5 text-left text-sm font-semibold text-[var(--admin-tab-idle-text)] transition hover:bg-[var(--admin-tab-idle-hover)]">
                   2. Raid Shadow Legends accounts
                 </button>
-                <button type="button" data-admin-tab="epic" id="admin-tab-epic" class="rounded-lg border border-[var(--admin-tab-idle-border)] px-3 py-2.5 text-left text-sm font-semibold text-[var(--admin-tab-idle-text)] transition hover:bg-[var(--admin-tab-idle-hover)]">
-                  3. Epic Seven accounts
-                </button>
+	                <button type="button" data-admin-tab="epic" id="admin-tab-epic" class="rounded-lg border border-[var(--admin-tab-idle-border)] px-3 py-2.5 text-left text-sm font-semibold text-[var(--admin-tab-idle-text)] transition hover:bg-[var(--admin-tab-idle-hover)]">
+	                  3. Epic Seven accounts
+	                </button>
+	                <button type="button" data-admin-tab="promo" id="admin-tab-promo" class="rounded-lg border border-[var(--admin-tab-idle-border)] px-3 py-2.5 text-left text-sm font-semibold text-[var(--admin-tab-idle-text)] transition hover:bg-[var(--admin-tab-idle-hover)]">
+	                  4. Promo code
+	                </button>
               </nav>
 
               <div class="min-w-0 flex-1 space-y-6">
@@ -266,10 +401,18 @@ export function renderAdminDashboardPage(root: HTMLElement): void {
                   <form id="admin-post-create-form" class="mt-4 space-y-2.5">
                     <input id="admin-post-title" type="text" maxlength="120" required placeholder="Title" class="admin-dash-input w-full rounded-md border border-[var(--admin-input-border)] bg-[var(--admin-input-bg)] px-3 py-2 text-sm text-[var(--admin-input-text)] outline-none placeholder:text-[var(--admin-muted)] focus:border-[var(--admin-accent)]" />
                     <input id="admin-post-caption" type="text" maxlength="180" placeholder="Caption (optional)" class="admin-dash-input w-full rounded-md border border-[var(--admin-input-border)] bg-[var(--admin-input-bg)] px-3 py-2 text-sm text-[var(--admin-input-text)] outline-none placeholder:text-[var(--admin-muted)] focus:border-[var(--admin-accent)]" />
-                    <div class="rounded-md border border-[var(--admin-border)] bg-[var(--admin-card-bg)] px-3 py-2 text-[11px] text-[var(--admin-subtle)]">
-                      Editor supports <strong>bold</strong>, <em>italic</em>, line breaks, bullets, and text color via toolbar in each paragraph block.
-                    </div>
-                    <div class="grid grid-cols-1 gap-3 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] lg:items-start">
+	                    <div class="rounded-md border border-[var(--admin-border)] bg-[var(--admin-card-bg)] px-3 py-2 text-[11px] text-[var(--admin-subtle)]">
+	                      Editor supports <strong>bold</strong>, <em>italic</em>, line breaks, bullets, and text color via toolbar in each paragraph block.
+	                    </div>
+	                    <div class="flex flex-wrap items-center justify-between gap-2 rounded-md border border-[var(--admin-tab-active-border)]/45 bg-[var(--admin-tab-active-bg)]/25 px-3 py-2">
+	                      <p class="text-[11px] leading-snug text-[var(--admin-subtle)]">
+	                        Fixed Raid news structure keeps each post consistent: hero image, quick summary, update details, impact, and closing note.
+	                      </p>
+	                      <button id="admin-post-use-raid-template" type="button" class="rounded-md border border-[var(--admin-tab-active-border)] bg-[var(--admin-tab-active-bg)] px-3 py-1.5 text-xs font-semibold text-[var(--admin-accent-muted)] hover:brightness-110">
+	                        Use Raid news template
+	                      </button>
+	                    </div>
+	                    <div class="grid grid-cols-1 gap-3 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] lg:items-start">
                       <div class="min-w-0">
                         <p class="mb-1 text-xs font-semibold text-[var(--admin-subtle)]">Content</p>
                         <div id="admin-post-body-blocks" class="space-y-2"></div>
@@ -293,15 +436,14 @@ export function renderAdminDashboardPage(root: HTMLElement): void {
                       </button>
                     </div>
                   </form>
-                  <div class="mt-6 border-t border-[var(--admin-border)] pt-4">
-                    <h3 class="text-sm font-semibold text-[var(--admin-accent-muted)]">Recent posts</h3>
-                    <div id="admin-posts-list" class="mt-2.5 space-y-2"></div>
-                  </div>
-                </section>
+	                  <div class="mt-6 border-t border-[var(--admin-border)] pt-4">
+	                    <h3 class="text-sm font-semibold text-[var(--admin-accent-muted)]">Recent posts</h3>
+	                    <div id="admin-posts-list" class="mt-2.5 space-y-2"></div>
+	                  </div>
+		                </section>
 
                 <section id="admin-panel-raid" class="admin-dash-panel theme-smooth hidden rounded-xl border border-[var(--admin-border)] bg-[var(--admin-inner-bg)] p-4 md:p-5">
                   <h2 class="text-lg font-bold text-[var(--admin-heading)]">Raid Shadow Legends accounts</h2>
-                  <p class="mt-1 text-xs text-[var(--admin-subtle)]">Internal notes (stored in browser). Can be connected to database.</p>
                   <form id="admin-raid-selling-form" class="mt-3 rounded-lg border border-[var(--admin-border)] bg-[var(--admin-card-bg)] p-3">
                     <div class="mb-2 flex items-center justify-between gap-2">
                     <h3 class="text-sm font-semibold text-[var(--admin-heading)]">Create / edit listed account</h3>
@@ -428,33 +570,43 @@ export function renderAdminDashboardPage(root: HTMLElement): void {
                       </button>
                     </div>
                   </div>
-                  <textarea
-                    id="admin-raid-accounts-notes"
-                    rows="14"
-                    class="admin-dash-input mt-3 w-full rounded-md border border-[var(--admin-input-border)] bg-[var(--admin-input-bg)] px-3 py-2 text-sm text-[var(--admin-input-text)] outline-none placeholder:text-[var(--admin-muted)] focus:border-[var(--admin-accent)]"
-                    placeholder="Internal notes: account IDs, prices, statuses..."
-                  ></textarea>
-                  <button type="button" id="admin-raid-accounts-save" class="mt-3 rounded-md border border-[var(--admin-tab-active-border)] px-4 py-2 text-sm font-semibold text-[var(--admin-accent-muted)] hover:bg-[var(--admin-tab-active-bg)]">
-                    Save notes
-                  </button>
                   <p id="admin-raid-accounts-feedback" class="mt-2 hidden text-xs text-[var(--admin-success-inline)]"></p>
                 </section>
 
                 <section id="admin-panel-epic" class="admin-dash-panel theme-smooth hidden rounded-xl border border-[var(--admin-border)] bg-[var(--admin-inner-bg)] p-4 md:p-5">
                   <h2 class="text-lg font-bold text-[var(--admin-heading)]">Epic Seven accounts</h2>
-                  <p class="mt-1 text-xs text-[var(--admin-subtle)]">Internal notes (stored in browser).</p>
-                  <textarea
-                    id="admin-epic-accounts-notes"
-                    rows="14"
-                    class="admin-dash-input mt-3 w-full rounded-md border border-[var(--admin-input-border)] bg-[var(--admin-input-bg)] px-3 py-2 text-sm text-[var(--admin-input-text)] outline-none placeholder:text-[var(--admin-muted)] focus:border-[var(--admin-accent)]"
-                    placeholder="Internal notes: account IDs, prices, statuses..."
-                  ></textarea>
-                  <button type="button" id="admin-epic-accounts-save" class="mt-3 rounded-md border border-[var(--admin-tab-active-border)] px-4 py-2 text-sm font-semibold text-[var(--admin-accent-muted)] hover:bg-[var(--admin-tab-active-bg)]">
-                    Save notes
-                  </button>
-                  <p id="admin-epic-accounts-feedback" class="mt-2 hidden text-xs text-[var(--admin-success-inline)]"></p>
-                </section>
-              </div>
+                  <p class="mt-1 text-xs text-[var(--admin-subtle)]">Epic Seven account tools can be added here later.</p>
+	                </section>
+
+	                <section id="admin-panel-promo" class="admin-dash-panel theme-smooth hidden rounded-xl border border-[var(--admin-border)] bg-[var(--admin-inner-bg)] p-4 md:p-5">
+		                  <h2 class="text-lg font-bold text-[var(--admin-heading)]">Raid Shadow Legends promo code</h2>
+		                  <p class="mt-1 text-xs text-[var(--admin-subtle)]">Update RSL game reward codes shown from the navbar scroll.</p>
+		                  <form id="admin-promo-code-form" class="mt-4 space-y-2.5 rounded-lg border border-[var(--admin-border)] bg-[var(--admin-card-bg)] p-3">
+		                    <label class="flex items-center gap-2 text-xs font-semibold text-[var(--admin-subtle)]">
+		                      <input id="admin-promo-active" type="checkbox" class="accent-[var(--admin-accent)]" />
+		                      Show RSL promo code in navbar
+		                    </label>
+		                    <div class="grid grid-cols-1 gap-2 sm:grid-cols-2">
+		                      <input id="admin-promo-code" type="text" maxlength="160" placeholder="New RSL code, comma separated if many" class="admin-dash-input rounded-md border border-[var(--admin-input-border)] bg-[var(--admin-input-bg)] px-3 py-2 font-mono text-sm uppercase text-[var(--admin-input-text)] outline-none placeholder:font-sans placeholder:normal-case placeholder:text-[var(--admin-muted)] focus:border-[var(--admin-accent)]" />
+		                      <input id="admin-promo-expires" type="text" maxlength="40" placeholder="Updated date, e.g. 2026-05-10" class="admin-dash-input rounded-md border border-[var(--admin-input-border)] bg-[var(--admin-input-bg)] px-3 py-2 text-sm text-[var(--admin-input-text)] outline-none placeholder:text-[var(--admin-muted)] focus:border-[var(--admin-accent)]" />
+		                    </div>
+		                    <textarea id="admin-promo-description" rows="3" maxlength="220" placeholder="Reward from this code, e.g. Energy, silver, XP boost..." class="admin-dash-input w-full rounded-md border border-[var(--admin-input-border)] bg-[var(--admin-input-bg)] px-3 py-2 text-sm text-[var(--admin-input-text)] outline-none placeholder:text-[var(--admin-muted)] focus:border-[var(--admin-accent)]"></textarea>
+	                    <p id="admin-promo-feedback" class="hidden rounded-md px-3 py-2 text-xs"></p>
+	                    <div class="flex justify-end">
+	                      <button type="submit" class="rounded-md bg-[var(--admin-accent)] px-4 py-2 text-sm font-bold text-[var(--admin-submit-text)] transition hover:brightness-110">
+	                        Save promo code
+	                      </button>
+	                    </div>
+	                  </form>
+                    <div class="mt-3 rounded-lg border border-[var(--admin-border)] bg-[var(--admin-card-bg)] p-3">
+                      <div class="flex flex-wrap items-center justify-between gap-2">
+                        <h3 class="text-sm font-semibold text-[var(--admin-heading)]">Saved promo codes</h3>
+                        <p class="text-[11px] text-[var(--admin-muted)]">Delete expired codes here.</p>
+                      </div>
+                      <div id="admin-promo-history-list" class="mt-2.5 space-y-2"></div>
+                    </div>
+	                </section>
+	              </div>
             </div>
           </div>
         </main>

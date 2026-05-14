@@ -2,6 +2,7 @@ import "./style.css";
 import { initAdminDashboardPage } from "./adminDashboardPage";
 import {
   renderAdminDashboardPage,
+  renderHoneygainPage,
   renderLanding,
   renderNewsArchive,
   renderPostDetail,
@@ -16,6 +17,7 @@ import { initSellingAccountsManager } from "./sellingAccountsManager";
 import { initWelcomeLetter } from "./welcomeLetter";
 import { initImageOptimizations } from "./initImageOptimizations";
 import { initHeroHotNews } from "./heroHotNews";
+import { initPromoCodeManager } from "./promoCodeManager";
 
 initImageOptimizations();
 
@@ -34,6 +36,8 @@ if (postId) {
   renderNewsArchive(root);
 } else if (page === "raid-accounts") {
   renderRaidAccountsPage(root);
+} else if (page === "honeygain") {
+  renderHoneygainPage(root);
 } else if (page === "dashboard") {
   renderAdminDashboardPage(root);
 } else {
@@ -49,3 +53,4 @@ initTheme();
 initWelcomeLetter();
 initAccountStockUi();
 initSellingAccountsManager();
+initPromoCodeManager();

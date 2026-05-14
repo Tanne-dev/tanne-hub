@@ -1,7 +1,7 @@
 type Theme = "light" | "dark";
 
-const HERO_LIGHT_BGS = ["/hero-bg.png", "/hero-bg-trio.png"];
-const HERO_DARK_BGS = ["/hero-bg-moon.png", "/hero-bg-trio.png"];
+const HERO_LIGHT_BGS = ["/hero-bg.png"];
+const HERO_DARK_BGS = ["/hero-bg-moon.png"];
 
 const SITE_LIGHT_BG = "/hero-bg.png";
 const SITE_DARK_BG = "/hero-bg-moon.png";
@@ -47,9 +47,7 @@ function getHeroEls() {
   const baseEl = document.querySelector<HTMLElement>("#hero-bg-base");
   const slideEl = document.querySelector<HTMLElement>("#hero-bg-slide");
   const toggleBtn = document.querySelector<HTMLButtonElement>("#theme-toggle");
-  const sideVisualEl = document.querySelector<HTMLElement>("#hero-side-visual");
-
-  return { baseEl, slideEl, toggleBtn, sideVisualEl };
+  return { baseEl, slideEl, toggleBtn };
 }
 
 function getSiteEls() {
@@ -74,24 +72,10 @@ function siteWallpaperUrl(theme: Theme, hasHeroLayers: boolean): string {
   return hasHeroLayers ? bg.site : bg.hero;
 }
 
-function shouldShowHeroSideVisual(heroSrc: string): boolean {
-  return heroSrc !== "/hero-bg-trio.png";
-}
-
-function isFullContainHeroBg(heroSrc: string): boolean {
-  return heroSrc === "/hero-bg-trio.png";
-}
-
-function setLayerBgFit(el: HTMLElement, src: string): void {
+function setLayerBgFit(el: HTMLElement): void {
   el.style.backgroundPosition = "center";
   el.style.backgroundRepeat = "no-repeat";
-  el.style.backgroundSize = isFullContainHeroBg(src) ? "100% 100%" : "cover";
-}
-
-function setHeroSideVisual(heroSrc: string): void {
-  const { sideVisualEl } = getHeroEls();
-  if (!sideVisualEl) return;
-  sideVisualEl.classList.toggle("hidden", !shouldShowHeroSideVisual(heroSrc));
+  el.style.backgroundSize = "cover";
 }
 
 function setPageBgVar(theme: Theme): void {
@@ -354,8 +338,7 @@ function applyInitialTheme(theme: Theme): void {
 
   if (heroBaseEl && heroSlideEl) {
     heroBaseEl.style.backgroundImage = `url('${bg.hero}')`;
-    setLayerBgFit(heroBaseEl, bg.hero);
-    setHeroSideVisual(bg.hero);
+    setLayerBgFit(heroBaseEl);
     heroBaseEl.classList.remove("opacity-0");
     heroSlideEl.classList.add("hidden");
     heroSlideEl.classList.remove("hero-bg-slide-up");
@@ -363,7 +346,7 @@ function applyInitialTheme(theme: Theme): void {
 
   const siteUrl = siteWallpaperUrl(theme, hasHeroLayers);
   siteBaseEl.style.backgroundImage = `url('${siteUrl}')`;
-  setLayerBgFit(siteBaseEl, siteUrl);
+  setLayerBgFit(siteBaseEl);
   siteBaseEl.classList.remove("opacity-0");
   siteSlideEl.classList.add("hidden");
   siteSlideEl.classList.remove("hero-bg-slide-up");
@@ -395,19 +378,18 @@ function startTransition(nextTheme: Theme): void {
   // Chuẩn bị ảnh đích sẵn ở layer nền (incoming) để tránh "trống" giữa animation.
   if (heroBaseEl && heroSlideEl) {
     heroBaseEl.style.backgroundImage = `url('${incoming.hero}')`;
-    setLayerBgFit(heroBaseEl, incoming.hero);
-    setHeroSideVisual(incoming.hero);
+    setLayerBgFit(heroBaseEl);
     heroBaseEl.classList.remove("opacity-0");
   }
 
   siteBaseEl.style.backgroundImage = `url('${incomingSiteUrl}')`;
-  setLayerBgFit(siteBaseEl, incomingSiteUrl);
+  setLayerBgFit(siteBaseEl);
   siteBaseEl.classList.remove("opacity-0");
 
   // Hero: trượt ảnh cũ (outgoing) lên trên để lộ ảnh mới bên dưới.
   if (heroSlideEl) {
     heroSlideEl.style.backgroundImage = `url('${outgoing.hero}')`;
-    setLayerBgFit(heroSlideEl, outgoing.hero);
+    setLayerBgFit(heroSlideEl);
     heroSlideEl.classList.remove("hidden");
     heroSlideEl.classList.remove("hero-bg-slide-up");
     void heroSlideEl.offsetHeight;
@@ -416,7 +398,7 @@ function startTransition(nextTheme: Theme): void {
 
   // Site: tương tự với layer nền toàn trang.
   siteSlideEl.style.backgroundImage = `url('${outgoingSiteUrl}')`;
-  setLayerBgFit(siteSlideEl, outgoingSiteUrl);
+  setLayerBgFit(siteSlideEl);
   siteSlideEl.classList.remove("hidden");
   siteSlideEl.classList.remove("hero-bg-slide-up");
   void siteSlideEl.offsetHeight;
@@ -473,12 +455,11 @@ function rotateHeroBackground(): void {
 
   isAnimating = true;
   heroBaseEl.style.backgroundImage = `url('${incoming}')`;
-  setLayerBgFit(heroBaseEl, incoming);
-  setHeroSideVisual(incoming);
+  setLayerBgFit(heroBaseEl);
   heroBaseEl.classList.remove("opacity-0");
 
   heroSlideEl.style.backgroundImage = `url('${outgoing}')`;
-  setLayerBgFit(heroSlideEl, outgoing);
+  setLayerBgFit(heroSlideEl);
   heroSlideEl.classList.remove("hidden");
   heroSlideEl.classList.remove("hero-bg-slide-up");
   void heroSlideEl.offsetHeight;
@@ -510,11 +491,11 @@ function rotateSiteBackground(): void {
 
   isAnimating = true;
   siteBaseEl.style.backgroundImage = `url('${incoming}')`;
-  setLayerBgFit(siteBaseEl, incoming);
+  setLayerBgFit(siteBaseEl);
   siteBaseEl.classList.remove("opacity-0");
 
   siteSlideEl.style.backgroundImage = `url('${outgoing}')`;
-  setLayerBgFit(siteSlideEl, outgoing);
+  setLayerBgFit(siteSlideEl);
   siteSlideEl.classList.remove("hidden");
   siteSlideEl.classList.remove("hero-bg-slide-up");
   void siteSlideEl.offsetHeight;
@@ -564,4 +545,3 @@ export function initTheme(): void {
     localStorage.setItem(THEME_KEY, nextTheme);
   });
 }
-

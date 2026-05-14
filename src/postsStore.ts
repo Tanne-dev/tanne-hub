@@ -97,7 +97,14 @@ export async function syncPostsFromRemote(): Promise<void> {
     .select("*")
     .order("created_at", { ascending: false });
 
-  if (error || !Array.isArray(data)) return;
+  if (error) {
+    console.warn("[posts] Remote sync failed:", error.message);
+    return;
+  }
+  if (!Array.isArray(data)) {
+    console.warn("[posts] Remote sync returned an unexpected payload.");
+    return;
+  }
 
   savePosts((data as PostRow[]).map(mapRowToPost));
 }

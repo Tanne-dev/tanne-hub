@@ -52,18 +52,6 @@ export function renderHero(): string {
                         Read Before Exploring
                       </button>
                     </div>
-                    <div
-                      id="hero-side-visual"
-                      aria-hidden="true"
-                      class="pointer-events-none relative -mx-1 mt-6 max-h-[200px] overflow-hidden rounded-xl opacity-95 max-sm:hidden sm:mx-0 sm:block sm:max-h-[220px] lg:hidden"
-                    >
-                      <img
-                        src="/hero-side.png"
-                        alt=""
-                        decoding="async"
-                        class="h-full w-full max-h-[220px] object-cover object-right-bottom"
-                      />
-                    </div>
                   </div>
                 </div>
               </div>

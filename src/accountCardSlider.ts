@@ -18,7 +18,7 @@ export function bindAccountCardSliders(scope: ParentNode = document): void {
     let userScrollCooldownUntil = 0;
     let hoverPause = false;
     let focusPause = false;
-    let intervalId: ReturnType<typeof setInterval> | undefined;
+    let intervalId: number | undefined;
 
     const clearAuto = () => {
       if (intervalId !== undefined) {
