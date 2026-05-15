@@ -108,7 +108,7 @@ async function authenticateMember(
   };
 }
 
-function getSession(): MemberSession | null {
+export function getMemberSession(): MemberSession | null {
   const raw = localStorage.getItem(MEMBER_SESSION_KEY);
   if (!raw) return null;
   try {
@@ -120,7 +120,7 @@ function getSession(): MemberSession | null {
 
 /** Dùng cho header / badge: đã đăng nhập và role admin. */
 export function isMemberAdmin(): boolean {
-  return getSession()?.role === "admin";
+  return getMemberSession()?.role === "admin";
 }
 
 function setSession(session: MemberSession): void {
@@ -194,7 +194,7 @@ export function initLogin(): void {
     return;
 
   const syncLoginLabel = () => {
-    const session = getSession();
+    const session = getMemberSession();
     if (!session) {
       loginLabel.textContent = "Log in";
       openBtn.removeAttribute("aria-label");
@@ -249,7 +249,7 @@ export function initLogin(): void {
   };
 
   const showModal = () => {
-    const session = getSession();
+    const session = getMemberSession();
     if (session) {
       const willOpen = accountMenu.classList.contains("hidden");
       accountMenu.classList.toggle("hidden", !willOpen);

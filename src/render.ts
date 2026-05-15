@@ -10,6 +10,8 @@ import { renderPromos } from "./sections/promos";
 import { renderRaidNewsSection } from "./sections/raidNews";
 import { renderSafeTrading } from "./sections/safeTrading";
 import { renderSiteFooter } from "./sections/siteFooter";
+import { renderLegitCheck } from "./sections/legitCheck";
+import { renderMemberAlerts } from "./sections/memberAlerts";
 import { HONEYGAIN_REFERRAL_URL } from "./referralLinks";
 
 /**
@@ -37,8 +39,10 @@ export function renderLanding(root: HTMLElement): void {
 
           <div class="${pageInner} space-y-4 py-6 sm:py-8">
             ${renderRaidNewsSection()}
+            ${renderMemberAlerts()}
             ${renderPopularAccounts()}
             ${renderSafeTrading()}
+            ${renderLegitCheck()}
             ${renderPromos()}
           </div>
         </main>

@@ -18,6 +18,8 @@ import { initWelcomeLetter } from "./welcomeLetter";
 import { initImageOptimizations } from "./initImageOptimizations";
 import { initHeroHotNews } from "./heroHotNews";
 import { initPromoCodeManager } from "./promoCodeManager";
+import { initLegitReviewsManager } from "./legitReviewsManager";
+import { initMemberAlertsManager } from "./memberAlertsManager";
 
 initImageOptimizations();
 
@@ -54,3 +56,5 @@ initWelcomeLetter();
 initAccountStockUi();
 initSellingAccountsManager();
 initPromoCodeManager();
+initLegitReviewsManager();
+initMemberAlertsManager();
