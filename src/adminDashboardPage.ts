@@ -186,7 +186,7 @@ function isAdminSession(): boolean {
   return readSession()?.role === "admin";
 }
 
-type AdminTab = "posts" | "raid" | "epic" | "promo";
+type AdminTab = "posts" | "raid" | "promo";
 const ADMIN_POST_TAG_STYLE_STORAGE_KEY = "tanne-admin-post-tag-style-v1";
 
 function readSavedTagColor(): string {
@@ -214,7 +214,7 @@ function saveTagColor(color: string): void {
 
 function tabFromUrl(): AdminTab {
   const t = new URLSearchParams(window.location.search).get("tab");
-  if (t === "raid" || t === "epic" || t === "posts" || t === "promo") return t;
+  if (t === "raid" || t === "posts" || t === "promo") return t;
   return "posts";
 }
 
@@ -227,11 +227,9 @@ export function initAdminDashboardPage(): void {
   const openLoginBtn = document.querySelector<HTMLButtonElement>("#admin-open-login-from-dashboard");
   const tabPosts = document.querySelector<HTMLButtonElement>("#admin-tab-posts");
   const tabRaid = document.querySelector<HTMLButtonElement>("#admin-tab-raid");
-  const tabEpic = document.querySelector<HTMLButtonElement>("#admin-tab-epic");
   const tabPromo = document.querySelector<HTMLButtonElement>("#admin-tab-promo");
   const panelPosts = document.querySelector<HTMLElement>("#admin-panel-posts");
   const panelRaid = document.querySelector<HTMLElement>("#admin-panel-raid");
-  const panelEpic = document.querySelector<HTMLElement>("#admin-panel-epic");
   const panelPromo = document.querySelector<HTMLElement>("#admin-panel-promo");
 
   const raidFb = document.querySelector<HTMLElement>("#admin-raid-accounts-feedback");
@@ -289,11 +287,9 @@ export function initAdminDashboardPage(): void {
     !contentEl ||
     !tabPosts ||
     !tabRaid ||
-    !tabEpic ||
     !tabPromo ||
     !panelPosts ||
     !panelRaid ||
-    !panelEpic ||
     !panelPromo ||
     !raidFb ||
     !raidChampionSearch ||
@@ -375,7 +371,6 @@ export function initAdminDashboardPage(): void {
     const tabs: { id: AdminTab; btn: HTMLButtonElement; panel: HTMLElement }[] = [
       { id: "posts", btn: tabPosts, panel: panelPosts },
       { id: "raid", btn: tabRaid, panel: panelRaid },
-      { id: "epic", btn: tabEpic, panel: panelEpic },
       { id: "promo", btn: tabPromo, panel: panelPromo },
     ];
     for (const { id, btn, panel } of tabs) {
@@ -393,7 +388,6 @@ export function initAdminDashboardPage(): void {
 
   tabPosts.addEventListener("click", () => setActiveTab("posts"));
   tabRaid.addEventListener("click", () => setActiveTab("raid"));
-  tabEpic.addEventListener("click", () => setActiveTab("epic"));
   tabPromo.addEventListener("click", () => setActiveTab("promo"));
 
   openLoginBtn?.addEventListener("click", () => {

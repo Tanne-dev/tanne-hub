@@ -1,6 +1,15 @@
 import { escapeHtml } from "./postBody";
 import { getPromoCodeSettings } from "./promoCodeStore";
 
+const promoGiftIcon = `
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 shrink-0 text-[var(--header-accent)]" aria-hidden="true">
+    <rect x="3" y="8" width="18" height="13" rx="2"></rect>
+    <path d="M12 8v13"></path>
+    <path d="M3 12h18"></path>
+    <path d="M7.5 8a2.5 2.5 0 1 1 4.5-1.5V8"></path>
+    <path d="M16.5 8A2.5 2.5 0 1 0 12 6.5V8"></path>
+  </svg>`;
+
 export function renderNavbarPromoCodeHtml(): string {
   const promo = getPromoCodeSettings();
   const entries = promo.history;
@@ -29,6 +38,7 @@ export function renderNavbarPromoCodeHtml(): string {
       aria-expanded="false"
       aria-controls="navbar-promo-scroll"
     >
+      ${promoGiftIcon}
       <span>Promo Code</span>
       <span class="rounded border border-[#7fe9ff]/35 px-1.5 py-0.5 font-mono text-[11px] text-[var(--header-accent)]">RSL</span>
     </button>

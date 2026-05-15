@@ -36,10 +36,10 @@ export function renderLanding(root: HTMLElement): void {
           ${renderHero()}
 
           <div class="${pageInner} space-y-4 py-6 sm:py-8">
-          ${renderPopularAccounts()}
-          ${renderRaidNewsSection()}
-          ${renderSafeTrading()}
-          ${renderPromos()}
+            ${renderRaidNewsSection()}
+            ${renderPopularAccounts()}
+            ${renderSafeTrading()}
+            ${renderPromos()}
           </div>
         </main>
 
@@ -386,11 +386,8 @@ export function renderAdminDashboardPage(root: HTMLElement): void {
                 <button type="button" data-admin-tab="raid" id="admin-tab-raid" class="rounded-lg border border-[var(--admin-tab-idle-border)] px-3 py-2.5 text-left text-sm font-semibold text-[var(--admin-tab-idle-text)] transition hover:bg-[var(--admin-tab-idle-hover)]">
                   2. Raid Shadow Legends accounts
                 </button>
-	                <button type="button" data-admin-tab="epic" id="admin-tab-epic" class="rounded-lg border border-[var(--admin-tab-idle-border)] px-3 py-2.5 text-left text-sm font-semibold text-[var(--admin-tab-idle-text)] transition hover:bg-[var(--admin-tab-idle-hover)]">
-	                  3. Epic Seven accounts
-	                </button>
 	                <button type="button" data-admin-tab="promo" id="admin-tab-promo" class="rounded-lg border border-[var(--admin-tab-idle-border)] px-3 py-2.5 text-left text-sm font-semibold text-[var(--admin-tab-idle-text)] transition hover:bg-[var(--admin-tab-idle-hover)]">
-	                  4. Promo code
+	                  3. Promo code
 	                </button>
               </nav>
 
@@ -572,11 +569,6 @@ export function renderAdminDashboardPage(root: HTMLElement): void {
                   </div>
                   <p id="admin-raid-accounts-feedback" class="mt-2 hidden text-xs text-[var(--admin-success-inline)]"></p>
                 </section>
-
-                <section id="admin-panel-epic" class="admin-dash-panel theme-smooth hidden rounded-xl border border-[var(--admin-border)] bg-[var(--admin-inner-bg)] p-4 md:p-5">
-                  <h2 class="text-lg font-bold text-[var(--admin-heading)]">Epic Seven accounts</h2>
-                  <p class="mt-1 text-xs text-[var(--admin-subtle)]">Epic Seven account tools can be added here later.</p>
-	                </section>
 
 	                <section id="admin-panel-promo" class="admin-dash-panel theme-smooth hidden rounded-xl border border-[var(--admin-border)] bg-[var(--admin-inner-bg)] p-4 md:p-5">
 		                  <h2 class="text-lg font-bold text-[var(--admin-heading)]">Raid Shadow Legends promo code</h2>

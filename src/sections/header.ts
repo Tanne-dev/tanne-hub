@@ -2,6 +2,39 @@ import { brandLogoImg } from "../partials/brandLogo";
 import { pageInner } from "../layout";
 import { renderNavbarPromoCodeHtml } from "../promoCodeNav";
 
+const headerNavIconClass = "h-4 w-4 shrink-0 text-[var(--header-accent)]";
+
+const exchangeNavIcon = `
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="${headerNavIconClass}" aria-hidden="true">
+    <path d="M7 7h11"></path>
+    <path d="M15 3l4 4-4 4"></path>
+    <path d="M17 17H6"></path>
+    <path d="M9 13l-4 4 4 4"></path>
+  </svg>`;
+
+const accountsNavIcon = `
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="${headerNavIconClass}" aria-hidden="true">
+    <rect x="3" y="4" width="18" height="16" rx="2"></rect>
+    <circle cx="9" cy="10" r="2"></circle>
+    <path d="M6.5 16a3.5 3.5 0 0 1 5 0"></path>
+    <path d="M14 9h4"></path>
+    <path d="M14 13h4"></path>
+  </svg>`;
+
+const newsNavIcon = `
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="${headerNavIconClass}" aria-hidden="true">
+    <path d="M4 5h13a3 3 0 0 1 3 3v11H7a3 3 0 0 1-3-3Z"></path>
+    <path d="M8 9h7"></path>
+    <path d="M8 13h8"></path>
+    <path d="M8 17h4"></path>
+  </svg>`;
+
+const rewardsNavIcon = `
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="${headerNavIconClass}" aria-hidden="true">
+    <path d="M12 3v18"></path>
+    <path d="M17 7.5c0-2-2.2-3.5-5-3.5S7 5.5 7 7.5s2.2 3.5 5 3.5 5 1.5 5 3.5-2.2 3.5-5 3.5-5-1.5-5-3.5"></path>
+  </svg>`;
+
 /** Thanh điều hướng trên cùng: logo, ô tìm kiếm, ngôn ngữ. */
 export function renderHeader(): string {
   const promoHtml = renderNavbarPromoCodeHtml();
@@ -56,8 +89,7 @@ export function renderHeader(): string {
                     <a role="menuitem" class="block min-h-11 rounded px-3 py-2.5 text-[14px] font-semibold leading-snug text-[#aeefff] hover:bg-white/5" href="/?page=dashboard">Admin dashboard</a>
                     <a role="menuitem" class="block min-h-11 rounded px-3 py-2.5 text-[14px] leading-snug text-[#d6dbf0] hover:bg-white/5 hover:text-white" href="/?page=dashboard&tab=posts">1. Posts & Raid news</a>
                     <a role="menuitem" class="block min-h-11 rounded px-3 py-2.5 text-[14px] leading-snug text-[#d6dbf0] hover:bg-white/5 hover:text-white" href="/?page=dashboard&tab=raid">2. Raid Shadow Legends accounts</a>
-                    <a role="menuitem" class="block min-h-11 rounded px-3 py-2.5 text-[14px] leading-snug text-[#d6dbf0] hover:bg-white/5 hover:text-white" href="/?page=dashboard&tab=epic">3. Epic Seven accounts</a>
-                    <a role="menuitem" class="block min-h-11 rounded px-3 py-2.5 text-[14px] leading-snug text-[#d6dbf0] hover:bg-white/5 hover:text-white" href="/?page=dashboard&tab=promo">4. Promo code</a>
+                    <a role="menuitem" class="block min-h-11 rounded px-3 py-2.5 text-[14px] leading-snug text-[#d6dbf0] hover:bg-white/5 hover:text-white" href="/?page=dashboard&tab=promo">3. Promo code</a>
                   </div>
                   <button id="account-logout-option" type="button" role="menuitem" class="min-h-11 w-full rounded px-3 py-2.5 text-left text-[14px] font-semibold text-[#d6dbf0] transition hover:bg-white/10 hover:text-white">
                     Logout
@@ -103,6 +135,7 @@ export function renderHeader(): string {
                   aria-haspopup="menu"
                   aria-expanded="false"
                 >
+                  ${exchangeNavIcon}
                   <span>Exchange</span>
                   <svg
                     viewBox="0 0 12 12"
@@ -135,6 +168,7 @@ export function renderHeader(): string {
                   aria-haspopup="menu"
                   aria-expanded="false"
                 >
+                  ${accountsNavIcon}
                   <span>Accounts</span>
                   <svg
                     viewBox="0 0 12 12"
@@ -157,18 +191,16 @@ export function renderHeader(): string {
                     <img src="/game-icons/raid-shadow-legends.png" alt="Raid Shadow Legends" class="h-6 w-6 rounded object-cover" />
                     <span>Raid Shadow Legends</span>
                   </a>
-                  <a role="menuitem" class="flex items-center gap-2 rounded px-2 py-2 text-[14px] text-[#d6dbf0] hover:bg-white/5 hover:text-white" href="#">
-                    <img src="/game-icons/epic-seven.png" alt="Epic Seven" class="h-6 w-6 rounded object-cover" />
-                    <span>Epic Seven</span>
-                  </a>
-                  <a role="menuitem" class="flex items-center gap-2 rounded px-2 py-2 text-[14px] text-[#d6dbf0] hover:bg-white/5 hover:text-white" href="#">
-                    <img src="/game-icons/summoners-war.png" alt="Summoners War" class="h-6 w-6 rounded object-cover" />
-                    <span>Summoners War</span>
-                  </a>
                 </div>
               </div>
-              <a class="group inline-flex shrink-0 items-center gap-1.5 whitespace-nowrap rounded-md px-2 py-2 text-[var(--header-nav-text)] transition hover:text-[var(--header-nav-hover)] active:bg-white/5 sm:min-h-0 sm:px-0 sm:py-0" href="/?page=news">Raid News</a>
-              <a class="group inline-flex shrink-0 items-center gap-1.5 whitespace-nowrap rounded-md px-2 py-2 text-[var(--header-nav-text)] transition hover:text-[var(--header-nav-hover)] active:bg-white/5 sm:min-h-0 sm:px-0 sm:py-0" href="/?page=honeygain">Idle Internet Rewards</a>
+              <a class="group inline-flex shrink-0 items-center gap-1.5 whitespace-nowrap rounded-md px-2 py-2 text-[var(--header-nav-text)] transition hover:text-[var(--header-nav-hover)] active:bg-white/5 sm:min-h-0 sm:px-0 sm:py-0" href="/?page=news">
+                ${newsNavIcon}
+                <span>Raid News</span>
+              </a>
+              <a class="group inline-flex shrink-0 items-center gap-1.5 whitespace-nowrap rounded-md px-2 py-2 text-[var(--header-nav-text)] transition hover:text-[var(--header-nav-hover)] active:bg-white/5 sm:min-h-0 sm:px-0 sm:py-0" href="/?page=honeygain">
+                ${rewardsNavIcon}
+                <span>Idle Internet Rewards</span>
+              </a>
             </nav>
 
             <div class="flex shrink-0 items-center justify-between gap-2 border-t border-[var(--header-nav-border)] pt-2 text-[13px] text-[var(--header-muted)] sm:justify-end sm:border-t-0 sm:pt-0 sm:text-sm">

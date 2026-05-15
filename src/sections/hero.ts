@@ -32,24 +32,30 @@ export function renderHero(): string {
                   ></div>
                   <div class="relative z-[1] px-4 py-8 sm:px-6 sm:py-10 lg:px-8 lg:py-11">
                     <h1 class="max-w-[20rem] text-[30px] font-extrabold leading-[1.12] text-white min-[400px]:max-w-[22rem] min-[400px]:text-[34px] sm:max-w-2xl sm:text-[36px] md:text-4xl lg:max-w-3xl lg:text-[2.65rem] xl:text-5xl">
-                      Welcome to Tanne Hub
+                      Game accounts, Raid updates, and promo codes
                     </h1>
                     <p class="mb-4 mt-2 max-w-xl text-[15px] leading-snug text-white/95 sm:max-w-2xl md:text-base lg:max-w-2xl">
-                      A fast, secure, and transparent game account marketplace for gamers.
+                      A small game hub for selected Raid accounts, useful news, fresh RSL codes, and extra ways to earn.
                     </p>
                     <div class="flex max-w-lg flex-col gap-2.5 min-[400px]:flex-row min-[400px]:flex-wrap min-[400px]:items-center sm:gap-3">
-                      <button
-                        type="button"
+                      <a
+                        href="/?page=raid-accounts"
                         class="min-h-12 w-full rounded-full bg-gray-900 px-5 py-3 text-[15px] font-semibold text-white transition hover:bg-gray-800 active:opacity-90 min-[400px]:w-auto"
                       >
-                        Shop Now
-                      </button>
+                        Browse Raid accounts
+                      </a>
+                      <a
+                        href="/?page=news"
+                        class="min-h-12 w-full rounded-full border border-[#7fe9ff]/80 bg-[#041326]/80 px-5 py-3 text-[15px] font-semibold text-[#aeefff] shadow-[0_0_0_1px_rgba(127,233,255,0.35),0_0_24px_rgba(127,233,255,0.2)] transition hover:-translate-y-0.5 hover:bg-[#0a2038]/90 hover:text-white active:opacity-90 min-[400px]:w-auto"
+                      >
+                        Read latest info
+                      </a>
                       <button
                         type="button"
                         id="read-before-explore"
-                        class="min-h-12 w-full rounded-full border border-[#7fe9ff]/80 bg-[#041326]/80 px-5 py-3 text-[15px] font-semibold text-[#aeefff] shadow-[0_0_0_1px_rgba(127,233,255,0.35),0_0_24px_rgba(127,233,255,0.2)] transition hover:-translate-y-0.5 hover:bg-[#0a2038]/90 hover:text-white active:opacity-90 min-[400px]:w-auto"
+                        class="min-h-12 w-full rounded-full border border-white/50 bg-white/12 px-5 py-3 text-[15px] font-semibold text-white shadow-[0_0_22px_rgba(255,255,255,0.1)] transition hover:-translate-y-0.5 hover:bg-white/20 active:opacity-90 min-[400px]:w-auto"
                       >
-                        Read Before Exploring
+                        Start here
                       </button>
                     </div>
                   </div>
@@ -65,7 +71,7 @@ export function renderHero(): string {
                 <div class="mb-3 flex flex-wrap items-end justify-between gap-2 sm:mb-3.5">
                   <div>
                     <h2 class="text-[13px] font-extrabold uppercase tracking-[0.12em] text-[var(--header-brand-text)]">Hot news</h2>
-                    <p class="mt-0.5 text-[11px] text-[var(--panel-muted)]">Latest from Raid &amp; the shop</p>
+                    <p class="mt-0.5 text-[11px] text-[var(--panel-muted)]">Raid updates, codes, and shop notes</p>
                   </div>
                   <a
                     href="/?page=news"

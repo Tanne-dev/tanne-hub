@@ -2,7 +2,7 @@ import { type AccountStockCard } from "../content";
 import { getSellingAccounts } from "../sellingAccountsStore";
 import { renderAccountStockGrid } from "../partials/accountStockCards";
 
-/** Kho tài khoản — lưới thẻ kiểu marketplace (ID, chỉ số, preview tướng, giá). */
+/** Account nổi bật — phần bán hàng phụ nhưng vẫn rõ ràng. */
 export function renderPopularAccounts(): string {
   const items = getSellingAccounts();
   return `
@@ -10,9 +10,9 @@ export function renderPopularAccounts(): string {
           <div class="mb-5 flex flex-col gap-3 sm:mb-6 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <h2 id="account-stock-heading" class="text-[19px] font-semibold text-[var(--panel-text)] sm:text-[20px] md:text-[22px]">
-                Raid Account Marketplace
+                Featured Raid accounts
               </h2>
-              <p class="mt-1 text-[14px] leading-snug text-[var(--panel-muted)] sm:text-[15px]">Photos + description are enough for a listing; champions are optional. ID is copyable — stock syncs from admin.</p>
+              <p class="mt-1 text-[14px] leading-snug text-[var(--panel-muted)] sm:text-[15px]">Selected accounts for players who want a faster start. Use the ID when contacting us so the right listing is easy to find.</p>
             </div>
             <a
               href="/?page=raid-accounts"
