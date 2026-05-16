@@ -12,6 +12,7 @@ import { renderSafeTrading } from "./sections/safeTrading";
 import { renderSiteFooter } from "./sections/siteFooter";
 import { renderLegitCheck } from "./sections/legitCheck";
 import { renderMemberAlerts } from "./sections/memberAlerts";
+import { renderTrustpilotReviews } from "./sections/trustpilotReviews";
 import { HONEYGAIN_REFERRAL_URL } from "./referralLinks";
 
 /**
@@ -43,6 +44,7 @@ export function renderLanding(root: HTMLElement): void {
             ${renderPopularAccounts()}
             ${renderSafeTrading()}
             ${renderLegitCheck()}
+            ${renderTrustpilotReviews()}
             ${renderPromos()}
           </div>
         </main>
@@ -103,6 +105,129 @@ export function renderRaidAccountsPage(root: HTMLElement): void {
             <div id="account-stock-grid" class="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 lg:gap-6">
               ${stockHtml}
             </div>
+          </section>
+        </main>
+        ${renderSiteFooter()}
+      </div>
+    </div>
+  `;
+}
+
+export function renderExchangePage(root: HTMLElement): void {
+  root.innerHTML = `
+    <div class="relative min-h-screen w-full bg-[var(--page-bg)]">
+      <div id="site-bg-base" class="pointer-events-none absolute inset-0 -z-10 bg-cover bg-center opacity-20"></div>
+      <div id="site-bg-slide" class="pointer-events-none absolute inset-0 -z-10 bg-cover bg-center opacity-20 hidden"></div>
+
+      <div class="relative z-0">
+        ${renderHeader()}
+        <main class="${pageInner} space-y-5 py-6 sm:space-y-8 sm:py-8">
+          <a
+            href="/"
+            class="inline-flex min-h-11 items-center rounded-lg border border-[#7fe9ff]/45 px-4 py-2.5 text-[15px] font-semibold text-[#7fe9ff] transition hover:bg-[#7fe9ff]/10 active:opacity-90 sm:min-h-0 sm:px-3 sm:py-2 sm:text-[14px]"
+          >
+            ← Home
+          </a>
+
+          <section class="overflow-hidden rounded-[14px] border border-[var(--admin-border)] bg-[var(--panel-bg)] text-[var(--panel-text)] shadow-[0_4px_14px_rgba(31,36,51,0.06)]">
+            <div class="grid gap-0 lg:grid-cols-[1fr_0.92fr]">
+              <div class="p-5 sm:p-7 lg:p-9">
+                <p class="inline-flex rounded-full border border-[#7fe9ff]/45 bg-[#7fe9ff]/10 px-3 py-1 text-[11px] font-extrabold uppercase tracking-[0.14em] text-[var(--header-accent)]">
+                  Exchange service
+                </p>
+                <h1 class="mt-4 max-w-3xl text-[30px] font-extrabold leading-[1.08] tracking-tight sm:text-[42px]">
+                  Choose what you send, see what you receive
+                </h1>
+                <p class="mt-4 max-w-2xl text-[16px] leading-relaxed text-[var(--panel-muted)]">
+                  Exchange between PayPal, crypto, Wise, or bank transfer with clear rates before any transaction starts.
+                </p>
+                <div class="mt-5 grid gap-3">
+                  <div class="grid gap-2 sm:grid-cols-3">
+                    <div class="rounded-lg border border-[var(--admin-border)] bg-[var(--admin-card-bg)] px-3 py-3">
+                      <p class="text-sm font-extrabold">1. Pick service</p>
+                      <p class="mt-1 text-xs leading-snug text-[var(--panel-muted)]">Choose PayPal, crypto, Wise, or bank transfer.</p>
+                    </div>
+                    <div class="rounded-lg border border-[var(--admin-border)] bg-[var(--admin-card-bg)] px-3 py-3">
+                      <p class="text-sm font-extrabold">2. Check estimate</p>
+                      <p class="mt-1 text-xs leading-snug text-[var(--panel-muted)]">Fixed-rate services show the receive range instantly.</p>
+                    </div>
+                    <div class="rounded-lg border border-[var(--admin-border)] bg-[var(--admin-card-bg)] px-3 py-3">
+                      <p class="text-sm font-extrabold">3. Confirm first</p>
+                      <p class="mt-1 text-xs leading-snug text-[var(--panel-muted)]">Final rate and method are agreed before sending.</p>
+                    </div>
+                  </div>
+                  <div class="rounded-lg border border-[#f6c44c]/35 bg-[#f6c44c]/10 px-3 py-2 text-sm text-[var(--panel-muted)]">
+                    Crypto transfers are handled through Binance only. Proof of funds is available on request.
+                  </div>
+                </div>
+              </div>
+
+              <div id="exchange-calculator" class="border-t border-[var(--admin-border)] bg-[linear-gradient(145deg,rgba(127,233,255,0.16),rgba(246,196,76,0.12))] p-5 sm:p-7 lg:border-l lg:border-t-0 lg:p-8">
+                <h2 class="text-xl font-extrabold">Exchange calculator</h2>
+                <p class="mt-1 text-sm text-[var(--panel-muted)]">Select the service and enter the amount you want to send.</p>
+                <div class="mt-4 grid gap-3">
+                  <label class="grid gap-1.5 text-sm font-bold">
+                    I want to do this
+                    <select id="exchange-service" class="admin-dash-input rounded-md border border-[var(--admin-input-border)] bg-[var(--admin-input-bg)] px-3 py-2.5 text-sm text-[var(--admin-input-text)] outline-none focus:border-[var(--admin-accent)]">
+                      <option value="crypto_paypal">I send crypto → receive PayPal</option>
+                      <option value="paypal_crypto">I send PayPal → receive crypto</option>
+                      <option value="paypal_wise">I send PayPal → receive Wise</option>
+                      <option value="bank_transfer">I send Crypto / PayPal / Wise → receive bank transfer</option>
+                    </select>
+                  </label>
+                  <div class="grid gap-3 sm:grid-cols-[1fr_120px]">
+                    <label class="grid gap-1.5 text-sm font-bold">
+                      You send
+                      <input id="exchange-amount" type="number" min="1" step="0.01" value="100" class="admin-dash-input rounded-md border border-[var(--admin-input-border)] bg-[var(--admin-input-bg)] px-3 py-2.5 text-sm text-[var(--admin-input-text)] outline-none focus:border-[var(--admin-accent)]" />
+                    </label>
+                    <label class="grid gap-1.5 text-sm font-bold">
+                      Currency
+                      <select id="exchange-currency" class="admin-dash-input rounded-md border border-[var(--admin-input-border)] bg-[var(--admin-input-bg)] px-3 py-2.5 text-sm text-[var(--admin-input-text)] outline-none focus:border-[var(--admin-accent)]">
+                        <option value="USD">USD</option>
+                        <option value="EUR">EUR</option>
+                        <option value="GBP">GBP</option>
+                        <option value="SEK">SEK</option>
+                      </select>
+                    </label>
+                  </div>
+                  <div class="rounded-xl border border-[#7fe9ff]/35 bg-[#07192d]/85 p-4 text-white">
+                    <p class="text-[11px] font-extrabold uppercase tracking-[0.14em] text-[#7fe9ff]">You should receive around</p>
+                    <p id="exchange-estimate-result" class="mt-1 text-[28px] font-extrabold leading-tight">$95.00 – $96.00</p>
+                    <p id="exchange-estimate-detail" class="mt-2 text-[13px] leading-relaxed text-[#dbeafe]"></p>
+                  </div>
+                  <p class="text-[11px] leading-snug text-[var(--panel-muted)]">Estimate only. Do not send funds before the final rate and payment details are confirmed.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="rounded-[14px] border border-[var(--admin-border)] bg-[var(--panel-bg)] p-4 text-[var(--panel-text)] shadow-[0_4px_14px_rgba(31,36,51,0.06)] md:p-5">
+            <h2 class="text-xl font-extrabold">Available exchange types</h2>
+            <div class="mt-3 grid gap-2">
+              <div class="grid grid-cols-[1fr_auto] gap-3 rounded-lg border border-[var(--admin-border)] px-3 py-2.5 text-sm">
+                <span>Crypto via Binance → PayPal</span>
+                <strong class="text-[var(--header-accent)]">0.95–0.96</strong>
+              </div>
+              <div class="grid grid-cols-[1fr_auto] gap-3 rounded-lg border border-[var(--admin-border)] px-3 py-2.5 text-sm">
+                <span>PayPal → crypto via Binance</span>
+                <strong class="text-[var(--header-accent)]">0.95–0.96</strong>
+              </div>
+              <div class="grid grid-cols-[1fr_auto] gap-3 rounded-lg border border-[var(--admin-border)] px-3 py-2.5 text-sm">
+                <span>PayPal → Wise</span>
+                <strong class="text-[var(--header-accent)]">0.95–0.96</strong>
+              </div>
+              <div class="grid grid-cols-[1fr_auto] gap-3 rounded-lg border border-[var(--admin-border)] px-3 py-2.5 text-sm">
+                <span>Crypto / PayPal / Wise → bank account</span>
+                <strong class="text-[var(--header-accent)]">Quote</strong>
+              </div>
+            </div>
+          </section>
+
+          <section class="rounded-[14px] border border-[#7fe9ff]/30 bg-[#7fe9ff]/10 p-5 text-[var(--panel-text)] sm:p-6">
+            <h2 class="text-2xl font-extrabold">Ready to exchange?</h2>
+            <p class="mt-1 max-w-3xl text-sm leading-relaxed text-[var(--panel-muted)]">
+              Contact me with your amount, currency, what you send, and what you want to receive. For bank transfer, also include the destination country.
+            </p>
           </section>
         </main>
         ${renderSiteFooter()}
@@ -431,12 +556,24 @@ export function renderAdminDashboardPage(root: HTMLElement): void {
                       </div>
                     </div>
                     <p id="admin-post-feedback" class="hidden rounded-md px-3 py-2 text-xs"></p>
-                    <div class="flex justify-end">
+                    <div class="flex flex-wrap justify-end gap-2">
+                      <button id="admin-post-save-draft" type="button" class="rounded-md border border-[var(--admin-input-border)] bg-transparent px-4 py-2 text-sm font-bold text-[var(--admin-btn-ghost-text)] transition hover:bg-[var(--admin-tab-idle-hover)]">
+                        Save draft
+                      </button>
                       <button type="submit" class="rounded-md bg-[var(--admin-accent)] px-4 py-2 text-sm font-bold text-[var(--admin-submit-text)] transition hover:brightness-110">
                         Publish post
                       </button>
                     </div>
                   </form>
+	                  <div class="mt-6 border-t border-[var(--admin-border)] pt-4">
+	                    <div class="flex flex-wrap items-end justify-between gap-2">
+	                      <div>
+	                        <h3 class="text-sm font-semibold text-[var(--admin-accent-muted)]">Draft news</h3>
+	                        <p class="mt-0.5 text-[11px] text-[var(--admin-subtle)]">Saved drafts stay private here until you publish them.</p>
+	                      </div>
+	                    </div>
+	                    <div id="admin-post-drafts-list" class="mt-2.5 space-y-2"></div>
+	                  </div>
 	                  <div class="mt-6 border-t border-[var(--admin-border)] pt-4">
 	                    <h3 class="text-sm font-semibold text-[var(--admin-accent-muted)]">Recent posts</h3>
 	                    <div id="admin-posts-list" class="mt-2.5 space-y-2"></div>

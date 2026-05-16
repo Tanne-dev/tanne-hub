@@ -224,9 +224,22 @@ export function initLogin(): void {
     );
   };
 
+  const setPromoHiddenBehindAccountMenu = (hidden: boolean) => {
+    const promoWrap = document.querySelector<HTMLElement>("#navbar-promo-code");
+    const promoPanel = document.querySelector<HTMLElement>("#navbar-promo-scroll");
+    const promoButton = document.querySelector<HTMLButtonElement>("#navbar-promo-code-button");
+    if (!promoWrap) return;
+    promoWrap.classList.toggle("pointer-events-none", hidden);
+    promoWrap.classList.toggle("opacity-0", hidden);
+    promoWrap.classList.toggle("promo-scroll-open", false);
+    promoButton?.setAttribute("aria-expanded", "false");
+    promoPanel?.setAttribute("aria-hidden", "true");
+  };
+
   const hideAccountMenu = () => {
     accountMenu.classList.add("hidden");
     accountCaret.classList.remove("-rotate-180");
+    setPromoHiddenBehindAccountMenu(false);
   };
 
   const hideModal = () => {
@@ -254,6 +267,7 @@ export function initLogin(): void {
       const willOpen = accountMenu.classList.contains("hidden");
       accountMenu.classList.toggle("hidden", !willOpen);
       accountCaret.classList.toggle("-rotate-180", willOpen);
+      setPromoHiddenBehindAccountMenu(willOpen);
       return;
     }
     hideAccountMenu();

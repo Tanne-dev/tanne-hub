@@ -78,7 +78,7 @@ export function renderHeader(): string {
                 </button>
                 <div
                   id="account-options-menu"
-                  class="absolute right-0 top-full z-40 mt-2 hidden w-[min(100vw-2rem,300px)] min-w-[248px] rounded-md border border-white/15 bg-[#0d2740] p-1.5 shadow-[0_10px_28px_rgba(0,0,0,0.45)]"
+                  class="absolute right-0 top-full z-[80] mt-2 hidden w-[min(100vw-2rem,300px)] min-w-[248px] rounded-md border border-white/15 bg-[#0d2740] p-1.5 shadow-[0_10px_28px_rgba(0,0,0,0.45)]"
                   role="menu"
                 >
                   <div id="account-menu-identity" class="hidden border-b border-white/10 px-2.5 pb-2.5 pt-1 mb-1.5" role="presentation">
@@ -128,39 +128,10 @@ export function renderHeader(): string {
           <!-- Nav bar: cuộn ngang trên mobile -->
           <div class="flex flex-col gap-2 border-t border-[var(--header-nav-border)] py-2 sm:flex-row sm:items-center sm:justify-between sm:gap-5 sm:py-3">
             <nav class="site-header-nav -mx-0.5 flex min-w-0 flex-1 items-center gap-1 overflow-x-auto overscroll-x-contain px-0.5 pb-1 text-[15px] [-ms-overflow-style:none] [scrollbar-width:none] sm:flex-none sm:min-w-0 sm:gap-6 sm:overflow-visible sm:pb-0 sm:text-base [&::-webkit-scrollbar]:hidden">
-              <div class="relative shrink-0 group">
-                <button
-                  type="button"
-                  class="inline-flex min-h-11 items-center gap-1 whitespace-nowrap rounded-md px-2 py-2 text-[var(--header-nav-text)] transition hover:text-[var(--header-nav-hover)] active:bg-white/5 sm:min-h-0 sm:px-0"
-                  aria-haspopup="menu"
-                  aria-expanded="false"
-                >
-                  ${exchangeNavIcon}
-                  <span>Exchange</span>
-                  <svg
-                    viewBox="0 0 12 12"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.6"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="h-3 w-3 opacity-80 transition-transform duration-200 group-hover:-rotate-180 group-focus-within:-rotate-180"
-                    aria-hidden="true"
-                  >
-                    <path d="M2.5 4.5L6 8l3.5-3.5"></path>
-                  </svg>
-                </button>
-                <div
-                  role="menu"
-                  class="absolute left-0 top-full z-20 mt-0 hidden w-[200px] rounded-md border border-white/10 bg-[#0d2740] px-1.5 py-2 shadow-[0_8px_24px_rgba(0,0,0,0.35)] group-hover:block group-focus-within:block"
-                >
-                  <a role="menuitem" class="block rounded px-2 py-2 text-[14px] text-[#d6dbf0] hover:bg-white/5 hover:text-white" href="#">PayPal</a>
-                  <a role="menuitem" class="block rounded px-2 py-2 text-[14px] text-[#d6dbf0] hover:bg-white/5 hover:text-white" href="#">Wise</a>
-                  <a role="menuitem" class="block rounded px-2 py-2 text-[14px] text-[#d6dbf0] hover:bg-white/5 hover:text-white" href="#">Binance</a>
-                  <a role="menuitem" class="block rounded px-2 py-2 text-[14px] text-[#d6dbf0] hover:bg-white/5 hover:text-white" href="#">Revolut</a>
-                  <a role="menuitem" class="block rounded px-2 py-2 text-[14px] text-[#d6dbf0] hover:bg-white/5 hover:text-white" href="#">Your bank</a>
-                </div>
-              </div>
+              <a class="group inline-flex shrink-0 items-center gap-1.5 whitespace-nowrap rounded-md px-2 py-2 text-[var(--header-nav-text)] transition hover:text-[var(--header-nav-hover)] active:bg-white/5 sm:min-h-0 sm:px-0 sm:py-0" href="/?page=exchange">
+                ${exchangeNavIcon}
+                <span>Exchange</span>
+              </a>
               <div class="relative shrink-0 group">
                 <button
                   type="button"

@@ -24,6 +24,13 @@ import {
   updatePostRemote,
 } from "./postsStore";
 import {
+  deletePostDraft,
+  getPostDrafts,
+  seedPostDraftOnce,
+  upsertPostDraft,
+} from "./postDraftsStore";
+import { raidNewsDraftSeeds } from "./raidNewsDraftSeeds";
+import {
   getPromoCodeSettings,
   savePromoCodeSettingsRemote,
   syncPromoCodeSettingsFromRemote,
@@ -265,12 +272,14 @@ export function initAdminDashboardPage(): void {
   const adminPostForm = document.querySelector<HTMLFormElement>("#admin-post-create-form");
   const adminPostFeedback = document.querySelector<HTMLElement>("#admin-post-feedback");
   const adminPostsList = document.querySelector<HTMLElement>("#admin-posts-list");
+  const adminPostDraftsList = document.querySelector<HTMLElement>("#admin-post-drafts-list");
   const postTitleInput = document.querySelector<HTMLInputElement>("#admin-post-title");
   const postCaptionInput = document.querySelector<HTMLInputElement>("#admin-post-caption");
   const postBodyBlocksContainer = document.querySelector<HTMLElement>("#admin-post-body-blocks");
   const postLivePreview = document.querySelector<HTMLElement>("#admin-post-live-preview");
   const postAddTextBtn = document.querySelector<HTMLButtonElement>("#admin-post-add-text");
   const postAddImageBtn = document.querySelector<HTMLButtonElement>("#admin-post-add-image");
+  const postSaveDraftBtn = document.querySelector<HTMLButtonElement>("#admin-post-save-draft");
   const postUseRaidTemplateBtn = document.querySelector<HTMLButtonElement>(
     "#admin-post-use-raid-template",
   );
@@ -314,12 +323,14 @@ export function initAdminDashboardPage(): void {
     !adminPostForm ||
     !adminPostFeedback ||
     !adminPostsList ||
+    !adminPostDraftsList ||
     !postTitleInput ||
     !postCaptionInput ||
     !postBodyBlocksContainer ||
     !postLivePreview ||
     !postAddTextBtn ||
     !postAddImageBtn ||
+    !postSaveDraftBtn ||
     !postUseRaidTemplateBtn ||
     !promoCodeForm ||
     !promoActiveInput ||
@@ -360,6 +371,10 @@ export function initAdminDashboardPage(): void {
       });
       setActiveTab(tabFromUrl());
       renderAdminPostsList();
+      for (const draftSeed of raidNewsDraftSeeds) {
+        seedPostDraftOnce(draftSeed);
+      }
+      renderAdminDraftsList();
       resetPostComposer();
       void syncPromoCodeSettingsFromRemote().then(() => {
         refreshPromoAdminUi();
@@ -1233,17 +1248,25 @@ export function initAdminDashboardPage(): void {
   });
 
   let editingPostId: string | null = null;
+  let editingDraftId: string | null = null;
   const postSubmitBtn = adminPostForm.querySelector<HTMLButtonElement>('button[type="submit"]');
+
+  const setPostComposerMode = (mode: "new" | "post" | "draft") => {
+    if (postSubmitBtn) {
+      postSubmitBtn.textContent =
+        mode === "post" ? "Update post" : mode === "draft" ? "Publish draft" : "Publish post";
+    }
+    postSaveDraftBtn.textContent = mode === "draft" ? "Update draft" : "Save draft";
+  };
 
   const resetPostComposer = () => {
     editingPostId = null;
+    editingDraftId = null;
     adminPostForm.reset();
     mountPostBodyBlocks(postBodyBlocksContainer, createRaidNewsTemplateBlocks());
     hydrateTextToolbarColorDefaults();
     renderLivePreview();
-    if (postSubmitBtn) {
-      postSubmitBtn.textContent = "Publish post";
-    }
+    setPostComposerMode("new");
   };
 
   const renderAdminPostsList = () => {
@@ -1273,6 +1296,56 @@ export function initAdminDashboardPage(): void {
       )
       .join("");
   };
+
+  const renderAdminDraftsList = () => {
+    const drafts = getPostDrafts();
+    if (drafts.length === 0) {
+      adminPostDraftsList.innerHTML =
+        '<p class="rounded-md border border-[var(--admin-border)] bg-[var(--admin-card-bg)] px-3 py-2 text-xs text-[var(--admin-subtle)]">No saved drafts yet. Write a post and click Save draft.</p>';
+      return;
+    }
+
+    adminPostDraftsList.innerHTML = drafts
+      .slice(0, 12)
+      .map(
+        (draft) => `
+        <article class="rounded-md border border-[var(--admin-border)] bg-[var(--admin-card-bg)] p-2.5">
+          <div class="flex items-start justify-between gap-2">
+            <div class="min-w-0">
+              <p class="truncate text-sm font-semibold text-[var(--admin-heading)]">${escapeHtml(draft.title || "Untitled draft")}</p>
+              <p class="text-[11px] text-[var(--admin-muted)]">Updated ${new Date(draft.updatedAt).toLocaleString()}</p>
+            </div>
+            <div class="flex shrink-0 items-center gap-1.5">
+              <button data-admin-post-draft-edit-id="${draft.id}" type="button" class="rounded border border-[var(--admin-tab-active-border)] px-2 py-1 text-[11px] font-semibold text-[var(--admin-accent-muted)] hover:bg-[var(--admin-tab-active-bg)]">Edit</button>
+              <button data-admin-post-draft-delete-id="${draft.id}" type="button" class="rounded border border-[var(--admin-danger-border)] px-2 py-1 text-[11px] font-semibold text-[var(--admin-danger-text)] hover:bg-red-500/10">Delete</button>
+            </div>
+          </div>
+        </article>`,
+      )
+      .join("");
+  };
+
+  postSaveDraftBtn.addEventListener("click", () => {
+    const session = readSession();
+    if (!session || session.role !== "admin") {
+      setPostFeedback("Admin permission required.", "error");
+      return;
+    }
+
+    const title = postTitleInput.value.trim() || "Untitled Raid news draft";
+    const caption = postCaptionInput.value.trim();
+    const draft = upsertPostDraft({
+      id: editingDraftId ?? undefined,
+      title,
+      caption: caption || undefined,
+      blocks: gatherDraftBlocksForPreview(),
+    });
+    editingPostId = null;
+    editingDraftId = draft.id;
+    renderAdminDraftsList();
+    setPostComposerMode("draft");
+    setPostFeedback("Draft saved. You can edit it here and publish when ready.", "success");
+  });
 
   adminPostForm.addEventListener("submit", async (event) => {
     event.preventDefault();
@@ -1362,6 +1435,11 @@ export function initAdminDashboardPage(): void {
       posts.unshift(newPost);
       savePosts(posts);
     }
+    if (editingDraftId) {
+      deletePostDraft(editingDraftId);
+      editingDraftId = null;
+      renderAdminDraftsList();
+    }
     await syncPostsFromRemote();
     window.dispatchEvent(new CustomEvent("tanne-posts-updated"));
 
@@ -1384,14 +1462,13 @@ export function initAdminDashboardPage(): void {
         return;
       }
       editingPostId = post.id;
+      editingDraftId = null;
       postTitleInput.value = post.title;
       postCaptionInput.value = post.caption ?? "";
       mountPostBodyBlocks(postBodyBlocksContainer, postToInitialBlocks(post));
       hydrateTextToolbarColorDefaults();
       renderLivePreview();
-      if (postSubmitBtn) {
-        postSubmitBtn.textContent = "Update post";
-      }
+      setPostComposerMode("post");
       setPostFeedback("Editing this post.", "warn");
       setActiveTab("posts");
       return;
@@ -1413,6 +1490,47 @@ export function initAdminDashboardPage(): void {
     }
     renderAdminPostsList();
     setPostFeedback("Post deleted.", "success");
+  });
+
+  adminPostDraftsList.addEventListener("click", (event) => {
+    const target = event.target as HTMLElement;
+    const editBtn = target.closest<HTMLElement>("[data-admin-post-draft-edit-id]");
+    const deleteBtn = target.closest<HTMLElement>("[data-admin-post-draft-delete-id]");
+
+    if (editBtn) {
+      const draftId = editBtn.getAttribute("data-admin-post-draft-edit-id");
+      if (!draftId) return;
+      const draft = getPostDrafts().find((item) => item.id === draftId);
+      if (!draft) {
+        setPostFeedback("Draft not found.", "error");
+        renderAdminDraftsList();
+        return;
+      }
+      editingPostId = null;
+      editingDraftId = draft.id;
+      postTitleInput.value = draft.title;
+      postCaptionInput.value = draft.caption ?? "";
+      mountPostBodyBlocks(postBodyBlocksContainer, draft.blocks);
+      hydrateTextToolbarColorDefaults();
+      renderLivePreview();
+      setPostComposerMode("draft");
+      setPostFeedback("Draft loaded. Edit it, save again, or publish it.", "warn");
+      setActiveTab("posts");
+      return;
+    }
+
+    if (!deleteBtn) return;
+    const draftId = deleteBtn.getAttribute("data-admin-post-draft-delete-id");
+    if (!draftId) return;
+    const draft = getPostDrafts().find((item) => item.id === draftId);
+    const ok = window.confirm(`Delete draft "${draft?.title || "Untitled draft"}"?`);
+    if (!ok) return;
+    deletePostDraft(draftId);
+    if (editingDraftId === draftId) {
+      resetPostComposer();
+    }
+    renderAdminDraftsList();
+    setPostFeedback("Draft deleted.", "success");
   });
 
   setVisibility();
