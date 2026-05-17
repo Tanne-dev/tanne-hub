@@ -82,14 +82,31 @@ function setPageBgVar(theme: Theme): void {
   const isDark = theme === "dark";
 
   document.documentElement.style.setProperty(
+    "--accent-cyan",
+    isDark ? "#7fe9ff" : "#0e7490",
+  );
+  document.documentElement.style.setProperty(
+    "--accent-gold",
+    isDark ? "#f6c44c" : "#b7791f",
+  );
+  document.documentElement.style.setProperty(
+    "--accent-gold-strong",
+    isDark ? "#ffd36a" : "#92400e",
+  );
+  document.documentElement.style.setProperty(
+    "--accent-green",
+    isDark ? "#31d58a" : "#15803d",
+  );
+
+  document.documentElement.style.setProperty(
     "--page-bg",
-    isDark ? "#0b1020" : "#f4f6fb",
+    isDark ? "#07111f" : "#f5f7fb",
   );
 
   // Panels / cards
   document.documentElement.style.setProperty(
     "--panel-bg",
-    isDark ? "#0d2740" : "#ffffff",
+    isDark ? "#102238" : "#ffffff",
   );
   document.documentElement.style.setProperty(
     "--panel-text",
@@ -97,11 +114,11 @@ function setPageBgVar(theme: Theme): void {
   );
   document.documentElement.style.setProperty(
     "--panel-muted",
-    isDark ? "#98a0be" : "#727b8c",
+    isDark ? "#a8b5c8" : "#667085",
   );
   document.documentElement.style.setProperty(
     "--news-card-bg",
-    isDark ? "#09182a" : "#ffffff",
+    isDark ? "#0b1a2c" : "#ffffff",
   );
   document.documentElement.style.setProperty(
     "--news-card-text",
@@ -119,11 +136,11 @@ function setPageBgVar(theme: Theme): void {
   // Promo cards
   document.documentElement.style.setProperty(
     "--promo1-bg",
-    isDark ? "#1f2747" : "#f3deb3",
+    isDark ? "#2a2416" : "#fff0c2",
   );
   document.documentElement.style.setProperty(
     "--promo2-bg",
-    isDark ? "#172241" : "#d6f299",
+    isDark ? "#13291f" : "#dcfce7",
   );
 
   // Icon tiles inside Popular grids
@@ -134,11 +151,11 @@ function setPageBgVar(theme: Theme): void {
 
   document.documentElement.style.setProperty(
     "--header-bg-start",
-    isDark ? "#05182f" : "#ffffff",
+    isDark ? "#071626" : "#ffffff",
   );
   document.documentElement.style.setProperty(
     "--header-bg-end",
-    isDark ? "#0b1020" : "#e8edf4",
+    isDark ? "#111827" : "#eef3f8",
   );
   document.documentElement.style.setProperty(
     "--header-search-border",
@@ -162,7 +179,7 @@ function setPageBgVar(theme: Theme): void {
   );
   document.documentElement.style.setProperty(
     "--header-brand-text",
-    isDark ? "#7fe9ff" : "#0f766e",
+    isDark ? "#ffd36a" : "#0f766e",
   );
   document.documentElement.style.setProperty(
     "--header-accent",
@@ -186,11 +203,11 @@ function setPageBgVar(theme: Theme): void {
   );
   document.documentElement.style.setProperty(
     "--header-login-border",
-    isDark ? "#ffcc33" : "#ca8a04",
+    isDark ? "#f6c44c" : "#b7791f",
   );
   document.documentElement.style.setProperty(
     "--header-login-text",
-    isDark ? "#ffcc33" : "#a16207",
+    isDark ? "#ffd36a" : "#92400e",
   );
   document.documentElement.style.setProperty(
     "--header-accent-hover-bg",
@@ -198,7 +215,7 @@ function setPageBgVar(theme: Theme): void {
   );
   document.documentElement.style.setProperty(
     "--header-login-hover-bg",
-    isDark ? "rgba(255,204,51,0.12)" : "rgba(202,138,4,0.14)",
+    isDark ? "rgba(246,196,76,0.16)" : "rgba(183,121,31,0.14)",
   );
 
   document.documentElement.dataset.tanneTheme = isDark ? "dark" : "light";
@@ -222,15 +239,15 @@ function setPageBgVar(theme: Theme): void {
   );
   document.documentElement.style.setProperty(
     "--admin-inner-bg",
-    isDark ? "rgba(0,0,0,0.2)" : "rgba(241,245,249,0.92)",
+    isDark ? "rgba(6,15,27,0.74)" : "rgba(241,245,249,0.92)",
   );
   document.documentElement.style.setProperty(
     "--admin-card-bg",
-    isDark ? "rgba(0,0,0,0.22)" : "#f1f5f9",
+    isDark ? "rgba(9,24,42,0.88)" : "#f1f5f9",
   );
   document.documentElement.style.setProperty(
     "--admin-input-bg",
-    isDark ? "#0b1f35" : "#ffffff",
+    isDark ? "#0a1a2b" : "#ffffff",
   );
   document.documentElement.style.setProperty(
     "--admin-input-border",
@@ -246,19 +263,19 @@ function setPageBgVar(theme: Theme): void {
   );
   document.documentElement.style.setProperty(
     "--admin-accent",
-    isDark ? "#7fe9ff" : "#0e7490",
+    isDark ? "#f6c44c" : "#b7791f",
   );
   document.documentElement.style.setProperty(
     "--admin-accent-muted",
-    isDark ? "#aeefff" : "#0f766e",
+    isDark ? "#ffd36a" : "#92400e",
   );
   document.documentElement.style.setProperty(
     "--admin-tab-active-bg",
-    isDark ? "rgba(127,233,255,0.12)" : "rgba(14,116,144,0.14)",
+    isDark ? "rgba(246,196,76,0.14)" : "rgba(183,121,31,0.12)",
   );
   document.documentElement.style.setProperty(
     "--admin-tab-active-border",
-    isDark ? "rgba(127,233,255,0.45)" : "rgba(14,116,144,0.45)",
+    isDark ? "rgba(246,196,76,0.48)" : "rgba(183,121,31,0.38)",
   );
   document.documentElement.style.setProperty(
     "--admin-tab-idle-border",
@@ -278,7 +295,7 @@ function setPageBgVar(theme: Theme): void {
   );
   document.documentElement.style.setProperty(
     "--admin-submit-text",
-    isDark ? "#0d2740" : "#ffffff",
+    isDark ? "#151002" : "#ffffff",
   );
   document.documentElement.style.setProperty(
     "--admin-feedback-ok-bg",

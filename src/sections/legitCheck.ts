@@ -28,7 +28,7 @@ function renderReviewCard(review: LegitReview): string {
 
 export function renderLegitCheck(): string {
   const reviews = getLegitReviews();
-  const visibleReviews = reviews.slice(0, 3);
+  const rollingReviews = reviews.length > 0 ? [...reviews, ...reviews] : [];
   return `
     <section id="legit-check-section" class="theme-smooth rounded-[14px] border border-[var(--admin-border)] bg-[var(--panel-bg)] p-4 text-[var(--panel-text)] shadow-[0_4px_14px_rgba(31,36,51,0.06)] md:p-5" aria-labelledby="legit-check-heading">
       <div class="grid gap-4 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
@@ -44,8 +44,14 @@ export function renderLegitCheck(): string {
         </div>
 
         <div class="grid gap-3">
-          <div id="legit-review-list" class="grid gap-2 sm:grid-cols-3">
-            ${visibleReviews.map(renderReviewCard).join("")}
+          <div class="overflow-hidden rounded-xl border border-[var(--admin-border)] bg-[var(--admin-card-bg)] p-2">
+            <div class="mb-2 flex items-center justify-between gap-2 px-1">
+              <p class="text-xs font-extrabold uppercase tracking-[0.12em] text-[var(--header-accent)]">Live feedback roll</p>
+              <p class="text-[11px] font-semibold text-[var(--panel-muted)]">All ${reviews.length} reviews</p>
+            </div>
+            <div id="legit-review-list" class="legit-review-marquee flex gap-2" aria-label="Buyer feedback carousel">
+              ${rollingReviews.map(renderReviewCard).join("")}
+            </div>
           </div>
 
           <details class="rounded-xl border border-[var(--admin-border)] bg-[var(--admin-card-bg)] p-3">

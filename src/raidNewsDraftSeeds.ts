@@ -170,4 +170,123 @@ export const sabraelGuideDraftMay162026: {
   ],
 };
 
-export const raidNewsDraftSeeds = [raidNewsDraftMay162026, sabraelGuideDraftMay162026];
+export const raidProgressionGuideDraftMay172026: {
+  id: string;
+  title: string;
+  caption: string;
+  blocks: PostBodyBlock[];
+} = {
+  id: "raid-guide-2026-05-17-progression-stages",
+  title: "Raid progression guide: Early, Mid, Late, and End Game explained",
+  caption:
+    "A practical way to understand where an account sits in Raid Shadow Legends progression without treating milestones as strict rules.",
+  blocks: [
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Quick summary**[/color]",
+        "- Raid progression is not only about account level or one big milestone. It is better understood by the content an account can farm, clear, or seriously work toward.",
+        "- Early, Mid, Late, and End Game are flexible labels. New content can shift the meaning over time, and every account has different strengths.",
+        "- This guide is a practical map for judging account progress, especially when buying, selling, or comparing Raid accounts.",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Important note before judging an account**[/color]",
+        "Do not treat these stages as a strict checklist. A player does not need to finish every single item in one tier before moving into the next. Some accounts are Arena-focused, some are Clan Boss-focused, some are built for Hydra, and some players simply ignore content they do not enjoy.",
+        "A better question is: what type of content is this account currently clearing, farming, or actively building toward?",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Early Game**[/color]",
+        "Early Game accounts are still building the foundation: campaign farming, basic gear, masteries, potions, and the first reliable Clan Boss teams. At this stage, the account usually needs more 6-star champions, better speed tuning, and stronger gear depth.",
+        "- Campaign progress, except the final Nightmare campaign stage.",
+        "- Gear dungeons from stage 0-19.",
+        "- Potion dungeons and Minotaur farming.",
+        "- Demon Lord Clan Boss from Easy to Nightmare.",
+        "- Easy or Normal Chimera.",
+        "- Doom Tower Normal.",
+        "- Classic Arena up to Gold V, excluding Platinum.",
+        "- The first two Arbiter mission groups.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Mid Game**[/color]",
+        "Mid Game begins when the account can handle more specialized progression. This is where players start pushing harder dungeons, Faction Wars, better Clan Boss rewards, Hydra, Doom Tower Hard, and the first serious mission chains.",
+        "- Final stage of Nightmare Campaign.",
+        "- Faction Wars progression.",
+        "- Gear dungeons stage 20-25 and roughly Hard 1-5.",
+        "- Sand Devil and Phantom Shogun stage 0-19.",
+        "- Level 20 Event Dungeons.",
+        "- Ultra-Nightmare Demon Lord Clan Boss.",
+        "- Normal and Hard Hydra.",
+        "- Hard or Brutal Chimera.",
+        "- Doom Tower Hard.",
+        "- Sintranos Normal, including Amius.",
+        "- Iron Twins stage 0-14.",
+        "- Bronze Tag Team Arena and Bronze Live Arena.",
+        "- Last two Arbiter mission groups.",
+        "- First Marius mission group.",
+        "- Fusion events become realistic targets.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Late Game**[/color]",
+        "Late Game accounts are no longer just clearing content. They are refining teams, pushing harder versions of endgame modes, and building enough roster depth to answer specific mechanics. Gear quality matters a lot more here.",
+        "- Brutal and Nightmare Hydra.",
+        "- Nightmare Chimera.",
+        "- Hard dungeons stage 10.",
+        "- Iron Twins stage 15.",
+        "- Sand Devil and Phantom Shogun stage 25.",
+        "- Level 30 Event Dungeons.",
+        "- Sintranos Hard, including Amius, but not necessarily Soulcross.",
+        "- Silver Tag Team Arena.",
+        "- Silver Live Arena and Gold I Live Arena.",
+        "- Second half of Marius missions and all Ramantu missions.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**End Game**[/color]",
+        "End Game is where the account is no longer asking, 'Can I clear it?' The question becomes, 'How fast, how consistently, and how high can I push?' This tier is about speed farming, damage optimization, high Arena placement, and the hardest versions of PvE content.",
+        "- Speed farming the highest stages of PvE content.",
+        "- Pushing Hydra damage into billions of Hydra Clash points.",
+        "- Ultra-Nightmare Chimera.",
+        "- Sintranos Soulcross.",
+        "- Platinum Classic Arena for the small number of accounts capable of competing there.",
+        "- Gold Tag Team Arena.",
+        "- Gold II-IV Live Arena.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Why this matters for buyers**[/color]",
+        "When checking a Raid account for sale, do not only look at champion names. A roster full of strong champions can still be weak if the gear, dungeon teams, and core progression are behind.",
+        "A Mid Game account with stable Ultra-Nightmare Clan Boss, decent Hydra progress, and good dungeon farming can be more useful than an account with a few rare champions but poor builds. For buyers, progression proof matters: screenshots of dungeon teams, Clan Boss rewards, Hydra damage, Arena tier, and Sintranos progress tell the real story.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Tanne note**[/color]",
+        "My recommendation: judge an account by what it can actually do, not just what it owns. If you are buying, ask for proof of the content you care about most. If you are selling, show clear screenshots of progression because that builds trust faster than a long champion list.",
+        "Also remember that every account has a focus. An account can be advanced in Hydra but behind in Live Arena, or strong in PvE but unfinished in Sintranos. That does not automatically make it bad; it just means the buyer should understand what kind of account it is.",
+      ].join("\n\n"),
+    },
+  ],
+};
+
+export const raidNewsDraftSeeds = [
+  raidNewsDraftMay162026,
+  sabraelGuideDraftMay162026,
+  raidProgressionGuideDraftMay172026,
+];

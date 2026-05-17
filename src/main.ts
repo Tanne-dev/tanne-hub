@@ -1,4 +1,5 @@
 import "./style.css";
+import { inject } from "@vercel/analytics";
 import { initAdminDashboardPage } from "./adminDashboardPage";
 import {
   renderAdminDashboardPage,
@@ -22,8 +23,10 @@ import { initPromoCodeManager } from "./promoCodeManager";
 import { initLegitReviewsManager } from "./legitReviewsManager";
 import { initMemberAlertsManager } from "./memberAlertsManager";
 import { initExchangeCalculator } from "./exchangeCalculator";
+import { initFloatingContact } from "./floatingContact";
 
 initImageOptimizations();
+inject();
 
 const root = document.querySelector<HTMLElement>("#app");
 if (!root) {
@@ -63,3 +66,4 @@ initPromoCodeManager();
 initLegitReviewsManager();
 initMemberAlertsManager();
 initExchangeCalculator();
+initFloatingContact();
