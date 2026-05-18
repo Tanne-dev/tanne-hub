@@ -192,7 +192,20 @@ export function getFirstImageUrlFromPost(post: PostItem): string | undefined {
 export function postPlainBodyForPreview(post: PostItem): string {
   return parsePostBody(post.content)
     .filter((b): b is { type: "text"; text: string } => b.type === "text")
-    .map((b) => b.text.replace(/\s+/g, " ").trim())
+    .map((b) =>
+      normalizeLegacyLineBreakTags(b.text)
+        .replace(/\[color=(#[0-9a-fA-F]{3,8}|[a-zA-Z]+)\]([\s\S]*?)\[\/color\]/g, "$2")
+        .replace(/`([^`\n]+)`/g, "$1")
+        .replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g, "$1")
+        .replace(/(\*\*|__)(?=\S)([\s\S]*?\S)\1/g, "$2")
+        .replace(/(\*|_)(?=\S)([\s\S]*?\S)\1/g, "$2")
+        .replace(/^#{1,4}\s+/gm, "")
+        .replace(/^[-*]\s+/gm, "")
+        .replace(/^\d+\.\s+/gm, "")
+        .replace(/^>\s+/gm, "")
+        .replace(/\s+/g, " ")
+        .trim(),
+    )
     .filter(Boolean)
     .join("\n\n");
 }

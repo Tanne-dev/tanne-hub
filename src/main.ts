@@ -24,6 +24,7 @@ import { initLegitReviewsManager } from "./legitReviewsManager";
 import { initMemberAlertsManager } from "./memberAlertsManager";
 import { initExchangeCalculator } from "./exchangeCalculator";
 import { initFloatingContact } from "./floatingContact";
+import { initWelcomeChoiceOverlay } from "./welcomeChoiceOverlay";
 
 initImageOptimizations();
 inject();
@@ -67,3 +68,4 @@ initLegitReviewsManager();
 initMemberAlertsManager();
 initExchangeCalculator();
 initFloatingContact();
+initWelcomeChoiceOverlay();

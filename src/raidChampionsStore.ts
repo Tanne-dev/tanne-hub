@@ -49,6 +49,14 @@ function rowToRaidChampion(row: RaidChampionRow): RaidChampion {
 
 const SELECT_LIST = "hellhades_id, name, faction, hellhades_url, rarity, role";
 
+function mergeWithLocalChampionAdditions(remoteRows: RaidChampion[]): RaidChampion[] {
+  const knownNames = new Set(remoteRows.map((champion) => champion.name.trim().toLowerCase()));
+  const additions = RAID_CHAMPION_CATALOG.filter(
+    (champion) => !knownNames.has(champion.name.trim().toLowerCase()),
+  );
+  return [...remoteRows, ...additions].sort((a, b) => a.name.localeCompare(b.name));
+}
+
 /** Supabase/PostgREST thường giới hạn ~1000 dòng mỗi request — phải phân trang. */
 const PAGE_SIZE = 1000;
 
@@ -91,5 +99,5 @@ export async function loadRaidChampionCatalogFromSupabase(): Promise<RaidChampio
     return [...RAID_CHAMPION_CATALOG];
   }
 
-  return rows.map(rowToRaidChampion);
+  return mergeWithLocalChampionAdditions(rows.map(rowToRaidChampion));
 }

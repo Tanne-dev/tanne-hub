@@ -1,4 +1,10 @@
 import { sortHeroesByRarity, type AccountHeroPreview } from "./content";
+import {
+  CONTACT_DISCORD_ADD_FRIEND_URL,
+  CONTACT_DISCORD_USERNAME,
+  CONTACT_EMAIL,
+  CONTACT_EPICNPC_MESSAGE_URL,
+} from "./contactLinks";
 import { escapeHtml } from "./postBody";
 import { getSellingAccounts } from "./sellingAccountsStore";
 
@@ -68,6 +74,59 @@ function sectionShell(title: string, inner: string): string {
     </section>`;
 }
 
+function interestedContactHtml(accountId: string): string {
+  const emailSubject = encodeURIComponent(`Tanne Hub account ${accountId}`);
+  const emailBody = encodeURIComponent(`Hi Tanne,\n\nI am interested in Raid account ${accountId}.\n`);
+  return `
+    <section class="theme-smooth mb-5 overflow-hidden rounded-2xl border border-[#f6c44c]/30 bg-[linear-gradient(145deg,rgba(246,196,76,0.12),rgba(127,233,255,0.08))] shadow-[0_8px_28px_rgba(0,0,0,0.16)] sm:mb-6">
+      <div class="flex flex-col gap-3 p-4 sm:flex-row sm:items-center sm:justify-between sm:p-5">
+        <div class="min-w-0">
+          <p class="text-[11px] font-extrabold uppercase tracking-[0.14em] text-[var(--accent-gold-strong)]">Interested?</p>
+          <h4 class="mt-1 text-xl font-extrabold text-[var(--panel-text)]">Ask about Account ${escapeHtml(accountId)}</h4>
+          <p class="mt-1 text-sm leading-snug text-[var(--panel-muted)]">Open contact options here without closing this account preview.</p>
+        </div>
+        <button
+          id="account-interest-toggle"
+          type="button"
+          class="min-h-12 shrink-0 rounded-full bg-[#f6c44c] px-5 py-3 text-sm font-extrabold text-[#151002] shadow-[0_10px_24px_rgba(246,196,76,0.24)] transition hover:-translate-y-0.5 hover:bg-[#ffd36a]"
+          aria-expanded="false"
+          aria-controls="account-interest-options"
+        >
+          I'm interested
+        </button>
+      </div>
+      <div id="account-interest-options" class="account-interest-options hidden border-t border-[#f6c44c]/20 p-4 pt-3 sm:p-5 sm:pt-4">
+        <div class="grid gap-2 sm:grid-cols-3">
+          <button
+            type="button"
+            data-account-contact-discord="${escapeHtml(accountId)}"
+            class="rounded-xl border border-[#7f8cff]/24 bg-black/18 p-3 text-left transition hover:border-[#7f8cff]/50 hover:bg-[#5865f2]/12"
+          >
+            <span class="text-sm font-extrabold text-[var(--panel-text)]">Discord</span>
+            <span class="mt-1 block text-[12px] text-[var(--panel-muted)]">Copy ${escapeHtml(CONTACT_DISCORD_USERNAME)} and open Discord</span>
+          </button>
+          <a
+            href="${CONTACT_EPICNPC_MESSAGE_URL}"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="rounded-xl border border-[#f6c44c]/24 bg-black/18 p-3 text-left transition hover:border-[#f6c44c]/55 hover:bg-[#f6c44c]/10"
+          >
+            <span class="text-sm font-extrabold text-[var(--panel-text)]">EpicNPC</span>
+            <span class="mt-1 block text-[12px] text-[var(--panel-muted)]">Message tanne about account ${escapeHtml(accountId)}</span>
+          </a>
+          <a
+            href="mailto:${CONTACT_EMAIL}?subject=${emailSubject}&body=${emailBody}"
+            class="rounded-xl border border-[#7fe9ff]/24 bg-black/18 p-3 text-left transition hover:border-[#7fe9ff]/55 hover:bg-[#7fe9ff]/10"
+          >
+            <span class="text-sm font-extrabold text-[var(--panel-text)]">Email</span>
+            <span class="mt-1 block text-[12px] text-[var(--panel-muted)]">${escapeHtml(CONTACT_EMAIL)}</span>
+          </a>
+        </div>
+        <p id="account-interest-feedback" class="mt-2 hidden text-xs font-semibold text-[var(--admin-success-inline)]"></p>
+      </div>
+    </section>`;
+}
+
 function openDetailDrawer(accountId: string): void {
   const account = getSellingAccounts().find((x) => x.id === accountId);
   if (!account) return;
@@ -117,6 +176,7 @@ function openDetailDrawer(accountId: string): void {
       : `<p class="text-[15px] text-[var(--panel-muted)]">No screenshots attached.</p>`;
 
   const sections: string[] = [
+    interestedContactHtml(account.id),
     sectionShell("About this account", descHtml),
     sectionShell("Screenshots", imagesHtml),
     sectionShell("Champions", championsHtml),
@@ -165,6 +225,38 @@ export function initAccountStockUi(): void {
     }
     if ((event.target as HTMLElement).closest("#account-detail-overlay")) {
       closeDetailDrawer();
+      return;
+    }
+
+    const interestToggle = (event.target as HTMLElement).closest<HTMLButtonElement>(
+      "#account-interest-toggle",
+    );
+    if (interestToggle) {
+      const options = document.querySelector<HTMLElement>("#account-interest-options");
+      if (!options) return;
+      const willOpen = options.classList.contains("hidden");
+      options.classList.toggle("hidden", !willOpen);
+      interestToggle.setAttribute("aria-expanded", willOpen ? "true" : "false");
+      return;
+    }
+
+    const discordContact = (event.target as HTMLElement).closest<HTMLButtonElement>(
+      "[data-account-contact-discord]",
+    );
+    if (discordContact) {
+      const accountId = discordContact.getAttribute("data-account-contact-discord") ?? "";
+      const feedback = document.querySelector<HTMLElement>("#account-interest-feedback");
+      const openDiscordContact = (): void => {
+        if (feedback) {
+          feedback.textContent = `Discord username: ${CONTACT_DISCORD_USERNAME}. Mention account ${accountId}.`;
+          feedback.classList.remove("hidden");
+        }
+        window.open(CONTACT_DISCORD_ADD_FRIEND_URL, "_blank", "noopener,noreferrer");
+      };
+      void navigator.clipboard
+        .writeText(`Discord: ${CONTACT_DISCORD_USERNAME}\nInterested in Raid account ${accountId}`)
+        .then(openDiscordContact)
+        .catch(openDiscordContact);
       return;
     }
 

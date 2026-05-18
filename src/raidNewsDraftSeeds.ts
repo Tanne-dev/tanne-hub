@@ -285,8 +285,116 @@ export const raidProgressionGuideDraftMay172026: {
   ],
 };
 
+export const progressiveChanceDraftMay182026: {
+  id: string;
+  title: string;
+  caption: string;
+  blocks: PostBodyBlock[];
+} = {
+  id: "raid-news-2026-05-18-progressive-chance-may-19-20",
+  title: "Progressive Chance summon events: May 19 and May 20 champion pools",
+  caption:
+    "Two 24-hour Progressive Chance events are planned with x15 chances for selected Legendary and Epic champions from Ancient, Primal, Sacred, and Void Shards.",
+  blocks: [
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Quick summary**[/color]",
+        "- Raid: Shadow Legends is planning two Progressive Chance summon events starting on May 19 and May 20, 2026.",
+        "- Each event lasts 24 hours and gives at least x15 chance to summon a chosen champion from the selected pool.",
+        "- The pools include Ancient, Primal, Sacred, and Void Shards, but Void champions are separated into Void-only options.",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**What is changing**[/color]",
+        "Progressive Chance events do not guarantee a champion. Instead, they let you pick a champion from the event pool and increase the chance that your Legendary or Epic pull lands on that selected champion.",
+        "For these two events, Plarium is planning one 24-hour window on Tuesday, May 19, and another 24-hour window on Wednesday, May 20. If you are saving shards for a specific champion, this is the part that matters: check the exact day before pulling.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**May 19 champion pool**[/color]",
+        "Legendary champions from Ancient, Primal, and Sacred Shards:",
+        "- Losan K'Leth",
+        "- Narma the Returned",
+        "- Giath the Truthshield",
+        "- Walking Tomb Dreng",
+        "- Gaius the Gleeful",
+        "",
+        "Void Legendary champions:",
+        "- Soulless",
+        "- Pontiff Augustin",
+        "- Georgid the Breaker",
+        "",
+        "Epic champions from Ancient, Primal, and Sacred Shards:",
+        "- Sinesha",
+        "- Miscreated Monster",
+        "- Thylessia",
+        "",
+        "Void Epic champions:",
+        "- Skullcrown",
+        "- Whisper",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**May 20 champion pool**[/color]",
+        "Legendary champions from Ancient, Primal, and Sacred Shards:",
+        "- Tribune Herakletes",
+        "- Sanguine Maria",
+        "- Bad-el-Kazar",
+        "- Knave of Hearts",
+        "- Ma'Shalled",
+        "",
+        "Void Legendary champions:",
+        "- Gaspard the Accused",
+        "- Nekhret the Great",
+        "- Valkanen",
+        "",
+        "Epic champions from Ancient, Primal, and Sacred Shards:",
+        "- Gorgorab",
+        "- Catacomb Councilor",
+        "- Balthus Drauglord",
+        "",
+        "Void Epic champions:",
+        "- Khafru the Deathkeeper",
+        "- Ostrox Boneglaive",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Who should consider pulling**[/color]",
+        "This type of event is best for players who already planned to use shards and have a specific target in the pool. It is not the same as a guaranteed champion event, so pulling only because x15 looks attractive can still be risky.",
+        "Players looking for Arena impact may pay attention to names like Georgid, Nekhret, Soulless, Skullcrown, or Gorgorab. Players focused on PvE, sustain, or account progression may value champions like Bad-el-Kazar, Ma'Shalled, Miscreated Monster, or Walking Tomb Dreng depending on their roster.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Why it matters for buyers**[/color]",
+        "If you are buying or evaluating a Raid account this week, shard count and champion targets matter. An account with saved Sacred, Void, Primal, or Ancient Shards has more flexibility during these short 24-hour windows.",
+        "For sellers, this is also a good time to show shard inventory and champion roster gaps. Buyers can better understand whether an account is ready to chase a specific missing champion or should save resources for a better event.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Tanne note**[/color]",
+        "My advice: do not pull just because the event is live. Pick a target first, check which shard type can summon that target, then decide if the account has enough shards to justify the risk.",
+        "Both events are planned for 24 hours only, so always confirm the in-game event timer before spending shards.",
+      ].join("\n\n"),
+    },
+  ],
+};
+
 export const raidNewsDraftSeeds = [
   raidNewsDraftMay162026,
   sabraelGuideDraftMay162026,
   raidProgressionGuideDraftMay172026,
+  progressiveChanceDraftMay182026,
 ];
