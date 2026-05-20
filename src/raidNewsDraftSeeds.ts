@@ -392,9 +392,109 @@ export const progressiveChanceDraftMay182026: {
   ],
 };
 
+export const skeletorRebalanceDraftMay202026: {
+  id: string;
+  title: string;
+  caption: string;
+  blocks: PostBodyBlock[];
+} = {
+  id: "raid-news-2026-05-20-skeletor-rebalance-return",
+  title: "Skeletor is back: full rebalance, free login event, and a real reason to care",
+  caption:
+    "Skeletor returns to Raid with the Masters of the Universe collab, a 14-day loyalty path, and a buffed control kit aimed at buffs, debuffs, Turn Meter, and PvP disruption.",
+  blocks: [
+    {
+      type: "text",
+      text: [
+        "## Quick summary",
+        "- Skeletor is returning to Raid: Shadow Legends through the Masters of the Universe collaboration.",
+        "- According to HellHades, the event started on May 19, 2026 and is planned to run until July 20, 2026.",
+        "- Skeletor comes back as a Spirit Legendary Support champion from Knights Revenant.",
+        "- The big news is not just that he is back. The interesting part is the rebalance: better buff disruption, stronger debuff control, improved Turn Meter pressure, and more PvP value.",
+        "- Players can unlock Skeletor through a 14-day Loyalty Program: champion on Day 7, Perfect Soul on Day 14.",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## Why this comeback matters",
+        "Skeletor was always one of those champions with cool visuals and big crossover energy, but his old version did not feel scary enough for many established accounts. He looked like a villain, but in practice a lot of players treated him more like a collection piece than a must-build monster.",
+        "This rebalance is Plarium trying to give him a sharper identity. He is not being pushed as a pure nuker like He-Man. Skeletor's lane is control: messing with buffs, stretching debuffs, lowering Turn Meter, and making enemy teams uncomfortable when they rely too much on protection.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## What changed in his kit",
+        "- A1: now pushes more utility by increasing the duration of two random debuffs on the target while reducing the duration of two random buffs. That is much more useful into modern buff-heavy teams.",
+        "- A2: now places Petrification, Decrease ATK, and Decrease SPD directly on the target. Against bosses, the control package changes into practical boss debuffs instead of relying only on Petrification value.",
+        "- A3: upgraded into a much nastier anti-protection skill. Skeletor can steal Block Debuffs and extra random buffs from enemies before cutting Turn Meter.",
+        "- Passive: he now gains Accuracy when manipulating buffs, debuffs, or Turn Meter effects. He can also place Decrease RES on attackers and has a way to punish enemies who hit him hard with Petrification.",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## Gamer translation: is he actually good now?",
+        "Short answer: better, yes. Broken? Probably not.",
+        "The rebalance gives Skeletor a real job. He is now more of an anti-buff control specialist instead of a champion you only keep because he is limited. If your account is still progressing, he can help in dungeons, Clan Boss-style debuff control, wave content, and some Arena matchups.",
+        "For late-game players, the question is harsher: does he beat your existing control champions? Maybe not. But as a free/loyalty champion with buff manipulation, Petrification pressure, Turn Meter reduction, and Accuracy help, he is no longer just a funny purple skull guy sitting in the vault.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## Best places to try him",
+        "- Arena offense: useful against teams hiding behind Block Debuffs, heavy buffs, and Turn Meter plans.",
+        "- Arena defense: annoying if built tanky enough to survive and punish attackers.",
+        "- Dungeon waves: can slow dangerous enemies and extend key debuffs.",
+        "- Iron Twins and boss encounters: debuff extension can matter when your team needs effects to stay up longer.",
+        "- Early and mid-game accounts: probably where he gains the most real value, because his kit covers several jobs at once.",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## Build direction",
+        "Do not build Skeletor like a damage dealer. His value is not deleting teams; it is making the enemy team play Raid with bad Wi-Fi.",
+        "Priority stats should be Speed, Accuracy, HP, DEF, and enough Resistance if you want him to survive in PvP. For sets, think Perception, Speed, Reflex, Merciless, Stoneskin, Protection, or other utility/tank/control setups depending on your account.",
+        "If you are newer, Perception is the easy answer. If you are pushing Arena, you want him fast enough to matter and tanky enough to not get erased before his villain monologue even starts.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## Should you build him?",
+        "- New players: yes, he can be useful if your roster lacks control and debuff support.",
+        "- Mid-game players: maybe, especially if you need buff control, Turn Meter control, or a Knights Revenant option.",
+        "- Late-game players: test before investing heavy books and top gear. He is improved, but he still has to compete with elite control champions.",
+        "- Collectors: easy win. Limited collaboration champion plus Perfect Soul path makes him worth claiming.",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## Tanne note",
+        "My take: this is the kind of champion you should claim no matter what, but build only if your account actually needs his job. The rebalance gives Skeletor a clearer purpose, especially into buff-heavy teams, but he is not suddenly an automatic S-tier carry for every account.",
+        "For account buyers, Skeletor with his Perfect Soul can be a nice bonus on a Raid account, especially because the collaboration is time-limited. But the real value still depends on the account's gear, books, resources, and overall champion roster.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## Sources",
+        "- HellHades: RAID x Masters of the Universe Returns With He-Man & Skeletor, published May 19, 2026.",
+        "- HellHades champion guide: Skeletor, last updated April 6, 2026.",
+        "- Always confirm the active event timer and skill text in-game before spending books, gems, or resources.",
+      ].join("\n"),
+    },
+  ],
+};
+
 export const raidNewsDraftSeeds = [
   raidNewsDraftMay162026,
   sabraelGuideDraftMay162026,
   raidProgressionGuideDraftMay172026,
   progressiveChanceDraftMay182026,
+  skeletorRebalanceDraftMay202026,
 ];

@@ -234,6 +234,8 @@ const EXTRA_EXCHANGE_MIDDLEMAN_REVIEWS: LegitReview[] = [
   ["seed-ex-31", "Emil T.", 5, "Bank transfer option helped a lot. The quote was clear and the funds arrived correctly.", "Bank transfer"],
   ["seed-ex-32", "Nolan A.", 5, "Exchange was handled professionally. I appreciated the clear proof and confirmation steps.", "Exchange"],
   ["seed-ex-33", "Isak J.", 5, "PayPal to Wise transfer completed smoothly. No confusion, just clear instructions.", "PayPal to Wise"],
+  ["seed-ex-34", "Mason L.", 5, "Exchanged $800 PayPal to crypto. Rate was confirmed first, then the Binance transfer arrived exactly as agreed.", "PayPal to crypto $800"],
+  ["seed-ex-35", "Ryan P.", 5, "Did a $1500 PayPal to crypto order and the process felt safe. Clear confirmation, quick updates, and crypto delivered through Binance.", "PayPal to crypto $1500"],
 ].map(([id, displayName, rating, message, orderRef], index) => ({
   id,
   displayName,

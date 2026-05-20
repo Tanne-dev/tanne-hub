@@ -62,6 +62,8 @@ function createRaidNewsTemplateBlocks(): PostBodyBlock[] {
       type: "text",
       text: [
         "## [color=#ffaa00]**Quick summary**[/color]",
+        "[Replace with a short intro below the cover image.]",
+        "",
         "- [Replace with the main update in one sentence]",
         "- [Replace with the most important gameplay/shop impact]",
         "- [Replace with date, event window, or requirement if relevant]",
@@ -954,12 +956,22 @@ export function initAdminDashboardPage(): void {
   };
 
   postAddTextBtn.addEventListener("click", () => {
-    postBodyBlocksContainer.appendChild(createEmptyTextBlock());
+    const activeBlock = postBodyBlocksContainer.querySelector<HTMLElement>(
+      ".admin-post-body-block:focus-within",
+    );
+    const block = createEmptyTextBlock();
+    if (activeBlock?.nextSibling) postBodyBlocksContainer.insertBefore(block, activeBlock.nextSibling);
+    else postBodyBlocksContainer.appendChild(block);
     hydrateTextToolbarColorDefaults();
     renderLivePreview();
   });
   postAddImageBtn.addEventListener("click", () => {
-    postBodyBlocksContainer.appendChild(buildImageBlockEl({ url: "", align: "full", caption: "" }));
+    const activeBlock = postBodyBlocksContainer.querySelector<HTMLElement>(
+      ".admin-post-body-block:focus-within",
+    );
+    const block = buildImageBlockEl({ url: "", align: "full", caption: "" });
+    if (activeBlock?.nextSibling) postBodyBlocksContainer.insertBefore(block, activeBlock.nextSibling);
+    else postBodyBlocksContainer.appendChild(block);
     renderLivePreview();
   });
   postUseRaidTemplateBtn.addEventListener("click", () => {

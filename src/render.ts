@@ -523,7 +523,7 @@ export function renderAdminDashboardPage(root: HTMLElement): void {
               <div class="min-w-0 flex-1 space-y-6">
                 <section id="admin-panel-posts" class="admin-dash-panel theme-smooth rounded-xl border border-[var(--admin-border)] bg-[var(--admin-inner-bg)] p-4 md:p-5">
                   <h2 class="text-lg font-bold text-[var(--admin-heading)]">Edit posts (Raid news)</h2>
-                  <p class="mt-1 text-xs text-[var(--admin-subtle)]">Paragraphs and images, upload or URL. Use ↑ ↓ to reorder blocks.</p>
+                  <p class="mt-1 text-xs text-[var(--admin-subtle)]">Paragraphs and images, upload or URL. Click a block first, then + Image/+ Paragraph inserts below it. Use ↑ ↓ to reorder blocks.</p>
                   <form id="admin-post-create-form" class="mt-4 space-y-2.5">
                     <input id="admin-post-title" type="text" maxlength="120" required placeholder="Title" class="admin-dash-input w-full rounded-md border border-[var(--admin-input-border)] bg-[var(--admin-input-bg)] px-3 py-2 text-sm text-[var(--admin-input-text)] outline-none placeholder:text-[var(--admin-muted)] focus:border-[var(--admin-accent)]" />
                     <input id="admin-post-caption" type="text" maxlength="180" placeholder="Caption (optional)" class="admin-dash-input w-full rounded-md border border-[var(--admin-input-border)] bg-[var(--admin-input-bg)] px-3 py-2 text-sm text-[var(--admin-input-text)] outline-none placeholder:text-[var(--admin-muted)] focus:border-[var(--admin-accent)]" />
@@ -532,7 +532,7 @@ export function renderAdminDashboardPage(root: HTMLElement): void {
 	                    </div>
 	                    <div class="flex flex-wrap items-center justify-between gap-2 rounded-md border border-[var(--admin-tab-active-border)]/45 bg-[var(--admin-tab-active-bg)]/25 px-3 py-2">
 	                      <p class="text-[11px] leading-snug text-[var(--admin-subtle)]">
-	                        Fixed Raid news structure keeps each post consistent: hero image, quick summary, update details, impact, and closing note.
+	                        Fixed Raid news structure keeps each post consistent: cover image first, quick summary, update details, impact, and closing note.
 	                      </p>
 	                      <button id="admin-post-use-raid-template" type="button" class="rounded-md border border-[var(--admin-tab-active-border)] bg-[var(--admin-tab-active-bg)] px-3 py-1.5 text-xs font-semibold text-[var(--admin-accent-muted)] hover:brightness-110">
 	                        Use Raid news template
