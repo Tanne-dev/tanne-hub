@@ -168,7 +168,8 @@ function openDetailDrawer(accountId: string): void {
           ${account.detailImages
             .map(
               (url) => `<a href="${escapeHtml(url)}" target="_blank" rel="noreferrer" class="group block overflow-hidden rounded-xl border border-[var(--news-card-border)] bg-black/10 shadow-md ring-0 transition hover:ring-2 hover:ring-[#7fe9ff]/50">
-                  <img src="${escapeHtml(url)}" alt="Account screenshot" class="aspect-[4/3] w-full object-cover transition duration-300 group-hover:scale-[1.02]" width="640" height="480" loading="lazy" decoding="async" fetchpriority="low" />
+                  <img src="${escapeHtml(url)}" alt="Account screenshot" class="aspect-[4/3] w-full object-cover transition duration-300 group-hover:scale-[1.02]" width="640" height="480" loading="lazy" decoding="async" fetchpriority="low" onerror="this.classList.add('hidden');this.nextElementSibling?.classList.remove('hidden');" />
+                  <span class="hidden flex aspect-[4/3] w-full items-center justify-center px-4 text-center text-sm font-semibold text-[var(--panel-muted)]">Image unavailable</span>
                 </a>`,
             )
             .join("")}

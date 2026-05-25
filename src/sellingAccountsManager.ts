@@ -14,6 +14,7 @@ export function renderSellingAccountsSection(): void {
 }
 
 export function initSellingAccountsManager(): void {
+  if (!document.querySelector("#account-stock-grid")) return;
   // Seed local cache for first load without remote.
   saveSellingAccounts(getSellingAccounts());
   renderSellingAccountsSection();

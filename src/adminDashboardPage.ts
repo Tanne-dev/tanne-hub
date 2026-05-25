@@ -39,6 +39,8 @@ import {
 import {
   deleteSellingAccountRemote,
   getSellingAccounts,
+  isAccountImageUrl,
+  normalizeAccountImageUrl,
   saveSellingAccounts,
   syncSellingAccountsFromRemote,
   upsertSellingAccountRemote,
@@ -46,6 +48,7 @@ import {
 import { fireAccountListingConfetti } from "./accountListingConfetti";
 import { loadRaidChampionCatalogFromSupabase } from "./raidChampionsStore";
 import { uploadPostImageRemote } from "./supabase";
+import { initProfitTrackerManager } from "./profitTrackerManager";
 import { RAID_CHAMPION_CATALOG, type RaidChampion } from "./raidChampionCatalog";
 import {
   ACCOUNT_HERO_MORE_EPIC_LABEL,
@@ -195,7 +198,7 @@ function isAdminSession(): boolean {
   return readSession()?.role === "admin";
 }
 
-type AdminTab = "posts" | "raid" | "promo";
+type AdminTab = "posts" | "raid" | "promo" | "profit";
 const ADMIN_POST_TAG_STYLE_STORAGE_KEY = "tanne-admin-post-tag-style-v1";
 
 function readSavedTagColor(): string {
@@ -223,7 +226,7 @@ function saveTagColor(color: string): void {
 
 function tabFromUrl(): AdminTab {
   const t = new URLSearchParams(window.location.search).get("tab");
-  if (t === "raid" || t === "posts" || t === "promo") return t;
+  if (t === "raid" || t === "posts" || t === "promo" || t === "profit") return t;
   return "posts";
 }
 
@@ -237,9 +240,11 @@ export function initAdminDashboardPage(): void {
   const tabPosts = document.querySelector<HTMLButtonElement>("#admin-tab-posts");
   const tabRaid = document.querySelector<HTMLButtonElement>("#admin-tab-raid");
   const tabPromo = document.querySelector<HTMLButtonElement>("#admin-tab-promo");
+  const tabProfit = document.querySelector<HTMLButtonElement>("#admin-tab-profit");
   const panelPosts = document.querySelector<HTMLElement>("#admin-panel-posts");
   const panelRaid = document.querySelector<HTMLElement>("#admin-panel-raid");
   const panelPromo = document.querySelector<HTMLElement>("#admin-panel-promo");
+  const panelProfit = document.querySelector<HTMLElement>("#admin-panel-profit");
 
   const raidFb = document.querySelector<HTMLElement>("#admin-raid-accounts-feedback");
   const raidChampionSearch = document.querySelector<HTMLInputElement>("#admin-raid-champion-search");
@@ -299,9 +304,11 @@ export function initAdminDashboardPage(): void {
     !tabPosts ||
     !tabRaid ||
     !tabPromo ||
+    !tabProfit ||
     !panelPosts ||
     !panelRaid ||
     !panelPromo ||
+    !panelProfit ||
     !raidFb ||
     !raidChampionSearch ||
     !raidChampionRarityFilters ||
@@ -381,6 +388,7 @@ export function initAdminDashboardPage(): void {
       void syncPromoCodeSettingsFromRemote().then(() => {
         refreshPromoAdminUi();
       });
+      initProfitTrackerManager();
     }
   };
 
@@ -389,6 +397,7 @@ export function initAdminDashboardPage(): void {
       { id: "posts", btn: tabPosts, panel: panelPosts },
       { id: "raid", btn: tabRaid, panel: panelRaid },
       { id: "promo", btn: tabPromo, panel: panelPromo },
+      { id: "profit", btn: tabProfit, panel: panelProfit },
     ];
     for (const { id, btn, panel } of tabs) {
       const on = id === tab;
@@ -406,6 +415,7 @@ export function initAdminDashboardPage(): void {
   tabPosts.addEventListener("click", () => setActiveTab("posts"));
   tabRaid.addEventListener("click", () => setActiveTab("raid"));
   tabPromo.addEventListener("click", () => setActiveTab("promo"));
+  tabProfit.addEventListener("click", () => setActiveTab("profit"));
 
   openLoginBtn?.addEventListener("click", () => {
     loginBtn?.click();
@@ -800,15 +810,25 @@ export function initAdminDashboardPage(): void {
     const heroes = selectedChampionsAsHeroes();
     const localAccounts = getSellingAccounts();
     const existing = localAccounts.find((a) => a.id === id);
+    const detailImages = raidSellingImages.value
+      .split(",")
+      .map(normalizeAccountImageUrl)
+      .filter((x) => x.length > 0);
+    const invalidImageUrl = detailImages.find((url) => !isAccountImageUrl(url));
+    if (invalidImageUrl) {
+      setRaidSellingFeedback(
+        `Image URL is not valid: ${invalidImageUrl}. Use an https:// link or upload the image again.`,
+        "error",
+      );
+      return;
+    }
+
     const account = {
       id,
       priceLabel,
       stats: existing?.stats ?? EMPTY_SELLING_ACCOUNT_STATS,
       description: raidSellingDescription.value.trim() || undefined,
-      detailImages: raidSellingImages.value
-        .split(",")
-        .map((x) => x.trim())
-        .filter((x) => x.length > 0),
+      detailImages,
       heroes: heroes.length > 0 ? heroes : existing?.heroes ?? [],
       moreCount: 0,
     };

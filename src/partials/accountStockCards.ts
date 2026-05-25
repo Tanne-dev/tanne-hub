@@ -24,6 +24,21 @@ function descriptionCardPreview(text: string | undefined, maxChars: number): str
   return escapeHtml(cut);
 }
 
+function accountImageWithFallback(
+  rawUrl: string,
+  imgClass: string,
+  width: number,
+  height: number,
+  loading: "eager" | "lazy",
+  fetchpriority: "high" | "low",
+): string {
+  const url = escapeHtml(rawUrl);
+  return `<img src="${url}" alt="" class="${imgClass}" width="${width}" height="${height}" loading="${loading}" decoding="async" fetchpriority="${fetchpriority}" onerror="this.classList.add('hidden');this.nextElementSibling?.classList.remove('hidden');" />
+    <div class="hidden flex min-h-44 w-full items-center justify-center bg-[color-mix(in_srgb,var(--icon-bg)_75%,transparent)] px-4 text-center text-sm font-semibold text-[var(--panel-muted)] sm:min-h-48">
+      Image unavailable
+    </div>`;
+}
+
 function buildAccountCardCover(urls: string[]): string {
   const images = urls.map((u) => u.trim()).filter((u) => u.length > 0);
   if (images.length === 0) return "";
@@ -32,19 +47,31 @@ function buildAccountCardCover(urls: string[]): string {
     "-mx-4 -mt-4 mb-3 overflow-hidden rounded-t-xl border-b border-[var(--news-card-border)] sm:-mx-[18px] sm:-mt-[18px] sm:mb-3.5";
 
   if (images.length === 1) {
-    const url = escapeHtml(images[0]);
     return `<div class="${outer}">
-         <img src="${url}" alt="" class="account-card-cover max-h-44 w-full object-cover object-center sm:max-h-48" width="640" height="360" loading="lazy" decoding="async" fetchpriority="low" />
+         ${accountImageWithFallback(
+           images[0],
+           "account-card-cover max-h-44 w-full object-cover object-center sm:max-h-48",
+           640,
+           360,
+           "lazy",
+           "low",
+         )}
        </div>`;
   }
 
   const slides = images
     .map((raw, i) => {
-      const url = escapeHtml(raw);
       const load = i === 0 ? "eager" : "lazy";
       const priority = i === 0 ? "high" : "low";
       return `<div class="account-card-slide w-full min-w-full shrink-0 snap-center snap-always">
-        <img src="${url}" alt="" class="max-h-44 w-full object-cover object-center sm:max-h-48" width="640" height="360" loading="${load}" decoding="async" fetchpriority="${priority}" />
+        ${accountImageWithFallback(
+          raw,
+          "max-h-44 w-full object-cover object-center sm:max-h-48",
+          640,
+          360,
+          load,
+          priority,
+        )}
       </div>`;
     })
     .join("");

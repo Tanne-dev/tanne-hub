@@ -536,3 +536,46 @@
 .account-interest-options:not(.hidden) {
   animation: accountInterestOptionsIn 180ms ease-out both;
 }
+
+@keyframes lazySectionSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes lazySectionPulse {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+.lazy-section-placeholder {
+  position: relative;
+  overflow: hidden;
+}
+
+.lazy-section-placeholder::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, transparent, rgba(127, 233, 255, 0.08), transparent),
+    radial-gradient(circle at 50% 0%, rgba(246, 196, 76, 0.08), transparent 48%);
+  animation: lazySectionPulse 1.6s ease-in-out infinite;
+}
+
+.lazy-section-spinner {
+  width: 2.25rem;
+  height: 2.25rem;
+  border: 3px solid rgba(127, 233, 255, 0.2);
+  border-top-color: #7fe9ff;
+  border-right-color: #f6c44c;
+  border-radius: 999px;
+  animation: lazySectionSpin 780ms linear infinite;
+}

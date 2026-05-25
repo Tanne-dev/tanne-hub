@@ -24,6 +24,31 @@ type StatsWithMeta = AccountStockCard["stats"] & {
   __detailImages?: string[];
 };
 
+export function isAccountImageUrl(value: string): boolean {
+  const url = normalizeAccountImageUrl(value);
+  if (!url) return false;
+  if (url.startsWith("/")) return !url.startsWith("//") && url.length > 1;
+
+  try {
+    const parsed = new URL(url);
+    return parsed.protocol === "https:" || parsed.protocol === "http:";
+  } catch {
+    return false;
+  }
+}
+
+export function normalizeAccountImageUrl(value: string): string {
+  return value.trim().replace(/%0a|%0d/gi, "");
+}
+
+function sanitizeImageUrls(value: unknown): string[] {
+  if (!Array.isArray(value)) return [];
+  return value
+    .filter((x): x is string => typeof x === "string")
+    .map(normalizeAccountImageUrl)
+    .filter(isAccountImageUrl);
+}
+
 function validHeroRarity(v: unknown): v is AccountHeroPreview["rarity"] {
   return (
     v === "mythic" ||
@@ -109,9 +134,7 @@ function sanitizeAccountLike(item: unknown): AccountStockCard | null {
   const priceLabel = typeof o.priceLabel === "string" ? o.priceLabel : "";
   const note = typeof o.note === "string" ? o.note : undefined;
   const description = typeof o.description === "string" ? o.description : undefined;
-  const detailImages = Array.isArray(o.detailImages)
-    ? o.detailImages.filter((x): x is string => typeof x === "string" && x.trim() !== "")
-    : [];
+  const detailImages = sanitizeImageUrls(o.detailImages);
 
   return {
     id: o.id,
@@ -133,9 +156,7 @@ function mapRowToAccount(row: RaidAccountRow): AccountStockCard | null {
   const note = noteRaw.length > 0 ? noteRaw : undefined;
   const description =
     typeof rawStats.__description === "string" ? rawStats.__description : undefined;
-  const detailImages = Array.isArray(rawStats.__detailImages)
-    ? rawStats.__detailImages.filter((x): x is string => typeof x === "string" && x.trim() !== "")
-    : [];
+  const detailImages = sanitizeImageUrls(rawStats.__detailImages);
   const heroesRaw = Array.isArray(row.heroes) ? row.heroes : [];
   const heroes = heroesRaw.map(sanitizeHero).filter((x): x is AccountHeroPreview => Boolean(x));
   return {

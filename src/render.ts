@@ -3,16 +3,11 @@ import { pageInner } from "./layout";
 import { escapeHtml, renderPostArticleBodyHtml } from "./postBody";
 import { getPostByIdRemote, getPosts, savePosts } from "./postsStore";
 import { getSellingAccounts } from "./sellingAccountsStore";
+import { renderLazySectionPlaceholder } from "./lazySections";
 import { renderHeader } from "./sections/header";
 import { renderHero } from "./sections/hero";
-import { renderPopularAccounts, renderSellingAccountsGrid } from "./sections/popularAccounts";
-import { renderPromos } from "./sections/promos";
-import { renderRaidNewsSection } from "./sections/raidNews";
-import { renderSafeTrading } from "./sections/safeTrading";
+import { renderSellingAccountsGrid } from "./sections/popularAccounts";
 import { renderSiteFooter } from "./sections/siteFooter";
-import { renderLegitCheck } from "./sections/legitCheck";
-import { renderMemberAlerts } from "./sections/memberAlerts";
-import { renderTrustpilotReviews } from "./sections/trustpilotReviews";
 import { HONEYGAIN_REFERRAL_URL } from "./referralLinks";
 
 /**
@@ -39,13 +34,13 @@ export function renderLanding(root: HTMLElement): void {
           ${renderHero()}
 
           <div class="${pageInner} space-y-4 py-6 sm:py-8">
-            ${renderRaidNewsSection()}
-            ${renderMemberAlerts()}
-            ${renderPopularAccounts()}
-            ${renderSafeTrading()}
-            ${renderLegitCheck()}
-            ${renderTrustpilotReviews()}
-            ${renderPromos()}
+            ${renderLazySectionPlaceholder("raid-news", "Loading latest Raid updates...", 560)}
+            ${renderLazySectionPlaceholder("member-alerts", "Preparing member alert options...", 180)}
+            ${renderLazySectionPlaceholder("popular-accounts", "Loading featured Raid accounts...", 520)}
+            ${renderLazySectionPlaceholder("safe-trading", "Loading safe buying guide...", 260)}
+            ${renderLazySectionPlaceholder("legit-check", "Loading buyer feedback...", 360)}
+            ${renderLazySectionPlaceholder("trustpilot", "Loading public review area...", 220)}
+            ${renderLazySectionPlaceholder("promos", "Loading support highlights...", 220)}
           </div>
         </main>
 
@@ -518,6 +513,9 @@ export function renderAdminDashboardPage(root: HTMLElement): void {
 	                <button type="button" data-admin-tab="promo" id="admin-tab-promo" class="rounded-lg border border-[var(--admin-tab-idle-border)] px-3 py-2.5 text-left text-sm font-semibold text-[var(--admin-tab-idle-text)] transition hover:bg-[var(--admin-tab-idle-hover)]">
 	                  3. Promo code
 	                </button>
+	                <button type="button" data-admin-tab="profit" id="admin-tab-profit" class="rounded-lg border border-[var(--admin-tab-idle-border)] px-3 py-2.5 text-left text-sm font-semibold text-[var(--admin-tab-idle-text)] transition hover:bg-[var(--admin-tab-idle-hover)]">
+	                  4. Profit tracker
+	                </button>
               </nav>
 
               <div class="min-w-0 flex-1 space-y-6">
@@ -737,6 +735,65 @@ export function renderAdminDashboardPage(root: HTMLElement): void {
                         <p class="text-[11px] text-[var(--admin-muted)]">Delete expired codes here.</p>
                       </div>
                       <div id="admin-promo-history-list" class="mt-2.5 space-y-2"></div>
+                    </div>
+	                </section>
+
+	                <section id="admin-panel-profit" class="admin-dash-panel theme-smooth hidden rounded-xl border border-[var(--admin-border)] bg-[var(--admin-inner-bg)] p-4 md:p-5">
+                    <div class="flex flex-wrap items-start justify-between gap-3">
+                      <div>
+                        <h2 class="text-lg font-bold text-[var(--admin-heading)]">Tanne Profit Tracker</h2>
+                        <p class="mt-1 text-xs text-[var(--admin-subtle)]">Private admin tool for account buy/sell cost, revenue, and profit by week/month.</p>
+                      </div>
+                      <p class="rounded-md border border-[var(--admin-tab-active-border)]/45 bg-[var(--admin-tab-active-bg)]/25 px-2.5 py-1.5 text-[11px] font-semibold text-[var(--admin-accent-muted)]">Admin only</p>
+                    </div>
+
+                    <div id="profit-summary-grid" class="mt-4 grid grid-cols-1 gap-2 sm:grid-cols-2 xl:grid-cols-3"></div>
+
+                    <form id="profit-tracker-form" class="mt-4 rounded-lg border border-[var(--admin-border)] bg-[var(--admin-card-bg)] p-3">
+                      <div class="mb-3 flex flex-wrap items-center justify-between gap-2">
+                        <h3 class="text-sm font-semibold text-[var(--admin-heading)]">Create / edit trade</h3>
+                        <button id="profit-tracker-reset" type="button" class="rounded border border-[var(--admin-input-border)] px-2 py-1 text-[11px] font-semibold text-[var(--admin-btn-ghost-text)] hover:bg-[var(--admin-tab-idle-hover)]">Reset form</button>
+                      </div>
+                      <div class="grid grid-cols-1 gap-2 sm:grid-cols-2">
+                        <input id="profit-account-name" type="text" maxlength="100" placeholder="Account / deal name (required)" class="admin-dash-input rounded-md border border-[var(--admin-input-border)] bg-[var(--admin-input-bg)] px-3 py-2 text-sm text-[var(--admin-input-text)] outline-none placeholder:text-[var(--admin-muted)] focus:border-[var(--admin-accent)]" />
+                        <input id="profit-game" type="text" maxlength="80" value="Raid Shadow Legends" placeholder="Game" class="admin-dash-input rounded-md border border-[var(--admin-input-border)] bg-[var(--admin-input-bg)] px-3 py-2 text-sm text-[var(--admin-input-text)] outline-none placeholder:text-[var(--admin-muted)] focus:border-[var(--admin-accent)]" />
+                        <label class="grid gap-1 text-[11px] font-semibold text-[var(--admin-subtle)]">
+                          Buy date
+                          <input id="profit-buy-date" type="date" class="admin-dash-input rounded-md border border-[var(--admin-input-border)] bg-[var(--admin-input-bg)] px-3 py-2 text-sm text-[var(--admin-input-text)] outline-none focus:border-[var(--admin-accent)]" />
+                        </label>
+                        <label class="grid gap-1 text-[11px] font-semibold text-[var(--admin-subtle)]">
+                          Buy price
+                          <input id="profit-buy-price" type="number" min="0" step="0.01" placeholder="0.00" class="admin-dash-input rounded-md border border-[var(--admin-input-border)] bg-[var(--admin-input-bg)] px-3 py-2 text-sm text-[var(--admin-input-text)] outline-none placeholder:text-[var(--admin-muted)] focus:border-[var(--admin-accent)]" />
+                        </label>
+                        <label class="grid gap-1 text-[11px] font-semibold text-[var(--admin-subtle)]">
+                          Sell date
+                          <input id="profit-sell-date" type="date" class="admin-dash-input rounded-md border border-[var(--admin-input-border)] bg-[var(--admin-input-bg)] px-3 py-2 text-sm text-[var(--admin-input-text)] outline-none focus:border-[var(--admin-accent)]" />
+                        </label>
+                        <label class="grid gap-1 text-[11px] font-semibold text-[var(--admin-subtle)]">
+                          Sell price
+                          <input id="profit-sell-price" type="number" min="0" step="0.01" placeholder="0.00" class="admin-dash-input rounded-md border border-[var(--admin-input-border)] bg-[var(--admin-input-bg)] px-3 py-2 text-sm text-[var(--admin-input-text)] outline-none placeholder:text-[var(--admin-muted)] focus:border-[var(--admin-accent)]" />
+                        </label>
+                        <select id="profit-status" class="admin-dash-input rounded-md border border-[var(--admin-input-border)] bg-[var(--admin-input-bg)] px-3 py-2 text-sm text-[var(--admin-input-text)] outline-none focus:border-[var(--admin-accent)]">
+                          <option value="in_stock">In stock</option>
+                          <option value="reserved">Reserved</option>
+                          <option value="sold">Sold</option>
+                        </select>
+                        <input id="profit-payment-method" type="text" maxlength="80" placeholder="Payment method, e.g. PayPal / Crypto" class="admin-dash-input rounded-md border border-[var(--admin-input-border)] bg-[var(--admin-input-bg)] px-3 py-2 text-sm text-[var(--admin-input-text)] outline-none placeholder:text-[var(--admin-muted)] focus:border-[var(--admin-accent)]" />
+                        <input id="profit-customer-name" type="text" maxlength="80" placeholder="Customer (optional)" class="admin-dash-input rounded-md border border-[var(--admin-input-border)] bg-[var(--admin-input-bg)] px-3 py-2 text-sm text-[var(--admin-input-text)] outline-none placeholder:text-[var(--admin-muted)] focus:border-[var(--admin-accent)]" />
+                        <textarea id="profit-notes" rows="3" maxlength="500" placeholder="Notes: source, account ID, deal proof, delivery status..." class="admin-dash-input rounded-md border border-[var(--admin-input-border)] bg-[var(--admin-input-bg)] px-3 py-2 text-sm text-[var(--admin-input-text)] outline-none placeholder:text-[var(--admin-muted)] focus:border-[var(--admin-accent)] sm:col-span-2"></textarea>
+                      </div>
+                      <p id="profit-tracker-feedback" class="mt-2 hidden rounded-md px-3 py-2 text-xs"></p>
+                      <div class="mt-3 flex justify-end">
+                        <button id="profit-tracker-submit" type="submit" class="rounded-md bg-[var(--admin-accent)] px-4 py-2 text-sm font-bold text-[var(--admin-submit-text)] transition hover:brightness-110">Save trade</button>
+                      </div>
+                    </form>
+
+                    <div class="mt-4 rounded-lg border border-[var(--admin-border)] bg-[var(--admin-card-bg)] p-3">
+                      <div class="flex flex-wrap items-center justify-between gap-2">
+                        <h3 class="text-sm font-semibold text-[var(--admin-heading)]">Trade history</h3>
+                        <p class="text-[11px] text-[var(--admin-muted)]">Sold trades count toward profit. Inventory capital shows unsold cost.</p>
+                      </div>
+                      <div id="profit-trades-list" class="mt-2.5 space-y-2"></div>
                     </div>
 	                </section>
 	              </div>

@@ -25,6 +25,7 @@ import { initMemberAlertsManager } from "./memberAlertsManager";
 import { initExchangeCalculator } from "./exchangeCalculator";
 import { initFloatingContact } from "./floatingContact";
 import { initWelcomeChoiceOverlay } from "./welcomeChoiceOverlay";
+import { initLazySections } from "./lazySections";
 
 initImageOptimizations();
 inject();
@@ -69,3 +70,4 @@ initMemberAlertsManager();
 initExchangeCalculator();
 initFloatingContact();
 initWelcomeChoiceOverlay();
+initLazySections();

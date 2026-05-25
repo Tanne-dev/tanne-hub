@@ -171,6 +171,7 @@ function bindRaidNewsControls(): void {
 }
 
 export function initPostsManager(): void {
+  if (!document.querySelector("#raid-news-posts")) return;
   removeLegacySeedPosts();
   renderRaidNewsFeed();
   bindRaidNewsControls();

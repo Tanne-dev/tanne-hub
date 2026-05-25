@@ -90,6 +90,7 @@ export function renderHeader(): string {
                     <a role="menuitem" class="block min-h-11 rounded px-3 py-2.5 text-[14px] leading-snug text-[#d6dbf0] hover:bg-white/5 hover:text-white" href="/?page=dashboard&tab=posts">1. Posts & Raid news</a>
                     <a role="menuitem" class="block min-h-11 rounded px-3 py-2.5 text-[14px] leading-snug text-[#d6dbf0] hover:bg-white/5 hover:text-white" href="/?page=dashboard&tab=raid">2. Raid Shadow Legends accounts</a>
                     <a role="menuitem" class="block min-h-11 rounded px-3 py-2.5 text-[14px] leading-snug text-[#d6dbf0] hover:bg-white/5 hover:text-white" href="/?page=dashboard&tab=promo">3. Promo code</a>
+                    <a role="menuitem" class="block min-h-11 rounded px-3 py-2.5 text-[14px] leading-snug text-[#d6dbf0] hover:bg-white/5 hover:text-white" href="/?page=dashboard&tab=profit">4. Profit tracker</a>
                   </div>
                   <button id="account-logout-option" type="button" role="menuitem" class="min-h-11 w-full rounded px-3 py-2.5 text-left text-[14px] font-semibold text-[#d6dbf0] transition hover:bg-white/10 hover:text-white">
                     Logout
