@@ -617,4 +617,37 @@
   #admin-dashboard-page {
     scroll-margin-top: 7rem;
   }
+
+  .promo-scroll-shell {
+    position: fixed;
+    left: max(0.75rem, env(safe-area-inset-left, 0px));
+    right: max(0.75rem, env(safe-area-inset-right, 0px));
+    top: calc(env(safe-area-inset-top, 0px) + 7.5rem);
+    z-index: 90;
+    width: auto;
+    max-width: none;
+    transform: translateY(-8px) scaleY(0.08);
+    transform-origin: top center;
+  }
+
+  .promo-scroll-open .promo-scroll-shell {
+    transform: translateY(0) scaleY(1);
+  }
+
+  .promo-scroll-paper {
+    max-height: min(70dvh, 620px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding: 0.9rem;
+  }
+
+  .promo-scroll-code-row {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .promo-scroll-code {
+    font-size: 0.88rem;
+  }
 }

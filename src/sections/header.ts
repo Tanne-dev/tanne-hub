@@ -134,9 +134,13 @@ export function renderHeader(): string {
                 <span>Exchange</span>
               </a>
               <div class="relative shrink-0 group">
+                <a class="group inline-flex min-h-11 items-center gap-1 whitespace-nowrap rounded-md px-2 py-2 text-[var(--header-nav-text)] transition hover:text-[var(--header-nav-hover)] active:bg-white/5 sm:hidden" href="/?page=raid-accounts">
+                  ${accountsNavIcon}
+                  <span>Accounts</span>
+                </a>
                 <button
                   type="button"
-                  class="inline-flex min-h-11 items-center gap-1 whitespace-nowrap rounded-md px-2 py-2 text-[var(--header-nav-text)] transition hover:text-[var(--header-nav-hover)] active:bg-white/5 sm:min-h-0 sm:px-0"
+                  class="hidden min-h-11 items-center gap-1 whitespace-nowrap rounded-md px-2 py-2 text-[var(--header-nav-text)] transition hover:text-[var(--header-nav-hover)] active:bg-white/5 sm:inline-flex sm:min-h-0 sm:px-0"
                   aria-haspopup="menu"
                   aria-expanded="false"
                 >
