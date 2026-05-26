@@ -50,6 +50,18 @@ function sanitizeTrade(value: unknown): ProfitTrade | null {
   const item = value as Record<string, unknown>;
   if (typeof item.id !== "string" || item.id.trim() === "") return null;
   if (typeof item.accountName !== "string" || item.accountName.trim() === "") return null;
+  const sellDate =
+    typeof item.sellDate === "string" && item.sellDate.trim() ? item.sellDate.trim() : undefined;
+  const sellPrice =
+    item.sellPrice === undefined || item.sellPrice === null ? undefined : parseMoney(item.sellPrice);
+  const status =
+    validStatus(item.status) && item.status !== "in_stock"
+      ? item.status
+      : sellDate || (sellPrice ?? 0) > 0
+        ? "sold"
+        : validStatus(item.status)
+          ? item.status
+          : "in_stock";
 
   return {
     id: item.id,
@@ -57,11 +69,11 @@ function sanitizeTrade(value: unknown): ProfitTrade | null {
     game: typeof item.game === "string" ? item.game.trim().slice(0, 80) : "Raid Shadow Legends",
     buyDate: typeof item.buyDate === "string" ? item.buyDate : "",
     buyPrice: parseMoney(item.buyPrice),
-    sellDate: typeof item.sellDate === "string" && item.sellDate ? item.sellDate : undefined,
-    sellPrice: item.sellPrice === undefined || item.sellPrice === null ? undefined : parseMoney(item.sellPrice),
+    sellDate,
+    sellPrice,
     paymentMethod: typeof item.paymentMethod === "string" ? item.paymentMethod.trim().slice(0, 80) || undefined : undefined,
     customerName: typeof item.customerName === "string" ? item.customerName.trim().slice(0, 80) || undefined : undefined,
-    status: validStatus(item.status) ? item.status : "in_stock",
+    status,
     notes: typeof item.notes === "string" ? item.notes.trim().slice(0, 500) || undefined : undefined,
     createdAt: typeof item.createdAt === "number" ? item.createdAt : Date.now(),
     updatedAt: typeof item.updatedAt === "number" ? item.updatedAt : Date.now(),

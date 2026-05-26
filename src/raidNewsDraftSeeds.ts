@@ -491,10 +491,124 @@ export const skeletorRebalanceDraftMay202026: {
   ],
 };
 
+export const aratheiaGallcobarRebalanceDraftMay262026: {
+  id: string;
+  title: string;
+  caption: string;
+  blocks: PostBodyBlock[];
+} = {
+  id: "raid-news-2026-05-26-aratheia-gallcobar-rebalance-1160",
+  title: "Patch 11.60 rebalance: Aratheia Corpseflower and King Gallcobar get serious upgrades",
+  caption:
+    "Aratheia leans harder into Hex arena pressure, while King Gallcobar becomes a stronger poison support with better shielding and healing.",
+  blocks: [
+    {
+      type: "image",
+      url: "/aratheia-corpseflower-rebalance-1160.webp",
+      align: "full",
+      caption: "Aratheia Corpseflower rebalance preview for Raid: Shadow Legends update 11.60.",
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Quick summary**[/color]",
+        "- Plarium previewed two champion rebalances coming with update 11.60: Aratheia Corpseflower and King Gallcobar.",
+        "- Aratheia is being pushed further into the role of aggressive Arena nuker built around [Hex] pressure, extra attacks, and higher damage.",
+        "- King Gallcobar is getting a more reliable support identity, with stronger shields, better healing, and more dangerous Poison pressure.",
+        "- Both champions stay close to their original design, but their kits should feel much more complete after the update.",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Aratheia Corpseflower: Hex nuker with sharper teeth**[/color]",
+        "Aratheia's rebalance looks like a direct answer to one problem: she had a cool [Hex] idea, but not enough payoff to feel scary enough in real fights. With update 11.60, that changes. Her kit now leans much harder into punishing enemies affected by [Hex], dealing more damage, taking more turns, and applying pressure even through defensive setups.",
+        "The most important theme is consistency. Aratheia can apply [Hex] more reliably because her kit can ignore [Block Debuffs], and her damage scaling around [Hex] has been improved. That means she should feel less like a champion who needs everything to go perfectly, and more like an Arena threat that can actually force the enemy team to react.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Key Aratheia changes**[/color]",
+        "- Hexbloom now gets an increased damage multiplier and deals 50% more damage when counterattacking enemies under [Hex].",
+        "- Capricious Spite now gains 15% damage for each enemy under [Hex], up from 10%, and ignores [Shield], [Block Damage], and [Strengthen].",
+        "- Mindsnare Cloud can place [Hex] while ignoring [Block Debuffs], gives Aratheia protected [Block Damage], and grants an Extra Turn.",
+        "- Fangliac Frenzy now stacks DEF ignore after kills, gives a Shield after multiple kills, and can place [Block Revive] after she kills three or more enemies.",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**What this means for Aratheia builds**[/color]",
+        "After this rebalance, Aratheia should be treated less like a gimmick Hex champion and more like a real Arena damage dealer. She still wants the classic nuker stats: Attack, Critical Rate, Critical Damage, and enough Speed to take her turn at the right time. But because her value depends heavily on landing [Hex], Accuracy becomes much harder to ignore.",
+        "The spicy part is her anti-defensive utility. Ignoring [Shield], [Block Damage], [Strengthen], and applying [Hex] through [Block Debuffs] gives her a clearer job into annoying protection teams. She may not replace every top-tier Arena nuker, but she now has a stronger reason to exist.",
+      ].join("\n\n"),
+    },
+    {
+      type: "image",
+      url: "/king-gallcobar-rebalance-1160.webp",
+      align: "full",
+      caption: "King Gallcobar rebalance preview for Raid: Shadow Legends update 11.60.",
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**King Gallcobar: finally feeling more like a king**[/color]",
+        "King Gallcobar's rebalance is not about turning him into a nuker. His job is still support, but now his support package looks much cleaner. Plarium is strengthening his defensive value while also making him more reliable as a Poison debuffer.",
+        "The big win here is that his kit now connects better with itself. He shields, heals, removes debuffs, applies Poison pressure, and can activate Poison when enemies hit shielded allies. That gives him a much more obvious place in Poison-focused teams, especially beside champions like Nell, while still letting him work as a standalone sustain option.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Key King Gallcobar changes**[/color]",
+        "- Tanglestaff now places [Shield] on King Gallcobar and the ally with the lowest HP, using his own MAX HP for the shield value.",
+        "- Vitriolic Thorns now places two 5% [Poison] debuffs on each enemy, with extra Poison stacks for each buff removed.",
+        "- Vitriolic Thorns also becomes impossible to resist if King Gallcobar is under a [Shield] buff.",
+        "- Hypertrophy now removes all debuffs from allies and places two 15% [Continuous Heal] buffs for 1 turn.",
+        "- Bramble Shaman now activates all Poison debuffs on an enemy when they attack an ally under [Shield], once per turn.",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Why King Gallcobar matters after 11.60**[/color]",
+        "The strongest part of this rebalance is reliability. Poison champions can look great on paper but feel awkward if their debuffs get resisted or if they do not bring enough team support. King Gallcobar now has a better answer to both problems. If he has [Shield], his Poison and [Block Buffs] effects on Vitriolic Thorns cannot be resisted, which is a huge quality-of-life improvement.",
+        "For progression accounts, this makes him more useful in longer PvE fights where sustain and Poison value matter. For late-game players, the question will be whether his new consistency is enough to earn a slot over already established Poison and support champions.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Early verdict**[/color]",
+        "Aratheia gets the flashier rebalance. More damage, better Hex synergy, extra turns, counterattack value, and anti-protection tools make her much more interesting for Arena players. If you already own her, she is absolutely worth retesting after 11.60 lands.",
+        "King Gallcobar gets the cleaner rebalance. He may not suddenly become the loudest champion in your roster, but his kit now makes more sense. Better shielding, stronger healing, more Poison pressure, and conditional irresistible debuffs give him a real team identity.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Tanne note**[/color]",
+        "My take: Aratheia is the one to watch for Arena clips, while King Gallcobar is the one that may quietly become much more useful for account progression. If you are buying or valuing a Raid account, do not ignore these rebalances. A champion that looked average before can become a selling point after a good patch.",
+        "As always, wait for the final 11.60 in-game version before spending books, souls, or your best gear. Preview notes are strong signals, but the real test is how they perform after players start using them in live content.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Source note**[/color]",
+        "Source: rebalance note for Raid: Shadow Legends update 11.60 covering Aratheia Corpseflower and King Gallcobar.",
+        "This draft is written for Tanne Hub and should be reviewed before publishing.",
+      ].join("\n"),
+    },
+  ],
+};
+
 export const raidNewsDraftSeeds = [
   raidNewsDraftMay162026,
   sabraelGuideDraftMay162026,
   raidProgressionGuideDraftMay172026,
   progressiveChanceDraftMay182026,
   skeletorRebalanceDraftMay202026,
+  aratheiaGallcobarRebalanceDraftMay262026,
 ];

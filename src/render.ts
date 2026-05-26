@@ -479,7 +479,7 @@ export function renderAdminDashboardPage(root: HTMLElement): void {
 
       <div class="relative z-0">
         ${renderHeader()}
-        <main id="admin-dashboard-page" class="${pageInner} py-8">
+        <main id="admin-dashboard-page" class="${pageInner} py-4 sm:py-8">
           <div id="admin-dashboard-guest" class="theme-smooth rounded-[14px] border border-[var(--admin-border)] bg-[var(--panel-bg)] p-6 text-[var(--panel-text)] shadow-[0_4px_14px_rgba(31,36,51,0.06)]">
             <h1 class="text-xl font-bold text-[var(--admin-heading)]">Admin dashboard</h1>
             <p class="mt-2 text-sm text-[var(--panel-muted)]">Please sign in with an admin account to access this dashboard.</p>
@@ -493,8 +493,8 @@ export function renderAdminDashboardPage(root: HTMLElement): void {
             <p class="mt-4 text-xs text-[var(--panel-muted)]">After admin login, reload this page or open Admin menu (top right) -> Admin dashboard.</p>
           </div>
 
-          <div id="admin-dashboard-content" class="theme-smooth hidden rounded-[14px] border border-[var(--admin-border)] bg-[var(--panel-bg)] p-4 text-[var(--panel-text)] shadow-[0_4px_14px_rgba(31,36,51,0.06)] md:p-6">
-            <div class="mb-6 flex flex-wrap items-end justify-between gap-3">
+          <div id="admin-dashboard-content" class="theme-smooth hidden rounded-[14px] border border-[var(--admin-border)] bg-[var(--panel-bg)] p-3 text-[var(--panel-text)] shadow-[0_4px_14px_rgba(31,36,51,0.06)] sm:p-4 md:p-6">
+            <div class="mb-4 flex flex-wrap items-end justify-between gap-3 sm:mb-6">
               <div>
                 <h1 class="text-2xl font-extrabold text-[var(--admin-heading)]">Admin dashboard</h1>
                 <p class="mt-1 text-sm text-[var(--panel-muted)]">Pick a section from the menu (stacked on small screens).</p>
@@ -502,24 +502,24 @@ export function renderAdminDashboardPage(root: HTMLElement): void {
               <a href="/" class="text-xs font-semibold text-[var(--admin-accent)] hover:underline">← Back to home</a>
             </div>
 
-            <div class="flex flex-col gap-6 lg:flex-row lg:items-start lg:gap-8">
-              <nav class="flex shrink-0 flex-col gap-1.5 lg:w-[240px]" aria-label="Admin sections">
-                <button type="button" data-admin-tab="posts" id="admin-tab-posts" class="rounded-lg border border-[var(--admin-tab-active-border)] bg-[var(--admin-tab-active-bg)] px-3 py-2.5 text-left text-sm font-semibold text-[var(--admin-accent-muted)]">
+            <div class="flex flex-col gap-4 lg:flex-row lg:items-start lg:gap-8">
+              <nav class="admin-dashboard-tabs -mx-1 flex shrink-0 snap-x gap-2 overflow-x-auto overscroll-x-contain px-1 pb-2 [-ms-overflow-style:none] [scrollbar-width:none] lg:sticky lg:top-24 lg:mx-0 lg:w-[240px] lg:flex-col lg:overflow-visible lg:p-0 [&::-webkit-scrollbar]:hidden" aria-label="Admin sections">
+                <button type="button" data-admin-tab="posts" id="admin-tab-posts" class="min-h-12 min-w-[11rem] shrink-0 snap-start rounded-lg border border-[var(--admin-tab-active-border)] bg-[var(--admin-tab-active-bg)] px-3 py-2.5 text-left text-sm font-semibold text-[var(--admin-accent-muted)] lg:min-w-0">
                   1. Posts & Raid news
                 </button>
-                <button type="button" data-admin-tab="raid" id="admin-tab-raid" class="rounded-lg border border-[var(--admin-tab-idle-border)] px-3 py-2.5 text-left text-sm font-semibold text-[var(--admin-tab-idle-text)] transition hover:bg-[var(--admin-tab-idle-hover)]">
+                <button type="button" data-admin-tab="raid" id="admin-tab-raid" class="min-h-12 min-w-[11rem] shrink-0 snap-start rounded-lg border border-[var(--admin-tab-idle-border)] px-3 py-2.5 text-left text-sm font-semibold text-[var(--admin-tab-idle-text)] transition hover:bg-[var(--admin-tab-idle-hover)] lg:min-w-0">
                   2. Raid Shadow Legends accounts
                 </button>
-	                <button type="button" data-admin-tab="promo" id="admin-tab-promo" class="rounded-lg border border-[var(--admin-tab-idle-border)] px-3 py-2.5 text-left text-sm font-semibold text-[var(--admin-tab-idle-text)] transition hover:bg-[var(--admin-tab-idle-hover)]">
+	                <button type="button" data-admin-tab="promo" id="admin-tab-promo" class="min-h-12 min-w-[11rem] shrink-0 snap-start rounded-lg border border-[var(--admin-tab-idle-border)] px-3 py-2.5 text-left text-sm font-semibold text-[var(--admin-tab-idle-text)] transition hover:bg-[var(--admin-tab-idle-hover)] lg:min-w-0">
 	                  3. Promo code
 	                </button>
-	                <button type="button" data-admin-tab="profit" id="admin-tab-profit" class="rounded-lg border border-[var(--admin-tab-idle-border)] px-3 py-2.5 text-left text-sm font-semibold text-[var(--admin-tab-idle-text)] transition hover:bg-[var(--admin-tab-idle-hover)]">
+	                <button type="button" data-admin-tab="profit" id="admin-tab-profit" class="min-h-12 min-w-[11rem] shrink-0 snap-start rounded-lg border border-[var(--admin-tab-idle-border)] px-3 py-2.5 text-left text-sm font-semibold text-[var(--admin-tab-idle-text)] transition hover:bg-[var(--admin-tab-idle-hover)] lg:min-w-0">
 	                  4. Profit tracker
 	                </button>
               </nav>
 
               <div class="min-w-0 flex-1 space-y-6">
-                <section id="admin-panel-posts" class="admin-dash-panel theme-smooth rounded-xl border border-[var(--admin-border)] bg-[var(--admin-inner-bg)] p-4 md:p-5">
+                <section id="admin-panel-posts" class="admin-dash-panel theme-smooth rounded-xl border border-[var(--admin-border)] bg-[var(--admin-inner-bg)] p-3 sm:p-4 md:p-5">
                   <h2 class="text-lg font-bold text-[var(--admin-heading)]">Edit posts (Raid news)</h2>
                   <p class="mt-1 text-xs text-[var(--admin-subtle)]">Paragraphs and images, upload or URL. Click a block first, then + Image/+ Paragraph inserts below it. Use ↑ ↓ to reorder blocks.</p>
                   <form id="admin-post-create-form" class="mt-4 space-y-2.5">
@@ -550,15 +550,15 @@ export function renderAdminDashboardPage(root: HTMLElement): void {
                           <p class="text-xs font-semibold text-[var(--admin-accent-muted)]">Live preview</p>
                           <span class="text-[10px] text-[var(--admin-muted)]">Auto updates while editing</span>
                         </div>
-                        <div id="admin-post-live-preview" class="max-h-[68vh] min-h-[420px] overflow-auto rounded-md border border-[var(--admin-input-border)] bg-[var(--admin-inner-bg)] p-3"></div>
+                        <div id="admin-post-live-preview" class="max-h-[48vh] min-h-[260px] overflow-auto rounded-md border border-[var(--admin-input-border)] bg-[var(--admin-inner-bg)] p-3 sm:max-h-[68vh] sm:min-h-[420px]"></div>
                       </div>
                     </div>
                     <p id="admin-post-feedback" class="hidden rounded-md px-3 py-2 text-xs"></p>
-                    <div class="flex flex-wrap justify-end gap-2">
-                      <button id="admin-post-save-draft" type="button" class="rounded-md border border-[var(--admin-input-border)] bg-transparent px-4 py-2 text-sm font-bold text-[var(--admin-btn-ghost-text)] transition hover:bg-[var(--admin-tab-idle-hover)]">
+                    <div class="grid grid-cols-1 gap-2 sm:flex sm:flex-wrap sm:justify-end">
+                      <button id="admin-post-save-draft" type="button" class="min-h-11 rounded-md border border-[var(--admin-input-border)] bg-transparent px-4 py-2 text-sm font-bold text-[var(--admin-btn-ghost-text)] transition hover:bg-[var(--admin-tab-idle-hover)]">
                         Save draft
                       </button>
-                      <button type="submit" class="rounded-md bg-[var(--admin-accent)] px-4 py-2 text-sm font-bold text-[var(--admin-submit-text)] transition hover:brightness-110">
+                      <button type="submit" class="min-h-11 rounded-md bg-[var(--admin-accent)] px-4 py-2 text-sm font-bold text-[var(--admin-submit-text)] transition hover:brightness-110">
                         Publish post
                       </button>
                     </div>
@@ -578,7 +578,7 @@ export function renderAdminDashboardPage(root: HTMLElement): void {
 	                  </div>
 		                </section>
 
-                <section id="admin-panel-raid" class="admin-dash-panel theme-smooth hidden rounded-xl border border-[var(--admin-border)] bg-[var(--admin-inner-bg)] p-4 md:p-5">
+                <section id="admin-panel-raid" class="admin-dash-panel theme-smooth hidden rounded-xl border border-[var(--admin-border)] bg-[var(--admin-inner-bg)] p-3 sm:p-4 md:p-5">
                   <h2 class="text-lg font-bold text-[var(--admin-heading)]">Raid Shadow Legends accounts</h2>
                   <form id="admin-raid-selling-form" class="mt-3 rounded-lg border border-[var(--admin-border)] bg-[var(--admin-card-bg)] p-3">
                     <div class="mb-2 flex items-center justify-between gap-2">
@@ -614,8 +614,8 @@ export function renderAdminDashboardPage(root: HTMLElement): void {
                     <input id="admin-raid-selling-images-files" type="file" accept="image/*" multiple class="admin-dash-input mt-2 w-full rounded-md border border-[var(--admin-input-border)] bg-[var(--admin-input-bg)] px-3 py-2 text-sm text-[var(--admin-input-text)] file:mr-2 file:rounded file:border-0 file:bg-[var(--admin-accent)] file:px-2 file:py-1 file:text-xs file:font-bold file:text-[var(--admin-submit-text)]" />
                     <p id="admin-raid-selling-feedback" class="mt-2 hidden rounded-md px-3 py-2 text-xs"></p>
                     <p class="mt-2 text-[11px] text-[var(--admin-muted)]"><span class="font-semibold text-[var(--admin-accent-muted)]">Optional champions:</span> use &quot;Select champions for account&quot; below — skip if you only use screenshots + description.</p>
-                    <div class="mt-2 flex justify-end">
-                      <button id="admin-raid-selling-submit" type="submit" class="rounded-md bg-[var(--admin-accent)] px-4 py-2 text-sm font-bold text-[var(--admin-submit-text)] transition hover:brightness-110">
+                    <div class="mt-2 grid grid-cols-1 sm:flex sm:justify-end">
+                      <button id="admin-raid-selling-submit" type="submit" class="min-h-11 rounded-md bg-[var(--admin-accent)] px-4 py-2 text-sm font-bold text-[var(--admin-submit-text)] transition hover:brightness-110">
                         Save listed account
                       </button>
                     </div>
@@ -709,7 +709,7 @@ export function renderAdminDashboardPage(root: HTMLElement): void {
                   <p id="admin-raid-accounts-feedback" class="mt-2 hidden text-xs text-[var(--admin-success-inline)]"></p>
                 </section>
 
-	                <section id="admin-panel-promo" class="admin-dash-panel theme-smooth hidden rounded-xl border border-[var(--admin-border)] bg-[var(--admin-inner-bg)] p-4 md:p-5">
+	                <section id="admin-panel-promo" class="admin-dash-panel theme-smooth hidden rounded-xl border border-[var(--admin-border)] bg-[var(--admin-inner-bg)] p-3 sm:p-4 md:p-5">
 		                  <h2 class="text-lg font-bold text-[var(--admin-heading)]">Raid Shadow Legends promo code</h2>
 		                  <p class="mt-1 text-xs text-[var(--admin-subtle)]">Update RSL game reward codes shown from the navbar scroll.</p>
 		                  <form id="admin-promo-code-form" class="mt-4 space-y-2.5 rounded-lg border border-[var(--admin-border)] bg-[var(--admin-card-bg)] p-3">
@@ -723,8 +723,8 @@ export function renderAdminDashboardPage(root: HTMLElement): void {
 		                    </div>
 		                    <textarea id="admin-promo-description" rows="3" maxlength="220" placeholder="Reward from this code, e.g. Energy, silver, XP boost..." class="admin-dash-input w-full rounded-md border border-[var(--admin-input-border)] bg-[var(--admin-input-bg)] px-3 py-2 text-sm text-[var(--admin-input-text)] outline-none placeholder:text-[var(--admin-muted)] focus:border-[var(--admin-accent)]"></textarea>
 	                    <p id="admin-promo-feedback" class="hidden rounded-md px-3 py-2 text-xs"></p>
-	                    <div class="flex justify-end">
-	                      <button type="submit" class="rounded-md bg-[var(--admin-accent)] px-4 py-2 text-sm font-bold text-[var(--admin-submit-text)] transition hover:brightness-110">
+	                    <div class="grid grid-cols-1 sm:flex sm:justify-end">
+	                      <button type="submit" class="min-h-11 rounded-md bg-[var(--admin-accent)] px-4 py-2 text-sm font-bold text-[var(--admin-submit-text)] transition hover:brightness-110">
 	                        Save promo code
 	                      </button>
 	                    </div>
@@ -738,7 +738,7 @@ export function renderAdminDashboardPage(root: HTMLElement): void {
                     </div>
 	                </section>
 
-	                <section id="admin-panel-profit" class="admin-dash-panel theme-smooth hidden rounded-xl border border-[var(--admin-border)] bg-[var(--admin-inner-bg)] p-4 md:p-5">
+	                <section id="admin-panel-profit" class="admin-dash-panel theme-smooth hidden rounded-xl border border-[var(--admin-border)] bg-[var(--admin-inner-bg)] p-3 sm:p-4 md:p-5">
                     <div class="flex flex-wrap items-start justify-between gap-3">
                       <div>
                         <h2 class="text-lg font-bold text-[var(--admin-heading)]">Tanne Profit Tracker</h2>
@@ -783,8 +783,8 @@ export function renderAdminDashboardPage(root: HTMLElement): void {
                         <textarea id="profit-notes" rows="3" maxlength="500" placeholder="Notes: source, account ID, deal proof, delivery status..." class="admin-dash-input rounded-md border border-[var(--admin-input-border)] bg-[var(--admin-input-bg)] px-3 py-2 text-sm text-[var(--admin-input-text)] outline-none placeholder:text-[var(--admin-muted)] focus:border-[var(--admin-accent)] sm:col-span-2"></textarea>
                       </div>
                       <p id="profit-tracker-feedback" class="mt-2 hidden rounded-md px-3 py-2 text-xs"></p>
-                      <div class="mt-3 flex justify-end">
-                        <button id="profit-tracker-submit" type="submit" class="rounded-md bg-[var(--admin-accent)] px-4 py-2 text-sm font-bold text-[var(--admin-submit-text)] transition hover:brightness-110">Save trade</button>
+                      <div class="mt-3 grid grid-cols-1 sm:flex sm:justify-end">
+                        <button id="profit-tracker-submit" type="submit" class="min-h-11 rounded-md bg-[var(--admin-accent)] px-4 py-2 text-sm font-bold text-[var(--admin-submit-text)] transition hover:brightness-110">Save trade</button>
                       </div>
                     </form>
 

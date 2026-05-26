@@ -579,3 +579,42 @@
   border-radius: 999px;
   animation: lazySectionSpin 780ms linear infinite;
 }
+
+#admin-dashboard-page {
+  padding-bottom: calc(5.5rem + env(safe-area-inset-bottom, 0px));
+}
+
+#admin-dashboard-page button,
+#admin-dashboard-page input,
+#admin-dashboard-page select,
+#admin-dashboard-page textarea {
+  touch-action: manipulation;
+}
+
+#admin-dashboard-page button {
+  min-height: 2.75rem;
+}
+
+#admin-dashboard-page .admin-dash-input {
+  min-height: 2.75rem;
+  font-size: 1rem;
+}
+
+#admin-post-body-blocks textarea,
+#admin-post-body-blocks input {
+  font-size: 1rem;
+}
+
+.admin-dashboard-tabs {
+  scroll-padding-inline: 0.5rem;
+}
+
+@media (max-width: 640px) {
+  body:has(#admin-dashboard-page) #floating-contact {
+    display: none;
+  }
+
+  #admin-dashboard-page {
+    scroll-margin-top: 7rem;
+  }
+}

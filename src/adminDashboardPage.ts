@@ -403,8 +403,9 @@ export function initAdminDashboardPage(): void {
       const on = id === tab;
       panel.classList.toggle("hidden", !on);
       btn.className = on
-        ? "rounded-lg border border-[var(--admin-tab-active-border)] bg-[var(--admin-tab-active-bg)] px-3 py-2.5 text-left text-sm font-semibold text-[var(--admin-accent-muted)]"
-        : "rounded-lg border border-[var(--admin-tab-idle-border)] px-3 py-2.5 text-left text-sm font-semibold text-[var(--admin-tab-idle-text)] transition hover:bg-[var(--admin-tab-idle-hover)]";
+        ? "min-h-12 min-w-[11rem] shrink-0 snap-start rounded-lg border border-[var(--admin-tab-active-border)] bg-[var(--admin-tab-active-bg)] px-3 py-2.5 text-left text-sm font-semibold text-[var(--admin-accent-muted)] lg:min-w-0"
+        : "min-h-12 min-w-[11rem] shrink-0 snap-start rounded-lg border border-[var(--admin-tab-idle-border)] px-3 py-2.5 text-left text-sm font-semibold text-[var(--admin-tab-idle-text)] transition hover:bg-[var(--admin-tab-idle-hover)] lg:min-w-0";
+      if (on) btn.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "nearest" });
     }
     const url = new URL(window.location.href);
     url.searchParams.set("page", "dashboard");

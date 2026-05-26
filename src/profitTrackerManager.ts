@@ -24,6 +24,13 @@ function parseAmount(value: string): number {
   return Number.isFinite(n) ? Math.max(0, n) : 0;
 }
 
+function todayInputValue(): string {
+  const now = new Date();
+  return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}-${String(
+    now.getDate(),
+  ).padStart(2, "0")}`;
+}
+
 function weekKey(date: Date): string {
   const d = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()));
   const day = d.getUTCDay() || 7;
@@ -85,7 +92,7 @@ function renderProfitSummary(): void {
 
   wrap.innerHTML = [
     renderMetric("Total buy cost", money(totalBuy)),
-    renderMetric("Revenue sold", money(revenue)),
+    renderMetric("Sold revenue", money(revenue)),
     renderMetric("Total profit", money(profit), profit >= 0 ? "text-[var(--admin-success-inline)]" : "text-red-500"),
     renderMetric("Inventory capital", money(stockValue)),
     renderMetric("Profit this week", money(weekProfit), weekProfit >= 0 ? "text-[var(--admin-success-inline)]" : "text-red-500"),
@@ -210,7 +217,7 @@ export function initProfitTrackerManager(): void {
     const sellDate = document.querySelector<HTMLInputElement>("#profit-sell-date")?.value.trim() || undefined;
     const sellRaw = document.querySelector<HTMLInputElement>("#profit-sell-price")?.value.trim() ?? "";
     const sellPrice = sellRaw ? parseAmount(sellRaw) : undefined;
-    const status = (document.querySelector<HTMLSelectElement>("#profit-status")?.value ?? "in_stock") as ProfitTradeStatus;
+    const requestedStatus = (document.querySelector<HTMLSelectElement>("#profit-status")?.value ?? "in_stock") as ProfitTradeStatus;
     const paymentMethod = document.querySelector<HTMLInputElement>("#profit-payment-method")?.value.trim() || undefined;
     const customerName = document.querySelector<HTMLInputElement>("#profit-customer-name")?.value.trim() || undefined;
     const notes = document.querySelector<HTMLTextAreaElement>("#profit-notes")?.value.trim() || undefined;
@@ -219,7 +226,12 @@ export function initProfitTrackerManager(): void {
       setProfitFeedback("Account name, buy date, and buy price are required.", "error");
       return;
     }
-    if (status === "sold" && (sellPrice === undefined || sellPrice <= 0)) {
+    const hasSaleInfo = Boolean(sellDate) || (sellPrice ?? 0) > 0;
+    const status: ProfitTradeStatus = hasSaleInfo ? "sold" : requestedStatus;
+    const finalSellDate = status === "sold" ? sellDate ?? todayInputValue() : undefined;
+    const finalSellPrice = status === "sold" ? sellPrice : undefined;
+
+    if (status === "sold" && (finalSellPrice === undefined || finalSellPrice <= 0)) {
       setProfitFeedback("Sold trades need a sell price.", "error");
       return;
     }
@@ -230,8 +242,8 @@ export function initProfitTrackerManager(): void {
       game,
       buyDate,
       buyPrice,
-      sellDate,
-      sellPrice,
+      sellDate: finalSellDate,
+      sellPrice: finalSellPrice,
       paymentMethod,
       customerName,
       status,
