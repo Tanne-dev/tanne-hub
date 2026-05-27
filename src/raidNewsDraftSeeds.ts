@@ -604,6 +604,100 @@ export const aratheiaGallcobarRebalanceDraftMay262026: {
   ],
 };
 
+export const raidUpdate1160QoLDraftMay272026: {
+  id: string;
+  title: string;
+  caption: string;
+  blocks: PostBodyBlock[];
+} = {
+  id: "raid-news-2026-05-27-update-1160-qol-live-arena",
+  title: "Update 11.60 QoL preview: faster Live Arena, better Background Multi-Battles, and cleaner presets",
+  caption:
+    "Patch 11.60 is shaping up to be a quality-of-life update for players who grind daily, push Live Arena, and manage multiple dungeon teams.",
+  blocks: [
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Quick summary**[/color]",
+        "- Update 11.60 brings several quality-of-life changes that should make daily Raid play feel less painful.",
+        "- Background Multi-Battles will become more flexible for players running Campaign, Dungeons, or Doom Tower.",
+        "- Live Arena gets matchmaking improvements and shorter battle pacing, which should reduce some of the most exhausting PvP matches.",
+        "- Dungeons will get separate Team Presets, and Grim Forest gets a helpful change for failed stages.",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Background Multi-Battles: finally less babysitting**[/color]",
+        "One of the nicest parts of update 11.60 is the Background Multi-Battle improvement. If you are already deep enough into Raid to unlock the bigger modes, this change is pure time-saving quality-of-life.",
+        "After 11.60, players will be able to run Campaign, Dungeon, or Doom Tower Background Multi-Battles while still playing Cursed City and Grim Forest. Even better, Champions used in those Multi-Battles will still be available in Cursed City and Grim Forest with no extra restriction.",
+        "In gamer terms: less waiting, less awkward champion locking, and more actual playing while the grind runs in the background.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Why this matters for daily farming**[/color]",
+        "Raid has a lot of daily chores. Energy, dungeon runs, Doom Tower, Cursed City, Grim Forest, event points, artifact farming - it adds up fast. This Background Multi-Battle change means your account can keep farming while you handle more interesting content.",
+        "For active players, this is a small change that will feel big over time. For account buyers, it also makes stronger accounts easier to actually use, because you can progress in multiple areas without constantly stopping one mode to play another.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Live Arena matchmaking: fewer weird matchups**[/color]",
+        "Live Arena is also getting some much-needed matchmaking tuning. Seasonal matchmaking should be improved so players are less likely to run into opponents with ratings way above or way below their own.",
+        "That does not mean every fight will suddenly be perfect, but it should reduce those matches where you load in and immediately feel like the game just threw you into the wrong lobby.",
+        "There is also a change to reduce repeat matchups against the same opponent multiple times in a row. You may still see familiar names, but recently faced players should now have much lower priority in the queue.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Live Arena battles should move faster**[/color]",
+        "The other big Live Arena change is battle speed. Long, exhausting fights are getting trimmed down.",
+        "- Maximum battle duration goes from 20 minutes to 15 minutes.",
+        "- After a battle passes 5 minutes, turn time drops from 15 seconds to 10 seconds.",
+        "- After a battle passes 10 minutes, turn time drops again from 10 seconds to 8 seconds.",
+        "This is a good direction. Nobody wants to spend half a lunch break watching two tank teams stare at each other. Faster pacing should make Live Arena feel less draining, especially when matches turn into slow sustain wars.",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Dungeon presets and Grim Forest cleanup**[/color]",
+        "Update 11.60 also brings some smaller but useful management changes.",
+        "Different Dungeons will get separate Team Presets, plus an option to save the current team directly into a preset. This should make it easier to keep teams organized instead of rebuilding the same farming setups again and again.",
+        "Grim Forest also gets a nice fix: the Change Team Decks item will allow you to change Champions even if they were rolled for a Stage you could not beat. That should make failed stages feel less punishing and give players more room to recover instead of being stuck with a bad roll.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Early verdict**[/color]",
+        "This is not the flashiest update in terms of new champions, but it is the kind of patch that can make Raid feel smoother every day. Background farming while playing bigger modes is a real win. Live Arena getting faster and less repetitive is also a step in the right direction.",
+        "The best part is that these changes help different types of players: grinders save time, PvP players get cleaner matchmaking, and account managers get better team organization.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Tanne note**[/color]",
+        "My take: update 11.60 looks like a quality-of-life patch that serious daily players will feel more than casual players at first. It does not scream hype, but it removes friction. And in Raid, removing friction matters a lot.",
+        "If you are buying or valuing an account, these changes make well-developed accounts even more convenient, especially accounts that can farm in the background while still pushing Cursed City, Grim Forest, and Live Arena.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Source note**[/color]",
+        "Source: update 11.60 quality-of-life preview details provided for Tanne Hub.",
+        "This is a draft article. Review the final in-game patch notes before publishing if any numbers or wording change.",
+      ].join("\n"),
+    },
+  ],
+};
+
 export const raidNewsDraftSeeds = [
   raidNewsDraftMay162026,
   sabraelGuideDraftMay162026,
@@ -611,4 +705,5 @@ export const raidNewsDraftSeeds = [
   progressiveChanceDraftMay182026,
   skeletorRebalanceDraftMay202026,
   aratheiaGallcobarRebalanceDraftMay262026,
+  raidUpdate1160QoLDraftMay272026,
 ];
