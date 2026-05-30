@@ -1,4 +1,4 @@
-const WELCOME_SESSION_KEY = "tanne-welcome-choice-seen-v1";
+const WELCOME_STORAGE_KEY = "tanne-welcome-choice-seen-v2";
 
 const newsIcon = `
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5" aria-hidden="true">
@@ -90,11 +90,11 @@ function renderWelcomeChoiceOverlay(): string {
 
 function closeWelcomeChoiceOverlay(): void {
   document.querySelector("#welcome-choice-overlay")?.remove();
-  sessionStorage.setItem(WELCOME_SESSION_KEY, "1");
+  localStorage.setItem(WELCOME_STORAGE_KEY, "1");
 }
 
 export function initWelcomeChoiceOverlay(): void {
-  if (sessionStorage.getItem(WELCOME_SESSION_KEY) === "1") return;
+  if (localStorage.getItem(WELCOME_STORAGE_KEY) === "1") return;
   if (new URLSearchParams(window.location.search).get("page") === "dashboard") return;
   if (window.location.search.includes("post=")) return;
 
@@ -109,7 +109,7 @@ export function initWelcomeChoiceOverlay(): void {
   });
   overlay.querySelectorAll<HTMLAnchorElement>("a").forEach((link) => {
     link.addEventListener("click", () => {
-      sessionStorage.setItem(WELCOME_SESSION_KEY, "1");
+      localStorage.setItem(WELCOME_STORAGE_KEY, "1");
     });
   });
   window.addEventListener("keydown", (event) => {

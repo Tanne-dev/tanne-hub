@@ -698,6 +698,337 @@ export const raidUpdate1160QoLDraftMay272026: {
   ],
 };
 
+export const folanSilverhartFragmentDraftMay302026: {
+  id: string;
+  title: string;
+  caption: string;
+  blocks: PostBodyBlock[];
+} = {
+  id: "raid-news-2026-05-30-folan-silverhart-fragment-event",
+  title: "Folan Silverhart Fragment Event: new Legendary Sylvan Watcher built to hit through the meta",
+  caption:
+    "Folan Silverhart is planned for a June 4 Fragment Event, bringing a Spirit Legendary ATK champion with debuff spread, multi-hit damage, and anti-Block Damage pressure.",
+  blocks: [
+    {
+      type: "image",
+      url: "/folan-silverhart-fragment-event-skills.webp",
+      align: "full",
+      caption: "Folan Silverhart skills preview for the upcoming Raid: Shadow Legends Fragment Event.",
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Quick summary**[/color]",
+        "- A new Champion Fragment Event is planned to start next Thursday, June 4.",
+        "- The featured champion is Folan Silverhart, a Legendary Spirit ATK champion from the Sylvan Watchers faction.",
+        "- Folan is built as a damage-focused champion for both PvP and PvE.",
+        "- His kit leans into debuff synergy, multi-hit attacks, [Decrease DEF], [Block Passive Skills], [Debuff Spread], and extra damage against debuffed enemies.",
+        "- He can also ignore [Block Damage] and [Unkillable], which makes him especially interesting in the current PvP meta.",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Who is Folan Silverhart?**[/color]",
+        "Folan Silverhart is the next Fragment Event champion planned for Raid: Shadow Legends, and on paper he looks like a very aggressive Sylvan Watchers damage dealer.",
+        "His profile is simple but spicy: Legendary rarity, Spirit affinity, ATK type, Sylvan Watchers faction. That already puts him in a valuable slot for players who need more offensive power from that faction, especially if they are building around faction synergy or want a new nuker-style option with utility.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**The main idea of his kit**[/color]",
+        "Folan is not just a raw hit-and-pray damage champion. His kit is built around making debuffs matter. He can place important debuffs, spread them across the enemy team, and then punish targets harder when they are already debuffed.",
+        "That makes him more interesting than a basic nuker, because he brings setup and pressure in the same package. In PvP, that kind of kit can be dangerous if the timing is right. In PvE, multi-hit attacks plus debuff extension and AoE pressure can also give him useful value beyond just one big damage number.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Skill breakdown**[/color]",
+        "### Puncture Wounds",
+        "Folan attacks one enemy 3 times. Each hit has a 30% chance to increase the duration of a random debuff on the target by 1 turn. This is a strong opener for boss fights or any content where keeping debuffs active matters.",
+        "### Bind & Break",
+        "This is his big AoE damage button. He attacks all enemies 2 times, deals 10% more damage to each enemy for every debuff on them, and ignores [Unkillable] and [Block Damage]. In the current PvP meta, ignoring those defensive buffs is a very real selling point.",
+        "### A Son's Wrath",
+        "Folan attacks one enemy 2 times. The first hit has a 75% chance to place a 60% [Decrease DEF] debuff for 2 turns, while the second hit has a 75% chance to place [Block Passive Skills] for 2 turns. Then he applies [Debuff Spread], taking all debuffs from the target and placing them on all enemies. Finally, he attacks all enemies once and ignores 20% of each target's DEF.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Passive and aura**[/color]",
+        "### Malignant Might [P]",
+        "For each Sylvan Watcher ally on the team, including Folan himself, he receives 10% less damage from AoE attacks. Ignore DEF effects against him are also 10% less effective. That means he gets extra survivability when played with his own faction, which fits the Sylvan Watchers theme nicely.",
+        "The passive also gives Folan a 30% chance to turn weak hits into normal hits whenever he attacks. This chance increases by 10% for each debuff on the target. That is a big deal for Spirit affinity matchups, because weak hits can ruin an offensive champion's pressure at the worst possible moment.",
+        "### Aura",
+        "Folan increases Ally ATK in all Battles by 30%, giving him a flexible offensive aura that can be used across multiple areas of the game.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Why PvP players should pay attention**[/color]",
+        "The biggest PvP hook is obvious: Folan can ignore [Block Damage] and [Unkillable] on his AoE skill. Those buffs are annoying for damage dealers, and any champion that can punch through them automatically becomes worth testing.",
+        "Add [Block Passive Skills], [Decrease DEF], and [Debuff Spread], and Folan starts looking like a champion who can break open teams that rely too much on protection, passives, and defensive timing. He will still need proper setup, speed tuning, and gear, but the toolkit is definitely not boring.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**PvE value: not just an Arena toy**[/color]",
+        "Folan is described as useful for both PvP and PvE, and that makes sense. Multi-hit skills can matter in several areas of Raid, while [Decrease DEF] is always valuable for damage output. His A1 can also extend debuffs, which can help in longer fights where keeping key debuffs up is important.",
+        "The question for PvE will be damage numbers and cooldown flow. If his multipliers are good, he could be more than just a Fragment Event collectible. If the damage is only average, he may still find value as a Sylvan Watchers damage option with useful debuff support.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Early verdict**[/color]",
+        "Folan Silverhart looks like a Fragment Event champion worth watching closely. His kit has the right keywords for the current Raid environment: multi-hit pressure, debuff synergy, [Block Passive Skills], [Debuff Spread], [Decrease DEF], and the ability to ignore [Block Damage] and [Unkillable].",
+        "That does not automatically make him broken, but it does make him relevant. If you are low on resources, wait for final testing before going all-in. If your account needs a Spirit nuker or a Sylvan Watchers damage dealer, this event may be very tempting.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Tanne note**[/color]",
+        "My take: Folan has the kind of kit that looks much better when the enemy team is already covered in debuffs. He is probably not a lazy one-button champion. He wants setup, but if the setup works, he can punish defensive teams hard.",
+        "For account buyers, a completed Folan Fragment Event could become a nice value point, especially if he tests well in PvP. For F2P players, check your resources carefully before committing, because Fragment Events can be expensive if your account is not prepared.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Source note**[/color]",
+        "Source: Champion Fragment Event preview details for Folan Silverhart provided for Tanne Hub.",
+        "This is a draft article. Confirm the final event timer and in-game skill text before publishing.",
+      ].join("\n"),
+    },
+  ],
+};
+
+export const webOfCorruptionCampaignDraftMay302026: {
+  id: string;
+  title: string;
+  caption: string;
+  blocks: PostBodyBlock[];
+} = {
+  id: "raid-news-2026-05-30-web-of-corruption-campaign",
+  title: "Web of Corruption campaign: Event Dungeon, new champions, relics, and rewards explained",
+  caption:
+    "Raid's Web of Corruption campaign brings back the Event Dungeon, introduces new champions, returns limited relics, and adds a 25-day reward calendar.",
+  blocks: [
+    {
+      type: "image",
+      url: "/web-of-corruption-info-v0-uixqtbw2x24h1.webp",
+      align: "full",
+      caption: "Web of Corruption campaign overview and timeline.",
+    },
+    {
+      type: "text",
+      text: [
+        "## Quick summary",
+        "- Web of Corruption runs from June 3, 2026 to August 5, 2026.",
+        "- The event is split into 2 phases: June focuses on the Fragment Event, Event Dungeon, Reward Calendar, Bastion redesign, and OST update.",
+        "- July adds a free Legendary Champion through the Loyalty Program, a Classic Fusion, and a Coalition Event.",
+        "- The Event Dungeon returns with Rhaia the Mourned as the featured dungeon boss.",
+        "- Players can collect returning limited relics, earn Twysted Horns, farm the Pinpoint Artifact and Accessories set, and chase multiple new champions.",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## Event duration and structure",
+        "Web of Corruption is not just one small event. It is a full campaign window running from June 3, 2026 until August 5, 2026, built around two different phases.",
+        "Phase 1 starts in June 2026 and includes the Champion Fragment Event, the opening of the Event Dungeon, a special Reward Calendar, Bastion redesign, and an OST update.",
+        "Phase 2 arrives in July 2026 with a free Legendary Champion in the Loyalty Program, a Classic Fusion, and a Coalition Event.",
+        "The event hashtag shown in the preview is #RAIDWEBOFCORRUPTION.",
+      ].join("\n\n"),
+    },
+    {
+      type: "image",
+      url: "/web-of-corruption-info-v0-uixqtbw2x24h1.webp",
+      align: "full",
+      caption: "The Web of Corruption event is split into June and July phases.",
+    },
+    {
+      type: "text",
+      text: [
+        "## Event Dungeon returns",
+        "The Event Dungeon is coming back, and this time the featured boss is Rhaia the Mourned, described as an exiled queen.",
+        "The dungeon is available for players level 6 and above, which makes it accessible very early compared with many late-game systems.",
+        "According to the event preview, the Event Dungeon starts on June 3, 2026 and ends on August 5, 2026.",
+      ].join("\n\n"),
+    },
+    {
+      type: "image",
+      url: "/web-of-corruption-info-v0-nlmxdvqmx24h1.webp",
+      align: "full",
+      caption: "Event Dungeon details featuring Rhaia the Mourned.",
+    },
+    {
+      type: "text",
+      text: [
+        "## Event Dungeon artifacts: Pinpoint Set and Accessories",
+        "Alongside existing artifact sets such as Accuracy, Critical Rate, Critical Damage, Curing, and Daze, players can also earn a limited Pinpoint Artifact and Accessories set.",
+        "This limited set has 9 pieces and previously appeared in the Event Dungeon during the Asgard Divide campaign.",
+        "Pinpoint set bonuses are very speed and accuracy focused, with Intercept stacks added at several breakpoints. That makes it especially interesting for Arena, speed tuning, and champions that need to land debuffs reliably.",
+        "Pinpoint Set stats:",
+        "- 1 piece: +20 ACC.",
+        "- 2 pieces: +10% SPD.",
+        "- 3 pieces: +20 ACC.",
+        "- 4 pieces: starts the round with 1 stack of Intercept buff.",
+        "- 5 pieces: +10% SPD.",
+        "- 6 pieces: starts the round with 2 stacks of Intercept buff.",
+        "- 7 pieces: +20 ACC.",
+        "- 8 pieces: +12% SPD.",
+        "- 9 pieces: starts the round with 4 stacks of Intercept buff.",
+        "Full 9-piece value shown in the preview: +60 ACC, +32% SPD, and 4 Intercept stacks at the beginning of the round.",
+      ].join("\n"),
+    },
+    {
+      type: "image",
+      url: "/web-of-corruption-info-v0-2t25uxyrx24h1.webp",
+      align: "full",
+      caption: "Limited Pinpoint Artifact and Accessories set bonuses.",
+    },
+    {
+      type: "text",
+      text: [
+        "## Event relics are coming back",
+        "Plarium is bringing back relics that were previously introduced during limited events.",
+        "During the Web of Corruption campaign, players will have a chance to obtain relics that first appeared in the Chaos Awakes event.",
+        "The preview also confirms that players will be able to earn Twysted Horns, which are relic crafting materials, through different in-game activities.",
+        "For players who missed the earlier limited relic window, this is one of the most important parts of the campaign.",
+      ].join("\n\n"),
+    },
+    {
+      type: "image",
+      url: "/web-of-corruption-info-v0-dno8jo78y24h1.webp",
+      align: "full",
+      caption: "Returning limited relics and Twysted Horns crafting material.",
+    },
+    {
+      type: "text",
+      text: [
+        "## Reward Calendar",
+        "A special 25-day Reward Calendar will launch with the start of the Web of Corruption event.",
+        "Rewards shown in the preview include Epic and Legendary rarity artifacts and accessories, Gemstones, Glyphs, Chaos Ore, and other goodies.",
+        "The final main reward of the calendar will be decided by a community vote. Players will choose one Legendary Relic from the following options:",
+        "- Gilded Pinion.",
+        "- Last Laugh Amulet.",
+        "- Mask of Disquiet.",
+        "This is a nice touch because the community vote gives players some influence over the final reward instead of making the whole calendar fully fixed from day one.",
+      ].join("\n"),
+    },
+    {
+      type: "image",
+      url: "/web-of-corruption-info-v0-y0ug002xx24h1.webp",
+      align: "full",
+      caption: "Web of Corruption 25-day reward calendar and community vote options.",
+    },
+    {
+      type: "text",
+      text: [
+        "## Campaign champions",
+        "The Web of Corruption preview shows 6 campaign champions, each arriving through a different path or date window.",
+        "- Folan Silverhart: Fragment Fusion and shard drop from June 17.",
+        "- Rhaia the Mourned: shard drop from August 5.",
+        "- Talenna Soulseer: shard drop from June 3.",
+        "- Varkos Headsplitter: shard drop from June 3.",
+        "- Haggibah the Nestmaid: Classic Fusion and shard drop from July 1.",
+        "- Vallaryn the Equalizer: Loyalty Program and shard drop from August 5.",
+        "For collectors, this is a long campaign with several points to plan around. For account sellers and buyers, these champion windows may also matter because new limited champions can increase account value if they test well.",
+      ].join("\n"),
+    },
+    {
+      type: "image",
+      url: "/web-of-corruption-info-v0-jhmhcu78x24h1.webp",
+      align: "full",
+      caption: "Champion lineup and release sources for Web of Corruption.",
+    },
+    {
+      type: "text",
+      text: [
+        "## Talenna Soulseer skill preview",
+        "Talenna Soulseer is a Legendary Spirit Support champion from the High Elves faction.",
+        "Her kit is built around Poison activation, ally Turn Meter boost, buff control, and scaling pressure when Poison debuffs are activated.",
+        "Skill highlights:",
+        "- Withering Invocation: attacks 1 enemy and has a 30% chance to instantly activate two Poison debuffs on the target. If the target has any skills on cooldown, it instantly activates all Poison debuffs on that target.",
+        "- I See Your Evil: attacks all enemies, has a 75% chance to place two 5% Poison debuffs for 3 turns, then increases all allies' Turn Meter by 20%.",
+        "- Quell the Darkness: attacks all enemies before attacking, places a 50% Increase ACC buff on all allies for 2 turns, has a 75% chance to decrease all enemy buff durations by 2 turns, and has a 75% chance to increase all enemy skill cooldowns by 2 turns.",
+        "- Evil Wanes Before Her [P]: increases allies' Turn Meters by 2% whenever a Poison debuff is activated on an enemy. It also decreases enemies' C. RATE by 5% and C. DMG by 10% for each Poison debuff on them. This does not work against bosses.",
+        "- Aura: increases Ally SPD in all Battles by 19%.",
+      ].join("\n"),
+    },
+    {
+      type: "image",
+      url: "/web-of-corruption-info-v0-h48j6mwhx24h1.webp",
+      align: "full",
+      caption: "Talenna Soulseer skill preview.",
+    },
+    {
+      type: "text",
+      text: [
+        "## Varkos Headsplitter skill preview",
+        "Varkos Headsplitter is a Legendary Force Defense champion from the Dark Elves faction.",
+        "His kit is focused around counterattacks, ally-join attacks, defensive pressure, and preventing revival after enemies are killed through counterattack or ally attack mechanics.",
+        "Skill highlights:",
+        "- Hulking Killer: attacks 1 enemy 2 times and ignores Unkillable buffs. When counterattacking, he attacks 3 times instead.",
+        "- Murderous Fighter: attacks 1 enemy 2 times and ignores Block Damage and Shield buffs. Whenever he teams up with an ally to attack, this skill is used. When joining an ally's attack, he attacks 3 times instead.",
+        "- Brutish Dominance: places a 60% Increase DEF buff, a Counterattack buff, and a 15% Shield buff on himself for 3 turns, then grants an Extra Turn.",
+        "- Instrument of Power [P]: has a 15% chance to join an attack whenever an ally attacks an enemy. The chance increases to 25% when an ally from the Dark Elves faction attacks. Enemies killed by him whenever he counterattacks or joins an ally's attack cannot be revived.",
+      ].join("\n"),
+    },
+    {
+      type: "image",
+      url: "/web-of-corruption-info-v0-z0bs7gejx24h1.webp",
+      align: "full",
+      caption: "Varkos Headsplitter skill preview.",
+    },
+    {
+      type: "text",
+      text: [
+        "## Completion gift",
+        "Players who manage to get all Event Champions by August 5 at 23:59 UTC will receive a special gift with in-game resources.",
+        "The listed gift includes:",
+        "- 4-star Covetous' Passion Relic.",
+        "- Rhaia the Mourned Avatar.",
+        "- Corrupted Avatar Frame.",
+        "- Diamond Gemstone: Expeditious Exploitation.",
+        "- Circular Gemstone: Uncontrollable.",
+        "- Circular Gemstone: Foekiller.",
+        "- Square Gemstone: Strengthening Will.",
+        "This is clearly aimed at committed players who want the full campaign collection, not just one champion or one dungeon reward.",
+      ].join("\n"),
+    },
+    {
+      type: "image",
+      url: "/web-of-corruption-info-v0-t6k066sey24h1.webp",
+      align: "full",
+      caption: "Special gift for collecting all Web of Corruption Event Champions.",
+    },
+    {
+      type: "text",
+      text: [
+        "## Tanne note",
+        "My take: Web of Corruption looks like one of those campaigns where players should plan resources early instead of reacting late. The most important things to watch are the Fragment/Fusion windows, the Event Dungeon farming value, and whether the returning relics are worth the grind for your account.",
+        "If you are a newer player, focus first on rewards you can realistically claim without draining your account. If you are a collector or endgame player, this campaign has a lot more to chase: limited champions, relics, Pinpoint pieces, and the full completion gift.",
+        "For account buyers, accounts that complete Folan, pick up strong Pinpoint gear, or secure rare campaign champions may become more attractive after testing confirms which champions are actually strong.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## Source note",
+        "Source: Web of Corruption preview images and event details provided for Tanne Hub.",
+        "This is a draft article. Before publishing, confirm the final in-game event timers, champion skill text, and reward availability in Raid: Shadow Legends.",
+      ].join("\n"),
+    },
+  ],
+};
+
 export const raidNewsDraftSeeds = [
   raidNewsDraftMay162026,
   sabraelGuideDraftMay162026,
@@ -706,4 +1037,6 @@ export const raidNewsDraftSeeds = [
   skeletorRebalanceDraftMay202026,
   aratheiaGallcobarRebalanceDraftMay262026,
   raidUpdate1160QoLDraftMay272026,
+  folanSilverhartFragmentDraftMay302026,
+  webOfCorruptionCampaignDraftMay302026,
 ];

@@ -1,4 +1,4 @@
-/** Khối banner: chào mừng (trái, chủ đạo) + tin nóng trượt (phải, lg+). */
+/** Khối banner: nội dung chính bên trái + Hot News cố định ở cột phải trên desktop. */
 import { pageInner } from "../layout";
 import { renderWelcomeLetter } from "./welcomeLetter";
 
@@ -10,8 +10,7 @@ export function renderHero(): string {
         >
           <div class="${pageInner} relative min-h-[56vh] py-8 sm:py-10 lg:min-h-[62vh] lg:py-12">
             <div class="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:items-stretch lg:gap-10">
-              <!-- Ảnh nền hero chỉ trong vùng chào mừng (trái) -->
-              <div class="hero-welcome-panel min-w-0 lg:col-span-8">
+              <div class="hero-welcome-panel order-1 min-w-0 lg:col-span-7">
                 <div
                   class="hero-welcome-bg relative flex min-h-[52vh] flex-col justify-center overflow-hidden rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.18)] lg:min-h-[min(58vh,540px)] lg:h-full"
                 >
@@ -62,10 +61,10 @@ export function renderHero(): string {
                 </div>
               </div>
 
-              <!-- Tin nóng: dưới welcome trên mobile; cột phải desktop — trượt từ phải (CSS) -->
               <aside
                 id="hero-hot-news"
-                class="hero-hot-news-aside flex min-h-0 min-w-0 flex-col lg:col-span-4 lg:justify-center"
+                class="hero-hot-news-aside order-2 flex min-h-0 min-w-0 flex-col lg:col-span-5 lg:justify-center"
+                data-hero-hot-layout="compact"
                 aria-label="Hot news"
               >
                 <div class="mb-3 flex flex-wrap items-end justify-between gap-2 sm:mb-3.5">

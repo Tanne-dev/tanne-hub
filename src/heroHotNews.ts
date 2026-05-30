@@ -27,30 +27,43 @@ function previewLine(post: PostItem): string {
   return `${one.slice(0, 94).trimEnd()}…`;
 }
 
-function buildSlideHtml(post: PostItem, i: number, len: number): string {
+function buildSlideHtml(post: PostItem, i: number, len: number, expanded: boolean): string {
   const url = postDetailUrl(post.id);
   const thumb = getFirstImageUrlFromPost(post);
   const img = thumb
-    ? `<div class="hero-hot-thumb relative aspect-[16/10] w-full overflow-hidden bg-black/40">
-         <img src="${thumb}" alt="${escapeHtml(post.title)}" class="h-full w-full object-cover object-center" loading="${i === 0 ? "eager" : "lazy"}" decoding="async" fetchpriority="${i === 0 ? "high" : "low"}" />
+    ? `<div class="hero-hot-thumb relative ${expanded ? "aspect-[16/9] md:aspect-auto md:h-full" : "aspect-[16/10]"} w-full overflow-hidden bg-black/45">
+         <img src="${thumb}" alt="${escapeHtml(post.title)}" class="h-full w-full ${expanded ? "object-contain" : "object-cover"} object-center" loading="${i === 0 ? "eager" : "lazy"}" decoding="async" fetchpriority="${i === 0 ? "high" : "low"}" />
          <span class="absolute left-2 top-2 rounded-full bg-[#7fe9ff]/20 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-[#aeefff] ring-1 ring-[#7fe9ff]/40">Hot</span>
        </div>`
     : `<div class="hero-hot-thumb flex aspect-[16/10] w-full items-center justify-center bg-black/30 text-[11px] text-white/50">No image</div>`;
 
   const slicePct = 100 / len;
+  const slideLayout = expanded
+    ? "hero-hot-slide group grid h-full min-w-0 grid-rows-[auto_1fr] overflow-hidden border-r border-white/10 bg-[color-mix(in_srgb,#0b1530_88%,transparent)] transition-[background-color] last:border-r-0 hover:bg-[color-mix(in_srgb,#0f1f42_92%,transparent)] md:grid-cols-[minmax(0,1.05fr)_minmax(320px,0.8fr)] md:grid-rows-1"
+    : "hero-hot-slide group flex h-full min-w-0 flex-col border-r border-white/10 bg-[color-mix(in_srgb,#0b1530_88%,transparent)] transition-[background-color] last:border-r-0 hover:bg-[color-mix(in_srgb,#0f1f42_92%,transparent)]";
+  const bodyClass = expanded
+    ? "flex min-h-0 flex-col justify-center p-4 sm:p-5 lg:p-6"
+    : "flex min-h-0 flex-1 flex-col p-3 sm:p-3.5";
+  const titleClass = expanded
+    ? "mt-2 line-clamp-3 text-[22px] font-extrabold leading-tight text-white group-hover:text-[#aeefff] sm:text-[26px] lg:text-[30px]"
+    : "mt-1 line-clamp-2 text-[15px] font-bold leading-snug text-white group-hover:text-[#aeefff] sm:text-[16px]";
+  const previewClass = expanded
+    ? "mt-3 line-clamp-4 max-w-2xl text-[14px] leading-relaxed text-white/76 sm:text-[15px]"
+    : "mt-1.5 line-clamp-3 text-[12px] leading-relaxed text-white/75";
+
   return `
     <a
       href="${url}"
-      class="hero-hot-slide group flex h-full min-w-0 flex-col border-r border-white/10 bg-[color-mix(in_srgb,#0b1530_88%,transparent)] transition-[background-color] last:border-r-0 hover:bg-[color-mix(in_srgb,#0f1f42_92%,transparent)]"
+      class="${slideLayout}"
       style="flex: 0 0 ${slicePct}%; width: ${slicePct}%; max-width: ${slicePct}%;"
       data-hero-hot-slide="${i}"
     >
       ${img}
-      <div class="flex min-h-0 flex-1 flex-col p-3 sm:p-3.5">
+      <div class="${bodyClass}">
         <time class="text-[11px] text-white/55" datetime="${new Date(post.createdAt).toISOString()}">${formatDate(post.createdAt)}</time>
-        <h3 class="mt-1 line-clamp-2 text-[15px] font-bold leading-snug text-white group-hover:text-[#aeefff] sm:text-[16px]">${escapeHtml(post.title)}</h3>
-        <p class="mt-1.5 line-clamp-3 text-[12px] leading-relaxed text-white/75">${escapeHtml(previewLine(post))}</p>
-        <span class="mt-auto pt-2 text-[11px] font-semibold text-[#7fe9ff] opacity-90 group-hover:opacity-100">Read article →</span>
+        <h3 class="${titleClass}">${escapeHtml(post.title)}</h3>
+        <p class="${previewClass}">${escapeHtml(previewLine(post))}</p>
+        <span class="mt-auto pt-3 text-[11px] font-semibold text-[#7fe9ff] opacity-90 group-hover:opacity-100">Read article →</span>
       </div>
     </a>`;
 }
@@ -71,6 +84,7 @@ export function renderHeroHotNews(): void {
   if (!root || !track) return;
 
   const posts = getPosts().slice(0, HERO_HOT_MAX);
+  const expanded = root.dataset.heroHotLayout === "expanded";
   heroHotIndex = Math.min(heroHotIndex, Math.max(0, posts.length - 1));
 
   if (posts.length === 0) {
@@ -90,7 +104,7 @@ export function renderHeroHotNews(): void {
     "hero-hot-news-track flex w-full transition-transform duration-500 ease-[cubic-bezier(0.22,0.61,0.36,1)]";
   track.style.width = `${len * 100}%`;
   track.style.transform = `translateX(-${(100 / len) * heroHotIndex}%)`;
-  track.innerHTML = posts.map((p, i) => buildSlideHtml(p, i, len)).join("");
+  track.innerHTML = posts.map((p, i) => buildSlideHtml(p, i, len, expanded)).join("");
 
   if (dots) {
     dots.innerHTML = posts
