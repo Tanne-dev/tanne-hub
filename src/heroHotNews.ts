@@ -10,7 +10,7 @@ let heroHotTimer: number | null = null;
 let heroHotPaused = false;
 
 function postDetailUrl(postId: string): string {
-  return `/?post=${encodeURIComponent(postId)}`;
+  return `/share/${encodeURIComponent(postId)}`;
 }
 
 function formatDate(ts: number): string {

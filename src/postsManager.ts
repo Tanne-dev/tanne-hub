@@ -14,7 +14,7 @@ function formatDate(ts: number): string {
 }
 
 function getPostDetailUrl(postId: string): string {
-  return `/?post=${encodeURIComponent(postId)}`;
+  return `/share/${encodeURIComponent(postId)}`;
 }
 
 function toPreviewText(content: string, limit = 120): string {

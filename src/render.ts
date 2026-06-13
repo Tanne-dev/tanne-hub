@@ -10,6 +10,7 @@ import { renderSellingAccountsGrid } from "./sections/popularAccounts";
 import { renderSiteFooter } from "./sections/siteFooter";
 import { HONEYGAIN_REFERRAL_URL } from "./referralLinks";
 import { getLocalizedPost, getNewsLanguage, postHasVietnamese, siteText } from "./newsLanguage";
+import { setPostSocialMeta } from "./socialMeta";
 
 /**
  * Ghép trang từ từng phần trong `src/sections/`.
@@ -368,6 +369,10 @@ export function renderPostDetail(root: HTMLElement, postId: string): void {
   const lang = getNewsLanguage();
   const localizedPost = post ? getLocalizedPost(post, lang) : null;
   const hasVietnamese = post ? postHasVietnamese(post) : false;
+
+  if (localizedPost) {
+    setPostSocialMeta(localizedPost);
+  }
 
   root.innerHTML = `
     <div class="relative min-h-screen w-full bg-[var(--page-bg)]">

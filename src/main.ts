@@ -27,9 +27,11 @@ import { initFloatingContact } from "./floatingContact";
 import { initWelcomeChoiceOverlay } from "./welcomeChoiceOverlay";
 import { initLazySections } from "./lazySections";
 import { setNewsLanguage } from "./newsLanguage";
+import { setDefaultSocialMeta } from "./socialMeta";
 
 initImageOptimizations();
 inject();
+setDefaultSocialMeta();
 
 const root = document.querySelector<HTMLElement>("#app");
 if (!root) {
@@ -37,7 +39,8 @@ if (!root) {
 }
 
 const params = new URLSearchParams(window.location.search);
-const postId = params.get("post");
+const sharePostMatch = window.location.pathname.match(/^\/share\/([^/]+)\/?$/);
+const postId = params.get("post") || (sharePostMatch ? decodeURIComponent(sharePostMatch[1]) : null);
 const page = params.get("page");
 const lang = params.get("lang");
 

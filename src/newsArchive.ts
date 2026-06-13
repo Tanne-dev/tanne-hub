@@ -44,7 +44,7 @@ function renderArchiveList(posts: PostItem[], page: number): void {
           const displayPost = getLocalizedPost(post);
           return `
       <article class="news-surface rounded-xl border p-3.5 shadow-[0_6px_18px_rgba(0,0,0,0.12)]">
-        <a href="${`/?post=${encodeURIComponent(post.id)}`}" class="group block">
+        <a href="${`/share/${encodeURIComponent(post.id)}`}" class="group block">
           <div class="grid gap-3 sm:grid-cols-[180px_1fr]">
             ${
               (() => {
