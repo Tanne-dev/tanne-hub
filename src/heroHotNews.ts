@@ -1,4 +1,5 @@
 import { escapeHtml, getFirstImageUrlFromPost, postPlainBodyForPreview } from "./postBody";
+import { getLocalizedPost, siteText } from "./newsLanguage";
 import { getPosts, type PostItem } from "./postsStore";
 
 const HERO_HOT_MAX = 6;
@@ -21,7 +22,8 @@ function formatDate(ts: number): string {
 }
 
 function previewLine(post: PostItem): string {
-  const raw = post.caption?.trim() || postPlainBodyForPreview(post);
+  const displayPost = getLocalizedPost(post);
+  const raw = displayPost.caption?.trim() || postPlainBodyForPreview(displayPost);
   const one = raw.replace(/\s+/g, " ").trim();
   if (one.length <= 96) return one;
   return `${one.slice(0, 94).trimEnd()}…`;
@@ -29,10 +31,11 @@ function previewLine(post: PostItem): string {
 
 function buildSlideHtml(post: PostItem, i: number, len: number, expanded: boolean): string {
   const url = postDetailUrl(post.id);
+  const displayPost = getLocalizedPost(post);
   const thumb = getFirstImageUrlFromPost(post);
   const img = thumb
     ? `<div class="hero-hot-thumb relative ${expanded ? "aspect-[16/9] md:aspect-auto md:h-full" : "aspect-[16/10]"} w-full overflow-hidden bg-black/45">
-         <img src="${thumb}" alt="${escapeHtml(post.title)}" class="h-full w-full ${expanded ? "object-contain" : "object-cover"} object-center" loading="${i === 0 ? "eager" : "lazy"}" decoding="async" fetchpriority="${i === 0 ? "high" : "low"}" />
+         <img src="${thumb}" alt="${escapeHtml(displayPost.title)}" class="h-full w-full ${expanded ? "object-contain" : "object-cover"} object-center" loading="${i === 0 ? "eager" : "lazy"}" decoding="async" fetchpriority="${i === 0 ? "high" : "low"}" />
          <span class="absolute left-2 top-2 rounded-full bg-[#7fe9ff]/20 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-[#aeefff] ring-1 ring-[#7fe9ff]/40">Hot</span>
        </div>`
     : `<div class="hero-hot-thumb flex aspect-[16/10] w-full items-center justify-center bg-black/30 text-[11px] text-white/50">No image</div>`;
@@ -61,9 +64,9 @@ function buildSlideHtml(post: PostItem, i: number, len: number, expanded: boolea
       ${img}
       <div class="${bodyClass}">
         <time class="text-[11px] text-white/55" datetime="${new Date(post.createdAt).toISOString()}">${formatDate(post.createdAt)}</time>
-        <h3 class="${titleClass}">${escapeHtml(post.title)}</h3>
+        <h3 class="${titleClass}">${escapeHtml(displayPost.title)}</h3>
         <p class="${previewClass}">${escapeHtml(previewLine(post))}</p>
-        <span class="mt-auto pt-3 text-[11px] font-semibold text-[#7fe9ff] opacity-90 group-hover:opacity-100">Read article →</span>
+        <span class="mt-auto pt-3 text-[11px] font-semibold text-[#7fe9ff] opacity-90 group-hover:opacity-100">${siteText("readArticle")} →</span>
       </div>
     </a>`;
 }
@@ -71,9 +74,9 @@ function buildSlideHtml(post: PostItem, i: number, len: number, expanded: boolea
 function buildEmptyHtml(): string {
   return `
     <div class="flex min-h-[220px] flex-col items-center justify-center gap-2 p-5 text-center sm:min-h-[260px]">
-      <p class="text-sm font-semibold text-white/85">No hot posts yet</p>
-      <p class="text-xs text-white/55">Raid news will appear here when published.</p>
-      <a href="/?page=news" class="mt-1 text-xs font-bold text-[#7fe9ff] underline-offset-2 hover:underline">Browse archive</a>
+      <p class="text-sm font-semibold text-white/85">${siteText("noHotPosts")}</p>
+      <p class="text-xs text-white/55">${siteText("noHotPostsSubtitle")}</p>
+      <a href="/?page=news" class="mt-1 text-xs font-bold text-[#7fe9ff] underline-offset-2 hover:underline">${siteText("browseArchive")}</a>
     </div>`;
 }
 

@@ -1,5 +1,6 @@
 import { initLegitReviewsManager } from "./legitReviewsManager";
 import { initMemberAlertsManager } from "./memberAlertsManager";
+import { siteText } from "./newsLanguage";
 import { initPostsManager } from "./postsManager";
 import { initSellingAccountsManager } from "./sellingAccountsManager";
 import { renderLegitCheck } from "./sections/legitCheck";
@@ -67,7 +68,7 @@ export function renderLazySectionPlaceholder(
         <span class="lazy-section-spinner" aria-hidden="true"></span>
         <span class="text-sm font-extrabold text-[var(--panel-text)]">${label}</span>
         <span class="max-w-md text-xs leading-relaxed text-[var(--panel-muted)]">
-          This section loads when you scroll close to it, so the first screen stays faster.
+          ${siteText("lazySuffix")}
         </span>
       </div>
     </section>`;

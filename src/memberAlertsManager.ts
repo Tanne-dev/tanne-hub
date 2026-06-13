@@ -4,6 +4,7 @@ import {
   saveMemberAlertPreferences,
   syncMemberAlertPreferencesFromRemote,
 } from "./memberAlertsStore";
+import { siteText } from "./newsLanguage";
 import { renderMemberAlerts } from "./sections/memberAlerts";
 
 function openLogin(message?: string): void {
@@ -45,18 +46,18 @@ function bindMemberAlerts(): void {
   const toggle = async (key: "notifyPromoCodes" | "notifyPosts") => {
     const session = getMemberSession();
     if (!session) {
-      openLogin("Please register or log in to enable member alerts.");
+      openLogin(siteText("loginToEnableAlerts"));
       return;
     }
     const prefs = getMemberAlertPreferences();
     const next = { ...prefs, [key]: !prefs[key] };
     const result = await saveMemberAlertPreferences(next);
     if (!result.ok) {
-      setStatus(result.error ?? "Could not save alert preference.", "error");
+      setStatus(result.error ?? siteText("saveAlertPreferenceFailed"), "error");
       return;
     }
     renderSection();
-    setStatus("Alert preferences saved.");
+    setStatus(siteText("alertPreferencesSaved"));
   };
 
   promoBtn.addEventListener("click", () => {

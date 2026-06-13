@@ -282,6 +282,9 @@ export function initAdminDashboardPage(): void {
   const adminPostDraftsList = document.querySelector<HTMLElement>("#admin-post-drafts-list");
   const postTitleInput = document.querySelector<HTMLInputElement>("#admin-post-title");
   const postCaptionInput = document.querySelector<HTMLInputElement>("#admin-post-caption");
+  const postTitleViInput = document.querySelector<HTMLInputElement>("#admin-post-title-vi");
+  const postCaptionViInput = document.querySelector<HTMLInputElement>("#admin-post-caption-vi");
+  const postContentViInput = document.querySelector<HTMLTextAreaElement>("#admin-post-content-vi");
   const postBodyBlocksContainer = document.querySelector<HTMLElement>("#admin-post-body-blocks");
   const postLivePreview = document.querySelector<HTMLElement>("#admin-post-live-preview");
   const postAddTextBtn = document.querySelector<HTMLButtonElement>("#admin-post-add-text");
@@ -335,6 +338,9 @@ export function initAdminDashboardPage(): void {
     !adminPostDraftsList ||
     !postTitleInput ||
     !postCaptionInput ||
+    !postTitleViInput ||
+    !postCaptionViInput ||
+    !postContentViInput ||
     !postBodyBlocksContainer ||
     !postLivePreview ||
     !postAddTextBtn ||
@@ -1296,6 +1302,9 @@ export function initAdminDashboardPage(): void {
     editingPostId = null;
     editingDraftId = null;
     adminPostForm.reset();
+    postTitleViInput.value = "";
+    postCaptionViInput.value = "";
+    postContentViInput.value = "";
     mountPostBodyBlocks(postBodyBlocksContainer, createRaidNewsTemplateBlocks());
     hydrateTextToolbarColorDefaults();
     renderLivePreview();
@@ -1367,11 +1376,19 @@ export function initAdminDashboardPage(): void {
 
     const title = postTitleInput.value.trim() || "Untitled Raid news draft";
     const caption = postCaptionInput.value.trim();
+    const titleVi = postTitleViInput.value.trim();
+    const captionVi = postCaptionViInput.value.trim();
+    const contentViText = postContentViInput.value.trim();
     const draft = upsertPostDraft({
       id: editingDraftId ?? undefined,
       title,
       caption: caption || undefined,
       blocks: gatherDraftBlocksForPreview(),
+      titleVi: titleVi || undefined,
+      captionVi: captionVi || undefined,
+      contentVi: contentViText
+        ? serializePostBody([{ type: "text", text: contentViText }])
+        : undefined,
     });
     editingPostId = null;
     editingDraftId = draft.id;
@@ -1392,6 +1409,9 @@ export function initAdminDashboardPage(): void {
 
     const title = postTitleInput.value.trim();
     const caption = postCaptionInput.value.trim();
+    const titleVi = postTitleViInput.value.trim();
+    const captionVi = postCaptionViInput.value.trim();
+    const contentViText = postContentViInput.value.trim();
 
     if (!title) {
       setPostFeedback("Please enter a title.", "error");
@@ -1438,6 +1458,11 @@ export function initAdminDashboardPage(): void {
       id: targetPost?.id ?? crypto.randomUUID(),
       title,
       caption: caption || undefined,
+      titleVi: titleVi || undefined,
+      captionVi: captionVi || undefined,
+      contentVi: contentViText
+        ? serializePostBody([{ type: "text", text: contentViText }])
+        : undefined,
       imageUrl: coverUrl,
       imagePosition,
       content,
@@ -1451,6 +1476,9 @@ export function initAdminDashboardPage(): void {
           title: newPost.title,
           caption: newPost.caption,
           content: newPost.content,
+          titleVi: newPost.titleVi,
+          captionVi: newPost.captionVi,
+          contentVi: newPost.contentVi,
           imageUrl: newPost.imageUrl,
           imagePosition: newPost.imagePosition,
         })
@@ -1468,7 +1496,7 @@ export function initAdminDashboardPage(): void {
       posts.unshift(newPost);
       savePosts(posts);
     }
-    if (editingDraftId) {
+    if (editingDraftId && !remote.translationsSkipped) {
       deletePostDraft(editingDraftId);
       editingDraftId = null;
       renderAdminDraftsList();
@@ -1476,9 +1504,18 @@ export function initAdminDashboardPage(): void {
     await syncPostsFromRemote();
     window.dispatchEvent(new CustomEvent("tanne-posts-updated"));
 
-    setPostFeedback(editingPostId ? "Post updated." : "Post published.", "success");
+    setPostFeedback(
+      remote.translationsSkipped
+        ? "Post saved in English. Vietnamese translation stayed in the draft because Supabase is missing title_vi/caption_vi/content_vi columns."
+        : editingPostId
+          ? "Post updated."
+          : "Post published.",
+      remote.translationsSkipped ? "warn" : "success",
+    );
     renderAdminPostsList();
-    resetPostComposer();
+    if (!remote.translationsSkipped) {
+      resetPostComposer();
+    }
   });
 
   adminPostsList.addEventListener("click", async (event) => {
@@ -1498,6 +1535,14 @@ export function initAdminDashboardPage(): void {
       editingDraftId = null;
       postTitleInput.value = post.title;
       postCaptionInput.value = post.caption ?? "";
+      postTitleViInput.value = post.titleVi ?? "";
+      postCaptionViInput.value = post.captionVi ?? "";
+      postContentViInput.value = post.contentVi
+        ? postToInitialBlocks({ ...post, content: post.contentVi })
+            .filter((block): block is { type: "text"; text: string } => block.type === "text")
+            .map((block) => block.text)
+            .join("\n\n")
+        : "";
       mountPostBodyBlocks(postBodyBlocksContainer, postToInitialBlocks(post));
       hydrateTextToolbarColorDefaults();
       renderLivePreview();
@@ -1543,6 +1588,21 @@ export function initAdminDashboardPage(): void {
       editingDraftId = draft.id;
       postTitleInput.value = draft.title;
       postCaptionInput.value = draft.caption ?? "";
+      postTitleViInput.value = draft.titleVi ?? "";
+      postCaptionViInput.value = draft.captionVi ?? "";
+      postContentViInput.value = draft.contentVi
+        ? postToInitialBlocks({
+            id: draft.id,
+            title: draft.title,
+            caption: draft.caption,
+            content: draft.contentVi,
+            authorEmail: "draft@tannehub.local",
+            createdAt: draft.createdAt,
+          })
+            .filter((block): block is { type: "text"; text: string } => block.type === "text")
+            .map((block) => block.text)
+            .join("\n\n")
+        : "";
       mountPostBodyBlocks(postBodyBlocksContainer, draft.blocks);
       hydrateTextToolbarColorDefaults();
       renderLivePreview();

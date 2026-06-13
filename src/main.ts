@@ -26,6 +26,7 @@ import { initExchangeCalculator } from "./exchangeCalculator";
 import { initFloatingContact } from "./floatingContact";
 import { initWelcomeChoiceOverlay } from "./welcomeChoiceOverlay";
 import { initLazySections } from "./lazySections";
+import { setNewsLanguage } from "./newsLanguage";
 
 initImageOptimizations();
 inject();
@@ -38,6 +39,11 @@ if (!root) {
 const params = new URLSearchParams(window.location.search);
 const postId = params.get("post");
 const page = params.get("page");
+const lang = params.get("lang");
+
+if (lang === "en" || lang === "vi") {
+  setNewsLanguage(lang);
+}
 
 if (postId) {
   renderPostDetail(root, postId);

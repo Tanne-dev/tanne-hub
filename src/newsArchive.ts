@@ -4,6 +4,7 @@ import {
   postPlainBodyForPreview,
   postPlainTextForSearch,
 } from "./postBody";
+import { getLocalizedPost } from "./newsLanguage";
 import { getPosts, syncPostsFromRemote, type PostItem } from "./postsStore";
 
 const PAGE_SIZE = 12;
@@ -39,7 +40,9 @@ function renderArchiveList(posts: PostItem[], page: number): void {
 
   listEl.innerHTML = pagedPosts
     .map(
-      (post) => `
+        (post) => {
+          const displayPost = getLocalizedPost(post);
+          return `
       <article class="news-surface rounded-xl border p-3.5 shadow-[0_6px_18px_rgba(0,0,0,0.12)]">
         <a href="${`/?post=${encodeURIComponent(post.id)}`}" class="group block">
           <div class="grid gap-3 sm:grid-cols-[180px_1fr]">
@@ -52,13 +55,14 @@ function renderArchiveList(posts: PostItem[], page: number): void {
               })()
             }
             <div class="min-w-0">
-              <h2 class="news-title text-lg font-bold leading-tight group-hover:text-[#9be8ff]">${escapeHtml(post.title)}</h2>
+              <h2 class="news-title text-lg font-bold leading-tight group-hover:text-[#9be8ff]">${escapeHtml(displayPost.title)}</h2>
               <p class="news-muted mt-1 text-[12px]">${formatDate(post.createdAt)} · Tanne Hub</p>
-              <p class="news-title mt-2 text-[13px] leading-[1.55] opacity-90">${toPreviewText(postPlainBodyForPreview(post), 220)}</p>
+              <p class="news-title mt-2 text-[13px] leading-[1.55] opacity-90">${toPreviewText(postPlainBodyForPreview(displayPost), 220)}</p>
             </div>
           </div>
         </a>
-      </article>`,
+      </article>`;
+        },
     )
     .join("");
 
@@ -90,7 +94,7 @@ function filteredPosts(): PostItem[] {
 
   let list = getPosts();
   if (q) {
-    list = list.filter((p) => postPlainTextForSearch(p).includes(q));
+    list = list.filter((p) => postPlainTextForSearch(getLocalizedPost(p)).includes(q));
   }
   if (imgOnly) {
     list = list.filter((p) => Boolean(getFirstImageUrlFromPost(p)));

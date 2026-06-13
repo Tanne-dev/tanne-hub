@@ -5,6 +5,9 @@ export type PostDraftItem = {
   title: string;
   caption?: string;
   blocks: PostBodyBlock[];
+  titleVi?: string;
+  captionVi?: string;
+  contentVi?: string;
   createdAt: number;
   updatedAt: number;
 };
@@ -33,6 +36,9 @@ function isPostDraftItem(value: unknown): value is PostDraftItem {
     (item.caption === undefined || typeof item.caption === "string") &&
     Array.isArray(item.blocks) &&
     item.blocks.every(isPostBodyBlock) &&
+    (item.titleVi === undefined || typeof item.titleVi === "string") &&
+    (item.captionVi === undefined || typeof item.captionVi === "string") &&
+    (item.contentVi === undefined || typeof item.contentVi === "string") &&
     typeof item.createdAt === "number" &&
     typeof item.updatedAt === "number"
   );
@@ -62,6 +68,9 @@ export function upsertPostDraft(input: {
   title: string;
   caption?: string;
   blocks: PostBodyBlock[];
+  titleVi?: string;
+  captionVi?: string;
+  contentVi?: string;
 }): PostDraftItem {
   const now = Date.now();
   const drafts = getPostDrafts();
@@ -71,6 +80,9 @@ export function upsertPostDraft(input: {
     title: input.title,
     caption: input.caption,
     blocks: input.blocks,
+    titleVi: input.titleVi,
+    captionVi: input.captionVi,
+    contentVi: input.contentVi,
     createdAt: existing?.createdAt ?? now,
     updatedAt: now,
   };
@@ -87,16 +99,39 @@ export function seedPostDraftOnce(input: {
   title: string;
   caption?: string;
   blocks: PostBodyBlock[];
+  titleVi?: string;
+  captionVi?: string;
+  contentVi?: string;
 }): void {
   try {
     const seeded = JSON.parse(localStorage.getItem(SEEDED_DRAFTS_KEY) || "[]") as unknown;
     const seededIds = Array.isArray(seeded)
       ? seeded.filter((item): item is string => typeof item === "string")
       : [];
-    if (seededIds.includes(input.id)) return;
+    const drafts = getPostDrafts();
+    const existingDraft = drafts.find((draft) => draft.id === input.id);
+    const draftExists = Boolean(existingDraft);
+    const needsSeedTranslation = Boolean(
+      existingDraft && input.contentVi && (!existingDraft.titleVi || !existingDraft.contentVi),
+    );
+    if (seededIds.includes(input.id) && draftExists && !needsSeedTranslation) return;
 
-    if (!getPostDrafts().some((draft) => draft.id === input.id)) {
+    if (!draftExists) {
       upsertPostDraft(input);
+    } else if (needsSeedTranslation && existingDraft) {
+      savePostDrafts(
+        drafts.map((draft) =>
+          draft.id === input.id
+            ? {
+                ...draft,
+                titleVi: draft.titleVi || input.titleVi,
+                captionVi: draft.captionVi || input.captionVi,
+                contentVi: draft.contentVi || input.contentVi,
+                updatedAt: Date.now(),
+              }
+            : draft,
+        ),
+      );
     }
     localStorage.setItem(SEEDED_DRAFTS_KEY, JSON.stringify([...seededIds, input.id]));
   } catch {

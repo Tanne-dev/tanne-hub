@@ -170,6 +170,189 @@ export const sabraelGuideDraftMay162026: {
   ],
 };
 
+export const talennaSoulseerGuideDraftJun132026: {
+  id: string;
+  title: string;
+  caption: string;
+  blocks: PostBodyBlock[];
+  titleVi: string;
+  captionVi: string;
+  contentVi: string;
+} = {
+  id: "raid-guide-2026-06-13-talenna-soulseer",
+  title: "Talenna Soulseer guide: Poison control, cooldown disruption, and build advice",
+  caption:
+    "A Tannehub-style Raid Shadow Legends guide for Talenna Soulseer, covering her Poison engine, skill control, key effects, and PvE/PvP builds.",
+  titleVi: "Hướng dẫn Talenna Soulseer: Poison, khống chế cooldown và cách build",
+  captionVi:
+    "Bản hướng dẫn Raid Shadow Legends bằng tiếng Việt cho Talenna Soulseer, tập trung vào Poison, Turn Meter, cooldown và hướng build PvE/PvP.",
+  contentVi: JSON.stringify([
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Tóm tắt nhanh**[/color]",
+        "- Talenna Soulseer là Legendary Spirit Support thuộc faction High Elves.",
+        "- Bộ kỹ năng xoay quanh Poison, kích hoạt Poison, hỗ trợ Turn Meter và tăng cooldown kỹ năng của đối thủ.",
+        "- Giá trị ban đầu của cô mạnh nhất ở wave PvE và PvP, nơi bạn cần phá nhịp đội hình địch thay vì chỉ gây sát thương thô.",
+        "- HellHades ghi rõ đây là đánh giá ban đầu, nên rating có thể thay đổi sau khi test thêm.",
+        "",
+        "::effects{items=\"Poison|Poison activation|Increase ACC|Turn Meter fill|Cooldown increase|Buff duration decrease|Crit Rate pressure|Crit Damage pressure\"}",
+        "",
+        "## [color=#ffaa00]**Talenna mạnh ở điểm nào?**[/color]",
+        "Talenna không phải champion damage đơn giản. Giá trị của cô nằm ở việc tạo áp lực liên tục: đặt Poison, kích hoạt Poison, đẩy Turn Meter cho đồng minh và khiến đối thủ phải chờ lâu hơn để dùng kỹ năng quan trọng.",
+        "Nếu team của bạn có đủ Speed, Accuracy và khả năng bảo vệ cô sống lâu, Talenna có thể biến Poison thành cả sát thương lẫn lợi thế lượt.",
+        "",
+        "## [color=#ffaa00]**Bộ kỹ năng**[/color]",
+        "",
+        "::skill{key=\"A1\" name=\"Kích nổ Poison trên mục tiêu bị khóa skill\" icon=\"/raid-effect-icons/skill-a1.svg\" tags=\"Single target|Poison activation|Cooldown punish\"}",
+        "Đòn đánh cơ bản rất có giá trị khi mục tiêu đang có kỹ năng trong cooldown. Khi đó, Talenna có thể kích hoạt Poison trên mục tiêu, giúp chuyển hiệu ứng khống chế thành sát thương ngay lập tức.",
+        "::endskill",
+        "",
+        "::skill{key=\"A2\" name=\"Đặt Poison diện rộng và đẩy nhịp team\" icon=\"/raid-effect-icons/skill-a2.svg\" tags=\"AoE Poison|2 Poisons|Ally Turn Meter +20%|Wave pressure\"}",
+        "Đây là kỹ năng setup Poison chính. Nó đặt hai Poison lên toàn bộ kẻ địch và tăng Turn Meter đồng minh 20%, giúp team vừa có sát thương theo thời gian vừa xoay lượt nhanh hơn.",
+        "::endskill",
+        "",
+        "::skill{key=\"A3\" name=\"Tăng Accuracy và phá cooldown đối thủ\" icon=\"/raid-effect-icons/skill-a3.svg\" tags=\"Increase ACC|Buff duration decrease|Enemy cooldown +2|PvP control\"}",
+        "Đây là nút khống chế chính của Talenna. Cô đặt Increase ACC cho đồng minh trước khi tấn công, sau đó giảm thời lượng buff của kẻ địch và tăng cooldown kỹ năng của chúng thêm 2 lượt. Trong Arena, hiệu ứng này có thể làm hỏng lượt mở giao tranh của đối thủ.",
+        "::endskill",
+        "",
+        "::skill{key=\"PASSIVE\" name=\"Poison tempo và giảm sát thương chí mạng\" icon=\"/raid-effect-icons/skill-passive.svg\" tags=\"Poison synergy|Ally Turn Meter fill|Crit Rate down|Crit Damage down\"}",
+        "Passive của cô thưởng thêm Turn Meter cho đồng minh khi Poison được kích hoạt. Nó cũng gây áp lực lên kẻ địch bị Poison bằng cách giảm khả năng gây sát thương chí mạng, ngoại trừ boss.",
+        "::endskill",
+        "",
+        "## [color=#ffaa00]**Cách build khuyến nghị**[/color]",
+        "Chỉ số quan trọng cho cả PvE và PvP là **Speed**, **Accuracy**, **HP%** và **DEF%**. Speed giúp cô đi lượt thường xuyên, Accuracy giúp hiệu ứng land ổn định, còn HP/DEF giúp cô sống đủ lâu để Poison và cooldown control phát huy tác dụng.",
+        "Set PvE nên cân nhắc: **Perception**, **Impulse**, **Feral**, **Speed**, **Retaliation**.",
+        "Set PvP nên cân nhắc: **Stoneskin**, **Supersonic**, **Speed**, **Feral**, **Mercurial**.",
+        "Book value cao. Nên ưu tiên **A2** và **A3** trước vì đây là hai kỹ năng giữ phần lớn giá trị Poison setup và khống chế của cô.",
+        "",
+        "## [color=#ffaa00]**Nên dùng Talenna ở đâu?**[/color]",
+        "- Arena Offense: tốt khi bạn muốn delay cooldown đối thủ và trừng phạt team phụ thuộc buff.",
+        "- Arena Defense: khó chịu nếu được bảo vệ tốt, nhất là trong team control nhanh.",
+        "- Doom Tower và wave PvE: mạnh khi kẻ địch có thể bị control và ăn Poison.",
+        "- Dungeons: hữu ích ở phần wave và áp lực Poison, còn giá trị trên boss tùy từng trận.",
+        "- Boss content: tình huống hơn, vì một số hiệu ứng giảm sát thương chí mạng không áp dụng lên boss.",
+        "",
+        "## [color=#ffaa00]**Tanne verdict**[/color]",
+        "Talenna Soulseer là support/control đáng chú ý cho account đã có đủ damage và muốn thêm khả năng kiểm soát nhịp trận. Cô đặc biệt hợp với người chơi thích Poison team hoặc Arena setup thắng bằng cách làm đối thủ không thể dùng skill đúng thời điểm.",
+        "Với người mua account, Talenna chỉ thật sự tăng giá trị khi account có gear phù hợp: Speed cao, Accuracy đủ và khả năng sống sót ổn.",
+        "",
+        "## [color=#ffaa00]**Nguồn tham khảo**[/color]",
+        "Nguồn: [HellHades Talenna Soulseer champion page](https://hellhades.com/raid/champions/talenna-soulseer/), cập nhật ngày 6 tháng 6 năm 2026.",
+      ].join("\n"),
+    },
+  ]),
+  blocks: [
+    {
+      type: "image",
+      url: "https://hellhades.com/wp-content/uploads/2026/06/Talenna-Soulseer-Splash-Artwork.jpg",
+      align: "full",
+      caption: "Talenna Soulseer splash artwork. Image source: HellHades champion page.",
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Quick summary**[/color]",
+        "- Talenna Soulseer is a Legendary Spirit Support champion from the High Elves faction.",
+        "- Her kit is built around Poison, Poison activation, Turn Meter support, and enemy skill cooldown manipulation.",
+        "- Her best early value looks strongest in wave PvE and PvP teams that want to disrupt enemy rotations instead of only dealing raw damage.",
+        "- HellHades marks this as an initial review, so ratings can still move after more testing.",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "::effects{items=\"Poison|Poison activation|Increase ACC|Turn Meter fill|Cooldown increase|Buff duration decrease|Crit Rate pressure|Crit Damage pressure\"}",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Champion identity**[/color]",
+        "Talenna is not a simple damage dealer. Her value comes from stacking pressure: she applies Poison, helps activate Poison, pushes allied Turn Meter, and makes enemy teams wait longer for their strongest skills.",
+        "That makes her interesting for players who already understand speed control and debuff setup. If your team can keep her alive and accurate, she can turn Poison into both damage and tempo advantage.",
+      ].join("\n\n"),
+    },
+    {
+      type: "image",
+      url: "/web-of-corruption-info-v0-h48j6mwhx24h1.webp",
+      align: "center",
+      caption: "Talenna Soulseer preview image already included in Tannehub assets.",
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Skill breakdown**[/color]",
+        "",
+        "::skill{key=\"A1\" name=\"Poison detonation on locked targets\" icon=\"/raid-effect-icons/skill-a1.svg\" tags=\"Single target|Poison activation|Cooldown punish\"}",
+        "Her basic attack is valuable when the target already has skills on cooldown. In that situation, it can instantly activate Poisons on the target, letting Talenna convert control into real damage instead of waiting for Poison ticks.",
+        "::endskill",
+        "",
+        "::skill{key=\"A2\" name=\"AoE Poison setup and team tempo\" icon=\"/raid-effect-icons/skill-a2.svg\" tags=\"AoE Poison|2 Poisons|Ally Turn Meter +20%|Wave pressure\"}",
+        "This is the main Poison setup skill. It places two Poison debuffs on all enemies and fills allied Turn Meter by 20%, giving your team both damage over time and faster follow-up turns.",
+        "::endskill",
+        "",
+        "::skill{key=\"A3\" name=\"Accuracy boost and cooldown disruption\" icon=\"/raid-effect-icons/skill-a3.svg\" tags=\"Increase ACC|Buff duration decrease|Enemy cooldown +2|PvP control\"}",
+        "This is her control button. Talenna places Increase ACC on allies before attacking, then reduces enemy buff duration and increases enemy skill cooldowns by 2 turns. In Arena, this can stop an enemy team from using its most important skills on schedule.",
+        "::endskill",
+        "",
+        "::skill{key=\"PASSIVE\" name=\"Poison tempo and damage reduction pressure\" icon=\"/raid-effect-icons/skill-passive.svg\" tags=\"Poison synergy|Ally Turn Meter fill|Crit Rate down|Crit Damage down\"}",
+        "Her passive rewards Poison activation by helping allied Turn Meter. It also pressures poisoned enemies by reducing their critical threat, excluding bosses, which gives her extra defensive value in longer fights.",
+        "::endskill",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Why the effects matter**[/color]",
+        "- Poison gives steady damage that scales well against high-HP enemies.",
+        "- Poison activation speeds up that damage and can help finish priority targets before they recover.",
+        "- Increase ACC before the A3 helps your team land important debuffs more reliably.",
+        "- Cooldown increase is one of the strongest control effects in Raid because it delays enemy win conditions.",
+        "- Turn Meter fill makes Talenna feel less passive; she helps the whole team cycle faster.",
+        "- Crit Rate and Crit Damage pressure makes poisoned non-boss enemies less explosive while your team takes extra turns.",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Build recommendation**[/color]",
+        "For both PvE and PvP, the key stats are **Speed**, **Accuracy**, **HP%**, and **DEF%**. Speed lets her take turns often, Accuracy lets her effects land, and defensive stats keep her alive long enough for Poison and cooldown control to matter.",
+        "Recommended PvE sets: **Perception**, **Impulse**, **Feral**, **Speed**, and **Retaliation**.",
+        "Recommended PvP sets: **Stoneskin**, **Supersonic**, **Speed**, **Feral**, and **Mercurial**.",
+        "Book value is high. Based on HellHades' page, prioritize **A2** and **A3** first because those skills hold her main Poison setup and control value.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Where to use Talenna**[/color]",
+        "- Arena Offense: useful when you want to delay enemy cooldowns and punish teams after their buffs are reduced.",
+        "- Arena Defense: can be annoying if protected, especially with fast control teams.",
+        "- Doom Tower and wave PvE: strong when enemies can be controlled and poisoned.",
+        "- Dungeons: useful for wave sections and Poison pressure, but boss value depends on the fight.",
+        "- Boss content: more situational because some parts of her passive pressure do not apply to bosses.",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Tanne verdict**[/color]",
+        "Talenna Soulseer looks like a strong support/control champion for accounts that already have enough damage and need better tempo. She is especially interesting if you enjoy Poison teams or Arena setups that win by stopping the enemy from playing cleanly.",
+        "For account buyers, Talenna adds value when the account also has the gear to support her: high Speed, enough Accuracy, and enough survivability. Without those stats, her kit loses a lot of bite.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Source note**[/color]",
+        "Source checked: [HellHades Talenna Soulseer champion page](https://hellhades.com/raid/champions/talenna-soulseer/), last updated June 6, 2026.",
+        "This Tannehub version is rewritten and structured for our site. Before publishing, confirm final in-game skill names, cooldowns, multipliers, and any balance changes in Raid: Shadow Legends.",
+      ].join("\n\n"),
+    },
+  ],
+};
+
 export const raidProgressionGuideDraftMay172026: {
   id: string;
   title: string;
@@ -1030,13 +1213,5 @@ export const webOfCorruptionCampaignDraftMay302026: {
 };
 
 export const raidNewsDraftSeeds = [
-  raidNewsDraftMay162026,
-  sabraelGuideDraftMay162026,
-  raidProgressionGuideDraftMay172026,
-  progressiveChanceDraftMay182026,
-  skeletorRebalanceDraftMay202026,
-  aratheiaGallcobarRebalanceDraftMay262026,
-  raidUpdate1160QoLDraftMay272026,
-  folanSilverhartFragmentDraftMay302026,
-  webOfCorruptionCampaignDraftMay302026,
+  talennaSoulseerGuideDraftJun132026,
 ];

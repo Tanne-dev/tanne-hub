@@ -1,4 +1,5 @@
 import { type AccountStockCard } from "../content";
+import { siteText } from "../newsLanguage";
 import { getSellingAccounts } from "../sellingAccountsStore";
 import { renderAccountStockGrid } from "../partials/accountStockCards";
 
@@ -10,15 +11,15 @@ export function renderPopularAccounts(): string {
           <div class="mb-5 flex flex-col gap-3 sm:mb-6 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <h2 id="account-stock-heading" class="text-[19px] font-semibold text-[var(--panel-text)] sm:text-[20px] md:text-[22px]">
-                Featured Raid accounts
+                ${siteText("featuredRaidAccounts")}
               </h2>
-              <p class="mt-1 text-[14px] leading-snug text-[var(--panel-muted)] sm:text-[15px]">Selected accounts for players who want a faster start. Use the ID when contacting us so the right listing is easy to find.</p>
+              <p class="mt-1 text-[14px] leading-snug text-[var(--panel-muted)] sm:text-[15px]">${siteText("featuredRaidAccountsDescription")}</p>
             </div>
             <a
               href="/?page=raid-accounts"
               class="inline-flex min-h-11 w-full shrink-0 items-center justify-center rounded-lg border border-[#7fe9ff]/45 bg-[var(--panel-bg)] px-3.5 py-2.5 text-[15px] font-semibold text-[#7fe9ff] shadow-sm transition hover:bg-[#7fe9ff]/10 active:opacity-90 sm:w-auto sm:py-2 sm:text-[14px]"
             >
-              View all Raid accounts
+              ${siteText("viewAllRaidAccounts")}
             </a>
           </div>
           <div id="account-stock-grid" class="grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 lg:gap-6">
@@ -29,7 +30,7 @@ export function renderPopularAccounts(): string {
 
 export function renderSellingAccountsGrid(items: AccountStockCard[]): string {
   if (items.length === 0) {
-    return '<p class="rounded-md border border-[var(--news-card-border)] bg-[var(--panel-bg)] px-4 py-3.5 text-[15px] text-[var(--panel-muted)]">No active accounts for sale yet.</p>';
+    return `<p class="rounded-md border border-[var(--news-card-border)] bg-[var(--panel-bg)] px-4 py-3.5 text-[15px] text-[var(--panel-muted)]">${siteText("noAccountsForSale")}</p>`;
   }
   return renderAccountStockGrid(items);
 }

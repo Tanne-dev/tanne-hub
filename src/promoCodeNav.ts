@@ -1,4 +1,5 @@
 import { escapeHtml } from "./postBody";
+import { siteText } from "./newsLanguage";
 import { getPromoCodeSettings } from "./promoCodeStore";
 
 const promoGiftIcon = `
@@ -22,13 +23,13 @@ export function renderNavbarPromoCodeHtml(): string {
             <li class="promo-scroll-code-row">
               <span class="min-w-0">
                 <span class="promo-scroll-code block">${escapeHtml(entry.code)}</span>
-                ${entry.reward ? `<span class="mt-1 block text-[12px] font-semibold leading-snug text-[#604817]">Reward: ${escapeHtml(entry.reward)}</span>` : ""}
-                ${entry.updatedAt ? `<span class="mt-1 block text-[11px] font-bold text-[#795c20]">Updated: ${escapeHtml(entry.updatedAt)}</span>` : ""}
+                ${entry.reward ? `<span class="mt-1 block text-[12px] font-semibold leading-snug text-[#604817]">${siteText("promoReward")}: ${escapeHtml(entry.reward)}</span>` : ""}
+                ${entry.updatedAt ? `<span class="mt-1 block text-[11px] font-bold text-[#795c20]">${siteText("promoUpdated")}: ${escapeHtml(entry.updatedAt)}</span>` : ""}
               </span>
             </li>`,
         )
         .join("")
-    : `<li class="promo-scroll-empty">No RSL promo codes have been updated yet.</li>`;
+    : `<li class="promo-scroll-empty">${siteText("noPromoCodes")}</li>`;
 
   return `<div id="navbar-promo-code" class="relative min-w-0 shrink-0">
     <button
@@ -39,18 +40,18 @@ export function renderNavbarPromoCodeHtml(): string {
       aria-controls="navbar-promo-scroll"
     >
       ${promoGiftIcon}
-      <span>Promo Code</span>
+      <span>${siteText("promoCodeLabel")}</span>
       <span class="rounded border border-[#7fe9ff]/35 px-1.5 py-0.5 font-mono text-[11px] text-[var(--header-accent)]">RSL</span>
     </button>
     <div id="navbar-promo-scroll" class="promo-scroll-shell" aria-hidden="true">
       <div class="promo-scroll-paper">
         <div class="flex items-start justify-between gap-3">
           <div class="min-w-0">
-            <p class="text-[11px] font-bold uppercase tracking-[0.14em] text-[#795c20]">Raid Shadow Legends rewards</p>
-            <h3 class="mt-1 text-[18px] font-extrabold text-[#34230a]">RSL Promo Codes</h3>
-            <p class="mt-1 text-[12px] leading-snug text-[#604817]">Use these codes in Raid: Shadow Legends to claim in-game rewards.</p>
+            <p class="text-[11px] font-bold uppercase tracking-[0.14em] text-[#795c20]">${siteText("raidRewards")}</p>
+            <h3 class="mt-1 text-[18px] font-extrabold text-[#34230a]">${siteText("rslPromoCodesTitle")}</h3>
+            <p class="mt-1 text-[12px] leading-snug text-[#604817]">${siteText("rslPromoCodesIntro")}</p>
           </div>
-          <button id="navbar-promo-close" type="button" class="promo-scroll-close" aria-label="Close promo codes">Close</button>
+          <button id="navbar-promo-close" type="button" class="promo-scroll-close" aria-label="${siteText("closePromoCodes")}">${siteText("close")}</button>
         </div>
         <ul class="mt-4 space-y-2">${codeList}</ul>
       </div>

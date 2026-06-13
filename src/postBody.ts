@@ -28,6 +28,100 @@ function renderInlineArticleRichText(raw: string): string {
   return html;
 }
 
+function parseDirectiveAttrs(raw: string): Record<string, string> {
+  const attrs: Record<string, string> = {};
+  for (const match of raw.matchAll(/(\w+)="([^"]*)"/g)) {
+    attrs[match[1]] = match[2];
+  }
+  return attrs;
+}
+
+function effectIconUrl(label: string): string | null {
+  const normalized = label.toLowerCase();
+  if (normalized.includes("poison")) return "/raid-effect-icons/poison.svg";
+  if (normalized.includes("acc")) return "/raid-effect-icons/accuracy.svg";
+  if (normalized.includes("turn meter")) return "/raid-effect-icons/turn-meter.svg";
+  if (normalized.includes("cooldown")) return "/raid-effect-icons/cooldown.svg";
+  if (normalized.includes("buff")) return "/raid-effect-icons/buff-duration.svg";
+  if (normalized.includes("crit rate")) return "/raid-effect-icons/crit-rate.svg";
+  if (normalized.includes("crit damage")) return "/raid-effect-icons/crit-damage.svg";
+  return null;
+}
+
+function renderEffectBadges(items: string[]): string {
+  const badges = items
+    .map((item) => item.trim())
+    .filter(Boolean)
+    .map((item) => {
+      const icon = effectIconUrl(item);
+      const iconHtml = icon
+        ? `<img src="${icon}" alt="" class="h-4 w-4 rounded object-cover" loading="lazy" decoding="async" />`
+        : '<span class="h-1.5 w-1.5 rounded-full bg-[#ffaa00]"></span>';
+
+      return `
+        <span class="inline-flex items-center gap-1 rounded-full border border-[#7fe9ff]/35 bg-[#7fe9ff]/10 px-2.5 py-1 text-[11px] font-extrabold uppercase tracking-[0.04em] text-[#bff4ff]">
+          ${iconHtml}
+          ${renderInlineArticleRichText(item)}
+        </span>`;
+    })
+    .join("");
+
+  return `<div class="raid-article-effects mb-5 flex flex-wrap gap-2">${badges}</div>`;
+}
+
+function renderSkillCard(lines: string[]): string | null {
+  const first = lines[0] ?? "";
+  const last = lines[lines.length - 1] ?? "";
+  if (!first.startsWith("::skill{") || last !== "::endskill") return null;
+
+  const attrMatch = first.match(/^::skill\{([\s\S]*)\}$/);
+  if (!attrMatch) return null;
+
+  const attrs = parseDirectiveAttrs(attrMatch[1]);
+  const key = attrs.key || "Skill";
+  const name = attrs.name || "Skill detail";
+  const icon = attrs.icon || "";
+  const cooldown = attrs.cooldown || "";
+  const tags = (attrs.tags || "").split("|").map((tag) => tag.trim()).filter(Boolean);
+  const body = lines.slice(1, -1).join(" ").trim();
+
+  const iconHtml = icon
+    ? `<img src="${escapeHtml(icon)}" alt="" class="h-full w-full object-cover" loading="lazy" decoding="async" />`
+    : `<span class="text-[18px] font-black text-[#07192d]">${escapeHtml(key)}</span>`;
+
+  return `
+    <article class="raid-article-skill-card mb-4 overflow-hidden rounded-xl border border-[#7fe9ff]/25 bg-[linear-gradient(135deg,rgba(8,24,44,0.92),rgba(41,31,73,0.88))] p-4 text-white shadow-[0_10px_28px_rgba(0,0,0,0.22)]">
+      <div class="grid gap-3 sm:grid-cols-[64px_1fr] sm:items-start">
+        <div class="flex h-16 w-16 items-center justify-center overflow-hidden rounded-xl border border-[#ffaa00]/45 bg-[#ffaa00] shadow-[0_0_22px_rgba(255,170,0,0.2)]">
+          ${iconHtml}
+        </div>
+        <div class="min-w-0">
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="rounded-full border border-[#ffaa00]/45 bg-[#ffaa00]/15 px-2.5 py-1 text-[11px] font-extrabold uppercase tracking-[0.08em] text-[#ffd58a]">${escapeHtml(key)}</span>
+            ${cooldown ? `<span class="rounded-full border border-white/15 bg-white/10 px-2.5 py-1 text-[11px] font-bold text-white/80">Cooldown: ${escapeHtml(cooldown)}</span>` : ""}
+          </div>
+          <h4 class="mt-2 text-[18px] font-extrabold leading-tight text-white">${renderInlineArticleRichText(name)}</h4>
+          ${body ? `<p class="mt-2 text-[14px] leading-[1.7] text-[#d9eef7]">${renderInlineArticleRichText(body)}</p>` : ""}
+          ${tags.length ? `<div class="mt-3 flex flex-wrap gap-2">${renderEffectBadges(tags).replace(/^<div[^>]*>|<\/div>$/g, "")}</div>` : ""}
+        </div>
+      </div>
+    </article>
+  `;
+}
+
+function renderArticleHeading(level: number, title: string): string {
+  if (level === 1) {
+    return `<h2 class="raid-article-h1 mb-4 mt-6 text-[24px] font-extrabold leading-tight">${title}</h2>`;
+  }
+  if (level === 2) {
+    return `<h3 class="raid-article-h2 mb-3 mt-6 text-[20px] font-bold leading-tight">${title}</h3>`;
+  }
+  if (level === 3) {
+    return `<h4 class="raid-article-h3 mb-2.5 mt-5 text-[17px] font-bold leading-tight">${title}</h4>`;
+  }
+  return `<h5 class="raid-article-h4 mb-2 mt-4 text-[15px] font-semibold uppercase tracking-wide">${title}</h5>`;
+}
+
 function normalizeLegacyLineBreakTags(text: string): string {
   return text
     .replace(/\r\n/g, "\n")
@@ -59,18 +153,26 @@ function renderTextBlockHtml(text: string): string[] {
     const lines = part.split("\n").map((x) => x.trim()).filter(Boolean);
     if (lines.length === 0) continue;
 
+    const skillCardHtml = renderSkillCard(lines);
+    if (skillCardHtml) {
+      out.push(skillCardHtml);
+      continue;
+    }
+
+    const effectsMatch = lines.length === 1 ? lines[0].match(/^::effects\{([\s\S]*)\}$/) : null;
+    if (effectsMatch) {
+      const attrs = parseDirectiveAttrs(effectsMatch[1]);
+      out.push(renderEffectBadges((attrs.items || "").split("|")));
+      continue;
+    }
+
     const headingMatch = lines[0].match(/^(#{1,4})\s+(.+)$/);
-    if (lines.length === 1 && headingMatch) {
+    if (headingMatch) {
       const level = headingMatch[1].length;
       const title = renderInlineArticleRichText(headingMatch[2]);
-      if (level === 1) {
-        out.push(`<h2 class="raid-article-h1 mb-4 mt-6 text-[24px] font-extrabold leading-tight">${title}</h2>`);
-      } else if (level === 2) {
-        out.push(`<h3 class="raid-article-h2 mb-3 mt-6 text-[20px] font-bold leading-tight">${title}</h3>`);
-      } else if (level === 3) {
-        out.push(`<h4 class="raid-article-h3 mb-2.5 mt-5 text-[17px] font-bold leading-tight">${title}</h4>`);
-      } else {
-        out.push(`<h5 class="raid-article-h4 mb-2 mt-4 text-[15px] font-semibold uppercase tracking-wide">${title}</h5>`);
+      out.push(renderArticleHeading(level, title));
+      if (lines.length > 1) {
+        out.push(...renderTextBlockHtml(lines.slice(1).join("\n")));
       }
       continue;
     }
@@ -106,15 +208,18 @@ function renderTextBlockHtml(text: string): string[] {
     }
 
     if (lines.every((line) => /^>\s+/.test(line))) {
-      const quote = lines.map((line) => line.replace(/^>\s+/, "")).join("<br />");
+      const quote = lines
+        .map((line) => renderInlineArticleRichText(line.replace(/^>\s+/, "")))
+        .join("<br />");
       out.push(
-        `<blockquote class="raid-article-quote mb-5 border-l-2 border-[#7fe9ff]/45 pl-4 italic opacity-90">${renderInlineArticleRichText(quote)}</blockquote>`,
+        `<blockquote class="raid-article-quote mb-5 border-l-2 border-[#7fe9ff]/45 pl-4 italic opacity-90">${quote}</blockquote>`,
       );
       continue;
     }
 
+    const paragraphHtml = lines.map((line) => renderInlineArticleRichText(line)).join("<br />");
     out.push(
-      `<p class="raid-article-p mb-5 text-[15px] leading-[1.8]">${renderInlineArticleRichText(lines.join("<br />"))}</p>`,
+      `<p class="raid-article-p mb-5 text-[15px] leading-[1.8]">${paragraphHtml}</p>`,
     );
   }
 

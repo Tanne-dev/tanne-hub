@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="14" fill="#13213c"/>
+  <path d="M32 9 49 20v17c0 9-7 16-17 19-10-3-17-10-17-19V20L32 9Z" fill="#7fe9ff"/>
+  <path d="M24 33h16M32 25v16" stroke="#0d1a2c" stroke-width="5" stroke-linecap="round"/>
+  <text x="21" y="57" fill="#ffffff" font-family="Arial, sans-serif" font-size="13" font-weight="800">PASS</text>
+</svg>

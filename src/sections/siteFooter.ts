@@ -1,9 +1,23 @@
-import { footerLinkColumns } from "../content";
 import { pageInner } from "../layout";
+import { siteText } from "../newsLanguage";
 import { brandLogoImg } from "../partials/brandLogo";
 
 /** Chân trang: logo, link theo cột, bản quyền. */
 export function renderSiteFooter(): string {
+  const footerLinkColumns: { href: string; label: string }[][] = [
+    [
+      { href: "#", label: siteText("helpCenter") },
+      { href: "#", label: siteText("cookiePolicy") },
+    ],
+    [
+      { href: "#", label: siteText("sell") },
+      { href: "#", label: siteText("privacyPolicy") },
+    ],
+    [
+      { href: "#", label: siteText("contactUs") },
+      { href: "#", label: siteText("careers") },
+    ],
+  ];
   const columnsHtml = footerLinkColumns
     .map(
       (col) => `
@@ -27,7 +41,7 @@ export function renderSiteFooter(): string {
                 ${brandLogoImg()}
                 <span class="text-[#7fe9ff] drop-shadow-[0_1px_2px_rgba(0,0,0,0.45)]">Tanne Hub</span>
               </a>
-              <div class="shrink-0 text-sm text-[#c7ceef] sm:max-w-[50%] sm:text-right">USD $ / EN</div>
+              <div class="shrink-0 text-sm text-[#c7ceef] sm:max-w-[50%] sm:text-right">${siteText("footerLocale")}</div>
             </div>
 
             <nav
@@ -38,7 +52,7 @@ export function renderSiteFooter(): string {
             </nav>
 
             <div class="mt-8 border-t border-white/[0.08] pt-5 text-xs text-[#98a0be] md:mt-9 md:pt-6">
-              © 2026 Tanne Hub. All rights reserved.
+              © 2026 Tanne Hub. ${siteText("allRightsReserved")}
             </div>
           </div>
         </div>

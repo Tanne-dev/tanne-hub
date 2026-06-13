@@ -1,4 +1,5 @@
 import { refreshHeroHotNewsAfterPostsChange } from "./heroHotNews";
+import { getLocalizedPost } from "./newsLanguage";
 import { escapeHtml, getFirstImageUrlFromPost, postPlainBodyForPreview } from "./postBody";
 import { getPosts, removeLegacySeedPosts, syncPostsFromRemote } from "./postsStore";
 import type { PostItem } from "./postsStore";
@@ -66,9 +67,14 @@ export function renderRaidNewsFeed(animate = false): void {
                 <span class="rounded-full border border-[#7fe9ff]/35 bg-[#7fe9ff]/12 px-2 py-0.5 text-[10px] font-bold uppercase tracking-[0.05em] text-[#aeefff]">Featured</span>
                 <span class="news-muted text-[11px]">${formatDate(featured.createdAt)}</span>
               </div>
-              <h3 class="news-title text-[20px] font-bold leading-tight group-hover:text-[#9be8ff]">${escapeHtml(featured.title)}</h3>
-              ${featured.caption ? `<p class="news-muted mt-1.5 text-[12px]">${escapeHtml(featured.caption)}</p>` : ""}
-              <p class="news-title mt-2 text-[13px] leading-[1.6] opacity-90">${toPreviewText(postPlainBodyForPreview(featured), 230)}</p>
+              ${(() => {
+                const displayPost = getLocalizedPost(featured);
+                return `
+                  <h3 class="news-title text-[20px] font-bold leading-tight group-hover:text-[#9be8ff]">${escapeHtml(displayPost.title)}</h3>
+                  ${displayPost.caption ? `<p class="news-muted mt-1.5 text-[12px]">${escapeHtml(displayPost.caption)}</p>` : ""}
+                  <p class="news-title mt-2 text-[13px] leading-[1.6] opacity-90">${toPreviewText(postPlainBodyForPreview(displayPost), 230)}</p>
+                `;
+              })()}
             </div>
           </a>
         </article>
@@ -76,14 +82,17 @@ export function renderRaidNewsFeed(animate = false): void {
         <div class="grid gap-3 sm:grid-cols-2">
           ${gridPosts
             .map(
-              (post) => `
+              (post) => {
+                const displayPost = getLocalizedPost(post);
+                return `
             <article class="news-surface rounded-lg border p-2.5 transition hover:border-[#7fe9ff]/45">
               <a href="${getPostDetailUrl(post.id)}" class="group block">
                 ${renderThumb(post, "aspect-[16/10]")}
-                <h4 class="news-title mt-2 text-[15px] font-bold leading-tight group-hover:text-[#9be8ff]">${escapeHtml(post.title)}</h4>
+                <h4 class="news-title mt-2 text-[15px] font-bold leading-tight group-hover:text-[#9be8ff]">${escapeHtml(displayPost.title)}</h4>
                 <p class="news-muted mt-1 text-[12px]">${formatDate(post.createdAt)}</p>
               </a>
-            </article>`,
+            </article>`;
+              },
             )
             .join("")}
         </div>
@@ -94,19 +103,22 @@ export function renderRaidNewsFeed(animate = false): void {
         <div class="space-y-2.5">
           ${sidebarPosts
             .map(
-              (post) => `
+              (post) => {
+                const displayPost = getLocalizedPost(post);
+                return `
             <a href="${getPostDetailUrl(post.id)}" class="group grid grid-cols-[76px_1fr] gap-2.5 rounded-md border border-white/10 p-2 transition hover:border-[#7fe9ff]/45">
               ${(() => {
                 const su = getFirstImageUrlFromPost(post);
                 return su
-                  ? `<img src="${su}" alt="${escapeHtml(post.title)}" class="h-[56px] w-full rounded object-contain bg-black/25 p-0.5" loading="lazy" decoding="async" />`
+                  ? `<img src="${su}" alt="${escapeHtml(displayPost.title)}" class="h-[56px] w-full rounded object-contain bg-black/25 p-0.5" loading="lazy" decoding="async" />`
                   : `<span class="news-muted flex h-[56px] items-center justify-center rounded bg-black/15 text-[10px]">No image</span>`;
               })()}
               <span class="min-w-0">
-                <span class="news-title line-clamp-2 block text-[12px] font-semibold leading-[1.35] group-hover:text-[#9be8ff]">${escapeHtml(post.title)}</span>
+                <span class="news-title line-clamp-2 block text-[12px] font-semibold leading-[1.35] group-hover:text-[#9be8ff]">${escapeHtml(displayPost.title)}</span>
                 <span class="news-muted mt-1 block text-[10px]">${formatDate(post.createdAt)}</span>
               </span>
-            </a>`,
+            </a>`;
+              },
             )
             .join("")}
         </div>

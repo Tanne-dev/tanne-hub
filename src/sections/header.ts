@@ -1,5 +1,6 @@
 import { brandLogoImg } from "../partials/brandLogo";
 import { pageInner } from "../layout";
+import { getNewsLanguage, type NewsLanguage } from "../newsLanguage";
 import { renderNavbarPromoCodeHtml } from "../promoCodeNav";
 
 const headerNavIconClass = "h-4 w-4 shrink-0 text-[var(--header-accent)]";
@@ -35,9 +36,28 @@ const rewardsNavIcon = `
     <path d="M17 7.5c0-2-2.2-3.5-5-3.5S7 5.5 7 7.5s2.2 3.5 5 3.5 5 1.5 5 3.5-2.2 3.5-5 3.5-5-1.5-5-3.5"></path>
   </svg>`;
 
+function languageUrl(lang: NewsLanguage): string {
+  const current = new URL(window.location.href);
+  current.searchParams.set("lang", lang);
+  return `${current.pathname}${current.search}${current.hash}`;
+}
+
 /** Thanh điều hướng trên cùng: logo, ô tìm kiếm, ngôn ngữ. */
 export function renderHeader(): string {
   const promoHtml = renderNavbarPromoCodeHtml();
+  const lang = getNewsLanguage();
+  const isVi = lang === "vi";
+  const copy = {
+    login: isVi ? "Đăng nhập" : "Log in",
+    search: isVi ? "Tìm kiếm trên Tanne Hub" : "Search your items",
+    exchange: isVi ? "Đổi tiền" : "Exchange",
+    accounts: isVi ? "Tài khoản" : "Accounts",
+    raidAccounts: isVi ? "Tài khoản Raid Shadow Legends" : "Raid Shadow Legends",
+    raidNews: isVi ? "Tin Raid" : "Raid News",
+    rewards: isVi ? "Kiếm thưởng Internet" : "Idle Internet Rewards",
+    supportMobile: isVi ? "24/7" : "24/7",
+    supportDesktop: isVi ? "Hỗ trợ 24/7" : "24/7 Live Support",
+  };
 
   return `
       <header id="site-header" class="sticky top-0 z-20 w-full transition-[background-image,background-color] duration-300">
@@ -61,7 +81,7 @@ export function renderHeader(): string {
                   type="button"
                   class="inline-flex min-h-11 shrink-0 items-center gap-1 rounded-md border border-[var(--header-login-border)] bg-transparent px-4 py-2.5 text-[14px] font-bold text-[var(--header-login-text)] transition hover:bg-[var(--header-login-hover-bg)] active:opacity-90"
                 >
-                  <span id="login-btn-label">Log in</span>
+                  <span id="login-btn-label">${copy.login}</span>
                   <svg
                     id="account-menu-caret"
                     viewBox="0 0 12 12"
@@ -118,7 +138,7 @@ export function renderHeader(): string {
                 <input
                   class="min-h-11 w-full bg-transparent text-[16px] text-[var(--header-search-text)] placeholder:text-[var(--header-search-placeholder)] outline-none sm:min-h-0 sm:text-[15px]"
                   type="search"
-                  placeholder="Search your items"
+                  placeholder="${copy.search}"
                   enterkeyhint="search"
                   autocomplete="off"
                 />
@@ -131,12 +151,12 @@ export function renderHeader(): string {
             <nav class="site-header-nav -mx-0.5 flex min-w-0 flex-1 items-center gap-1 overflow-x-auto overscroll-x-contain px-0.5 pb-1 text-[15px] [-ms-overflow-style:none] [scrollbar-width:none] sm:flex-none sm:min-w-0 sm:gap-6 sm:overflow-visible sm:pb-0 sm:text-base [&::-webkit-scrollbar]:hidden">
               <a class="group inline-flex shrink-0 items-center gap-1.5 whitespace-nowrap rounded-md px-2 py-2 text-[var(--header-nav-text)] transition hover:text-[var(--header-nav-hover)] active:bg-white/5 sm:min-h-0 sm:px-0 sm:py-0" href="/?page=exchange">
                 ${exchangeNavIcon}
-                <span>Exchange</span>
+                <span>${copy.exchange}</span>
               </a>
               <div class="relative shrink-0 group">
                 <a class="group inline-flex min-h-11 items-center gap-1 whitespace-nowrap rounded-md px-2 py-2 text-[var(--header-nav-text)] transition hover:text-[var(--header-nav-hover)] active:bg-white/5 sm:hidden" href="/?page=raid-accounts">
                   ${accountsNavIcon}
-                  <span>Accounts</span>
+                  <span>${copy.accounts}</span>
                 </a>
                 <button
                   type="button"
@@ -145,7 +165,7 @@ export function renderHeader(): string {
                   aria-expanded="false"
                 >
                   ${accountsNavIcon}
-                  <span>Accounts</span>
+                  <span>${copy.accounts}</span>
                   <svg
                     viewBox="0 0 12 12"
                     fill="none"
@@ -165,26 +185,40 @@ export function renderHeader(): string {
                 >
                   <a role="menuitem" class="flex items-center gap-2 rounded px-2 py-2 text-[14px] text-[#d6dbf0] hover:bg-white/5 hover:text-white" href="/?page=raid-accounts">
                     <img src="/game-icons/raid-shadow-legends.png" alt="Raid Shadow Legends" class="h-6 w-6 rounded object-cover" />
-                    <span>Raid Shadow Legends</span>
+                    <span>${copy.raidAccounts}</span>
                   </a>
                 </div>
               </div>
               <a class="group inline-flex shrink-0 items-center gap-1.5 whitespace-nowrap rounded-md px-2 py-2 text-[var(--header-nav-text)] transition hover:text-[var(--header-nav-hover)] active:bg-white/5 sm:min-h-0 sm:px-0 sm:py-0" href="/?page=news">
                 ${newsNavIcon}
-                <span>Raid News</span>
+                <span>${copy.raidNews}</span>
               </a>
               <a class="group inline-flex shrink-0 items-center gap-1.5 whitespace-nowrap rounded-md px-2 py-2 text-[var(--header-nav-text)] transition hover:text-[var(--header-nav-hover)] active:bg-white/5 sm:min-h-0 sm:px-0 sm:py-0" href="/?page=honeygain">
                 ${rewardsNavIcon}
-                <span>Idle Internet Rewards</span>
+                <span>${copy.rewards}</span>
               </a>
             </nav>
 
             <div class="flex shrink-0 items-center justify-between gap-2 border-t border-[var(--header-nav-border)] pt-2 text-[13px] text-[var(--header-muted)] sm:justify-end sm:border-t-0 sm:pt-0 sm:text-sm">
+              <div class="inline-flex shrink-0 rounded-md border border-[var(--header-nav-border)] bg-black/10 p-1" aria-label="Site language">
+                <a
+                  href="${languageUrl("en")}"
+                  aria-label="Use English"
+                  title="English"
+                  class="inline-flex min-h-9 min-w-9 items-center justify-center rounded text-[18px] transition ${lang === "en" ? "bg-[#7fe9ff]/15 ring-1 ring-[#7fe9ff]/35" : "opacity-70 hover:bg-white/10 hover:opacity-100"}"
+                >🇬🇧</a>
+                <a
+                  href="${languageUrl("vi")}"
+                  aria-label="Dùng tiếng Việt"
+                  title="Tiếng Việt"
+                  class="inline-flex min-h-9 min-w-9 items-center justify-center rounded text-[18px] transition ${lang === "vi" ? "bg-[#ffaa00]/18 ring-1 ring-[#ffaa00]/35" : "opacity-70 hover:bg-white/10 hover:opacity-100"}"
+                >🇻🇳</a>
+              </div>
               ${promoHtml}
               <span class="inline-flex items-center gap-1.5">
                 <span class="text-[var(--header-brand-text)]" aria-hidden="true">◷</span>
-                <span class="sm:hidden">24/7</span>
-                <span class="hidden sm:inline">24/7 Live Support</span>
+                <span class="sm:hidden">${copy.supportMobile}</span>
+                <span class="hidden sm:inline">${copy.supportDesktop}</span>
               </span>
               <button
                 id="theme-toggle"

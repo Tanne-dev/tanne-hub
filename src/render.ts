@@ -9,6 +9,7 @@ import { renderHero } from "./sections/hero";
 import { renderSellingAccountsGrid } from "./sections/popularAccounts";
 import { renderSiteFooter } from "./sections/siteFooter";
 import { HONEYGAIN_REFERRAL_URL } from "./referralLinks";
+import { getLocalizedPost, getNewsLanguage, postHasVietnamese, siteText } from "./newsLanguage";
 
 /**
  * Ghép trang từ từng phần trong `src/sections/`.
@@ -34,13 +35,13 @@ export function renderLanding(root: HTMLElement): void {
           ${renderHero()}
 
           <div class="${pageInner} space-y-4 py-6 sm:py-8">
-            ${renderLazySectionPlaceholder("raid-news", "Loading latest Raid updates...", 560)}
-            ${renderLazySectionPlaceholder("member-alerts", "Preparing member alert options...", 180)}
-            ${renderLazySectionPlaceholder("popular-accounts", "Loading featured Raid accounts...", 520)}
-            ${renderLazySectionPlaceholder("safe-trading", "Loading safe buying guide...", 260)}
-            ${renderLazySectionPlaceholder("legit-check", "Loading buyer feedback...", 360)}
-            ${renderLazySectionPlaceholder("trustpilot", "Loading public review area...", 220)}
-            ${renderLazySectionPlaceholder("promos", "Loading support highlights...", 220)}
+            ${renderLazySectionPlaceholder("raid-news", siteText("loadingRaidNews"), 560)}
+            ${renderLazySectionPlaceholder("member-alerts", siteText("loadingMemberAlerts"), 180)}
+            ${renderLazySectionPlaceholder("popular-accounts", siteText("loadingPopularAccounts"), 520)}
+            ${renderLazySectionPlaceholder("safe-trading", siteText("loadingSafeTrading"), 260)}
+            ${renderLazySectionPlaceholder("legit-check", siteText("loadingLegitCheck"), 360)}
+            ${renderLazySectionPlaceholder("trustpilot", siteText("loadingTrustpilot"), 220)}
+            ${renderLazySectionPlaceholder("promos", siteText("loadingPromos"), 220)}
           </div>
         </main>
 
@@ -364,6 +365,9 @@ export function renderHoneygainPage(root: HTMLElement): void {
 
 export function renderPostDetail(root: HTMLElement, postId: string): void {
   const post = getPosts().find((item) => item.id === postId);
+  const lang = getNewsLanguage();
+  const localizedPost = post ? getLocalizedPost(post, lang) : null;
+  const hasVietnamese = post ? postHasVietnamese(post) : false;
 
   root.innerHTML = `
     <div class="relative min-h-screen w-full bg-[var(--page-bg)]">
@@ -387,13 +391,20 @@ export function renderPostDetail(root: HTMLElement, postId: string): void {
                   <a href="/?page=news" class="mt-4 inline-flex rounded-md border border-[#7fe9ff]/45 px-3 py-2 text-sm font-semibold text-[#7fe9ff] hover:bg-[#7fe9ff]/10">Back to Raid news</a>
                 </section>`
               : `<article class="raid-article raid-article-shell mx-auto max-w-[980px] rounded-[14px] bg-[var(--panel-bg)] p-5 shadow-[0_4px_14px_rgba(31,36,51,0.06)] md:p-6 md:px-7">
-                  <a href="/?page=news" class="inline-flex rounded-md border border-[#7fe9ff]/45 px-3 py-1.5 text-xs font-semibold text-[#7fe9ff] hover:bg-[#7fe9ff]/10">← Raid news</a>
-                  <h1 class="raid-article-main-title mt-3 text-2xl font-extrabold">${escapeHtml(post.title)}</h1>
+                  <div class="flex flex-wrap items-center justify-between gap-2">
+                    <a href="/?page=news" class="inline-flex rounded-md border border-[#7fe9ff]/45 px-3 py-1.5 text-xs font-semibold text-[#7fe9ff] hover:bg-[#7fe9ff]/10">← Raid news</a>
+                    <div class="inline-flex rounded-md border border-white/15 bg-black/15 p-1" aria-label="Article language">
+                      <a href="/?post=${encodeURIComponent(post.id)}&lang=en" aria-label="Read in English" title="English" class="inline-flex h-8 w-9 items-center justify-center rounded text-lg ${lang === "en" ? "bg-[#7fe9ff]/20 ring-1 ring-[#7fe9ff]/35" : "opacity-70 hover:bg-white/10 hover:opacity-100"}">🇬🇧</a>
+                      <a href="/?post=${encodeURIComponent(post.id)}&lang=vi" aria-label="Read in Vietnamese" title="Tiếng Việt" class="inline-flex h-8 w-9 items-center justify-center rounded text-lg ${lang === "vi" ? "bg-[#ffaa00]/20 ring-1 ring-[#ffaa00]/35" : "opacity-70 hover:bg-white/10 hover:opacity-100"}">🇻🇳</a>
+                    </div>
+                  </div>
+                  ${lang === "vi" && !hasVietnamese ? `<p class="mt-3 rounded-md border border-[#ffaa00]/35 bg-[#ffaa00]/10 px-3 py-2 text-xs font-semibold text-[#ffd58a]">Vietnamese translation is not available for this article yet, so the English version is shown.</p>` : ""}
+                  <h1 class="raid-article-main-title mt-3 text-2xl font-extrabold">${escapeHtml(localizedPost!.title)}</h1>
                   <p class="mt-1.5 text-[12px] font-semibold tracking-[0.01em]" style="color: color-mix(in srgb, #ffaa00 80%, var(--news-card-text) 20%);">
                     Updated: ${new Date(post.createdAt).toLocaleString()}
                   </p>
-                  ${post.caption ? `<p class="mt-2 text-sm" style="color: color-mix(in srgb, var(--news-card-text) 78%, transparent);">${escapeHtml(post.caption)}</p>` : ""}
-                  <div class="raid-article-body mt-5 text-[var(--news-card-text)]">${renderPostArticleBodyHtml(post)}</div>
+                  ${localizedPost!.caption ? `<p class="mt-2 text-sm" style="color: color-mix(in srgb, var(--news-card-text) 78%, transparent);">${escapeHtml(localizedPost!.caption)}</p>` : ""}
+                  <div class="raid-article-body mt-5 text-[var(--news-card-text)]">${renderPostArticleBodyHtml(localizedPost!)}</div>
                   <p class="mt-4 text-xs" style="color: color-mix(in srgb, var(--news-card-text) 72%, transparent);">By Tanne Hub · ${new Date(post.createdAt).toLocaleString()}</p>
                 </article>`
           }
@@ -525,6 +536,15 @@ export function renderAdminDashboardPage(root: HTMLElement): void {
                   <form id="admin-post-create-form" class="mt-4 space-y-2.5">
                     <input id="admin-post-title" type="text" maxlength="120" required placeholder="Title" class="admin-dash-input w-full rounded-md border border-[var(--admin-input-border)] bg-[var(--admin-input-bg)] px-3 py-2 text-sm text-[var(--admin-input-text)] outline-none placeholder:text-[var(--admin-muted)] focus:border-[var(--admin-accent)]" />
                     <input id="admin-post-caption" type="text" maxlength="180" placeholder="Caption (optional)" class="admin-dash-input w-full rounded-md border border-[var(--admin-input-border)] bg-[var(--admin-input-bg)] px-3 py-2 text-sm text-[var(--admin-input-text)] outline-none placeholder:text-[var(--admin-muted)] focus:border-[var(--admin-accent)]" />
+                    <details class="rounded-md border border-[var(--admin-border)] bg-[var(--admin-card-bg)] p-3">
+                      <summary class="cursor-pointer text-xs font-bold text-[var(--admin-accent-muted)]">Vietnamese translation (optional)</summary>
+                      <div class="mt-3 space-y-2">
+                        <input id="admin-post-title-vi" type="text" maxlength="140" placeholder="Vietnamese title" class="admin-dash-input w-full rounded-md border border-[var(--admin-input-border)] bg-[var(--admin-input-bg)] px-3 py-2 text-sm text-[var(--admin-input-text)] outline-none placeholder:text-[var(--admin-muted)] focus:border-[var(--admin-accent)]" />
+                        <input id="admin-post-caption-vi" type="text" maxlength="220" placeholder="Vietnamese caption (optional)" class="admin-dash-input w-full rounded-md border border-[var(--admin-input-border)] bg-[var(--admin-input-bg)] px-3 py-2 text-sm text-[var(--admin-input-text)] outline-none placeholder:text-[var(--admin-muted)] focus:border-[var(--admin-accent)]" />
+                        <textarea id="admin-post-content-vi" rows="8" placeholder="Vietnamese article body. Optional. Supports headings, bullets, and skill/effect directives." class="admin-dash-input min-h-[180px] w-full rounded-md border border-[var(--admin-input-border)] bg-[var(--admin-input-bg)] px-3 py-2 text-sm text-[var(--admin-input-text)] outline-none placeholder:text-[var(--admin-muted)] focus:border-[var(--admin-accent)]"></textarea>
+                        <p class="text-[11px] leading-snug text-[var(--admin-subtle)]">If empty, readers who choose Vietnamese will see the English version for this article.</p>
+                      </div>
+                    </details>
 	                    <div class="rounded-md border border-[var(--admin-border)] bg-[var(--admin-card-bg)] px-3 py-2 text-[11px] text-[var(--admin-subtle)]">
 	                      Editor supports <strong>bold</strong>, <em>italic</em>, line breaks, bullets, and text color via toolbar in each paragraph block.
 	                    </div>

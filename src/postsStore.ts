@@ -5,6 +5,9 @@ export type PostItem = {
   title: string;
   caption?: string;
   content: string;
+  titleVi?: string;
+  captionVi?: string;
+  contentVi?: string;
   imageUrl?: string;
   imagePosition?: "top" | "left" | "right";
   ownerId?: string;
@@ -20,6 +23,9 @@ type PostRow = {
   title: string;
   caption: string | null;
   content: string;
+  title_vi?: string | null;
+  caption_vi?: string | null;
+  content_vi?: string | null;
   image_url: string | null;
   image_position: "top" | "left" | "right" | null;
   owner_id: string | null;
@@ -27,12 +33,17 @@ type PostRow = {
   created_at: string;
 };
 
+type RemoteWriteResult = { ok: boolean; error?: string; translationsSkipped?: boolean };
+
 function mapRowToPost(row: PostRow): PostItem {
   return {
     id: row.id,
     title: row.title,
     caption: row.caption ?? undefined,
     content: row.content,
+    titleVi: row.title_vi ?? undefined,
+    captionVi: row.caption_vi ?? undefined,
+    contentVi: row.content_vi ?? undefined,
     imageUrl: row.image_url ?? undefined,
     imagePosition: row.image_position ?? "top",
     ownerId: row.owner_id ?? undefined,
@@ -76,7 +87,7 @@ export function removeLegacySeedPosts(): void {
 }
 
 function rowFromPost(post: PostItem): Record<string, unknown> {
-  return {
+  const row: Record<string, unknown> = {
     id: post.id,
     title: post.title,
     caption: post.caption ?? null,
@@ -87,6 +98,25 @@ function rowFromPost(post: PostItem): Record<string, unknown> {
     author_email: post.authorEmail,
     created_at: new Date(post.createdAt).toISOString(),
   };
+  if (post.titleVi !== undefined) row.title_vi = post.titleVi || null;
+  if (post.captionVi !== undefined) row.caption_vi = post.captionVi || null;
+  if (post.contentVi !== undefined) row.content_vi = post.contentVi || null;
+  return row;
+}
+
+function rowWithoutVietnamese(row: Record<string, unknown>): Record<string, unknown> {
+  const next = { ...row };
+  delete next.title_vi;
+  delete next.caption_vi;
+  delete next.content_vi;
+  return next;
+}
+
+function isMissingVietnameseColumnError(message: string): boolean {
+  return (
+    /schema cache/i.test(message) &&
+    /\b(title_vi|caption_vi|content_vi)\b/i.test(message)
+  );
 }
 
 export async function syncPostsFromRemote(): Promise<void> {
@@ -122,10 +152,18 @@ export async function getPostByIdRemote(postId: string): Promise<PostItem | null
 
 export async function createPostRemote(
   post: PostItem,
-): Promise<{ ok: boolean; error?: string }> {
+): Promise<RemoteWriteResult> {
   if (!supabaseClient) return { ok: false, error: "Supabase is not configured." };
-  const { error } = await supabaseClient.from("posts").insert(rowFromPost(post));
-  if (error) return { ok: false, error: error.message };
+  const row = rowFromPost(post);
+  const { error } = await supabaseClient.from("posts").insert(row);
+  if (error) {
+    if (isMissingVietnameseColumnError(error.message)) {
+      const retry = await supabaseClient.from("posts").insert(rowWithoutVietnamese(row));
+      if (!retry.error) return { ok: true, translationsSkipped: true };
+      return { ok: false, error: retry.error.message };
+    }
+    return { ok: false, error: error.message };
+  }
   return { ok: true };
 }
 
@@ -135,22 +173,36 @@ export async function updatePostRemote(
     title: string;
     caption?: string;
     content: string;
+    titleVi?: string;
+    captionVi?: string;
+    contentVi?: string;
     imageUrl?: string;
     imagePosition?: "top" | "left" | "right";
   },
-): Promise<{ ok: boolean; error?: string }> {
+): Promise<RemoteWriteResult> {
   if (!supabaseClient) return { ok: false, error: "Supabase is not configured." };
-  const { error } = await supabaseClient
-    .from("posts")
-    .update({
-      title: patch.title,
-      caption: patch.caption ?? null,
-      content: patch.content,
-      image_url: patch.imageUrl ?? null,
-      image_position: patch.imagePosition ?? "top",
-    })
-    .eq("id", postId);
-  if (error) return { ok: false, error: error.message };
+  const row: Record<string, unknown> = {
+    title: patch.title,
+    caption: patch.caption ?? null,
+    content: patch.content,
+    image_url: patch.imageUrl ?? null,
+    image_position: patch.imagePosition ?? "top",
+  };
+  if (patch.titleVi !== undefined) row.title_vi = patch.titleVi || null;
+  if (patch.captionVi !== undefined) row.caption_vi = patch.captionVi || null;
+  if (patch.contentVi !== undefined) row.content_vi = patch.contentVi || null;
+  const { error } = await supabaseClient.from("posts").update(row).eq("id", postId);
+  if (error) {
+    if (isMissingVietnameseColumnError(error.message)) {
+      const retry = await supabaseClient
+        .from("posts")
+        .update(rowWithoutVietnamese(row))
+        .eq("id", postId);
+      if (!retry.error) return { ok: true, translationsSkipped: true };
+      return { ok: false, error: retry.error.message };
+    }
+    return { ok: false, error: error.message };
+  }
   return { ok: true };
 }
 
