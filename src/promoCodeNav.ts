@@ -13,23 +13,27 @@ const promoGiftIcon = `
 
 export function renderNavbarPromoCodeHtml(): string {
   const promo = getPromoCodeSettings();
-  const entries = promo.history;
+  const entries = [...promo.history].reverse();
   const hasCodes = entries.length > 0;
+  const latest = entries[0];
   const codeList = hasCodes
-    ? [...entries]
-        .reverse()
+    ? entries
         .map(
           (entry) => `
-            <li class="promo-scroll-code-row">
-              <span class="min-w-0">
+            <li class="promo-scroll-code-row" data-promo-code-row data-promo-search="${escapeHtml(`${entry.code} ${entry.reward ?? ""} ${entry.updatedAt ?? ""}`.toLowerCase())}">
+              <div class="min-w-0">
                 <span class="promo-scroll-code block">${escapeHtml(entry.code)}</span>
-                ${entry.reward ? `<span class="mt-1 block text-[12px] font-semibold leading-snug text-[#604817]">${siteText("promoReward")}: ${escapeHtml(entry.reward)}</span>` : ""}
-                ${entry.updatedAt ? `<span class="mt-1 block text-[11px] font-bold text-[#795c20]">${siteText("promoUpdated")}: ${escapeHtml(entry.updatedAt)}</span>` : ""}
-              </span>
+                <span class="mt-1 flex flex-wrap gap-x-2 gap-y-0.5 text-[11px] font-semibold leading-snug text-[#7b879f]">
+                  ${entry.reward ? `<span>${siteText("promoReward")}: ${escapeHtml(entry.reward)}</span>` : ""}
+                  ${entry.updatedAt ? `<span>${siteText("promoUpdated")}: ${escapeHtml(entry.updatedAt)}</span>` : ""}
+                </span>
+              </div>
+              <button type="button" class="promo-copy-btn" data-promo-copy="${escapeHtml(entry.code)}">${siteText("copyPromoCode")}</button>
             </li>`,
         )
         .join("")
     : `<li class="promo-scroll-empty">${siteText("noPromoCodes")}</li>`;
+  const countLabel = siteText("promoCodeCount").replace("{count}", String(entries.length));
 
   return `<div id="navbar-promo-code" class="relative min-w-0 shrink-0">
     <button
@@ -47,13 +51,30 @@ export function renderNavbarPromoCodeHtml(): string {
       <div class="promo-scroll-paper">
         <div class="flex items-start justify-between gap-3">
           <div class="min-w-0">
-            <p class="text-[11px] font-bold uppercase tracking-[0.14em] text-[#795c20]">${siteText("raidRewards")}</p>
-            <h3 class="mt-1 text-[18px] font-extrabold text-[#34230a]">${siteText("rslPromoCodesTitle")}</h3>
-            <p class="mt-1 text-[12px] leading-snug text-[#604817]">${siteText("rslPromoCodesIntro")}</p>
+            <p class="text-[11px] font-bold uppercase tracking-[0.14em] text-[#7fe9ff]">${siteText("raidRewards")}</p>
+            <h3 class="mt-1 text-[18px] font-extrabold text-white">${siteText("rslPromoCodesTitle")}</h3>
+            <p class="mt-1 text-[12px] leading-snug text-[#b9c6df]">${siteText("rslPromoCodesIntro")}</p>
           </div>
           <button id="navbar-promo-close" type="button" class="promo-scroll-close" aria-label="${siteText("closePromoCodes")}">${siteText("close")}</button>
         </div>
-        <ul class="mt-4 space-y-2">${codeList}</ul>
+        ${
+          latest
+            ? `<section class="promo-latest-card mt-4">
+                <div class="min-w-0">
+                  <p class="text-[11px] font-extrabold uppercase tracking-[0.12em] text-[#f6c44c]">${siteText("latestPromoCode")}</p>
+                  <p class="promo-latest-code">${escapeHtml(latest.code)}</p>
+                  ${latest.reward ? `<p class="mt-1 text-[12px] font-semibold text-[#dbe7ff]">${siteText("promoReward")}: ${escapeHtml(latest.reward)}</p>` : ""}
+                </div>
+                <button type="button" class="promo-copy-btn promo-copy-btn-strong" data-promo-copy="${escapeHtml(latest.code)}">${siteText("copyPromoCode")}</button>
+              </section>`
+            : ""
+        }
+        <div class="promo-tools mt-3">
+          <input id="promo-code-search" type="search" placeholder="${siteText("searchPromoCodes")}" class="promo-search-input" autocomplete="off" />
+          <span class="promo-count-pill">${countLabel}</span>
+        </div>
+        <ul id="promo-code-list" class="promo-code-list mt-3">${codeList}</ul>
+        <p id="promo-code-empty-search" class="promo-scroll-empty mt-3 hidden">${siteText("noPromoSearchResults")}</p>
       </div>
     </div>
   </div>`;
