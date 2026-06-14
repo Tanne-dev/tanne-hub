@@ -1212,6 +1212,324 @@ export const webOfCorruptionCampaignDraftMay302026: {
   ],
 };
 
+export const clanBossDemonLordBeginnerGuideJun142026: {
+  id: string;
+  title: string;
+  caption: string;
+  blocks: PostBodyBlock[];
+  titleVi: string;
+  captionVi: string;
+  contentVi: string;
+} = {
+  id: "raid-guide-2026-06-14-clan-boss-demon-lord-beginner",
+  title: "Demon Lord Clan Boss beginner guide: keys, chests, speed tunes, and safe team building",
+  caption:
+    "A Tanne Hub beginner guide explaining why Demon Lord Clan Boss matters, how daily keys and double chests work, and how new Raid players should approach speed-tuned teams.",
+  titleVi: "Đại cương Clan Boss Demon Lord cho newbie: key, rương, speed tune và cách dựng team an toàn",
+  captionVi:
+    "Bài hướng dẫn Clan Boss Demon Lord theo phong cách Tanne Hub dành cho người mới chơi Raid Shadow Legends, tập trung vào tài nguyên hằng ngày, COMP, speed tune và các lỗi dễ làm vỡ team.",
+  contentVi: JSON.stringify([
+    {
+      type: "image",
+      url: "/news-images/clan-boss-demon-lord-guide.svg",
+      align: "full",
+      caption: "S.W.E x Tanne Hub: Demon Lord Clan Boss beginner guide.",
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Tóm tắt nhanh cho newbie**[/color]",
+        "- Demon Lord là Clan Boss bạn đánh được sau khi vào Clan.",
+        "- Đây là nguồn tài nguyên hằng ngày cực quan trọng: shard, sách, gear, gem và nhiều tài nguyên phát triển lâu dài.",
+        "- Mỗi ngày bạn có 4 key miễn phí. Mục tiêu lâu dài là dùng 1 key để lấy rương cuối của từng độ khó quan trọng.",
+        "- Nếu Clan hạ được boss trong ngày, boss chuyển sang máu tím/dấu vô cực và phần thưởng được x2.",
+        "- Newbie không nên tự chế team Clan Boss quá sớm. Hãy chọn team đã có speed tune từ DeadwoodJedi rồi build đúng theo hướng dẫn.",
+        "",
+        "::effects{items=\"Turn Meter control|Cooldown setup|Buff timing|Speed tune|Increase SPD warning|Debuff cleanse|Ally Attack|Stun target\"}",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Demon Lord Clan Boss là gì?**[/color]",
+        "Demon Lord là boss trong Clan của Raid Shadow Legends. Khi gia nhập Clan, bạn có thể dùng key hằng ngày để đánh boss và nhận rương tùy theo lượng damage đạt được.",
+        "Các độ khó phổ biến gồm: **Normal**, **Hard**, **Brutal**, **Nightmare (NM)** và **Ultra Nightmare (UNM)**. Về lâu dài, NM và UNM là hai mốc rất quan trọng vì phần thưởng tốt hơn nhiều.",
+        "Nếu bạn là người mới, hãy hiểu đơn giản thế này: Clan Boss không phải chỉ là một mode phụ. Đây là máy in tài nguyên hằng ngày của account. Bỏ qua Clan Boss quá lâu thì tốc độ phát triển sẽ chậm đi rất rõ.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Vì sao newbie phải tập trung Clan Boss?**[/color]",
+        "Clan Boss cho tài nguyên tích lũy đều mỗi ngày. Một ngày nhìn có thể ít, nhưng sau 30 ngày bạn sẽ thấy khác biệt: shard để summon, sách để nâng skill, gear để build team và tài nguyên để tiếp tục đẩy account.",
+        "Mỗi ngày bạn có **4 key miễn phí**. Mục tiêu đẹp là: mỗi key đạt rương cuối của một boss. Nếu Clan hạ boss được trong ngày, phần thưởng sẽ x2. Khi đó 4 key có thể tương đương 8 rương nếu bạn đánh đủ các boss phù hợp như UNM, NM, Brutal, Hard.",
+        "Vì vậy, khi chọn Clan, hãy ưu tiên Clan có thể hạ boss hằng ngày. Một Clan mạnh và hoạt động đều sẽ giúp account mới lớn nhanh hơn rất nhiều.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Rương cuối và mục tiêu 1 key**[/color]",
+        "Trong Clan Boss, mỗi độ khó có các mốc damage để nhận rương. Ví dụ ở UNM, khi một key đạt khoảng 70 triệu damage, bạn sẽ chạm mốc rương cuối như **Transcendent Chest**.",
+        "Người mới không cần ép mình đạt UNM ngay lập tức. Hãy đi theo lộ trình: đánh được boss nào thì tối ưu boss đó, sau đó nâng dần lên Brutal, NM, rồi UNM.",
+        "Điểm quan trọng là đừng dùng 4 key một cách mơ hồ. Hãy có mục tiêu cụ thể: team này đang đánh boss nào, cần bao nhiêu damage, đang thiếu damage hay đang chết sớm.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Một team Clan Boss gồm những phần nào?**[/color]",
+        "Trước khi build, bạn nên mở DeadwoodJedi để vừa đọc vừa đối chiếu: [DeadwoodJedi Speed Tunes](https://deadwoodjedi.com/speed-tunes/).",
+        "Một team Clan Boss thường có 2 phần:",
+        "- **COMP cố định:** những champion bắt buộc phải có. Đây thường là champion tạo vòng lặp sống sót như Block Damage, Unkillable, buff đúng turn, reset skill hoặc điều khiển Turn Meter.",
+        "- **Vị trí linh hoạt:** thường là DPS, Block Debuff/Cleanse, Ally Attack hoặc champion có vai trò phụ tùy team.",
+        "Ví dụ team **Myth SaLad** trên DeadwoodJedi có các vị trí cố định như Demytha, Seeker, Ma'Shalled. Những vị trí này không nên thay lung tung, trừ khi phần Important Considerations ghi rõ có thể thay.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**COMP là phần không nên tự chế**[/color]",
+        "Newbie rất hay mắc lỗi nghĩ rằng có một champion mạnh là đủ dựng team Clan Boss. Không phải vậy. Một con Demytha, Maneater, Helicath hay Seeker riêng lẻ chưa chắc tạo thành team hoàn chỉnh.",
+        "Team Clan Boss hoạt động nhờ vòng lặp turn chính xác. Nếu thiếu một mảnh COMP, sai speed, sai skill delay hoặc dùng nhầm mastery/set, team có thể vỡ ngay.",
+        "Vì vậy khi mua account hoặc tự build account, hãy hỏi câu này trước: account có đủ COMP cho một team cụ thể trên DeadwoodJedi không? Nếu không có câu trả lời rõ ràng, đừng vội tin rằng account đó đã có team Clan Boss.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Các vị trí linh hoạt thường gặp**[/color]",
+        "- **DPS:** champion gây sát thương chính theo thời gian. Nhiệm vụ là kéo damage lên để đủ rương.",
+        "- **4:3 DPS:** champion đi 4 lượt trong khi boss đi 3 lượt. Ninja là ví dụ nhiều người hay dùng, nhưng cần đúng tune.",
+        "- **Block Debuff / Cleanse:** giúp team không bị stun/debuff phá vòng lặp.",
+        "- **Ally Attack:** kéo thêm hit, tăng damage và tận dụng Warmaster/Giant Slayer.",
+        "- **Stun Target / Slowboi:** champion đặc biệt dùng làm mồi cho boss đánh stun trong một số team budget/cheese.",
+        "Lưu ý: DPS có extra turn, tự tăng Turn Meter hoặc nhảy lượt rất dễ làm lệch tune. Nếu hướng dẫn không cho dùng thì đừng tự bỏ vào chỉ vì champion đó mạnh.",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Cheese, Stun Target và Slowboi là gì?**[/color]",
+        "Một số team budget có khoảng trống trong vòng lặp, nên cần một champion làm mồi để boss chọn đánh stun. Người chơi thường gọi đây là **Stun Target**, **Slowboi**, hoặc nói vui là phần cheese của team.",
+        "Mục tiêu là khiến boss ưu tiên đánh champion đó trong đòn đơn. Cách đơn giản nhất là build champion này có Defense thấp nhất team, máu/affinity phù hợp và không có buff làm boss đổi mục tiêu.",
+        "Nếu có thể, chọn Stun Target có hệ yếu hơn boss sẽ giúp việc điều hướng stun dễ hơn. Nhưng đây là phần khá nhạy, nên hãy dùng bảng tính stun target nếu team yêu cầu.",
+        "Tham khảo bảng tính Stun Target: [Google Sheets Stun Target Calculator](https://docs.google.com/spreadsheets/d/1yJj53WjFemCwM3AyyuYcIGVWLLH_IlKcV57kFAMk3n0/edit#gid=2032005244).",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Team Clan Boss hoạt động như thế nào?**[/color]",
+        "Đa số team Clan Boss được xem là ổn khi cả 5 champion sống được đến khoảng turn 49-50. Một số team chỉ cần đạt damage đủ rương rồi chết cũng chấp nhận được, nhưng với newbie hãy ưu tiên team ổn định trước.",
+        "Boss có ba nhịp chính: **AOE 1**, **AOE 2**, và **Stun**. Team speed tune được thiết kế để buff bảo vệ, block damage, cleanse hoặc unkillable rơi đúng vào các nhịp này.",
+        "Nếu một champion đi sớm hơn hoặc chậm hơn dự kiến, buff sẽ lệch. Khi buff lệch, boss đánh vào lúc team không được bảo vệ. Đây là lý do team Clan Boss rất dễ 'vỡ' dù nhìn ngoài có vẻ chỉ lệch vài speed.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Checklist tránh vỡ team**[/color]",
+        "- Có đủ COMP bắt buộc theo đúng team đang chọn.",
+        "- Tất cả champion nằm trong giới hạn speed an toàn.",
+        "- Skill delay/setup làm đúng theo hướng dẫn.",
+        "- Masteries không lấy các điểm tự tăng Turn Meter hoặc reset cooldown nếu team không cho phép.",
+        "- Set đồ không tự thêm turn, giảm cooldown, tăng Turn Meter hoặc tăng Speed ngoài kiểm soát.",
+        "- Champion ngoài COMP không tự dùng buff Increase SPD nếu hướng dẫn không yêu cầu.",
+        "- Nếu mới build, hãy tắt auto hoặc set AI skill cho đúng trước khi test nhiều key.",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Cách dùng DeadwoodJedi để tìm team**[/color]",
+        "Bước đầu tiên là xem account của bạn có champion nào làm nền. Các champion như Demytha, Maneater, Helicath, Seeker, Warcaster, Tower, Doompriest hoặc các champion có Block Damage/Unkillable/Turn Meter thường mở ra nhiều team hơn.",
+        "Trên DeadwoodJedi, dùng filter theo champion bạn có. Ví dụ có Demytha thì tick Demytha để xem các team cần Demytha. Sau đó mở từng team, đọc Team Composition và Important Considerations.",
+        "Ưu tiên team có ghi **All Affinities** nếu bạn muốn đánh ổn nhiều màu boss. Nếu mới chơi, hãy chọn team có difficulty dễ hơn thay vì cố team quá khó nhưng thiếu gear.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Speed tune và giới hạn speed an toàn**[/color]",
+        "Speed trong bảng chính là chỉ số SPD của champion. Mỗi champion trong team có một khoảng speed cho phép. Có champion được phép dao động rộng, có champion gần như không được lệch.",
+        "Khi vào calculator của DeadwoodJedi, hãy tăng/giảm speed từng champion để tìm min-max. Nếu tăng hoặc giảm làm thứ tự turn bên phải thay đổi sai vòng lặp, nghĩa là đã ra ngoài giới hạn an toàn.",
+        "Mẹo đơn giản cho newbie: nếu hướng dẫn ghi 190-194 SPD, đừng build đúng sát 190 hoặc 194. Hãy chọn khoảng giữa như 192-193 nếu gear cho phép. Cách này giúp tránh sai số từ aura, set, mastery hoặc glyph.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Masteries và set đồ: đừng tham trước khi hiểu**[/color]",
+        "Nếu bạn chưa rành, đừng vội nâng toàn bộ mastery cho champion Clan Boss. Một số mastery có thể làm tăng Turn Meter, giảm cooldown hoặc thay đổi vòng lặp, khiến team đang đúng thành sai.",
+        "Set đồ cũng vậy. Những set có hiệu ứng thêm lượt, phản đòn, giảm cooldown, tăng Speed hoặc tăng Turn Meter chỉ nên dùng khi hướng dẫn cho phép. Không phải set mạnh nào cũng dùng được trong speed tune.",
+        "Nguyên tắc an toàn: build team chạy đúng trước, sau đó mới tối ưu mastery và set để tăng damage.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Lộ trình cho người mới**[/color]",
+        "1. Xem account có COMP nào trước, đừng bắt đầu từ DPS.",
+        "2. Tìm team tương ứng trên DeadwoodJedi.",
+        "3. Chọn team càng dễ và càng All Affinities càng tốt.",
+        "4. Dùng calculator để đặt đúng speed, skill delay và boss difficulty.",
+        "5. Dùng HellHades Optimizer hoặc tự thay đồ để đạt đúng speed.",
+        "6. Test team, xem chết ở turn nào, rồi sửa theo nguyên nhân.",
+        "7. Khi team đã sống ổn, mới tăng damage bằng gear, blessing, mastery và DPS tốt hơn.",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Một vài team dễ tham khảo**[/color]",
+        "- [High Myth Man](https://deadwoodjedi.com/speed-tunes/high-myth-man/)",
+        "- [Myth Eater](https://deadwoodjedi.com/speed-tunes/myth-eater/)",
+        "- [Warmbat](https://deadwoodjedi.com/speed-tunes/warmbat/)",
+        "- [Slow Tuned Man Tower Unkillable](https://deadwoodjedi.com/speed-tunes/slow-tuned-man-tower-unkillable/)",
+        "Đây không phải là danh sách bắt buộc. Hãy chọn theo champion account đang có, gear đang có và độ khó bạn có thể làm được.",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Tanne verdict**[/color]",
+        "Clan Boss là nền móng phát triển account Raid. Newbie muốn đi đường dài nên ưu tiên dựng team Clan Boss ổn định càng sớm càng tốt.",
+        "Đừng mua account chỉ vì thấy có một champion nổi tiếng. Hãy kiểm tra account đó có đủ COMP cho team cụ thể hay không. Một account có team Clan Boss rõ ràng, speed tune đúng và đánh được rương ổn định thường đáng giá hơn account nhìn nhiều champion nhưng không có hệ thống.",
+        "Nếu chưa hiểu, hãy đi theo hướng dẫn trước. Khi bạn đã hiểu speed tune, stun target, affinity và skill delay, lúc đó hãy bắt đầu tối ưu sâu hơn.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Nguồn và link tham khảo**[/color]",
+        "- DeadwoodJedi Speed Tunes: https://deadwoodjedi.com/speed-tunes/",
+        "- Myth SaLad example: https://deadwoodjedi.com/speed-tunes/myth-salad/",
+        "- Increase Speed champion reference: https://ayumilove.net/raid-shadow-legends-increase-speed-skill-champions/",
+        "- Stun Target calculator: https://docs.google.com/spreadsheets/d/1yJj53WjFemCwM3AyyuYcIGVWLLH_IlKcV57kFAMk3n0/edit#gid=2032005244",
+        "Bài viết này được biên tập lại từ ghi chú S.W.E/Tanne Hub để người mới dễ đọc và dễ áp dụng hơn.",
+      ].join("\n"),
+    },
+  ]),
+  blocks: [
+    {
+      type: "image",
+      url: "/news-images/clan-boss-demon-lord-guide.svg",
+      align: "full",
+      caption: "S.W.E x Tanne Hub: Demon Lord Clan Boss beginner guide.",
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Quick summary**[/color]",
+        "- Demon Lord is the Clan Boss you unlock after joining a Clan in Raid Shadow Legends.",
+        "- It is one of the most important daily resource engines for long-term account growth.",
+        "- You get 4 free keys per day. The long-term goal is to reach the final chest with as few keys as possible.",
+        "- If your Clan kills the boss during the day, the boss enters the purple infinity state and rewards are doubled.",
+        "- New players should not freestyle Clan Boss teams too early. Start from a proven DeadwoodJedi speed tune and follow the required champion composition.",
+        "",
+        "::effects{items=\"Turn Meter control|Cooldown setup|Buff timing|Speed tune|Increase SPD warning|Debuff cleanse|Ally Attack|Stun target\"}",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**What is Demon Lord Clan Boss?**[/color]",
+        "Demon Lord is a Clan-based boss fight with several difficulties, including Normal, Hard, Brutal, Nightmare, and Ultra Nightmare. You spend Clan Boss keys to deal damage and earn chests based on the damage milestone you reach.",
+        "For new players, the important idea is simple: Clan Boss is not optional if you want steady account growth. Over a month, the daily chests can become a major source of shards, books, gear, gems, and other progression resources.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Why new players should care**[/color]",
+        "Every day gives you 4 free keys. A strong account eventually wants to use each key efficiently, ideally reaching the top chest on the highest difficulties it can handle.",
+        "When your Clan defeats a boss, rewards are doubled. That means a player who can top-chest multiple difficulties in a Clan that kills those bosses daily can collect a lot more value from the same 4 keys.",
+        "This is why joining an active Clan matters. A good Clan turns your daily Clan Boss effort into twice the reward.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Understand COMP before DPS**[/color]",
+        "Most Clan Boss teams have two parts: fixed composition and flexible slots. The fixed composition is the part you should not casually replace. These champions usually create the survival loop through Block Damage, Unkillable, buff timing, cooldown control, resets, or Turn Meter behavior.",
+        "Flexible slots are usually DPS, Block Debuff/Cleanse, Ally Attack, or special stun-target roles. These can sometimes be changed, but only inside the rules of that specific tune.",
+        "A champion by itself does not make a Clan Boss team. Demytha, Maneater, Helicath, Seeker, or other famous Clan Boss champions are valuable only when the account has the full composition needed for a working team.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Use DeadwoodJedi as your starting point**[/color]",
+        "Open [DeadwoodJedi Speed Tunes](https://deadwoodjedi.com/speed-tunes/) and filter by the key champions on your account. If you have Demytha, filter for Demytha teams. If you have Maneater, filter for Maneater teams.",
+        "When you open a tune such as [Myth SaLad](https://deadwoodjedi.com/speed-tunes/myth-salad/), check the Team Composition and Important Considerations. Champions shown as required should be treated as required unless the guide specifically gives alternatives.",
+        "For beginners, prioritize easier teams and All Affinities teams when possible.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Speed tune basics**[/color]",
+        "A working Clan Boss team depends on exact turn order. Demon Lord has three important rhythm points: AOE 1, AOE 2, and Stun. Your team's buffs, block damage, cleanse, or unkillable windows must land correctly around those turns.",
+        "Each champion has a safe speed range. If one champion is too fast or too slow, the turn order changes and the team can break. If a guide says 190-194 Speed, do not assume any nearby number is safe. Stay inside the range and, when possible, avoid the exact edges.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Common beginner mistakes**[/color]",
+        "- Buying an account because it has one famous Clan Boss champion but not the full COMP.",
+        "- Ignoring min-max Speed ranges from the calculator.",
+        "- Using masteries that add Turn Meter, reset cooldowns, or change skill timing.",
+        "- Wearing sets that add extra turns, cooldown changes, Speed changes, counterattacks, or Turn Meter changes when the tune does not allow them.",
+        "- Adding a DPS with extra turns or self Turn Meter gain because the champion looks strong.",
+        "- Forgetting to configure skill AI and skill delays before testing.",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Stun target and cheese teams**[/color]",
+        "Some budget teams use a special champion as the Stun Target or Slowboi. This champion is intentionally built so the boss chooses it for the single-target stun hit.",
+        "The simple rule is that the stun target often needs to be the easiest target for the boss: lower Defense, correct HP behavior, correct affinity, and no unwanted buff protection. This is a sensitive part of tuning, so use a stun target calculator if the team requires it.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Beginner roadmap**[/color]",
+        "1. Check which Clan Boss core champions your account has.",
+        "2. Find a matching team on DeadwoodJedi.",
+        "3. Read Team Composition and Important Considerations before building.",
+        "4. Match the calculator speed ranges, skill delays, and boss difficulty.",
+        "5. Keep masteries and gear simple until the tune works.",
+        "6. Test the team, note the turn where it fails, then fix the cause.",
+        "7. Once the team survives, improve damage with better DPS, gear, books, blessings, and masteries.",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Tanne verdict**[/color]",
+        "Clan Boss is one of the foundations of Raid account growth. New players should treat it as a daily investment, not a side activity.",
+        "Do not chase random damage before you understand the team structure. First, build a stable tune. Then optimize damage. A stable Clan Boss team that earns double chests every day is one of the best long-term upgrades an account can have.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Useful links**[/color]",
+        "- DeadwoodJedi Speed Tunes: https://deadwoodjedi.com/speed-tunes/",
+        "- Myth SaLad example: https://deadwoodjedi.com/speed-tunes/myth-salad/",
+        "- Increase Speed champion reference: https://ayumilove.net/raid-shadow-legends-increase-speed-skill-champions/",
+        "- Stun Target calculator: https://docs.google.com/spreadsheets/d/1yJj53WjFemCwM3AyyuYcIGVWLLH_IlKcV57kFAMk3n0/edit#gid=2032005244",
+        "This guide is edited from S.W.E/Tanne Hub notes and rewritten for new Raid players.",
+      ].join("\n"),
+    },
+  ],
+};
+
 export const raidNewsDraftSeeds = [
+  clanBossDemonLordBeginnerGuideJun142026,
   talennaSoulseerGuideDraftJun132026,
 ];

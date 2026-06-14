@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Demon Lord Clan Boss beginner guide</title>
+  <desc id="desc">A Tanne Hub Raid Shadow Legends guide cover for Clan Boss Demon Lord.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#08111f"/>
+      <stop offset="0.48" stop-color="#14264a"/>
+      <stop offset="1" stop-color="#38121c"/>
+    </linearGradient>
+    <radialGradient id="flare" cx="68%" cy="36%" r="48%">
+      <stop offset="0" stop-color="#ffba4c" stop-opacity="0.55"/>
+      <stop offset="0.36" stop-color="#ff563e" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#07101e" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#flare)"/>
+  <path d="M0 486 C190 430 340 492 510 452 C760 394 915 438 1200 358 L1200 630 L0 630 Z" fill="#07101e" opacity="0.86"/>
+  <g opacity="0.22">
+    <path d="M96 86 H1104" stroke="#7fe9ff" stroke-width="2"/>
+    <path d="M96 544 H1104" stroke="#ffaa00" stroke-width="2"/>
+    <circle cx="1026" cy="118" r="74" fill="none" stroke="#7fe9ff" stroke-width="2"/>
+    <circle cx="1026" cy="118" r="42" fill="none" stroke="#ffaa00" stroke-width="2"/>
+  </g>
+  <g transform="translate(790 186)" filter="url(#glow)">
+    <path d="M130 18 C204 72 244 160 222 250 C205 319 151 364 90 368 C33 372 -18 344 -42 294 C-77 221 -45 131 32 82 C72 56 88 36 89 3 C104 3 117 7 130 18 Z" fill="#1a263a" stroke="#ffaa00" stroke-width="8"/>
+    <path d="M57 122 C93 88 148 94 181 138 C155 128 129 133 105 153 C83 171 69 195 62 224 C43 193 42 151 57 122 Z" fill="#ff563e" opacity="0.72"/>
+    <path d="M75 275 C106 307 160 291 174 242 C187 287 154 330 110 333 C78 335 51 319 38 294 Z" fill="#7fe9ff" opacity="0.35"/>
+    <path d="M-18 194 C-82 151 -118 103 -130 51 C-74 72 -28 107 9 158 Z" fill="#10192c" stroke="#7fe9ff" stroke-width="6"/>
+    <path d="M198 174 C268 132 310 86 330 37 C269 50 215 81 173 133 Z" fill="#10192c" stroke="#7fe9ff" stroke-width="6"/>
+  </g>
+  <g transform="translate(92 126)">
+    <rect x="0" y="0" width="162" height="34" rx="17" fill="#7fe9ff" opacity="0.14" stroke="#7fe9ff" stroke-opacity="0.42"/>
+    <text x="22" y="23" fill="#aeefff" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="800" letter-spacing="2">S.W.E x TANNE HUB</text>
+    <text x="0" y="112" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="72" font-weight="900">Demon Lord</text>
+    <text x="0" y="184" fill="#ffaa00" font-family="Inter, Arial, sans-serif" font-size="66" font-weight="900">Clan Boss Guide</text>
+    <text x="0" y="242" fill="#d9e4f4" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700">A beginner-friendly roadmap for Raid Shadow Legends</text>
+    <g transform="translate(0 306)" font-family="Inter, Arial, sans-serif" font-weight="800" font-size="20">
+      <rect width="152" height="42" rx="12" fill="#ffaa00" opacity="0.18" stroke="#ffaa00" stroke-opacity="0.4"/>
+      <text x="20" y="28" fill="#ffe2a0">4 Keys / day</text>
+      <rect x="170" width="190" height="42" rx="12" fill="#7fe9ff" opacity="0.14" stroke="#7fe9ff" stroke-opacity="0.38"/>
+      <text x="190" y="28" fill="#c9f6ff">UNM / NM focus</text>
+      <rect x="382" width="162" height="42" rx="12" fill="#ffffff" opacity="0.08" stroke="#ffffff" stroke-opacity="0.18"/>
+      <text x="402" y="28" fill="#eef5ff">Speed tune</text>
+    </g>
+  </g>
+</svg>

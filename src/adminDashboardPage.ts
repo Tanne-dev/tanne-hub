@@ -921,8 +921,11 @@ export function initAdminDashboardPage(): void {
   ): { imageUrl?: string; imagePosition: "top" | "left" | "right" } => {
     for (const b of blocks) {
       if (b.type === "image") {
+        const imageUrl = b.url.startsWith("/")
+          ? `https://tannehub.com${b.url}`
+          : b.url;
         return {
-          imageUrl: b.url,
+          imageUrl,
           imagePosition: b.align === "left" ? "left" : b.align === "right" ? "right" : "top",
         };
       }
