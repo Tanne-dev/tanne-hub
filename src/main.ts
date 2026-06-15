@@ -49,6 +49,11 @@ if (lang === "en" || lang === "vi") {
 }
 
 if (postId) {
+  if (params.get("post")) {
+    const nextUrl = new URL(`/share/${encodeURIComponent(postId)}`, window.location.origin);
+    if (lang === "en" || lang === "vi") nextUrl.searchParams.set("lang", lang);
+    window.history.replaceState({}, "", nextUrl);
+  }
   renderPostDetail(root, postId);
 } else if (page === "news") {
   renderNewsArchive(root);

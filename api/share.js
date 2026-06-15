@@ -73,11 +73,12 @@ async function loadPost(id) {
   return Array.isArray(rows) ? rows[0] ?? null : null;
 }
 
-function renderHtml({ title, description, imageUrl, targetUrl }) {
+function renderHtml({ title, description, imageUrl, canonicalUrl, appUrl }) {
   const safeTitle = escapeHtml(title);
   const safeDescription = escapeHtml(description);
   const safeImageUrl = escapeHtml(imageUrl);
-  const safeTargetUrl = escapeHtml(targetUrl);
+  const safeCanonicalUrl = escapeHtml(canonicalUrl);
+  const safeAppUrl = escapeHtml(appUrl);
 
   return `<!doctype html>
 <html lang="en">
@@ -86,12 +87,12 @@ function renderHtml({ title, description, imageUrl, targetUrl }) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>${safeTitle}</title>
     <meta name="description" content="${safeDescription}" />
-    <link rel="canonical" href="${safeTargetUrl}" />
+    <link rel="canonical" href="${safeCanonicalUrl}" />
     <meta property="og:site_name" content="Tanne Hub" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="${safeTitle}" />
     <meta property="og:description" content="${safeDescription}" />
-    <meta property="og:url" content="${safeTargetUrl}" />
+    <meta property="og:url" content="${safeCanonicalUrl}" />
     <meta property="og:image" content="${safeImageUrl}" />
     <meta property="og:image:secure_url" content="${safeImageUrl}" />
     <meta property="og:image:alt" content="${safeTitle}" />
@@ -99,11 +100,11 @@ function renderHtml({ title, description, imageUrl, targetUrl }) {
     <meta name="twitter:title" content="${safeTitle}" />
     <meta name="twitter:description" content="${safeDescription}" />
     <meta name="twitter:image" content="${safeImageUrl}" />
-    <meta http-equiv="refresh" content="0;url=${safeTargetUrl}" />
+    <meta http-equiv="refresh" content="0;url=${safeAppUrl}" />
   </head>
   <body>
-    <p><a href="${safeTargetUrl}">Open ${safeTitle}</a></p>
-    <script>window.location.replace(${JSON.stringify(targetUrl)});</script>
+    <p><a href="${safeAppUrl}">Open ${safeTitle}</a></p>
+    <script>window.location.replace(${JSON.stringify(appUrl)});</script>
   </body>
 </html>`;
 }
@@ -113,7 +114,11 @@ export default async function handler(request, response) {
   const protocol = host.includes("localhost") ? "http" : "https";
   const origin = `${protocol}://${host}`;
   const id = String(request.query.id || "").trim();
-  const targetUrl = id ? `${origin}/?post=${encodeURIComponent(id)}` : `${origin}/`;
+  const lang = request.query.lang === "vi" || request.query.lang === "en" ? request.query.lang : "";
+  const canonicalUrl = id ? `${origin}/share/${encodeURIComponent(id)}` : `${origin}/`;
+  const appUrl = id
+    ? `${origin}/?post=${encodeURIComponent(id)}${lang ? `&lang=${encodeURIComponent(lang)}` : ""}`
+    : `${origin}/`;
 
   const post = await loadPost(id).catch(() => null);
   const content = post?.content_vi || post?.content || "";
@@ -126,5 +131,5 @@ export default async function handler(request, response) {
 
   response.setHeader("Content-Type", "text/html; charset=utf-8");
   response.setHeader("Cache-Control", "s-maxage=3600, stale-while-revalidate=86400");
-  response.status(200).send(renderHtml({ title, description, imageUrl, targetUrl }));
+  response.status(200).send(renderHtml({ title, description, imageUrl, canonicalUrl, appUrl }));
 }

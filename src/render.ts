@@ -399,8 +399,8 @@ export function renderPostDetail(root: HTMLElement, postId: string): void {
                   <div class="flex flex-wrap items-center justify-between gap-2">
                     <a href="/?page=news" class="inline-flex rounded-md border border-[#7fe9ff]/45 px-3 py-1.5 text-xs font-semibold text-[#7fe9ff] hover:bg-[#7fe9ff]/10">← Raid news</a>
                     <div class="inline-flex rounded-md border border-white/15 bg-black/15 p-1" aria-label="Article language">
-                      <a href="/?post=${encodeURIComponent(post.id)}&lang=en" aria-label="Read in English" title="English" class="inline-flex h-8 w-9 items-center justify-center rounded text-lg ${lang === "en" ? "bg-[#7fe9ff]/20 ring-1 ring-[#7fe9ff]/35" : "opacity-70 hover:bg-white/10 hover:opacity-100"}">🇬🇧</a>
-                      <a href="/?post=${encodeURIComponent(post.id)}&lang=vi" aria-label="Read in Vietnamese" title="Tiếng Việt" class="inline-flex h-8 w-9 items-center justify-center rounded text-lg ${lang === "vi" ? "bg-[#ffaa00]/20 ring-1 ring-[#ffaa00]/35" : "opacity-70 hover:bg-white/10 hover:opacity-100"}">🇻🇳</a>
+                      <a href="/share/${encodeURIComponent(post.id)}?lang=en" aria-label="Read in English" title="English" class="inline-flex h-8 w-9 items-center justify-center rounded text-lg ${lang === "en" ? "bg-[#7fe9ff]/20 ring-1 ring-[#7fe9ff]/35" : "opacity-70 hover:bg-white/10 hover:opacity-100"}">🇬🇧</a>
+                      <a href="/share/${encodeURIComponent(post.id)}?lang=vi" aria-label="Read in Vietnamese" title="Tiếng Việt" class="inline-flex h-8 w-9 items-center justify-center rounded text-lg ${lang === "vi" ? "bg-[#ffaa00]/20 ring-1 ring-[#ffaa00]/35" : "opacity-70 hover:bg-white/10 hover:opacity-100"}">🇻🇳</a>
                     </div>
                   </div>
                   ${lang === "vi" && !hasVietnamese ? `<p class="mt-3 rounded-md border border-[#ffaa00]/35 bg-[#ffaa00]/10 px-3 py-2 text-xs font-semibold text-[#ffd58a]">Vietnamese translation is not available for this article yet, so the English version is shown.</p>` : ""}
