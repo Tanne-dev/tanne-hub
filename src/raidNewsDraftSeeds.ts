@@ -1231,7 +1231,7 @@ export const clanBossDemonLordBeginnerGuideJun142026: {
   contentVi: JSON.stringify([
     {
       type: "image",
-      url: "/news-images/clan-boss-demon-lord-guide.svg",
+      url: "/news-images/clan-boss-demon-lord-guide.png",
       align: "full",
       caption: "S.W.E x Tanne Hub: Demon Lord Clan Boss beginner guide.",
     },
@@ -1414,7 +1414,7 @@ export const clanBossDemonLordBeginnerGuideJun142026: {
   blocks: [
     {
       type: "image",
-      url: "/news-images/clan-boss-demon-lord-guide.svg",
+      url: "/news-images/clan-boss-demon-lord-guide.png",
       align: "full",
       caption: "S.W.E x Tanne Hub: Demon Lord Clan Boss beginner guide.",
     },

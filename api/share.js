@@ -19,6 +19,13 @@ function absoluteUrl(value, origin) {
   }
 }
 
+function socialImageSource(value) {
+  if (String(value || "").endsWith("/news-images/clan-boss-demon-lord-guide.svg")) {
+    return "/news-images/clan-boss-demon-lord-guide.png";
+  }
+  return value;
+}
+
 function firstImageFromContent(content) {
   try {
     const blocks = JSON.parse(content || "[]");
@@ -127,7 +134,10 @@ export default async function handler(request, response) {
     .replace(/\s+/g, " ")
     .trim()
     .slice(0, 220);
-  const imageUrl = absoluteUrl(post?.image_url || firstImageFromContent(content) || DEFAULT_IMAGE, origin);
+  const imageUrl = absoluteUrl(
+    socialImageSource(post?.image_url || firstImageFromContent(content) || DEFAULT_IMAGE),
+    origin,
+  );
 
   response.setHeader("Content-Type", "text/html; charset=utf-8");
   response.setHeader("Cache-Control", "s-maxage=3600, stale-while-revalidate=86400");
