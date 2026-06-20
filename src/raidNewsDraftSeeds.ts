@@ -1529,7 +1529,210 @@ export const clanBossDemonLordBeginnerGuideJun142026: {
   ],
 };
 
+export const vallarynEqualizerFreeLegendaryDraftJun152026: {
+  id: string;
+  title: string;
+  caption: string;
+  blocks: PostBodyBlock[];
+  titleVi: string;
+  captionVi: string;
+  contentVi: string;
+} = {
+  id: "raid-news-2026-06-15-vallaryn-the-equalizer-free-legendary",
+  title: "New free Legendary: Vallaryn the Equalizer arrives in Raid Shadow Legends",
+  caption:
+    "Raid Shadow Legends has revealed Vallaryn the Equalizer, a free Magic Legendary Attack champion from the Undead Hordes arriving through the Web of Corruption loyalty login event.",
+  titleVi: "Legendary miễn phí mới: Vallaryn the Equalizer sắp đến Raid Shadow Legends",
+  captionVi:
+    "Raid Shadow Legends vừa hé lộ Vallaryn the Equalizer, Legendary Magic Attack thuộc Undead Hordes, có thể nhận miễn phí qua sự kiện đăng nhập Web of Corruption.",
+  contentVi: JSON.stringify([
+    {
+      type: "image",
+      url: "/news-images/vallaryn-the-equalizer.png",
+      align: "full",
+      caption: "Vallaryn the Equalizer preview artwork for Tanne Hub.",
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Tóm tắt nhanh**[/color]",
+        "- Raid Shadow Legends đã hé lộ Legendary miễn phí mới: **Vallaryn the Equalizer**.",
+        "- Vallaryn là **Magic Affinity Legendary Attack Champion** thuộc faction **Undead Hordes**.",
+        "- Champion này sẽ nằm trong chương trình đăng nhập loyalty của sự kiện **Web of Corruption**.",
+        "- Bộ kỹ năng đầy đủ chưa được Plarium công bố, nhưng preview đang cho thấy nhiều dấu hiệu rất đáng chú ý.",
+        "- Nếu bạn là newbie, đây gần như là champion không nên bỏ lỡ vì miễn phí và có tiềm năng dùng được ở nhiều nội dung.",
+        "",
+        "::effects{items=\"Weaken|Leech|Ignore Defense|Attack champion|Team utility|Faction Wars|Doom Tower|Arena\"}",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Vallaryn the Equalizer là ai?**[/color]",
+        "Vallaryn the Equalizer là champion Legendary hệ Magic, vai trò Attack, thuộc faction Undead Hordes. Theo lore được giới thiệu, hắn là một undead elf cổ xưa, theo đuổi việc giữ cân bằng giữa Light và Darkness tại Teleria.",
+        "Điểm quan trọng với người chơi không chỉ là lore. Đây là một champion Legendary miễn phí, nghĩa là gần như mọi account đều có cơ hội sở hữu nếu theo kịp event đăng nhập.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Những gì đã biết hiện tại**[/color]",
+        "Plarium chưa công bố đầy đủ skill kit, multiplier và cooldown cuối cùng. Tuy vậy, từ footage preview và phân tích ban đầu của cộng đồng, Vallaryn có thể sở hữu một số điểm đáng chú ý:",
+        "- Có tiềm năng đặt **AoE Weaken**.",
+        "- Có quyền truy cập debuff **Leech**.",
+        "- Có utility tấn công hỗ trợ team thay vì chỉ gây damage thô.",
+        "- Có thể có cơ chế **Ignore Defense**.",
+        "- Là champion Attack-based Legendary.",
+        "- Nhận miễn phí thông qua event đăng nhập sắp tới.",
+        "Nếu các hiệu ứng này giữ nguyên trong bản chính thức, Vallaryn có thể là kiểu champion vừa gây sát thương vừa giúp team sống/đánh ổn hơn.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Ấn tượng đầu tiên của cộng đồng**[/color]",
+        "Phản ứng ban đầu của cộng đồng khá tích cực. Người chơi không kỳ vọng Vallaryn sẽ ngay lập tức thay thế những nuker top-tier như Georgid the Breaker hoặc Rotos the Lost Groom, nhưng thiết kế nhiều utility khiến hắn đáng để theo dõi.",
+        "Các nội dung có thể hưởng lợi từ Vallaryn gồm:",
+        "- **Faction Wars**, đặc biệt cho account còn thiếu damage hoặc utility ở Undead Hordes.",
+        "- **Cursed City Sintranos**, nơi champion faction/affinity phù hợp rất quan trọng.",
+        "- **Doom Tower progression**, nếu Leech/Weaken giúp team ổn định hơn.",
+        "- **Arena**, nếu Ignore Defense hoặc setup damage đủ mạnh.",
+        "- **General PvE**, nhất là với account mới hoặc mid-game cần thêm Legendary miễn phí.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Vallaryn có đáng lấy không?**[/color]",
+        "Câu trả lời ngắn gọn: **có**.",
+        "Vì đây là champion miễn phí, gần như không có lý do để bỏ qua nếu bạn vẫn đang chơi Raid. Free Legendary thường có giá trị rất cao với free-to-play, low-spender và cả những account mới mua chưa có nhiều lựa chọn faction.",
+        "Ngay cả khi Vallaryn không trở thành nuker meta hàng đầu, một Legendary miễn phí có Weaken, Leech và khả năng Ignore Defense vẫn có thể giúp account tiến xa hơn ở nhiều mode.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Newbie nên chuẩn bị gì?**[/color]",
+        "- Theo dõi lịch đăng nhập của Web of Corruption để không bỏ sót ngày nhận champion.",
+        "- Chưa vội book ngay cho đến khi skill kit chính thức và test thực tế rõ ràng hơn.",
+        "- Giữ sẵn gear Attack/Crit/Speed cơ bản nếu muốn test damage.",
+        "- Nếu hắn có debuff quan trọng, có thể cần Accuracy tùy nội dung.",
+        "- Đợi thêm review về multiplier, cooldown và AI trước khi đầu tư sâu.",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Tanne verdict**[/color]",
+        "Vallaryn the Equalizer đang có dấu hiệu trở thành một trong những champion miễn phí đáng chú ý nhất năm 2026. Điểm hấp dẫn nhất không chỉ nằm ở chữ Legendary, mà là khả năng kết hợp damage với utility như Weaken, Leech và có thể là Ignore Defense.",
+        "Với newbie, lời khuyên rất đơn giản: hãy lấy champion này. Sau đó chờ thông tin chính thức về skill, multiplier, gear, mastery và team composition trước khi đầu tư tài nguyên lớn.",
+        "Tanne Hub sẽ cập nhật bài breakdown đầy đủ khi Plarium công bố skill kit cuối cùng.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Ghi chú nguồn**[/color]",
+        "Bài viết này dựa trên thông tin preview ban đầu về Vallaryn the Equalizer và sự kiện Web of Corruption. Vì skill kit cuối cùng chưa được công bố đầy đủ, một số nhận định có thể thay đổi sau khi champion ra mắt chính thức.",
+      ].join("\n"),
+    },
+  ]),
+  blocks: [
+    {
+      type: "image",
+      url: "/news-images/vallaryn-the-equalizer.png",
+      align: "full",
+      caption: "Vallaryn the Equalizer preview artwork for Tanne Hub.",
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Quick summary**[/color]",
+        "- Raid Shadow Legends has revealed a new free Legendary Champion: **Vallaryn the Equalizer**.",
+        "- Vallaryn is a **Magic Affinity Legendary Attack Champion** from the **Undead Hordes** faction.",
+        "- He will be available through the upcoming **Web of Corruption** loyalty login event.",
+        "- Plarium has not released the full final skill kit yet, but early preview details already look interesting.",
+        "- For new and mid-game players, Vallaryn is almost certainly worth collecting because he is free and may bring useful team utility.",
+        "",
+        "::effects{items=\"Weaken|Leech|Ignore Defense|Attack champion|Team utility|Faction Wars|Doom Tower|Arena\"}",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Who is Vallaryn the Equalizer?**[/color]",
+        "Vallaryn the Equalizer is a Magic Affinity Legendary Attack champion from the Undead Hordes faction. Raid's lore presents him as an ancient undead elf devoted to maintaining balance between Light and Darkness across Teleria.",
+        "For players, the practical point is even more important: Vallaryn is a free Legendary. That means every active account should have a realistic chance to unlock him if the loyalty login event is completed.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**What we know so far**[/color]",
+        "Plarium has not revealed the complete final kit, cooldowns, or multipliers yet. However, early gameplay footage and community analysis point toward several useful effects:",
+        "- Potential **AoE Weaken** debuff.",
+        "- Access to **Leech**.",
+        "- Offensive utility that can support the whole team.",
+        "- Possible **Ignore Defense** mechanics.",
+        "- Attack-based Legendary champion profile.",
+        "- Free availability through the upcoming login event.",
+        "Based on the preview, Vallaryn looks like more than a plain damage dealer. He may end up as a hybrid champion who helps the team while still contributing meaningful damage.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Community first impressions**[/color]",
+        "The early community reaction is positive. Most players are not expecting Vallaryn to replace top-tier nukers such as Georgid the Breaker or Rotos the Lost Groom, but his utility-focused design could make him valuable in many accounts.",
+        "He may be useful for:",
+        "- **Faction Wars**, especially for accounts that need more Undead Hordes damage or utility.",
+        "- **Cursed City Sintranos**, where faction and affinity options matter a lot.",
+        "- **Doom Tower progression**, if Leech and Weaken make teams more stable.",
+        "- **Arena**, if Ignore Defense or damage setup is strong enough.",
+        "- **General PvE content**, especially for newer accounts that need a free Legendary attacker.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Is Vallaryn worth getting?**[/color]",
+        "Yes.",
+        "Because Vallaryn is free, there is very little reason to skip the event if you are still playing Raid. Free Legendary champions can bring excellent value to free-to-play players, low spenders, and newer accounts that still need more faction coverage.",
+        "Even if Vallaryn does not become a top meta nuker, a free Legendary with Weaken, Leech, and possible Ignore Defense has enough potential to matter in several areas of the game.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**What should new players do?**[/color]",
+        "- Follow the Web of Corruption login schedule carefully so you do not miss the champion.",
+        "- Do not rush books until the final kit and testing are clear.",
+        "- Prepare basic Attack/Crit/Speed gear if you want to test his damage.",
+        "- Be ready to add Accuracy if his important debuffs need to land.",
+        "- Wait for real testing before committing your best gear and books.",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Tanne verdict**[/color]",
+        "Vallaryn the Equalizer is shaping up to be one of the more exciting free champions of 2026. The main appeal is not only that he is Legendary, but that he may combine damage with useful effects such as Weaken, Leech, and possible Ignore Defense.",
+        "For beginners, the advice is simple: collect him. Then wait for the final skill text, multipliers, gear recommendations, masteries, and team testing before spending major resources.",
+        "Tanne Hub will update with a full breakdown once Plarium reveals the complete kit.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Source note**[/color]",
+        "This article is based on early preview information about Vallaryn the Equalizer and the Web of Corruption event. Because the complete final skill kit has not been published yet, some evaluation points may change after release.",
+      ].join("\n"),
+    },
+  ],
+};
+
 export const raidNewsDraftSeeds = [
+  vallarynEqualizerFreeLegendaryDraftJun152026,
   clanBossDemonLordBeginnerGuideJun142026,
   talennaSoulseerGuideDraftJun132026,
 ];
