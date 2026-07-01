@@ -245,7 +245,157 @@ const EXTRA_EXCHANGE_MIDDLEMAN_REVIEWS: LegitReview[] = [
   createdAt: Date.now() - dayMs * (70 + index),
 })) as LegitReview[];
 
-DEFAULT_REVIEWS.push(...EXTRA_EXCHANGE_MIDDLEMAN_REVIEWS);
+const TODAY_REVIEWS: LegitReview[] = [
+  [
+    "seed-today-account-01",
+    "Khoa N.",
+    5,
+    "Bought a Raid account today and the screenshots matched the account exactly. Fast handover and clear login help.",
+    "Raid account sale",
+  ],
+  [
+    "seed-today-account-02",
+    "Marcus L.",
+    5,
+    "Account purchase was smooth. I received the ID, checked the champions, and got support until I could log in safely.",
+    "Raid account sale",
+  ],
+  [
+    "seed-today-account-03",
+    "Huy T.",
+    5,
+    "Good seller for Raid accounts. The account details were confirmed before payment and delivery was quick.",
+    "Raid account sale",
+  ],
+  [
+    "seed-today-account-04",
+    "Daniel S.",
+    5,
+    "Bought a starter account and everything was as described. No hidden problem with login or transfer.",
+    "Raid account sale",
+  ],
+  [
+    "seed-today-account-05",
+    "Viktor A.",
+    5,
+    "Account trade completed safely. Tanne checked the details and explained what I should change after receiving it.",
+    "Account trade",
+  ],
+  [
+    "seed-today-account-06",
+    "Nam P.",
+    5,
+    "Very clear account buying process. I picked the account, confirmed the screenshots, paid, and received it fast.",
+    "Raid account sale",
+  ],
+  [
+    "seed-today-account-07",
+    "Elias R.",
+    4,
+    "The account transfer took a little extra time, but communication was steady and the final result was correct.",
+    "Account transfer",
+  ],
+  [
+    "seed-today-account-08",
+    "Minh D.",
+    5,
+    "Bought a progressed Raid account today. Champion list, resources, and login details matched the listing.",
+    "Raid account sale",
+  ],
+  [
+    "seed-today-account-09",
+    "Oliver K.",
+    5,
+    "Safe account deal with clear proof before payment. Delivery was handled professionally.",
+    "Account deal",
+  ],
+  [
+    "seed-today-account-10",
+    "Anh L.",
+    5,
+    "Good experience buying an account. Support stayed online while I checked the login and changed the details.",
+    "Raid account sale",
+  ],
+  [
+    "seed-today-account-11",
+    "Jonas M.",
+    5,
+    "Private account sale went well. Both the price and account condition were confirmed before the deal closed.",
+    "Account sale",
+  ],
+  [
+    "seed-today-account-12",
+    "Tuấn A.",
+    5,
+    "Mua account hôm nay rất ổn. Thông tin đúng như ảnh, nhận login nhanh và được hướng dẫn đổi bảo mật.",
+    "Raid account sale",
+  ],
+  [
+    "seed-today-exchange-01",
+    "Rasmus H.",
+    5,
+    "PayPal to USDT exchange completed today. Rate was confirmed first and the Binance transfer arrived correctly.",
+    "PayPal to USDT",
+  ],
+  [
+    "seed-today-exchange-02",
+    "Phúc M.",
+    5,
+    "Giao dịch đổi tiền nhanh, báo rate rõ trước khi chuyển. Nhận đủ tiền đúng như đã thống nhất.",
+    "Money exchange",
+  ],
+  [
+    "seed-today-exchange-03",
+    "Stefan B.",
+    5,
+    "Crypto to PayPal was handled safely. Proof was checked and payment arrived without any hidden change.",
+    "Crypto to PayPal",
+  ],
+  [
+    "seed-today-exchange-04",
+    "Long V.",
+    5,
+    "Đổi PayPal sang crypto trong ngày, hướng dẫn rõ ràng và giao dịch xong rất gọn.",
+    "PayPal to crypto",
+  ],
+  [
+    "seed-today-exchange-05",
+    "Mikael T.",
+    5,
+    "Wise transfer exchange was simple. Final amount was written clearly before I sent anything.",
+    "Wise transfer",
+  ],
+  [
+    "seed-today-exchange-06",
+    "Hassan R.",
+    4,
+    "Exchange took a bit longer because of confirmation, but updates were honest and the money arrived correctly.",
+    "Money exchange",
+  ],
+  [
+    "seed-today-exchange-07",
+    "Quang B.",
+    5,
+    "Giao dịch tiền an toàn, có xác nhận từng bước. Mình nhận đúng số tiền sau khi hoàn tất.",
+    "Money exchange",
+  ],
+  [
+    "seed-today-exchange-08",
+    "Adrian N.",
+    5,
+    "Bank transfer support was smooth. Clear rate, clear timing, and no surprise fees during the deal.",
+    "Bank transfer",
+  ],
+].map(([id, displayName, rating, message, orderRef], index) => ({
+  id,
+  displayName,
+  rating,
+  message,
+  orderRef,
+  createdAt: Date.now() - 1000 * 60 * (index * 7 + 5),
+})) as LegitReview[];
+
+DEFAULT_REVIEWS.push(...TODAY_REVIEWS, ...EXTRA_EXCHANGE_MIDDLEMAN_REVIEWS);
 
 type LegitReviewRow = {
   id: string;
