@@ -1731,7 +1731,250 @@ export const vallarynEqualizerFreeLegendaryDraftJun152026: {
   ],
 };
 
+export const haggibahNestmaidFusionAnalysisDraftJul012026: {
+  id: string;
+  title: string;
+  caption: string;
+  blocks: PostBodyBlock[];
+  titleVi: string;
+  captionVi: string;
+  contentVi: string;
+} = {
+  id: "raid-news-2026-07-01-haggibah-the-nestmaid-fusion-analysis",
+  title:
+    "Haggibah the Nestmaid fusion analysis: HP Burn, Bomb detonation, buff steal, and control punishment",
+  caption:
+    "Early Tanne Hub analysis of Haggibah the Nestmaid, a new Web of Corruption Legendary HP fusion champion built around HP Burn, Bombs, buff stealing, Leech, and anti-control pressure.",
+  titleVi:
+    "Phân tích fusion Haggibah the Nestmaid: HP Burn, Bomb, cướp buff và chống khống chế",
+  captionVi:
+    "Bài phân tích sớm của Tanne Hub về Haggibah the Nestmaid, Legendary HP champion mới trong Web of Corruption, xoay quanh HP Burn, Bomb, cướp buff, Leech và phản đòn khống chế.",
+  contentVi: JSON.stringify([
+    {
+      type: "image",
+      url: "/news-images/haggibah-the-nestmaid-fusion.webp",
+      align: "full",
+      caption: "Preview kỹ năng Haggibah the Nestmaid trong Web of Corruption fusion.",
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Tóm tắt nhanh**[/color]",
+        "- Haggibah the Nestmaid là Legendary HP champion mới được hé lộ trong chủ đề **Web of Corruption**.",
+        "- Bộ kỹ năng xoay quanh **HP Burn**, **Bomb**, kích nổ Bomb, kích hoạt tick HP Burn, cướp buff toàn đội địch và đặt **Leech**.",
+        "- Điểm độc đáo nhất là passive chống khống chế: khi kẻ địch cố đặt Stun, Freeze, Sleep, Provoke, Fear, True Fear, Petrification hoặc tăng cooldown skill của cô, Haggibah phản lại bằng Bomb bỏ qua Block Debuffs.",
+        "- Đây là bài phân tích sớm dựa trên ảnh preview kỹ năng. Multiplier, AI, lịch event và hiệu quả thực tế vẫn cần chờ test trong game.",
+        "",
+        "::effects{items=\"HP Burn|Bomb detonation|Bomb|Buff steal|Leech|Perfect Veil|Control punish|Cooldown punish|HP aura\"}",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Haggibah là kiểu champion gì?**[/color]",
+        "Nhìn qua kit, Haggibah không giống một nuker truyền thống. Cô là dạng HP utility/control champion, dùng Bomb và HP Burn để tạo áp lực theo nhịp, đồng thời phá team địch bằng cướp buff và trừng phạt khống chế.",
+        "Điều này làm cô khá thú vị cho account cần thêm một champion vừa có áp lực wave, vừa có khả năng sống sót tốt hơn nhờ HP base, Perfect Veil và Leech.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Phân tích kỹ năng**[/color]",
+        "",
+        "::skill{key=\"A1\" name=\"Blast of Purification\" icon=\"/raid-skill-icons/haggibah-the-nestmaid/blast-of-purification.png\" tags=\"Single target|HP Burn|Perfect Veil\"}",
+        "Đánh 1 mục tiêu, có 75% đặt HP Burn trong 2 lượt, sau đó tự đặt Perfect Veil trong 1 lượt. A1 này giúp Haggibah không bị vô dụng khi chờ cooldown, và Perfect Veil làm cô khó bị chọn làm mục tiêu hơn trong một số trận.",
+        "::endskill",
+        "",
+        "::skill{key=\"A2\" name=\"Insidious Eruption\" icon=\"/raid-skill-icons/haggibah-the-nestmaid/insidious-eruption.png\" tags=\"AoE|Bomb detonation|HP Burn activation|Leech\"}",
+        "Đây là nút combo chính. Cô đánh toàn bộ kẻ địch, kích nổ toàn bộ Bomb đang có và kích hoạt một tick HP Burn trên toàn bộ địch. Sau đó có 75% đặt Leech trong 2 lượt. Nếu team đã setup Bomb hoặc HP Burn trước, kỹ năng này có thể biến debuff đang chờ thành sát thương ngay lập tức.",
+        "::endskill",
+        "",
+        "::skill{key=\"A3\" name=\"Larval Consumption\" icon=\"/raid-skill-icons/haggibah-the-nestmaid/larval-consumption.png\" tags=\"Buff steal|AoE Bomb|1-turn Bomb pressure\"}",
+        "Cướp toàn bộ buff từ tất cả kẻ địch, sau đó có 75% đặt 2 Bomb lên toàn bộ địch. Bomb nổ sau 2 lượt, nhưng nếu mục tiêu không có buff thì Bomb chỉ còn 1 lượt. Đây là chi tiết rất đáng chú ý: team địch có buff thì bị cướp, team không buff thì bị Bomb nổ nhanh hơn.",
+        "::endskill",
+        "",
+        "::skill{key=\"PASSIVE\" name=\"Insect Lord's Vessel\" icon=\"/raid-skill-icons/haggibah-the-nestmaid/insect-lords-vessel.png\" tags=\"HP Burn immune|Bomb immune|Anti-control|Ignore Block Debuffs\"}",
+        "Haggibah miễn nhiễm HP Burn và Bomb, đồng thời không nhận sát thương từ HP Burn. Khi kẻ địch cố đặt Stun, Freeze, Sleep, Provoke, Fear, True Fear, Petrification hoặc tăng cooldown kỹ năng của cô, cô đặt Bomb lên kẻ đó và Bomb này bỏ qua Block Debuffs. Đây là passive khiến các team control phải cẩn thận khi đánh vào cô.",
+        "::endskill",
+        "",
+        "::skill{key=\"AURA\" name=\"Ally HP in all Battles +30%\" icon=\"/raid-effect-icons/hp-aura.svg\" tags=\"All battles|HP aura|Survivability\"}",
+        "Aura tăng HP đồng minh 30% ở mọi trận. Với người chơi mới hoặc mid-game, aura kiểu này khá dễ dùng vì giúp team trâu hơn ở nhiều nội dung, không bị khóa riêng trong Arena hay Dungeon.",
+        "::endskill",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Điểm mạnh đáng chú ý**[/color]",
+        "- Combo HP Burn + Bomb + kích hoạt hiệu ứng giúp cô có nhiều cách tạo sát thương theo thời gian.",
+        "- Cướp toàn bộ buff từ tất cả kẻ địch là hiệu ứng rất mạnh trong wave và Arena.",
+        "- Leech giúp team hồi phục khi đánh vào mục tiêu bị debuff.",
+        "- Passive phản khống chế tạo áp lực ngược lên những team dựa vào Stun, Freeze, Fear hoặc tăng cooldown.",
+        "- Aura HP 30% mọi trận dễ dùng cho account mới và account thiếu aura sinh tồn.",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Điểm yếu và câu hỏi cần chờ test**[/color]",
+        "- Cô cần **Accuracy** để HP Burn, Leech, Bomb và cướp buff hoạt động ổn định.",
+        "- Bomb trong Raid thường phụ thuộc mạnh vào chỉ số tấn công hoặc cơ chế riêng của từng champion, trong khi Haggibah là HP champion. Vì vậy multiplier và scaling cuối cùng rất quan trọng.",
+        "- Boss content còn phải chờ test, vì không phải boss nào cũng bị Bomb/cướp buff tận dụng tốt như wave hoặc Arena.",
+        "- Cô có vẻ cần book để đưa tỉ lệ debuff lên ổn định và giảm cooldown A2/A3.",
+        "- AI sử dụng A2/A3 đúng thứ tự hay không sẽ ảnh hưởng lớn tới giá trị auto farm.",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Nên dùng Haggibah ở đâu?**[/color]",
+        "- Arena Offense: tiềm năng tốt vào team nhiều buff hoặc team control, đặc biệt nếu đối thủ cố khóa lượt/cooldown của cô.",
+        "- Arena Defense: có thể gây khó chịu vì passive khiến đối thủ bị phạt khi dùng khống chế vào cô.",
+        "- Doom Tower waves: đáng chú ý nhờ cướp buff, HP Burn, Leech và áp lực Bomb diện rộng.",
+        "- Cursed City: có giá trị nếu điều kiện faction/affinity cho phép và bạn cần thêm HP champion có utility.",
+        "- Faction Wars: nếu faction của cô thiếu wave control hoặc sustain, kit này có thể rất hữu ích.",
+        "- Spider/HP Burn content: có tiềm năng, nhưng cần test AI và hiệu quả thực tế trước khi kết luận.",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Có nên làm fusion này không?**[/color]",
+        "Nếu bạn là newbie hoặc mid-game và có đủ tài nguyên để hoàn thành fusion mà không phá sạch account, Haggibah rất đáng cân nhắc. Kit của cô hiếm vì kết hợp nhiều thứ cùng lúc: HP Burn, Bomb, kích nổ Bomb, kích hoạt HP Burn, cướp buff và chống control.",
+        "Tuy nhiên, nếu tài nguyên thấp, hãy chờ lịch event fusion đầy đủ trước khi quyết định. Fusion thường tốn shard, energy, silver và thời gian. Champion tốt nhưng làm không tới mốc sẽ rất phí tài nguyên.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Tanne verdict**[/color]",
+        "Haggibah the Nestmaid nhìn rất thú vị, nhất là cho người chơi thích lối đánh kiểm soát nhịp trận thay vì chỉ one-shot. Cô có thể là champion tạo áp lực rất khó chịu trong wave và PvP nếu Bomb/HP Burn hoạt động mượt.",
+        "Tạm thời mình chưa gọi đây là must-have tuyệt đối cho mọi account vì còn thiếu multiplier, AI và test thực chiến. Nhưng với một fusion Legendary có kit lạ như thế này, đây chắc chắn là champion nên theo dõi sát.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Ghi chú nguồn**[/color]",
+        "Bài viết này dựa trên ảnh preview kỹ năng Haggibah the Nestmaid trong Web of Corruption. Tanne Hub chưa thấy nguồn web đáng tin đã index đầy đủ về champion này tại thời điểm viết bài, nên các nhận định trên là phân tích sớm từ skill preview. Hãy kiểm tra lại thông tin trong game trước khi tiêu tài nguyên lớn cho fusion.",
+      ].join("\n"),
+    },
+  ]),
+  blocks: [
+    {
+      type: "image",
+      url: "/news-images/haggibah-the-nestmaid-fusion.webp",
+      align: "full",
+      caption: "Haggibah the Nestmaid skill preview for the Web of Corruption fusion.",
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Quick summary**[/color]",
+        "- Haggibah the Nestmaid is a new Legendary HP champion previewed for the **Web of Corruption** theme.",
+        "- Her kit is built around **HP Burn**, **Bombs**, Bomb detonation, HP Burn activation, full enemy buff stealing, and **Leech**.",
+        "- The most unusual part of her kit is the passive: when enemies try to control her or increase her skill cooldowns, she punishes them with Bombs that ignore Block Debuffs.",
+        "- This is early analysis based on the skill preview image. Multipliers, AI behavior, event schedule, and real testing can still change the final verdict.",
+        "",
+        "::effects{items=\"HP Burn|Bomb detonation|Bomb|Buff steal|Leech|Perfect Veil|Control punish|Cooldown punish|HP aura\"}",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Champion identity**[/color]",
+        "Haggibah does not look like a simple nuker. She looks more like an HP-based utility/control champion who creates pressure through Bombs and HP Burn while also disrupting enemy setups with full-team buff stealing.",
+        "That makes her interesting for accounts that need more wave pressure, more control punishment, and a champion who can bring value even when she is not built as a pure damage dealer.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Skill breakdown**[/color]",
+        "",
+        "::skill{key=\"A1\" name=\"Blast of Purification\" icon=\"/raid-skill-icons/haggibah-the-nestmaid/blast-of-purification.png\" tags=\"Single target|HP Burn|Perfect Veil\"}",
+        "Attacks one enemy, has a 75% chance to place HP Burn for 2 turns, then places Perfect Veil on Haggibah for 1 turn. This gives her basic attack useful pressure while also helping her stay harder to target.",
+        "::endskill",
+        "",
+        "::skill{key=\"A2\" name=\"Insidious Eruption\" icon=\"/raid-skill-icons/haggibah-the-nestmaid/insidious-eruption.png\" tags=\"AoE|Bomb detonation|HP Burn activation|Leech\"}",
+        "Attacks all enemies, instantly detonates all Bomb debuffs, and activates one tick of all HP Burn debuffs on all enemies. It also has a 75% chance to place Leech for 2 turns. This is her main combo button: if Bombs or HP Burns are already set up, she can convert delayed damage into immediate pressure.",
+        "::endskill",
+        "",
+        "::skill{key=\"A3\" name=\"Larval Consumption\" icon=\"/raid-skill-icons/haggibah-the-nestmaid/larval-consumption.png\" tags=\"Buff steal|AoE Bomb|1-turn Bomb pressure\"}",
+        "Steals all buffs from all enemies, then has a 75% chance to place two Bomb debuffs on all enemies. Those Bombs detonate after 2 turns, but against enemies with no buffs they detonate after 1 turn instead. That is a clever design: buff-heavy teams get stripped, while unbuffed teams face faster Bomb pressure.",
+        "::endskill",
+        "",
+        "::skill{key=\"PASSIVE\" name=\"Insect Lord's Vessel\" icon=\"/raid-skill-icons/haggibah-the-nestmaid/insect-lords-vessel.png\" tags=\"HP Burn immune|Bomb immune|Anti-control|Ignore Block Debuffs\"}",
+        "Haggibah is immune to HP Burn and Bomb debuffs, and she takes no damage from HP Burn. When an enemy tries to place Stun, Freeze, Sleep, Provoke, Fear, True Fear, Petrification, or increase her skill cooldowns, she places a Bomb on that enemy that detonates after 1 turn. These Bombs ignore Block Debuffs.",
+        "::endskill",
+        "",
+        "::skill{key=\"AURA\" name=\"Ally HP in all Battles +30%\" icon=\"/raid-effect-icons/hp-aura.svg\" tags=\"All battles|HP aura|Survivability\"}",
+        "A 30% Ally HP aura in all battles is simple but useful. It helps newer and mid-game accounts survive more reliably without being locked to one specific game mode.",
+        "::endskill",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Strengths**[/color]",
+        "- HP Burn plus Bomb activation gives her several ways to apply delayed and immediate pressure.",
+        "- Full enemy buff steal can swing wave fights and Arena openers.",
+        "- Leech gives team sustain when allies attack debuffed enemies.",
+        "- Her passive punishes control and cooldown manipulation, which can make her awkward to fight in PvP.",
+        "- A 30% HP aura in all battles is easy to use for progression accounts.",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Weaknesses and open questions**[/color]",
+        "- She needs **Accuracy** to land HP Burn, Leech, Bombs, and buff steal reliably.",
+        "- Bomb damage in Raid often depends heavily on champion scaling or specific mechanics. Because Haggibah is an HP champion, her final multipliers and scaling matter a lot.",
+        "- Boss value is still uncertain, because Bombs and buff stealing are usually more exciting in waves and PvP than against many bosses.",
+        "- She likely needs books to make her debuff chances and cooldowns feel consistent.",
+        "- Her AI skill order will matter. If she uses A2 before Bombs or HP Burns are set up, her auto value may drop.",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Where she may be useful**[/color]",
+        "- Arena Offense: strong potential into buff-heavy or control-heavy teams.",
+        "- Arena Defense: can punish teams that try to lock her down with control or cooldown increase.",
+        "- Doom Tower waves: interesting because of buff steal, Leech, HP Burn, and AoE Bomb pressure.",
+        "- Cursed City: useful if her faction/affinity requirements line up with the stage.",
+        "- Faction Wars: likely valuable if her faction needs wave control, sustain, or a tankier utility champion.",
+        "- Spider and HP Burn content: possible value, but AI and real testing are needed before calling her a specialist.",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Should you do this fusion?**[/color]",
+        "If you are a new or mid-game player and you can finish the fusion without destroying your account resources, Haggibah looks worth serious consideration. Her kit is rare because it combines HP Burn, Bombs, Bomb detonation, HP Burn activation, buff stealing, Leech, and anti-control pressure in one champion.",
+        "If your resources are low, wait for the full fusion calendar before committing. Fusion events can cost a lot of shards, energy, silver, and time. A good champion is still painful if you start the fusion and cannot finish it.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Tanne verdict**[/color]",
+        "Haggibah the Nestmaid looks genuinely interesting, especially for players who enjoy control and pressure teams instead of only one-shot nuking. If her Bomb and HP Burn interactions work smoothly, she could become a very annoying wave and PvP champion.",
+        "I would not call her an automatic must-have for every account yet, because we still need multipliers, AI behavior, and live testing. But for a fusion Legendary with a kit this unusual, she is absolutely one to watch closely.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Source note**[/color]",
+        "This article is based on the Haggibah the Nestmaid Web of Corruption skill preview image. At the time of writing, Tanne Hub could not find a fully indexed reliable web source with complete champion details, so this is early analysis from the preview. Always confirm final in-game text before spending major fusion resources.",
+      ].join("\n"),
+    },
+  ],
+};
+
 export const raidNewsDraftSeeds = [
+  haggibahNestmaidFusionAnalysisDraftJul012026,
   vallarynEqualizerFreeLegendaryDraftJun152026,
   clanBossDemonLordBeginnerGuideJun142026,
   talennaSoulseerGuideDraftJun132026,

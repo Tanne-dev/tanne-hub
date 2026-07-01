@@ -24,8 +24,10 @@ import {
   updatePostRemote,
 } from "./postsStore";
 import {
+  clearAndDismissPostDrafts,
   deletePostDraft,
   getPostDrafts,
+  keepLatestPostDraftOnly,
   seedPostDraftOnce,
   upsertPostDraft,
 } from "./postDraftsStore";
@@ -386,9 +388,12 @@ export function initAdminDashboardPage(): void {
       });
       setActiveTab(tabFromUrl());
       renderAdminPostsList();
-      for (const draftSeed of raidNewsDraftSeeds) {
-        seedPostDraftOnce(draftSeed);
+      const seedIds = new Set(raidNewsDraftSeeds.map((draftSeed) => draftSeed.id));
+      const hasManualDraft = getPostDrafts().some((draft) => !seedIds.has(draft.id));
+      if (!hasManualDraft && raidNewsDraftSeeds[0]) {
+        seedPostDraftOnce(raidNewsDraftSeeds[0], { refreshExisting: true });
       }
+      keepLatestPostDraftOnly();
       renderAdminDraftsList();
       resetPostComposer();
       void syncPromoCodeSettingsFromRemote().then(() => {
@@ -1499,11 +1504,9 @@ export function initAdminDashboardPage(): void {
       posts.unshift(newPost);
       savePosts(posts);
     }
-    if (editingDraftId && !remote.translationsSkipped) {
-      deletePostDraft(editingDraftId);
-      editingDraftId = null;
-      renderAdminDraftsList();
-    }
+    clearAndDismissPostDrafts();
+    editingDraftId = null;
+    renderAdminDraftsList();
     await syncPostsFromRemote();
     window.dispatchEvent(new CustomEvent("tanne-posts-updated"));
 
@@ -1516,9 +1519,7 @@ export function initAdminDashboardPage(): void {
       remote.translationsSkipped ? "warn" : "success",
     );
     renderAdminPostsList();
-    if (!remote.translationsSkipped) {
-      resetPostComposer();
-    }
+    resetPostComposer();
   });
 
   adminPostsList.addEventListener("click", async (event) => {

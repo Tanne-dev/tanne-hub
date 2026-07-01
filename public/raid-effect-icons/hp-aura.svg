@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="HP Aura">
+  <rect width="64" height="64" rx="18" fill="#0f2434"/>
+  <path fill="#8be9ff" d="M32 56c-13-8-22-16-22-28 0-8 6-14 14-14 4 0 7 2 8 5 2-3 5-5 9-5 8 0 13 6 13 14 0 12-9 20-22 28Z"/>
+  <path fill="#0f2434" d="M29 25h6v8h8v6h-8v8h-6v-8h-8v-6h8z"/>
+</svg>

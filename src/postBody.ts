@@ -38,6 +38,18 @@ function parseDirectiveAttrs(raw: string): Record<string, string> {
 
 function effectIconUrl(label: string): string | null {
   const normalized = label.toLowerCase();
+  if (normalized.includes("hp burn")) return "/raid-effect-icons/hp-burn.svg";
+  if (normalized.includes("bomb")) return "/raid-effect-icons/bomb.svg";
+  if (normalized.includes("leech")) return "/raid-effect-icons/leech.svg";
+  if (normalized.includes("perfect veil") || normalized.includes("veil")) return "/raid-effect-icons/perfect-veil.svg";
+  if (normalized.includes("weaken")) return "/raid-effect-icons/weaken.svg";
+  if (normalized.includes("ignore defense") || normalized.includes("ignore defence")) {
+    return "/raid-effect-icons/ignore-defense.svg";
+  }
+  if (normalized.includes("stun") || normalized.includes("freeze") || normalized.includes("sleep") || normalized.includes("fear") || normalized.includes("provoke") || normalized.includes("petrification") || normalized.includes("control")) {
+    return "/raid-effect-icons/control.svg";
+  }
+  if (normalized.includes("hp aura") || normalized.includes("ally hp")) return "/raid-effect-icons/hp-aura.svg";
   if (normalized.includes("poison")) return "/raid-effect-icons/poison.svg";
   if (normalized.includes("acc")) return "/raid-effect-icons/accuracy.svg";
   if (normalized.includes("turn meter")) return "/raid-effect-icons/turn-meter.svg";

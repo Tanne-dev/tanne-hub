@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Leech">
+  <rect width="64" height="64" rx="18" fill="#0c1720"/>
+  <path fill="#6ee7b7" d="M17 39c0-13 10-24 23-24 7 0 12 5 12 12 0 13-12 24-25 24-6 0-10-5-10-12Z"/>
+  <path fill="#10231e" d="M27 40c7-1 13-6 17-14 1 9-7 18-17 20-6 1-9-1-9-5 2 1 5 1 9-1Z" opacity=".65"/>
+  <circle cx="42" cy="25" r="4" fill="#052b23"/>
+</svg>

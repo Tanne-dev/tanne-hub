@@ -14,6 +14,7 @@ export type PostDraftItem = {
 
 const STORAGE_KEY = "tanne-post-drafts-v1";
 const SEEDED_DRAFTS_KEY = "tanne-post-draft-seeds-v1";
+const DISMISSED_DRAFTS_KEY = "tanne-post-draft-dismissed-v1";
 
 function isPostBodyBlock(value: unknown): value is PostBodyBlock {
   if (!value || typeof value !== "object") return false;
@@ -63,6 +64,36 @@ export function savePostDrafts(drafts: PostDraftItem[]): void {
   );
 }
 
+export function clearPostDrafts(): void {
+  localStorage.removeItem(STORAGE_KEY);
+}
+
+function readStringList(key: string): string[] {
+  const parsed = JSON.parse(localStorage.getItem(key) || "[]") as unknown;
+  return Array.isArray(parsed) ? parsed.filter((item): item is string => typeof item === "string") : [];
+}
+
+function rememberDismissedDraftIds(ids: string[]): void {
+  if (ids.length === 0) return;
+  const dismissed = new Set(readStringList(DISMISSED_DRAFTS_KEY));
+  for (const id of ids) dismissed.add(id);
+  localStorage.setItem(DISMISSED_DRAFTS_KEY, JSON.stringify([...dismissed]));
+}
+
+export function clearAndDismissPostDrafts(): void {
+  rememberDismissedDraftIds(getPostDrafts().map((draft) => draft.id));
+  clearPostDrafts();
+}
+
+export function keepLatestPostDraftOnly(): void {
+  const [latest] = getPostDrafts();
+  if (!latest) {
+    clearPostDrafts();
+    return;
+  }
+  savePostDrafts([latest]);
+}
+
 export function upsertPostDraft(input: {
   id?: string;
   title: string;
@@ -86,11 +117,12 @@ export function upsertPostDraft(input: {
     createdAt: existing?.createdAt ?? now,
     updatedAt: now,
   };
-  savePostDrafts([next, ...drafts.filter((draft) => draft.id !== next.id)]);
+  savePostDrafts([next]);
   return next;
 }
 
 export function deletePostDraft(id: string): void {
+  rememberDismissedDraftIds([id]);
   savePostDrafts(getPostDrafts().filter((draft) => draft.id !== id));
 }
 
@@ -102,21 +134,20 @@ export function seedPostDraftOnce(input: {
   titleVi?: string;
   captionVi?: string;
   contentVi?: string;
-}): void {
+}, options: { refreshExisting?: boolean } = {}): void {
   try {
-    const seeded = JSON.parse(localStorage.getItem(SEEDED_DRAFTS_KEY) || "[]") as unknown;
-    const seededIds = Array.isArray(seeded)
-      ? seeded.filter((item): item is string => typeof item === "string")
-      : [];
+    const seededIds = readStringList(SEEDED_DRAFTS_KEY);
+    if (readStringList(DISMISSED_DRAFTS_KEY).includes(input.id)) return;
     const drafts = getPostDrafts();
     const existingDraft = drafts.find((draft) => draft.id === input.id);
     const draftExists = Boolean(existingDraft);
     const needsSeedTranslation = Boolean(
       existingDraft && input.contentVi && (!existingDraft.titleVi || !existingDraft.contentVi),
     );
-    if (seededIds.includes(input.id) && draftExists && !needsSeedTranslation) return;
 
-    if (!draftExists) {
+    if (draftExists && options.refreshExisting) {
+      upsertPostDraft(input);
+    } else if (!draftExists) {
       upsertPostDraft(input);
     } else if (needsSeedTranslation && existingDraft) {
       savePostDrafts(
