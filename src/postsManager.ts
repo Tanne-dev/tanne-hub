@@ -1,6 +1,7 @@
 import { refreshHeroHotNewsAfterPostsChange } from "./heroHotNews";
 import { getLocalizedPost } from "./newsLanguage";
 import { escapeHtml, getFirstImageUrlFromPost, postPlainBodyForPreview } from "./postBody";
+import { bindHelpfulReactionButtons, renderHelpfulButton } from "./postHelpfulReactions";
 import { getPosts, removeLegacySeedPosts, syncPostsFromRemote } from "./postsStore";
 import type { PostItem } from "./postsStore";
 
@@ -77,6 +78,9 @@ export function renderRaidNewsFeed(animate = false): void {
               })()}
             </div>
           </a>
+          <div class="mt-3 flex justify-end">
+            ${renderHelpfulButton(featured.id, { compact: true })}
+          </div>
         </article>
 
         <div class="grid gap-3 sm:grid-cols-2">
@@ -91,6 +95,9 @@ export function renderRaidNewsFeed(animate = false): void {
                 <h4 class="news-title mt-2 text-[15px] font-bold leading-tight group-hover:text-[#9be8ff]">${escapeHtml(displayPost.title)}</h4>
                 <p class="news-muted mt-1 text-[12px]">${formatDate(post.createdAt)}</p>
               </a>
+              <div class="mt-2 flex justify-end">
+                ${renderHelpfulButton(post.id, { compact: true })}
+              </div>
             </article>`;
               },
             )
@@ -125,6 +132,8 @@ export function renderRaidNewsFeed(animate = false): void {
       </aside>
     </section>
   `;
+
+  bindHelpfulReactionButtons();
 
   if (animate) {
     requestAnimationFrame(() => {

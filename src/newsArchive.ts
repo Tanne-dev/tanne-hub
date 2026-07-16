@@ -5,6 +5,7 @@ import {
   postPlainTextForSearch,
 } from "./postBody";
 import { getLocalizedPost } from "./newsLanguage";
+import { bindHelpfulReactionButtons, renderHelpfulButton } from "./postHelpfulReactions";
 import { getPosts, syncPostsFromRemote, type PostItem } from "./postsStore";
 
 const PAGE_SIZE = 12;
@@ -61,10 +62,15 @@ function renderArchiveList(posts: PostItem[], page: number): void {
             </div>
           </div>
         </a>
+        <div class="mt-3 flex justify-end">
+          ${renderHelpfulButton(post.id, { compact: true })}
+        </div>
       </article>`;
         },
     )
     .join("");
+
+  bindHelpfulReactionButtons();
 
   if (!paginationEl) return;
   if (totalPages <= 1) {

@@ -153,6 +153,39 @@ function normalizeLegacyLineBreakTags(text: string): string {
     .replace(/<\/p>$/gi, "");
 }
 
+
+function isMarkdownTable(lines: string[]): boolean {
+  if (lines.length < 2) return false;
+  if (!lines[0].includes("|") || !lines[1].includes("|")) return false;
+  return /^\|?\s*:?-{3,}:?\s*(\|\s*:?-{3,}:?\s*)+\|?$/.test(lines[1]);
+}
+
+function splitMarkdownTableRow(line: string): string[] {
+  return line
+    .trim()
+    .replace(/^\|/, "")
+    .replace(/\|$/, "")
+    .split("|")
+    .map((cell) => cell.trim());
+}
+
+function renderMarkdownTable(lines: string[]): string {
+  const headers = splitMarkdownTableRow(lines[0]);
+  const rows = lines.slice(2).map(splitMarkdownTableRow);
+  const thead = headers
+    .map((header) => `<th class="border border-[#7fe9ff]/20 bg-[#102b49] px-3 py-2 text-left text-xs font-extrabold uppercase tracking-[0.08em] text-[#9be8ff]">${renderInlineArticleRichText(header)}</th>`)
+    .join("");
+  const tbody = rows
+    .map((row) => {
+      const cells = headers
+        .map((_, index) => `<td class="border border-[#7fe9ff]/15 px-3 py-2 align-top text-sm leading-relaxed">${renderInlineArticleRichText(row[index] || "")}</td>`)
+        .join("");
+      return `<tr>${cells}</tr>`;
+    })
+    .join("");
+  return `<div class="mb-6 overflow-x-auto rounded-xl border border-[#7fe9ff]/20"><table class="min-w-full border-collapse bg-[#071827]/70 text-[var(--news-card-text)]"><thead><tr>${thead}</tr></thead><tbody>${tbody}</tbody></table></div>`;
+}
+
 function renderTextBlockHtml(text: string): string[] {
   const normalized = normalizeLegacyLineBreakTags(text);
   const parts = normalized
@@ -161,9 +194,28 @@ function renderTextBlockHtml(text: string): string[] {
     .filter(Boolean);
   const out: string[] = [];
 
-  for (const part of parts) {
+  for (let partIndex = 0; partIndex < parts.length; partIndex += 1) {
+    const part = parts[partIndex];
     const lines = part.split("\n").map((x) => x.trim()).filter(Boolean);
     if (lines.length === 0) continue;
+
+    if (lines[0]?.startsWith("::skill{")) {
+      const skillLines = [...lines];
+      while (skillLines[skillLines.length - 1] !== "::endskill" && partIndex + 1 < parts.length) {
+        partIndex += 1;
+        skillLines.push(
+          ...parts[partIndex]
+            .split("\n")
+            .map((x) => x.trim())
+            .filter(Boolean),
+        );
+      }
+      const recoveredSkillCardHtml = renderSkillCard(skillLines);
+      if (recoveredSkillCardHtml) {
+        out.push(recoveredSkillCardHtml);
+        continue;
+      }
+    }
 
     const skillCardHtml = renderSkillCard(lines);
     if (skillCardHtml) {
@@ -175,6 +227,11 @@ function renderTextBlockHtml(text: string): string[] {
     if (effectsMatch) {
       const attrs = parseDirectiveAttrs(effectsMatch[1]);
       out.push(renderEffectBadges((attrs.items || "").split("|")));
+      continue;
+    }
+
+    if (isMarkdownTable(lines)) {
+      out.push(renderMarkdownTable(lines));
       continue;
     }
 

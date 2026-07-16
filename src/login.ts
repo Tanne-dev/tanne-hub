@@ -123,6 +123,37 @@ export function isMemberAdmin(): boolean {
   return getMemberSession()?.role === "admin";
 }
 
+export function openMemberRegisterPrompt(message = "Create a free member account to use Like."): void {
+  const modal = document.querySelector<HTMLElement>("#login-modal");
+  const emailInput = document.querySelector<HTMLInputElement>("#login-email");
+  const registerPanel = document.querySelector<HTMLElement>("#register-panel");
+  const toggleRegisterBtn = document.querySelector<HTMLButtonElement>("#toggle-register-panel");
+  const registerEmailInput = document.querySelector<HTMLInputElement>("#register-email-input");
+  const registerFeedback = document.querySelector<HTMLElement>("#register-email-feedback");
+  const accountMenu = document.querySelector<HTMLElement>("#account-options-menu");
+  const accountCaret = document.querySelector<HTMLElement>("#account-menu-caret");
+
+  if (!modal || !registerPanel || !toggleRegisterBtn) {
+    document.querySelector<HTMLButtonElement>("#open-login-modal")?.click();
+    return;
+  }
+
+  accountMenu?.classList.add("hidden");
+  accountCaret?.classList.remove("-rotate-180");
+  modal.classList.remove("hidden");
+  registerPanel.classList.remove("hidden");
+  toggleRegisterBtn.textContent = "Hide register form";
+
+  if (registerFeedback) {
+    registerFeedback.textContent = message;
+    registerFeedback.className = "rounded-md bg-[#1877f2]/20 px-3 py-2 text-xs text-[#cfe6ff]";
+  }
+
+  window.setTimeout(() => {
+    (registerEmailInput ?? emailInput)?.focus();
+  }, 0);
+}
+
 function setSession(session: MemberSession): void {
   localStorage.setItem(MEMBER_SESSION_KEY, JSON.stringify(session));
   window.dispatchEvent(new CustomEvent("tanne-auth-changed"));

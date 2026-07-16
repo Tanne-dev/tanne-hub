@@ -1,6 +1,7 @@
 import { ACCOUNT_HERO_MORE_EPIC_LABEL, ACCOUNT_HERO_MORE_LEGENDARY_LABEL } from "./content";
 import { pageInner } from "./layout";
 import { escapeHtml, renderPostArticleBodyHtml } from "./postBody";
+import { bindHelpfulReactionButtons, renderHelpfulButton } from "./postHelpfulReactions";
 import { getPostByIdRemote, getPosts, savePosts } from "./postsStore";
 import { getSellingAccounts } from "./sellingAccountsStore";
 import { renderLazySectionPlaceholder } from "./lazySections";
@@ -409,7 +410,20 @@ export function renderPostDetail(root: HTMLElement, postId: string): void {
                     Updated: ${new Date(post.createdAt).toLocaleString()}
                   </p>
                   ${localizedPost!.caption ? `<p class="mt-2 text-sm" style="color: color-mix(in srgb, var(--news-card-text) 78%, transparent);">${escapeHtml(localizedPost!.caption)}</p>` : ""}
+                  <div class="mt-4 flex flex-wrap items-center gap-2">
+                    ${renderHelpfulButton(post.id)}
+                    <span class="text-xs" style="color: color-mix(in srgb, var(--news-card-text) 68%, transparent);">Tap Like if this article helped you.</span>
+                  </div>
                   <div class="raid-article-body mt-5 text-[var(--news-card-text)]">${renderPostArticleBodyHtml(localizedPost!)}</div>
+                  <div class="mt-6 rounded-xl border border-[#1877f2]/30 bg-[#1877f2]/10 px-4 py-3">
+                    <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+                      <div>
+                        <p class="text-sm font-extrabold text-[var(--news-card-text)]">Like this article?</p>
+                        <p class="mt-0.5 text-xs" style="color: color-mix(in srgb, var(--news-card-text) 68%, transparent);">Your Like helps Tanne Hub know what content to write next.</p>
+                      </div>
+                      ${renderHelpfulButton(post.id)}
+                    </div>
+                  </div>
                   <p class="mt-4 text-xs" style="color: color-mix(in srgb, var(--news-card-text) 72%, transparent);">By Tanne Hub · ${new Date(post.createdAt).toLocaleString()}</p>
                 </article>`
           }
@@ -418,6 +432,8 @@ export function renderPostDetail(root: HTMLElement, postId: string): void {
       </div>
     </div>
   `;
+
+  bindHelpfulReactionButtons();
 
   if (post) return;
 
