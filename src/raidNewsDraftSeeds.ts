@@ -1731,6 +1731,266 @@ export const vallarynEqualizerFreeLegendaryDraftJun152026: {
   ],
 };
 
+export const khamirScaldEyeFragmentGuideDraftJul242026: {
+  id: string;
+  title: string;
+  caption: string;
+  blocks: PostBodyBlock[];
+} = {
+  id: "raid-guide-2026-07-24-khamir-scald-eye",
+  title: "Khamir Scald-eye Champion Guide: Fragment Event, Skills, Build & Best Uses",
+  caption:
+    "A Tanne Hub-style guide for Khamir Scald-eye, the Legendary Magic Support champion from Ogryn Tribes planned for the July 27 Champion Fragment event.",
+  blocks: [
+    {
+      type: "image",
+      url: "/news-images/khamir-scald-eye.webp",
+      align: "full",
+      caption: "Khamir Scald-eye skill preview for the July 27, 2026 Champion Fragment event.",
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Introduction**[/color]",
+        "Khamir Scald-eye is a new Legendary Magic Support champion from the Ogryn Tribes, planned for a Champion Fragment event starting on Monday, July 27, 2026. For Ogryn accounts, this is a very important release because Khamir brings something the faction has always appreciated: a tanky Legendary reviver who can keep a team moving, healing, and recovering after deaths.",
+        "Khamir is not designed as a damage dealer. He does not need ATK, and based on the preview he does not need ACC either. That makes his build direction very clean: stack **HP**, push **SPD**, then add survivability through DEF and resistance if your gear allows it. This is exactly the kind of champion newer and mid-game players like because he has a clear job and does not demand complicated damage stats.",
+        "His kit focuses on team sustain, Turn Meter control for allies, destroyed MAX HP restoration, revival, Increase DEF, Strengthen, Increase ATK, Increase SPD, and a passive that reacts whenever an ally dies. In simple terms, Khamir is built to stop your team from collapsing. He keeps allies healthy, brings dead champions back, and gives the team enough Turn Meter to continue fighting after bad moments.",
+        "This Tanne Hub guide breaks down Khamir Scald-eye in a practical way: what his skills do, how to build him, where he is useful, which teams benefit from him, and whether the fragment event looks worth chasing for different types of accounts.",
+        "",
+        "::effects{items=\"Revive|Turn Meter Fill|Heal|Destroyed MAX HP restore|Increase ATK|Increase SPD|Increase DEF|Strengthen|Speed Aura|Faction Wars\"}"
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Champion Overview**[/color]",
+        "| Category | Details |",
+        "| --- | --- |",
+        "| Champion | Khamir Scald-eye |",
+        "| Faction | Ogryn Tribes |",
+        "| Rarity | Legendary |",
+        "| Affinity | Magic |",
+        "| Type | Support |",
+        "| Event Type | Champion Fragment Event |",
+        "| Planned Start | Monday, July 27, 2026 |",
+        "| Main Stats | HP, Speed, survivability |",
+        "| Does he need ACC? | No major Accuracy requirement from the preview |",
+        "| Does he need ATK? | No |",
+        "| Primary Role | Tanky reviver and team support |",
+        "| Best Early Value | Faction Wars, progression teams, sustain-heavy PvE |"
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Quick Summary**[/color]",
+        "- Khamir Scald-eye is a Legendary Magic Support champion from **Ogryn Tribes**.",
+        "- He is planned for a Champion Fragment event beginning **July 27, 2026**.",
+        "- His kit is built around **healing**, **Turn Meter fill**, **destroyed MAX HP restoration**, and **revive**.",
+        "- He does not look like a damage champion, so you can ignore ATK and focus on HP and SPD.",
+        "- He appears very friendly for progression accounts because his build path is simple.",
+        "- His strongest value is likely in Faction Wars, faction-restricted content, Doom Tower waves, Cursed City, and teams that need a second layer of survival.",
+        "- He is not expected to be a top Clan Boss or Arena nuker champion, but that is not his job."
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Skill Breakdown**[/color]",
+        "::skill{key=\"A1\" name=\"Dark Restoration\" icon=\"/raid-skill-icons/khamir-scald-eye/dark-restoration.png\" tags=\"Double hit|Heal allies|Restore destroyed MAX HP|HP scaling\"}",
+        "Dark Restoration attacks one enemy two times. Each hit restores all allies' destroyed MAX HP by an amount equal to 5% of the total destroyed MAX HP. Each hit also heals all allies by 5% of Khamir's MAX HP.",
+        "This is a very useful A1 because it contributes even when his bigger cooldowns are not available. The destroyed MAX HP restoration matters in content where enemies chip away at your team over time. It is not a flashy nuke, but for a support champion this kind of basic skill is excellent because it keeps the team stable every time Khamir takes a turn.",
+        "The healing scales from his MAX HP, so the build direction is obvious: more HP means more reliable healing. Since the skill hits twice, it also gives two small waves of recovery instead of one. This makes Khamir feel active even between revive and Turn Meter skills.",
+        "::endskill",
+        "",
+        "::skill{key=\"A2\" name=\"Gloom-Powered\" icon=\"/raid-skill-icons/khamir-scald-eye/gloom-powered.png\" cooldown=\"5\" tags=\"Turn Meter Fill|Increase ATK|Increase SPD|Team tempo\"}",
+        "Gloom-Powered fills the Turn Meters of all allies by 25%, then places a 50% Increase ATK buff and a 30% Increase SPD buff on all allies for 2 turns.",
+        "This is Khamir's tempo button. A 25% team Turn Meter fill helps your allies cycle faster, recover after enemy pressure, and line up their next skills. Increase SPD makes the team even faster after the boost, while Increase ATK helps damage dealers hit harder.",
+        "The important detail is that Khamir does not need to be built for damage to enable damage. He can be a full HP/SPD support and still make your nukers stronger. In wave content and Faction Wars, this can be the difference between your team getting stuck and your team taking control of the fight.",
+        "::endskill",
+        "",
+        "::skill{key=\"A3\" name=\"Death Is Weakness\" icon=\"/raid-skill-icons/khamir-scald-eye/death-is-weakness.png\" cooldown=\"6\" tags=\"Revive all allies|50% HP|50% Turn Meter|Increase DEF|Strengthen\"}",
+        "Death Is Weakness revives all dead allies with 50% HP and 50% Turn Meter. It also places a 60% Increase DEF buff and a Strengthen buff on all allies for 2 turns.",
+        "This is the skill that defines Khamir as a high-value support. Reviving all dead allies is already strong, but bringing them back with 50% Turn Meter means they are much closer to taking a turn. That matters because a bad revive can fail if allies stand up and immediately die again before acting. Khamir gives them a better chance to re-enter the fight.",
+        "Increase DEF and Strengthen are exactly the right defensive buffs after a revive. They make the entire team harder to kill, and they help revived allies survive the next enemy hit. For Faction Wars, Doom Tower, Cursed City, and difficult wave encounters, this skill can save a run that would otherwise be over.",
+        "::endskill",
+        "",
+        "::skill{key=\"PASSIVE\" name=\"Murderous Zeal\" icon=\"/raid-skill-icons/khamir-scald-eye/murderous-zeal.png\" tags=\"Ally death trigger|Self heal|Team heal|Turn Meter Fill\"}",
+        "Murderous Zeal activates whenever an ally is killed. Khamir heals himself by 25% of his MAX HP and fills his own Turn Meter by 25%. He also heals all allies by 10% of his MAX HP and fills their Turn Meters by 10%.",
+        "This passive is what makes him feel like a comeback support. When something goes wrong and an ally dies, Khamir gains Turn Meter and healing, then also stabilizes the rest of the team. That can help him reach Death Is Weakness faster and turn a losing fight back into a playable one.",
+        "Because the healing is based on Khamir's MAX HP, HP is once again his most important stat. The more HP he has, the more valuable his passive becomes.",
+        "::endskill",
+        "",
+        "::skill{key=\"AURA\" name=\"Ally SPD in all Battles +20%\" icon=\"/raid-skill-icons/khamir-scald-eye/speed-aura.png\" tags=\"All battles|Speed aura|Progression\"}",
+        "Khamir increases ally SPD in all battles by 20%. This is a clean and universally useful aura. It may not be as explosive as a high Arena-only Speed aura, but for general progression and faction content it is easy to use and gives the whole team better tempo.",
+        "::endskill"
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Strengths**[/color]",
+        "- Very simple build path: HP and SPD are the main priorities.",
+        "- Does not need ATK to do his job.",
+        "- Does not appear to need ACC from the preview, making gearing much easier.",
+        "- Brings a full-team revive with 50% HP and 50% Turn Meter.",
+        "- Provides Increase DEF and Strengthen after reviving allies, helping them survive.",
+        "- Team Turn Meter fill improves tempo and recovery after pressure.",
+        "- Increase SPD helps allies keep cycling turns after the initial boost.",
+        "- A1 heals allies and restores destroyed MAX HP, which is excellent for longer PvE fights.",
+        "- Passive gives comeback value whenever an ally dies.",
+        "- Strong faction value for Ogryn Tribes, especially if your account lacks a reliable reviver."
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Weaknesses**[/color]",
+        "- He is not a damage dealer, so do not expect him to carry damage checks alone.",
+        "- His strongest value is defensive and supportive, which means fights may still be slow if your damage dealers are weak.",
+        "- Long cooldowns on A2 and A3 mean books are likely important for smoother rotations.",
+        "- He may be less exciting for endgame accounts that already have several premium revivers.",
+        "- His Arena value is more defensive than aggressive; he is not a speed-nuke solution.",
+        "- Clan Boss value looks limited because his revive and sustain kit is not built for classic speed-tuned boss damage."
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Best Builds**[/color]",
+        "### [color=#ffaa00]**General Support Build**[/color]",
+        "Khamir should be built as a durable support, not as a hybrid damage dealer. The preview makes his stat direction very clear: HP drives his healing, Speed helps him cycle back to his revive and Turn Meter skills, and survivability keeps him alive long enough to recover the team.",
+        "**Stat priority:**",
+        "- HP",
+        "- Speed",
+        "- DEF",
+        "- Resistance if you use him in harder PvE or defensive PvP",
+        "- Crit stats are not required",
+        "- ATK is not required",
+        "- Accuracy is not a priority based on the preview",
+        "**Recommended sets:**",
+        "- **Speed** for faster cycling and more frequent support turns.",
+        "- **Perception** only if the pieces are efficient; he does not appear to need ACC, so use it mainly for Speed stats.",
+        "- **Immortal** for HP and passive healing.",
+        "- **Regeneration** for long fights where he needs to stay alive without constant external support.",
+        "- **Bolster** for team protection if you want more safety at the start of waves.",
+        "- **Stoneskin** for Arena defense or difficult content where he must survive the opener.",
+        "- **Protection** if you want a premium support setup that protects his buffs."
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Masteries**[/color]",
+        "Khamir should usually take the **Defense Tree** and **Support Tree**.",
+        "- **Defense Tree:** improves his durability, helps him survive burst damage, and fits his role as a tanky support who must stay alive to revive everyone else.",
+        "- **Support Tree:** improves healing value, buff consistency, and general support utility. Since he is not being built for damage, Support masteries make much more sense than forcing him into Offense.",
+        "For most players, the goal is simple: keep Khamir alive, make his heals stronger, and help him cycle turns. If your account uses him in Arena defense, prioritize masteries that reduce incoming damage and improve his chance to survive the opening enemy attack."
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Blessings**[/color]",
+        "- **Miracle Heal:** excellent if you want to lean into his healing identity and recover destroyed MAX HP pressure over longer fights.",
+        "- **Intimidating Presence:** useful if you are using his Speed aura or pairing him with an important aura in Arena or PvE.",
+        "- **Lightning Cage:** helps protect buffs and gives him more stability in PvP-style fights.",
+        "- **Polymorph:** a defensive option for PvP if enemies try to control or strip your support setup.",
+        "- **Temporal Chains:** useful in some Arena situations where enemy buffs are common and you want extra tempo control.",
+        "For progression players, Miracle Heal is the most natural fit. For PvP-minded players, Lightning Cage, Polymorph, or Temporal Chains can be more annoying for opponents."
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Best Team Synergies**[/color]",
+        "- **HP-based teams:** Khamir loves HP because his healing scales from his MAX HP. Other tanky champions benefit from his sustain and defensive buffs.",
+        "- **Slow damage dealers:** Turn Meter fill and Increase SPD help slower nukers or bruisers take turns more reliably.",
+        "- **Faction Wars teams:** Ogryn Tribes teams that struggle with survival gain a major safety net from his revive and passive healing.",
+        "- **Wave control teams:** If your team controls enemies with Stun, Freeze, Provoke, or Turn Meter reduction, Khamir gives extra safety in case control fails.",
+        "- **Revive-heavy defensive teams:** He can act as a second layer of recovery beside another reviver, making the team harder to fully wipe.",
+        "- **Progression dungeon teams:** Teams that do not farm quickly but need to survive can use Khamir as a stabilizer."
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Best Game Modes**[/color]",
+        "| Game Mode | Rating | Notes |",
+        "| --- | --- | --- |",
+        "| Faction Wars | ★★★★★ | One of his best areas, especially for Ogryn accounts lacking a strong reviver. |",
+        "| Cursed City | ★★★★☆ | Valuable when faction or affinity restrictions allow him. |",
+        "| Doom Tower Waves | ★★★★☆ | Strong sustain, revive safety, and team tempo for difficult floors. |",
+        "| Dungeons | ★★★★☆ | Useful for progression teams that need survival more than speed farming. |",
+        "| Hydra | ★★★☆☆ | Supportive value exists, but he does not bring core Hydra debuffs. |",
+        "| Arena Defense | ★★★☆☆ | Can be annoying as a tanky reviver, especially in slower teams. |",
+        "| Live Arena | ★★★☆☆ | Draftable as a defensive support, but not a universal first pick. |",
+        "| Clan Boss | ★★☆☆☆ | Not his main area; dedicated Clan Boss champions are better. |",
+        "| Campaign | ★★☆☆☆ | Safe, but not designed as a fast farmer. |"
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Tips for Using Khamir**[/color]",
+        "1. Build him with high HP first because his healing scales from his MAX HP.",
+        "2. Do not waste stats on ATK; he is not built to deal damage.",
+        "3. Push Speed so he can cycle back to Gloom-Powered and Death Is Weakness faster.",
+        "4. Use him in Ogryn Faction Wars if your team lacks a reliable reviver.",
+        "5. Pair him with strong damage dealers because he keeps the team alive but does not replace damage.",
+        "6. Consider Stoneskin or high Resistance if he is getting controlled before he can revive.",
+        "7. Book priority will likely matter most on A2 and A3 because cooldown reduction improves his entire kit.",
+        "8. In long PvE fights, Regeneration or Immortal sets can make him much harder to remove.",
+        "9. Do not judge him by damage numbers; judge him by whether your team survives runs it used to lose.",
+        "10. If your account already has many revivers, compare his faction value before spending all resources."
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Fragment Event Value**[/color]",
+        "Because Khamir is planned as a Fragment event champion, the main question is not only whether he is good. The real question is whether your account should spend the resources needed to collect him.",
+        "For early and mid-game accounts, Khamir looks very attractive. A Legendary reviver who does not need complicated stats can help unlock progression in Faction Wars, Cursed City, Doom Tower, and safer dungeon teams. If your Ogryn roster is weak or missing a strong revive option, his value increases a lot.",
+        "For endgame accounts, the decision is more personal. If you already have multiple premium revivers and your Ogryn faction is finished, Khamir may be more of a collection or faction-depth champion than an account-changing pull. But even then, a tanky support with team Turn Meter, revive, Increase DEF, Strengthen, and Speed aura is rarely useless."
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Pros & Cons**[/color]",
+        "### [color=#ffaa00]**Pros**[/color]",
+        "- Legendary reviver for Ogryn Tribes.",
+        "- Very easy stat plan: HP and Speed.",
+        "- Full-team revive with 50% HP and 50% Turn Meter.",
+        "- Strong defensive buffs after revive.",
+        "- Team Turn Meter fill improves tempo.",
+        "- A1 heals and restores destroyed MAX HP.",
+        "- Passive gives comeback value when allies die.",
+        "- Speed aura works in all battles.",
+        "- Strong progression and faction value.",
+        "- Does not need ATK or complicated damage gearing.",
+        "",
+        "### [color=#ffaa00]**Cons**[/color]",
+        "- Low damage contribution.",
+        "- Long cooldowns before books.",
+        "- Less exciting for accounts already stacked with revivers.",
+        "- Not a Clan Boss specialist.",
+        "- Does not bring core Hydra debuffs like Provoke, Decrease Speed, Hex, or Block Buffs."
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Tanne Verdict**[/color]",
+        "Khamir Scald-eye looks like a very practical Champion Fragment event target, especially for players who need more survivability and a real Legendary reviver inside Ogryn Tribes. He is not trying to be a flashy nuker, and that is fine. His value comes from keeping the team alive, restoring momentum, and making failed runs recoverable.",
+        "The best thing about Khamir is how clean his build path appears to be. Many support champions become awkward because they need Speed, Accuracy, HP, DEF, Resistance, and sometimes damage stats at the same time. Khamir does not look like that. He mainly wants HP and Speed, then enough defensive stats to survive. That makes him easier to gear and easier to understand, which is a big deal for players who are still building their account foundation.",
+        "His revive is strong because it brings all dead allies back with both HP and Turn Meter. His A2 gives team Turn Meter, Increase ATK, and Increase SPD. His A1 keeps healing and repairing destroyed MAX HP. His passive helps the team recover when an ally dies. All of these pieces point toward one role: Khamir is a stabilizer. He gives your team more chances to survive mistakes, bad RNG, and difficult waves.",
+        "He will not replace specialized speed farmers, Clan Boss damage champions, or elite Hydra supports. But for Faction Wars, Cursed City, Doom Tower waves, and general progression, he looks genuinely useful. If your account lacks a tanky reviver, or if your Ogryn Tribes roster needs a serious support anchor, Khamir Scald-eye is very much worth considering for the July 27 Fragment event."
+      ].join("\n\n"),
+    }
+  ],
+};
+
 export const varkosHeadsplitterChampionGuideDraftJul162026: {
   id: string;
   title: string;
@@ -2208,6 +2468,7 @@ export const haggibahNestmaidFusionAnalysisDraftJul012026: {
 };
 
 export const raidNewsDraftSeeds = [
+  khamirScaldEyeFragmentGuideDraftJul242026,
   varkosHeadsplitterChampionGuideDraftJul162026,
   haggibahNestmaidFusionAnalysisDraftJul012026,
   vallarynEqualizerFreeLegendaryDraftJun152026,

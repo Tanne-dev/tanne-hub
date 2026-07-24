@@ -13,13 +13,28 @@ function averageRating(reviews: LegitReview[]): string {
   return avg.toFixed(1);
 }
 
+function countryFlag(countryCode?: string): string {
+  if (!countryCode || !/^[A-Z]{2}$/.test(countryCode)) return "🌐";
+  const codePoints = [...countryCode].map((char) => 127397 + char.charCodeAt(0));
+  return String.fromCodePoint(...codePoints);
+}
+
 function renderReviewCard(review: LegitReview): string {
   const starLabel = siteText("starsOutOfFive").replace("{count}", String(review.rating));
+  const flag = countryFlag(review.countryCode);
+  const countryTitle = review.countryCode ? `Country: ${escapeHtml(review.countryCode)}` : "Country not provided";
   return `
     <article class="rounded-lg border border-[var(--admin-border)] bg-[var(--panel-bg)] p-3">
       <div class="flex items-start justify-between gap-2">
         <div class="min-w-0">
-          <p class="truncate text-sm font-extrabold text-[var(--panel-text)]">${escapeHtml(review.displayName)}</p>
+          <div class="flex min-w-0 flex-wrap items-center gap-2">
+            <span class="truncate text-[15px] font-black text-[#36b8ff]">${escapeHtml(review.displayName)}</span>
+            <span class="inline-flex shrink-0 items-center gap-1 rounded-sm border border-[#52d6aa]/45 bg-[#52d6aa]/15 px-1.5 py-0.5 text-[10px] font-black uppercase tracking-[0.06em] text-[#7ff0c8]">
+              <span class="grid h-3.5 w-3.5 place-items-center rounded-full bg-[#52d6aa] text-[10px] leading-none text-[#083225]">✓</span>
+              Trusted
+            </span>
+            <span class="inline-flex h-5 min-w-8 shrink-0 items-center justify-center rounded-[2px] border border-white/15 bg-white/10 px-1 text-base leading-none shadow-sm" title="${countryTitle}">${flag}</span>
+          </div>
           ${review.orderRef ? `<p class="mt-0.5 text-[11px] font-semibold text-[var(--panel-muted)]">${escapeHtml(review.orderRef)}</p>` : ""}
         </div>
         <p class="shrink-0 text-[12px] font-bold text-[#f6c44c]" aria-label="${starLabel}">${renderStars(review.rating)}</p>
@@ -67,6 +82,21 @@ export function renderLegitCheck(): string {
               <div class="grid gap-2 sm:grid-cols-2">
                 <input id="legit-review-name" type="text" maxlength="48" placeholder="${siteText("yourName")}" class="admin-dash-input rounded-md border border-[var(--admin-input-border)] bg-[var(--admin-input-bg)] px-3 py-2 text-sm text-[var(--admin-input-text)] outline-none placeholder:text-[var(--admin-muted)] focus:border-[var(--admin-accent)]" required />
                 <input id="legit-review-order" type="text" maxlength="60" placeholder="${siteText("orderAccountIdOptional")}" class="admin-dash-input rounded-md border border-[var(--admin-input-border)] bg-[var(--admin-input-bg)] px-3 py-2 text-sm text-[var(--admin-input-text)] outline-none placeholder:text-[var(--admin-muted)] focus:border-[var(--admin-accent)]" />
+                <select id="legit-review-country" class="admin-dash-input rounded-md border border-[var(--admin-input-border)] bg-[var(--admin-input-bg)] px-3 py-2 text-sm font-semibold text-[var(--admin-input-text)] outline-none focus:border-[var(--admin-accent)]">
+                  <option value="">🌐 Country</option>
+                  <option value="SE">🇸🇪 Sweden</option>
+                  <option value="VN">🇻🇳 Vietnam</option>
+                  <option value="US">🇺🇸 United States</option>
+                  <option value="GB">🇬🇧 United Kingdom</option>
+                  <option value="DE">🇩🇪 Germany</option>
+                  <option value="FR">🇫🇷 France</option>
+                  <option value="NL">🇳🇱 Netherlands</option>
+                  <option value="NO">🇳🇴 Norway</option>
+                  <option value="DK">🇩🇰 Denmark</option>
+                  <option value="FI">🇫🇮 Finland</option>
+                  <option value="CA">🇨🇦 Canada</option>
+                  <option value="AU">🇦🇺 Australia</option>
+                </select>
                 <select id="legit-review-rating" class="admin-dash-input rounded-md border border-[var(--admin-input-border)] bg-[var(--admin-input-bg)] px-3 py-2 text-sm font-semibold text-[var(--admin-input-text)] outline-none focus:border-[var(--admin-accent)]">
                   <option value="5">★★★★★ ${siteText("fiveStars")}</option>
                   <option value="4">★★★★☆ ${siteText("fourStars")}</option>

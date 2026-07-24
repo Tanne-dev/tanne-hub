@@ -3,6 +3,7 @@ import { isSupabaseReady, supabaseClient } from "./supabase";
 export type LegitReview = {
   id: string;
   displayName: string;
+  countryCode?: string;
   rating: number;
   message: string;
   orderRef?: string;
@@ -415,6 +416,7 @@ function sanitizeReview(item: LegitReview): LegitReview {
   return {
     id: item.id,
     displayName: item.displayName.trim().slice(0, 48) || "Verified buyer",
+    countryCode: item.countryCode?.trim().toUpperCase().slice(0, 2) || undefined,
     rating: clampRating(item.rating),
     message: item.message.trim().slice(0, 260),
     orderRef: item.orderRef?.trim().slice(0, 60) || undefined,
@@ -505,7 +507,10 @@ export async function createLegitReviewRemote(
     .single();
 
   if (error) return { ok: false, error: error.message };
-  const saved = mapRowToReview(data as LegitReviewRow);
+  const saved = sanitizeReview({
+    ...mapRowToReview(data as LegitReviewRow),
+    countryCode: localReview.countryCode,
+  });
   saveLegitReviews([saved, ...getLegitReviews()]);
   return { ok: true, review: saved };
 }

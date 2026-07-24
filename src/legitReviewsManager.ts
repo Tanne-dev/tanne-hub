@@ -37,6 +37,7 @@ function bindLegitReviewForm(): void {
     }
     const nameInput = document.querySelector<HTMLInputElement>("#legit-review-name");
     const orderInput = document.querySelector<HTMLInputElement>("#legit-review-order");
+    const countryInput = document.querySelector<HTMLSelectElement>("#legit-review-country");
     const ratingInput = document.querySelector<HTMLSelectElement>("#legit-review-rating");
     const messageInput = document.querySelector<HTMLInputElement>("#legit-review-message");
     const submit = form.querySelector<HTMLButtonElement>('button[type="submit"]');
@@ -54,6 +55,7 @@ function bindLegitReviewForm(): void {
     submit.textContent = "Sending...";
     const result = await createLegitReviewRemote({
       displayName,
+      countryCode: countryInput?.value || undefined,
       rating,
       message,
       orderRef: orderInput?.value.trim() || undefined,
