@@ -1731,6 +1731,106 @@ export const vallarynEqualizerFreeLegendaryDraftJun152026: {
   ],
 };
 
+export const khamirFragmentEventCalendarDraftJul282026: {
+  id: string;
+  title: string;
+  caption: string;
+  blocks: PostBodyBlock[];
+} = {
+  id: "raid-news-2026-07-28-khamir-fragment-event-calendar",
+  title: "Khamir Scald-eye Fragment Event Calendar: Short Summon & Resource Guide",
+  caption:
+    "A short Tanne Hub guide to the Khamir Scald-eye Fragment Event Calendar, explaining the summon events, key resource checks, and the safest path to 100 fragments.",
+  blocks: [
+    {
+      type: "image",
+      url: "/news-images/khamir-fragment-event-calendar.webp",
+      align: "full",
+      caption: "Khamir Scald-eye Fragment Event Calendar running from July 27 to August 10.",
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Quick answer**[/color]",
+        "Khamir Scald-eye's Fragment Event runs from **July 27 to August 10**. The calendar shows **150 total fragments**, but you only need **100** to summon him. That means you can skip some painful fragments if you plan correctly.",
+        "The dangerous parts are the summon events. Save shards until the exact windows appear in-game, then decide which milestones are worth pushing.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**What the calendar means**[/color]",
+        "| Part | Fragments | Simple meaning |",
+        "| --- | ---: | --- |",
+        "| Tournaments | 55 | Farm dungeons, arena, spider, and champion training. |",
+        "| Leaderboards | 20 | Bonus fragments for high placements. Treat as extra. |",
+        "| Events | 75 | Gear, Summon Rush, Gear Hunters, and Champion Training Event. |",
+        "| Total | 150 | Enough room to skip some fragments if you plan. |",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**The important event types**[/color]",
+        "::event{icon=\"/raid-event-icons/summon-rush.svg\" name=\"Summon Rush I\" dates=\"Jul 31-Aug 3\" fragments=\"20 fragments\" tip=\"Spend shards only after checking the live point requirements.\"}",
+        "This is the first major shard wall. Summon Rush usually rewards shard value, so Sacred and Void Shards are normally stronger than random Ancient pulls.",
+        "::endevent",
+        "::event{icon=\"/raid-event-icons/summon-rush.svg\" name=\"Summon Rush II\" dates=\"Aug 4-Aug 6\" fragments=\"15 fragments\" tip=\"Do not empty all shards in Rush I unless you know you can still cover Rush II.\"}",
+        "This comes very soon after Rush I. Low-shard accounts should plan both windows together, not separately.",
+        "::endevent",
+        "::event{icon=\"/raid-event-icons/champion-chase.svg\" name=\"Champion Chase Tournament\" dates=\"Aug 7-Aug 10\" fragments=\"up to 25 shown\" tip=\"Saved fragment champions or fusion summons can be very useful here.\"}",
+        "Champion Chase gives points when you acquire champions. It can be cheaper than raw shard spending if you saved fragment summons.",
+        "::endevent",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "::event{icon=\"/raid-event-icons/dungeon.svg\" name=\"Dungeon Tournaments\" dates=\"Dragon, Fire Knight, Ice Golem, Spider\" fragments=\"5 each\" tip=\"Use energy where your account farms fastest.\"}",
+        "These are simple farming events. Dragon and Spider are usually the easiest value for many accounts because they also give gear or silver.",
+        "::endevent",
+        "::event{icon=\"/raid-event-icons/gear-enhancement.svg\" name=\"Gear Enhancement\" dates=\"Three windows\" fragments=\"5 each\" tip=\"Save silver. Do not upgrade everything on day one.\"}",
+        "Gear Enhancement is a silver check. Roll gear gradually and keep enough silver for the second and third enhancement events.",
+        "::endevent",
+        "::event{icon=\"/raid-event-icons/champion-training.svg\" name=\"Champion Training\" dates=\"Jul 30-Aug 3 and Aug 6-Aug 10\" fragments=\"high value\" tip=\"Prepare food champions before you start.\"}",
+        "Training is one of the safest ways to gain fragments because it uses food, brews, energy, and time instead of pure shard luck.",
+        "::endevent",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Best simple plan**[/color]",
+        "1. Collect easy dungeon, arena, gear, and training fragments first.",
+        "2. Treat leaderboard fragments as bonus only.",
+        "3. Save shards for Summon Rush I, Summon Rush II, and Champion Chase.",
+        "4. Keep silver for all three Gear Enhancement events.",
+        "5. Before spending, count how many fragments you can reach without leaderboard rewards.",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Resource checklist**[/color]",
+        "- **Shards:** save until the summon windows are live.",
+        "- **Silver:** prepare for three Gear Enhancement events.",
+        "- **Energy:** Dragon, Fire Knight, Ice Golem, Spider, and training all need it.",
+        "- **Food:** prepare champions for training before the last week.",
+        "- **Arena tokens:** use natural tokens daily for both Classic Arena events.",
+        "- **Saved summons:** keep fragment champions for Champion Chase if possible.",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Tanne verdict**[/color]",
+        "This calendar is friendly because it shows **150 fragments**, but it can still punish players who spend early. The best route is to collect safe fragments first, avoid relying on leaderboards, and save shard decisions for the live Summon Rush and Champion Chase point requirements.",
+        "If you need a tanky Ogryn reviver/support, Khamir is worth planning for. Just do not chase every fragment blindly. Build a 100-fragment route, keep your shard plan clean, and confirm the in-game timers because the schedule can change.",
+      ].join("\n\n"),
+    },
+  ],
+};
+
 export const khamirScaldEyeFragmentGuideDraftJul242026: {
   id: string;
   title: string;
@@ -2468,6 +2568,7 @@ export const haggibahNestmaidFusionAnalysisDraftJul012026: {
 };
 
 export const raidNewsDraftSeeds = [
+  khamirFragmentEventCalendarDraftJul282026,
   khamirScaldEyeFragmentGuideDraftJul242026,
   varkosHeadsplitterChampionGuideDraftJul162026,
   haggibahNestmaidFusionAnalysisDraftJul012026,

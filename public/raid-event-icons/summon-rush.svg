@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Summon Rush">
+  <defs>
+    <linearGradient id="g" x1="12" y1="8" x2="52" y2="56" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7fe9ff"/>
+      <stop offset="0.55" stop-color="#7b61ff"/>
+      <stop offset="1" stop-color="#ffaa00"/>
+    </linearGradient>
+  </defs>
+  <path fill="#071827" d="M32 4 53 16v24L32 60 11 40V16L32 4Z"/>
+  <path fill="url(#g)" d="M32 9 48 18v18L32 52 16 36V18l16-9Z"/>
+  <path fill="#fff7d6" d="m32 16 6 12 12 4-12 4-6 12-6-12-12-4 12-4 6-12Z"/>
+  <circle cx="32" cy="32" r="7" fill="#071827"/>
+</svg>

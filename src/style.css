@@ -338,6 +338,26 @@
     background: color-mix(in srgb, #0a1016 86%, transparent);
   }
 
+  .raid-article-body .raid-event-card {
+    position: relative;
+    overflow: hidden;
+    animation: raidEventCardIn 520ms cubic-bezier(0.22, 0.61, 0.36, 1) both;
+  }
+
+  .raid-article-body .raid-event-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(110deg, transparent 22%, rgba(127, 233, 255, 0.16) 46%, transparent 68%);
+    transform: translateX(-115%);
+    animation: raidEventSweep 3.8s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  .raid-article-body .raid-event-card-icon {
+    animation: raidEventIconPulse 2.4s ease-in-out infinite;
+  }
+
   .gloss-hover-frame {
     position: relative;
     overflow: hidden;
@@ -418,6 +438,48 @@
   }
   to {
     background-position: -20% 0;
+  }
+}
+
+@keyframes raidEventCardIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes raidEventSweep {
+  0%,
+  52% {
+    transform: translateX(-115%);
+  }
+  78%,
+  100% {
+    transform: translateX(115%);
+  }
+}
+
+@keyframes raidEventIconPulse {
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 18px rgba(255, 170, 0, 0.12);
+  }
+  50% {
+    transform: scale(1.04);
+    box-shadow: 0 0 28px rgba(127, 233, 255, 0.18);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .raid-article-body .raid-event-card,
+  .raid-article-body .raid-event-card::after,
+  .raid-article-body .raid-event-card-icon {
+    animation: none;
   }
 }
 

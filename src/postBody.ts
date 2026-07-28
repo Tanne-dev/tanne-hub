@@ -121,6 +121,45 @@ function renderSkillCard(lines: string[]): string | null {
   `;
 }
 
+function renderEventCard(lines: string[]): string | null {
+  const first = lines[0] ?? "";
+  const last = lines[lines.length - 1] ?? "";
+  if (!first.startsWith("::event{") || last !== "::endevent") return null;
+
+  const attrMatch = first.match(/^::event\{([\s\S]*)\}$/);
+  if (!attrMatch) return null;
+
+  const attrs = parseDirectiveAttrs(attrMatch[1]);
+  const icon = attrs.icon || "✦";
+  const name = attrs.name || "Event";
+  const dates = attrs.dates || "";
+  const fragments = attrs.fragments || "";
+  const tip = attrs.tip || "";
+  const body = lines.slice(1, -1).join(" ").trim();
+  const eventIconHtml = icon.startsWith("/")
+    ? `<img src="${escapeHtml(icon)}" alt="" class="h-8 w-8 object-contain" loading="lazy" decoding="async" />`
+    : escapeHtml(icon);
+
+  return `
+    <article class="raid-event-card mb-4 rounded-xl border border-[#7fe9ff]/24 bg-[linear-gradient(135deg,rgba(7,22,39,0.96),rgba(24,35,68,0.9))] p-4 shadow-[0_12px_30px_rgba(0,0,0,0.22)]">
+      <div class="grid gap-3 sm:grid-cols-[56px_1fr] sm:items-start">
+        <div class="raid-event-card-icon flex h-14 w-14 items-center justify-center rounded-2xl border border-[#ffaa00]/45 bg-[#ffaa00]/15 text-2xl shadow-[0_0_24px_rgba(255,170,0,0.16)]">
+          ${eventIconHtml}
+        </div>
+        <div class="min-w-0">
+          <div class="flex flex-wrap items-center gap-2">
+            ${dates ? `<span class="rounded-full border border-[#7fe9ff]/25 bg-[#7fe9ff]/10 px-2.5 py-1 text-[11px] font-extrabold uppercase tracking-[0.06em] text-[#bff4ff]">${renderInlineArticleRichText(dates)}</span>` : ""}
+            ${fragments ? `<span class="rounded-full border border-[#ffaa00]/35 bg-[#ffaa00]/12 px-2.5 py-1 text-[11px] font-extrabold uppercase tracking-[0.06em] text-[#ffd58a]">${renderInlineArticleRichText(fragments)}</span>` : ""}
+          </div>
+          <h4 class="mt-2 text-[17px] font-extrabold leading-tight text-white">${renderInlineArticleRichText(name)}</h4>
+          ${body ? `<p class="mt-2 text-[14px] leading-[1.65] text-[#d9eef7]">${renderInlineArticleRichText(body)}</p>` : ""}
+          ${tip ? `<p class="mt-3 rounded-lg border border-white/10 bg-white/[0.06] px-3 py-2 text-[13px] font-semibold leading-relaxed text-[#fff2cc]">${renderInlineArticleRichText(tip)}</p>` : ""}
+        </div>
+      </div>
+    </article>
+  `;
+}
+
 function renderArticleHeading(level: number, title: string): string {
   if (level === 1) {
     return `<h2 class="raid-article-h1 mb-4 mt-6 text-[24px] font-extrabold leading-tight">${title}</h2>`;
@@ -217,9 +256,33 @@ function renderTextBlockHtml(text: string): string[] {
       }
     }
 
+    if (lines[0]?.startsWith("::event{")) {
+      const eventLines = [...lines];
+      while (eventLines[eventLines.length - 1] !== "::endevent" && partIndex + 1 < parts.length) {
+        partIndex += 1;
+        eventLines.push(
+          ...parts[partIndex]
+            .split("\n")
+            .map((x) => x.trim())
+            .filter(Boolean),
+        );
+      }
+      const recoveredEventCardHtml = renderEventCard(eventLines);
+      if (recoveredEventCardHtml) {
+        out.push(recoveredEventCardHtml);
+        continue;
+      }
+    }
+
     const skillCardHtml = renderSkillCard(lines);
     if (skillCardHtml) {
       out.push(skillCardHtml);
+      continue;
+    }
+
+    const eventCardHtml = renderEventCard(lines);
+    if (eventCardHtml) {
+      out.push(eventCardHtml);
       continue;
     }
 

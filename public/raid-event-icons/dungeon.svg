@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Dungeon Tournament">
+  <path fill="#071827" d="M10 54V18l22-10 22 10v36H10Z"/>
+  <path fill="#7fe9ff" d="M16 50V22l16-7 16 7v28h-9V36c0-4-3-7-7-7s-7 3-7 7v14h-9Z"/>
+  <path fill="#ffaa00" d="M22 25h7v7h-7v-7Zm13 0h7v7h-7v-7Z"/>
+  <path fill="#071827" d="M28 50V37c0-2 2-4 4-4s4 2 4 4v13h-8Z"/>
+</svg>
