@@ -13,52 +13,45 @@ export function renderHero(): string {
             <div class="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:items-stretch lg:gap-10">
               <div class="hero-welcome-panel order-1 min-w-0 lg:col-span-7">
                 <div
-                  class="hero-welcome-bg relative flex min-h-[52vh] flex-col justify-center overflow-hidden rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.18)] lg:min-h-[min(58vh,540px)] lg:h-full"
+                  class="hero-welcome-bg relative min-h-[52vh] overflow-hidden rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.18)] lg:min-h-[min(58vh,540px)]"
                 >
                   <div
                     id="hero-bg-base"
                     class="absolute inset-0 bg-cover bg-center opacity-100 transition-opacity duration-300"
-                    style="background-image: url('/hero-bg.png')"
+                    style="background-image: url('/rsl-main-background.png')"
                   ></div>
                   <div
                     id="hero-bg-slide"
                     class="absolute inset-0 bg-cover bg-center hidden"
-                    style="background-image: url('/hero-bg.png')"
+                    style="background-image: url('/rsl-main-background.png')"
                   ></div>
                   <div class="absolute inset-0 bg-black/25 md:bg-black/15"></div>
                   <div
                     class="pointer-events-none absolute inset-x-0 bottom-0 h-20"
                     style="background: linear-gradient(to top, color-mix(in srgb, var(--page-bg, #f4f6fb) 70%, transparent), rgba(0,0,0,0));"
                   ></div>
-                  <div class="relative z-[1] px-4 py-8 sm:px-6 sm:py-10 lg:px-8 lg:py-11">
-                    <h1 class="max-w-[20rem] text-[30px] font-extrabold leading-[1.12] text-white min-[400px]:max-w-[22rem] min-[400px]:text-[34px] sm:max-w-2xl sm:text-[36px] md:text-4xl lg:max-w-3xl lg:text-[2.65rem] xl:text-5xl">
-                      ${siteText("heroTitle")}
-                    </h1>
-                    <p class="mb-4 mt-2 max-w-xl text-[15px] leading-snug text-white/95 sm:max-w-2xl md:text-base lg:max-w-2xl">
-                      ${siteText("heroSubtitle")}
-                    </p>
-                    <div class="flex max-w-lg flex-col gap-2.5 min-[400px]:flex-row min-[400px]:flex-wrap min-[400px]:items-center sm:gap-3">
-                      <a
-                        href="/?page=raid-accounts"
-                        class="min-h-12 w-full rounded-full bg-gray-900 px-5 py-3 text-[15px] font-semibold text-white transition hover:bg-gray-800 active:opacity-90 min-[400px]:w-auto"
-                      >
-                        ${siteText("browseRaidAccounts")}
-                      </a>
-                      <a
-                        href="/?page=news"
-                        class="min-h-12 w-full rounded-full border border-[#7fe9ff]/80 bg-[#041326]/80 px-5 py-3 text-[15px] font-semibold text-[#aeefff] shadow-[0_0_0_1px_rgba(127,233,255,0.35),0_0_24px_rgba(127,233,255,0.2)] transition hover:-translate-y-0.5 hover:bg-[#0a2038]/90 hover:text-white active:opacity-90 min-[400px]:w-auto"
-                      >
-                        ${siteText("readLatestInfo")}
-                      </a>
-                      <button
-                        type="button"
-                        id="read-before-explore"
-                        class="min-h-12 w-full rounded-full border border-white/50 bg-white/12 px-5 py-3 text-[15px] font-semibold text-white shadow-[0_0_22px_rgba(255,255,255,0.1)] transition hover:-translate-y-0.5 hover:bg-white/20 active:opacity-90 min-[400px]:w-auto"
-                      >
-                        ${siteText("startHere")}
-                      </button>
-                    </div>
-                  </div>
+                  <h1 class="sr-only">${siteText("heroTitle")}</h1>
+                </div>
+                <div class="mt-3 flex flex-col gap-2.5 rounded-2xl border border-white/12 bg-[#071827]/72 p-3 shadow-[0_10px_28px_rgba(0,0,0,0.18)] backdrop-blur sm:flex-row sm:flex-wrap sm:items-center sm:justify-center sm:gap-3">
+                  <a
+                    href="/?page=raid-accounts"
+                    class="inline-flex min-h-11 w-full items-center justify-center rounded-lg bg-[#101d33] px-4 py-2.5 text-[14px] font-extrabold text-white transition hover:bg-[#172842] active:opacity-90 sm:w-auto"
+                  >
+                    ${siteText("browseRaidAccounts")}
+                  </a>
+                  <a
+                    href="/?page=news"
+                    class="inline-flex min-h-11 w-full items-center justify-center rounded-lg border border-[#7fe9ff]/70 bg-[#061b31] px-4 py-2.5 text-[14px] font-extrabold text-[#aeefff] shadow-[0_0_0_1px_rgba(127,233,255,0.24),0_0_18px_rgba(127,233,255,0.14)] transition hover:-translate-y-0.5 hover:bg-[#0b2743] hover:text-white active:opacity-90 sm:w-auto"
+                  >
+                    ${siteText("readLatestInfo")}
+                  </a>
+                  <button
+                    type="button"
+                    id="read-before-explore"
+                    class="inline-flex min-h-11 w-full items-center justify-center rounded-lg border border-white/35 bg-white/10 px-4 py-2.5 text-[14px] font-extrabold text-white transition hover:-translate-y-0.5 hover:bg-white/18 active:opacity-90 sm:w-auto"
+                  >
+                    ${siteText("startHere")}
+                  </button>
                 </div>
               </div>
 

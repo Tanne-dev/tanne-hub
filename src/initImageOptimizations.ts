@@ -30,7 +30,7 @@ function preconnectSupabase(): void {
 
 /** Preload ảnh nền / logo thường gặp (theme light mặc định). */
 function preloadCriticalStaticImages(): void {
-  appendUniqueLink("preload", "/hero-bg.png", { as: "image" });
+  appendUniqueLink("preload", "/rsl-main-background.png", { as: "image" });
   appendUniqueLink("preload", "/logo.png", { as: "image" });
 }
 

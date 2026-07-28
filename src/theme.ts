@@ -1,10 +1,12 @@
 type Theme = "light" | "dark";
 
-const HERO_LIGHT_BGS = ["/hero-bg.png"];
-const HERO_DARK_BGS = ["/hero-bg-moon.png"];
+const MAIN_RSL_BG = "/rsl-main-background.png";
 
-const SITE_LIGHT_BG = "/hero-bg.png";
-const SITE_DARK_BG = "/hero-bg-moon.png";
+const HERO_LIGHT_BGS = [MAIN_RSL_BG];
+const HERO_DARK_BGS = [MAIN_RSL_BG];
+
+const SITE_LIGHT_BG = MAIN_RSL_BG;
+const SITE_DARK_BG = MAIN_RSL_BG;
 
 const THEME_KEY = "tanne-theme";
 const HERO_ROTATE_MS = 10_000;

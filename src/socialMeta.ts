@@ -5,7 +5,7 @@ const SITE_NAME = "Tanne Hub";
 const DEFAULT_TITLE = "Tanne Hub";
 const DEFAULT_DESCRIPTION =
   "Selected Raid accounts, Raid Shadow Legends updates, promo codes, and helpful account service notes.";
-const DEFAULT_IMAGE = "/hero-bg.png";
+const DEFAULT_IMAGE = "/rsl-main-background.png";
 
 function absoluteUrl(value: string): string {
   try {

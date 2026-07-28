@@ -419,12 +419,29 @@ export function initLogin(): void {
           return;
         }
 
-        registerFeedback.textContent = "Member account registered successfully.";
+        if (result.session) {
+          setSession({
+            userId: result.session.userId,
+            email: result.session.email,
+            displayName: result.session.displayName,
+            role: result.session.role,
+            loggedInAt: Date.now(),
+          });
+          syncLoginLabel();
+        }
+
+        registerFeedback.textContent = result.session
+          ? "Member account registered. You can like articles now."
+          : "Member account registered successfully. Please log in to continue.";
         registerFeedback.className = "rounded-md bg-green-900/35 px-3 py-2 text-xs text-green-200";
         launchFireworks();
         registerForm.reset();
         window.setTimeout(() => {
           if (modal.classList.contains("hidden")) return;
+          if (result.session) {
+            hideModal();
+            return;
+          }
           registerPanel.classList.add("hidden");
           toggleRegisterBtn.textContent = "Register account";
           registerFeedback.classList.add("hidden");

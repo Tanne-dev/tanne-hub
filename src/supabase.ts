@@ -20,6 +20,12 @@ export type RemoteSession = {
   displayName?: string;
 };
 
+export type RemotePostLikeSummary = {
+  postId: string;
+  count: number;
+  likedByUser: boolean;
+};
+
 export type UserProfile = {
   userId: string;
   email: string;
@@ -83,7 +89,7 @@ export async function getUserProfileRemote(userId: string): Promise<UserProfile 
 export async function registerMemberRemote(
   email: string,
   password: string,
-): Promise<{ ok: boolean; error?: string }> {
+): Promise<{ ok: boolean; session?: RemoteSession; error?: string }> {
   if (!supabaseClient) {
     return {
       ok: false,
@@ -94,7 +100,22 @@ export async function registerMemberRemote(
   if (!error && data.user?.id && data.user.email) {
     await upsertUserProfileRemote(data.user.id, data.user.email);
   }
-  if (!error) return { ok: true };
+  if (!error) {
+    if (data.session?.user?.id && data.session.user.email) {
+      const role = await resolveRole(data.session.user.id);
+      const profile = await getUserProfileRemote(data.session.user.id);
+      return {
+        ok: true,
+        session: {
+          userId: data.session.user.id,
+          email: data.session.user.email,
+          role,
+          displayName: profile?.displayName,
+        },
+      };
+    }
+    return { ok: true };
+  }
   return { ok: false, error: error.message };
 }
 
@@ -137,6 +158,64 @@ export async function getCurrentMemberRemote(): Promise<RemoteSession | null> {
 export async function signOutRemote(): Promise<void> {
   if (!supabaseClient) return;
   await supabaseClient.auth.signOut();
+}
+
+export async function getPostLikeSummariesRemote(
+  postIds: string[],
+  userId?: string,
+): Promise<RemotePostLikeSummary[] | null> {
+  const uniquePostIds = [...new Set(postIds.map((id) => id.trim()).filter(Boolean))];
+  if (!supabaseClient || uniquePostIds.length === 0) return null;
+
+  const { data, error } = await supabaseClient
+    .from("post_likes")
+    .select("post_id,user_id")
+    .in("post_id", uniquePostIds);
+  if (error || !data) return null;
+
+  const byPost = new Map<string, { count: number; likedByUser: boolean }>();
+  for (const postId of uniquePostIds) {
+    byPost.set(postId, { count: 0, likedByUser: false });
+  }
+
+  for (const row of data as Array<{ post_id: string; user_id: string }>) {
+    const current = byPost.get(row.post_id) ?? { count: 0, likedByUser: false };
+    current.count += 1;
+    if (userId && row.user_id === userId) current.likedByUser = true;
+    byPost.set(row.post_id, current);
+  }
+
+  return uniquePostIds.map((postId) => {
+    const summary = byPost.get(postId) ?? { count: 0, likedByUser: false };
+    return { postId, count: summary.count, likedByUser: summary.likedByUser };
+  });
+}
+
+export async function setPostLikeRemote(
+  postId: string,
+  userId: string,
+  liked: boolean,
+): Promise<{ ok: boolean; error?: string }> {
+  if (!supabaseClient) return { ok: false, error: "Supabase is not configured." };
+  if (!postId || !userId) return { ok: false, error: "Missing post or member session." };
+
+  if (liked) {
+    const { error } = await supabaseClient.from("post_likes").upsert(
+      {
+        post_id: postId,
+        user_id: userId,
+      },
+      { onConflict: "post_id,user_id" },
+    );
+    return error ? { ok: false, error: error.message } : { ok: true };
+  }
+
+  const { error } = await supabaseClient
+    .from("post_likes")
+    .delete()
+    .eq("post_id", postId)
+    .eq("user_id", userId);
+  return error ? { ok: false, error: error.message } : { ok: true };
 }
 
 export async function uploadPostImageRemote(

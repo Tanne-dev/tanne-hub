@@ -1,5 +1,6 @@
 import { escapeHtml } from "./postBody";
 import { getMemberSession, openMemberRegisterPrompt } from "./login";
+import { getPostLikeSummariesRemote, setPostLikeRemote } from "./supabase";
 
 type HelpfulState = {
   counts: Record<string, number>;
@@ -9,6 +10,13 @@ type HelpfulState = {
 const STORAGE_KEY = "tanne-post-helpful-reactions-v1";
 const MIN_BASE_LIKES = 45;
 const MAX_BASE_LIKES = 70;
+
+type HydratedLike = {
+  remoteCount: number;
+  likedByUser: boolean;
+};
+
+const remoteLikes = new Map<string, HydratedLike>();
 
 function readState(): HelpfulState {
   try {
@@ -43,7 +51,14 @@ function baseLikeCount(postId: string): number {
 }
 
 function displayCount(postId: string, state: HelpfulState): number {
-  return baseLikeCount(postId) + (state.counts[postId] ?? 0);
+  const remote = remoteLikes.get(postId);
+  return baseLikeCount(postId) + (remote?.remoteCount ?? state.counts[postId] ?? 0);
+}
+
+function isPostLiked(postId: string, state: HelpfulState): boolean {
+  const remote = remoteLikes.get(postId);
+  if (remote) return remote.likedByUser;
+  return state.likedIds.includes(postId);
 }
 
 function renderThumbIcon(active: boolean): string {
@@ -56,7 +71,7 @@ function renderThumbIcon(active: boolean): string {
 
 export function renderHelpfulButton(postId: string, options: { compact?: boolean } = {}): string {
   const state = readState();
-  const liked = state.likedIds.includes(postId);
+  const liked = isPostLiked(postId, state);
   const count = displayCount(postId, state);
   const compact = options.compact === true;
   const label = "Like";
@@ -81,7 +96,7 @@ export function renderHelpfulButton(postId: string, options: { compact?: boolean
 
 function refreshHelpfulButtons(postId: string): void {
   const state = readState();
-  const liked = state.likedIds.includes(postId);
+  const liked = isPostLiked(postId, state);
   const count = displayCount(postId, state);
   for (const button of document.querySelectorAll<HTMLButtonElement>(`[data-post-helpful-id="${CSS.escape(postId)}"]`)) {
     const compact = Boolean(button.querySelector("[data-post-helpful-count]"));
@@ -100,9 +115,44 @@ function refreshHelpfulButtons(postId: string): void {
   }
 }
 
+function visiblePostIds(): string[] {
+  return [
+    ...new Set(
+      [...document.querySelectorAll<HTMLElement>("[data-post-helpful-id]")]
+        .map((button) => button.getAttribute("data-post-helpful-id") ?? "")
+        .filter(Boolean),
+    ),
+  ];
+}
+
+async function hydrateVisibleHelpfulButtons(): Promise<void> {
+  const postIds = visiblePostIds();
+  if (postIds.length === 0) return;
+  const session = getMemberSession();
+  const summaries = await getPostLikeSummariesRemote(postIds, session?.userId);
+  if (!summaries) return;
+
+  for (const summary of summaries) {
+    remoteLikes.set(summary.postId, {
+      remoteCount: summary.count,
+      likedByUser: summary.likedByUser,
+    });
+    refreshHelpfulButtons(summary.postId);
+  }
+}
+
 export function bindHelpfulReactionButtons(): void {
+  void hydrateVisibleHelpfulButtons();
   if (document.documentElement.dataset.helpfulReactionsBound === "1") return;
   document.documentElement.dataset.helpfulReactionsBound = "1";
+
+  window.addEventListener("tanne-auth-changed", () => {
+    remoteLikes.clear();
+    void hydrateVisibleHelpfulButtons();
+  });
+  window.addEventListener("tanne-posts-updated", () => {
+    void hydrateVisibleHelpfulButtons();
+  });
 
   document.addEventListener("click", (event) => {
     const button = (event.target as HTMLElement).closest<HTMLButtonElement>("[data-post-helpful-id]");
@@ -113,13 +163,15 @@ export function bindHelpfulReactionButtons(): void {
     const postId = button.getAttribute("data-post-helpful-id");
     if (!postId) return;
 
-    if (!getMemberSession()) {
+    const session = getMemberSession();
+    if (!session) {
       openMemberRegisterPrompt("Create a free member account to like articles.");
       return;
     }
 
     const state = readState();
-    const liked = state.likedIds.includes(postId);
+    const liked = isPostLiked(postId, state);
+    const nextLiked = !liked;
     const current = state.counts[postId] ?? 0;
     if (liked) {
       state.likedIds = state.likedIds.filter((id) => id !== postId);
@@ -129,6 +181,18 @@ export function bindHelpfulReactionButtons(): void {
       state.counts[postId] = current + 1;
     }
     saveState(state);
+    const remote = remoteLikes.get(postId);
+    if (remote) {
+      remoteLikes.set(postId, {
+        remoteCount: Math.max(0, remote.remoteCount + (nextLiked ? 1 : -1)),
+        likedByUser: nextLiked,
+      });
+    }
     refreshHelpfulButtons(postId);
+
+    void setPostLikeRemote(postId, session.userId, nextLiked).then((result) => {
+      if (!result.ok) return;
+      void hydrateVisibleHelpfulButtons();
+    });
   });
 }
