@@ -12,6 +12,7 @@ import { renderSiteFooter } from "./sections/siteFooter";
 import { HONEYGAIN_REFERRAL_URL } from "./referralLinks";
 import { getLocalizedPost, getNewsLanguage, postHasVietnamese, siteText } from "./newsLanguage";
 import { setPostSocialMeta } from "./socialMeta";
+import { bindFragmentEventCalculators } from "./fragmentEventCalculator";
 
 /**
  * Ghép trang từ từng phần trong `src/sections/`.
@@ -434,6 +435,7 @@ export function renderPostDetail(root: HTMLElement, postId: string): void {
   `;
 
   bindHelpfulReactionButtons();
+  bindFragmentEventCalculators(root);
 
   if (post) return;
 

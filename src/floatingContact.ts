@@ -4,6 +4,7 @@ import {
   CONTACT_EMAIL,
   CONTACT_EPICNPC_MESSAGE_URL,
 } from "./contactLinks";
+import { initNavbarFragmentEvent, renderNavbarFragmentEventHtml } from "./fragmentEventNav";
 
 const contactIcon = `
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5" aria-hidden="true">
@@ -35,7 +36,11 @@ const mailIcon = `
 
 function renderFloatingContact(): string {
   return `
-    <div id="floating-contact" class="fixed bottom-4 right-4 z-[88] sm:bottom-5 sm:right-5">
+    <div id="floating-contact" class="fixed bottom-4 right-4 z-[88] flex flex-col items-end sm:bottom-5 sm:right-5">
+      <div class="floating-fragment-event mb-3">
+        ${renderNavbarFragmentEventHtml()}
+      </div>
+
       <div
         id="floating-contact-panel"
         class="mb-2 hidden w-[min(calc(100vw-2rem),310px)] rounded-xl border border-white/15 bg-[#0d2740] p-2.5 text-[#e6f6ff] shadow-[0_18px_42px_rgba(0,0,0,0.45)]"
@@ -116,6 +121,7 @@ function setFloatingContactOpen(open: boolean): void {
 export function initFloatingContact(): void {
   document.querySelector("#floating-contact")?.remove();
   document.body.insertAdjacentHTML("beforeend", renderFloatingContact());
+  initNavbarFragmentEvent();
 
   const wrap = document.querySelector<HTMLElement>("#floating-contact");
   const toggle = document.querySelector<HTMLButtonElement>("#floating-contact-toggle");

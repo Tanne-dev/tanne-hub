@@ -356,6 +356,122 @@
 
   .raid-article-body .raid-event-card-icon {
     animation: raidEventIconPulse 2.4s ease-in-out infinite;
+    overflow: hidden;
+    padding: 5px;
+    background:
+      radial-gradient(circle at 50% 45%, rgba(255, 213, 138, 0.18), transparent 62%),
+      linear-gradient(145deg, rgba(5, 14, 25, 0.96), rgba(20, 28, 42, 0.96));
+  }
+
+  .raid-article-body .raid-event-card-icon-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    object-fit: contain;
+  }
+
+  .raid-article-body .fragment-calc {
+    position: relative;
+    overflow: hidden;
+    animation: raidEventCardIn 560ms cubic-bezier(0.22, 0.61, 0.36, 1) both;
+  }
+
+  .raid-article-body .fragment-calc::before {
+    content: "";
+    position: absolute;
+    inset: -40% -20% auto auto;
+    width: 220px;
+    height: 220px;
+    border-radius: 999px;
+    background: radial-gradient(circle, rgba(24, 119, 242, 0.22), transparent 68%);
+    pointer-events: none;
+  }
+
+  .raid-article-body .fragment-calc-action {
+    min-height: 40px;
+    border-radius: 999px;
+    border: 1px solid rgba(127, 233, 255, 0.26);
+    background: rgba(127, 233, 255, 0.09);
+    padding: 0.55rem 0.8rem;
+    color: #c8f5ff;
+    font-size: 12px;
+    font-weight: 900;
+    transition:
+      transform 160ms ease,
+      border-color 160ms ease,
+      background 160ms ease;
+  }
+
+  .raid-article-body .fragment-calc-action:hover {
+    transform: translateY(-1px);
+    border-color: rgba(127, 233, 255, 0.52);
+    background: rgba(24, 119, 242, 0.16);
+  }
+
+  .raid-article-body .fragment-calc-option {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    gap: 0.75rem;
+    align-items: center;
+    min-height: 58px;
+    cursor: pointer;
+    border: 1px solid rgba(127, 233, 255, 0.16);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.045);
+    padding: 0.75rem;
+    transition:
+      transform 160ms ease,
+      border-color 160ms ease,
+      background 160ms ease;
+  }
+
+  .raid-article-body .fragment-calc-option:hover {
+    transform: translateY(-1px);
+    border-color: rgba(127, 233, 255, 0.38);
+    background: rgba(127, 233, 255, 0.08);
+  }
+
+  .raid-article-body .fragment-calc-checkbox {
+    width: 18px;
+    height: 18px;
+    accent-color: #1877f2;
+  }
+
+  .raid-article-body .fragment-calc-option-name {
+    display: block;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 900;
+    line-height: 1.25;
+  }
+
+  .raid-article-body .fragment-calc-option-date {
+    display: block;
+    margin-top: 0.15rem;
+    color: rgba(207, 231, 244, 0.72);
+    font-size: 11px;
+    font-weight: 700;
+  }
+
+  .raid-article-body .fragment-calc-option-side {
+    display: grid;
+    justify-items: end;
+    gap: 0.15rem;
+    color: #ffd58a;
+    font-size: 13px;
+  }
+
+  .raid-article-body .fragment-calc-option-badge {
+    border-radius: 999px;
+    border: 1px solid rgba(255, 170, 0, 0.22);
+    background: rgba(255, 170, 0, 0.1);
+    padding: 0.16rem 0.4rem;
+    color: #ffe6a8;
+    font-size: 9px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
   }
 
   .gloss-hover-frame {
@@ -475,10 +591,40 @@
   }
 }
 
+@keyframes fragmentLegendaryAura {
+  0%,
+  100% {
+    opacity: 0.54;
+    transform: scale(0.98) rotate(0deg);
+  }
+  50% {
+    opacity: 0.94;
+    transform: scale(1.06) rotate(3deg);
+  }
+}
+
+@keyframes fragmentLegendaryShimmer {
+  0%,
+  42% {
+    background-position: 135% 0, 0 0;
+    opacity: 0.22;
+  }
+  58% {
+    opacity: 0.72;
+  }
+  100% {
+    background-position: -80% 0, 0 0;
+    opacity: 0.3;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .raid-article-body .raid-event-card,
   .raid-article-body .raid-event-card::after,
-  .raid-article-body .raid-event-card-icon {
+  .raid-article-body .raid-event-card-icon,
+  .raid-article-body .fragment-calc,
+  .fragment-event-button::before,
+  .fragment-event-button::after {
     animation: none;
   }
 }
@@ -521,6 +667,273 @@
 .promo-scroll-paper::before,
 .promo-scroll-paper::after {
   display: none;
+}
+
+.fragment-event-button {
+  position: relative;
+  isolation: isolate;
+  display: inline-flex;
+  min-height: 42px;
+  align-items: center;
+  gap: 0.55rem;
+  border: 1px solid rgba(255, 170, 0, 0.58);
+  border-radius: 12px;
+  background:
+    radial-gradient(circle at 18% 24%, rgba(255, 207, 94, 0.28), transparent 36%),
+    radial-gradient(circle at 86% 18%, rgba(255, 118, 34, 0.18), transparent 30%),
+    linear-gradient(135deg, rgba(6, 18, 34, 0.98), rgba(17, 32, 58, 0.92));
+  padding: 0.28rem 0.55rem 0.28rem 0.3rem;
+  color: var(--header-nav-text);
+  box-shadow:
+    0 0 0 1px rgba(255, 170, 0, 0.2),
+    0 0 18px rgba(255, 170, 0, 0.18),
+    0 10px 24px rgba(0, 0, 0, 0.18);
+  transition:
+    transform 160ms ease,
+    border-color 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.fragment-event-button::before,
+.fragment-event-button::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+.fragment-event-button::before {
+  inset: -7px;
+  z-index: 0;
+  background:
+    radial-gradient(circle at 20% 22%, rgba(255, 205, 84, 0.68), transparent 30%),
+    radial-gradient(circle at 85% 70%, rgba(255, 108, 32, 0.52), transparent 34%),
+    conic-gradient(from 0deg, rgba(255, 170, 0, 0), rgba(255, 211, 91, 0.8), rgba(255, 99, 24, 0.38), rgba(255, 170, 0, 0));
+  filter: blur(10px);
+  opacity: 0.72;
+  animation: fragmentLegendaryAura 2.8s ease-in-out infinite;
+}
+
+.fragment-event-button::after {
+  inset: 0;
+  z-index: 0;
+  background:
+    linear-gradient(115deg, transparent 12%, rgba(255, 238, 180, 0.34) 34%, transparent 52%),
+    linear-gradient(90deg, transparent, rgba(255, 170, 0, 0.16), transparent);
+  background-size: 240% 100%, 100% 100%;
+  mix-blend-mode: screen;
+  opacity: 0.55;
+  animation: fragmentLegendaryShimmer 3.4s ease-in-out infinite;
+}
+
+.fragment-event-button:hover,
+.fragment-event-open .fragment-event-button {
+  transform: translateY(-1px);
+  border-color: rgba(255, 212, 91, 0.86);
+  box-shadow:
+    0 0 0 1px rgba(255, 211, 91, 0.3),
+    0 0 26px rgba(255, 170, 0, 0.34),
+    0 12px 30px rgba(255, 118, 34, 0.18);
+}
+
+.fragment-event-avatar {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  width: 34px;
+  height: 34px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 214, 101, 0.72);
+  border-radius: 10px;
+  background: #071524;
+  box-shadow:
+    0 0 12px rgba(255, 170, 0, 0.22),
+    inset 0 0 18px rgba(255, 170, 0, 0.14);
+}
+
+.fragment-event-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 70% 31%;
+  transform: scale(2.25);
+}
+
+.fragment-event-button-title {
+  position: relative;
+  z-index: 1;
+  font-size: 10px;
+  font-weight: 950;
+  line-height: 1;
+  color: #ffd58a;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.fragment-event-countdown,
+.fragment-event-mobile-countdown {
+  position: relative;
+  z-index: 1;
+  margin-top: 0.16rem;
+  font-size: 12px;
+  font-weight: 950;
+  line-height: 1;
+  color: #c8f5ff;
+  white-space: nowrap;
+}
+
+.fragment-event-mobile-countdown {
+  position: absolute;
+  right: -0.35rem;
+  bottom: -0.35rem;
+  border: 1px solid rgba(127, 233, 255, 0.45);
+  border-radius: 999px;
+  background: #071524;
+  padding: 0.12rem 0.32rem;
+  font-size: 9px;
+}
+
+.fragment-event-panel {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 0.6rem);
+  z-index: 46;
+  width: min(92vw, 620px);
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(-8px) scale(0.98);
+  transform-origin: top right;
+  transition:
+    opacity 220ms ease,
+    transform 220ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.fragment-event-open .fragment-event-panel {
+  pointer-events: auto;
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.fragment-event-paper {
+  max-height: min(72vh, 760px);
+  overflow: auto;
+  border: 1px solid rgba(127, 233, 255, 0.2);
+  border-radius: 16px;
+  background:
+    linear-gradient(135deg, rgba(6, 18, 34, 0.98), rgba(17, 31, 58, 0.98)),
+    #071524;
+  padding: 1rem;
+  box-shadow: 0 22px 54px rgba(0, 0, 0, 0.48);
+}
+
+.fragment-calc-compact {
+  border: 0;
+  background: transparent;
+  padding: 0;
+  box-shadow: none;
+}
+
+.fragment-calc-compact::before {
+  display: none;
+}
+
+.fragment-event-option-list {
+  max-height: 330px;
+  overflow: auto;
+  padding-right: 0.2rem;
+}
+
+#floating-contact .floating-fragment-event {
+  position: relative;
+}
+
+#floating-contact .fragment-event-button {
+  min-height: 70px;
+  min-width: min(72vw, 230px);
+  gap: 0.8rem;
+  border-width: 1.5px;
+  border-color: rgba(255, 199, 72, 0.82);
+  border-radius: 20px;
+  padding: 0.55rem 0.9rem 0.55rem 0.55rem;
+  background:
+    radial-gradient(circle at 18% 24%, rgba(255, 220, 110, 0.38), transparent 38%),
+    radial-gradient(circle at 88% 72%, rgba(255, 91, 21, 0.24), transparent 34%),
+    linear-gradient(135deg, rgba(7, 17, 31, 0.98), rgba(29, 31, 50, 0.96));
+  box-shadow:
+    0 0 0 1px rgba(255, 170, 0, 0.3),
+    0 0 30px rgba(255, 170, 0, 0.34),
+    0 16px 38px rgba(0, 0, 0, 0.38);
+}
+
+#floating-contact .fragment-event-button::before {
+  inset: -12px;
+  filter: blur(15px);
+  opacity: 0.95;
+  animation-duration: 2.2s;
+}
+
+#floating-contact .fragment-event-button::after {
+  opacity: 0.72;
+  animation-duration: 2.65s;
+}
+
+#floating-contact .fragment-event-button:hover,
+#floating-contact .fragment-event-open .fragment-event-button {
+  transform: translateY(-2px) scale(1.01);
+  border-color: rgba(255, 231, 132, 0.98);
+  box-shadow:
+    0 0 0 1px rgba(255, 206, 84, 0.44),
+    0 0 42px rgba(255, 170, 0, 0.52),
+    0 18px 42px rgba(255, 91, 21, 0.22),
+    0 18px 42px rgba(0, 0, 0, 0.45);
+}
+
+#floating-contact .fragment-event-avatar {
+  width: 54px;
+  height: 54px;
+  border-width: 1.5px;
+  border-radius: 16px;
+  border-color: rgba(255, 225, 122, 0.92);
+  box-shadow:
+    0 0 18px rgba(255, 170, 0, 0.38),
+    inset 0 0 20px rgba(255, 170, 0, 0.18);
+}
+
+#floating-contact .fragment-event-avatar img {
+  object-position: 70% 31%;
+  transform: scale(2.1);
+}
+
+#floating-contact .fragment-event-button > span.hidden {
+  display: grid;
+}
+
+#floating-contact .fragment-event-button-title {
+  font-size: 12px;
+}
+
+#floating-contact .fragment-event-countdown {
+  font-size: 16px;
+  color: #fff0bd;
+  text-shadow: 0 0 14px rgba(255, 170, 0, 0.45);
+}
+
+#floating-contact .fragment-event-mobile-countdown {
+  display: none;
+}
+
+#floating-contact .fragment-event-panel {
+  right: 0;
+  top: auto;
+  bottom: calc(100% + 0.85rem);
+  z-index: 92;
+  width: min(94vw, 620px);
+  transform: translateY(8px) scale(0.98);
+  transform-origin: bottom right;
+}
+
+#floating-contact .fragment-event-open .fragment-event-panel {
+  transform: translateY(0) scale(1);
 }
 
 .promo-scroll-close {
@@ -798,6 +1211,27 @@
   }
 
   .promo-scroll-paper {
+    max-height: min(70dvh, 620px);
+    padding: 0.9rem;
+  }
+
+  .fragment-event-panel {
+    position: fixed;
+    left: max(0.75rem, env(safe-area-inset-left, 0px));
+    right: max(0.75rem, env(safe-area-inset-right, 0px));
+    top: calc(env(safe-area-inset-top, 0px) + 7.5rem);
+    z-index: 91;
+    width: auto;
+    max-width: none;
+    transform: translateY(-8px) scale(0.98);
+    transform-origin: top center;
+  }
+
+  .fragment-event-open .fragment-event-panel {
+    transform: translateY(0) scale(1);
+  }
+
+  .fragment-event-paper {
     max-height: min(70dvh, 620px);
     padding: 0.9rem;
   }
