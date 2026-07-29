@@ -1735,12 +1735,106 @@ export const khamirFragmentEventCalendarDraftJul282026: {
   id: string;
   title: string;
   caption: string;
+  titleVi: string;
+  captionVi: string;
+  contentVi: string;
   blocks: PostBodyBlock[];
 } = {
   id: "raid-news-2026-07-28-khamir-fragment-event-calendar",
   title: "Khamir Scald-eye Fragment Event Calendar: Short Summon & Resource Guide",
   caption:
     "A short Tanne Hub guide to the Khamir Scald-eye Fragment Event Calendar, explaining the summon events, key resource checks, and the safest path to 100 fragments.",
+  titleVi: "Lịch Fragment Event Khamir Scald-eye: hướng dẫn ngắn về summon và tài nguyên",
+  captionVi:
+    "Bản tóm tắt Tanne Hub về lịch Fragment Event Khamir Scald-eye, giải thích các mốc Summon Rush, Champion Chase, tài nguyên cần giữ và cách đi tới 100 fragments an toàn.",
+  contentVi: JSON.stringify([
+    {
+      type: "image",
+      url: "/news-images/khamir-fragment-event-calendar.webp",
+      align: "full",
+      caption: "Lịch Fragment Event Khamir Scald-eye từ ngày 27 tháng 7 đến ngày 10 tháng 8.",
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Trả lời nhanh**[/color]",
+        "Fragment Event của **Khamir Scald-eye** diễn ra từ **27 tháng 7 đến 10 tháng 8**. Lịch hiển thị tổng cộng **150 fragments**, nhưng bạn chỉ cần **100 fragments** để summon champion này. Nghĩa là bạn có thể bỏ qua một vài mốc khó nếu lên kế hoạch đúng.",
+        "Phần nguy hiểm nhất là các event summon. Đừng dùng shard quá sớm. Hãy chờ event mở trong game, xem điểm yêu cầu thật, rồi mới quyết định mốc nào đáng đẩy.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Lịch này có nghĩa là gì?**[/color]",
+        "| Phần | Fragments | Hiểu đơn giản |",
+        "| --- | ---: | --- |",
+        "| Tournaments | 55 | Farm dungeon, arena, spider và champion training. |",
+        "| Leaderboards | 20 | Fragment bonus nếu xếp hạng cao. Chỉ nên xem là phần cộng thêm. |",
+        "| Events | 75 | Gear, Summon Rush, Gear Hunters và Champion Training Event. |",
+        "| Tổng | 150 | Có dư để bỏ qua vài mốc nếu bạn tính trước. |",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Các event quan trọng cần hiểu**[/color]",
+        "::event{icon=\"/raid-event-icons/summon-rush.svg\" name=\"Summon Rush I\" dates=\"Jul 31-Aug 3\" fragments=\"20 fragments\" tip=\"Chỉ dùng shard sau khi kiểm tra điểm yêu cầu thật trong game.\"}",
+        "Đây là mốc shard lớn đầu tiên. Summon Rush thường tính điểm theo giá trị shard, nên Sacred và Void Shards thường hiệu quả hơn việc mở Ancient lung tung.",
+        "::endevent",
+        "::event{icon=\"/raid-event-icons/summon-rush.svg\" name=\"Summon Rush II\" dates=\"Aug 4-Aug 6\" fragments=\"15 fragments\" tip=\"Đừng dùng sạch shard ở Rush I nếu bạn chưa chắc còn đủ cho Rush II.\"}",
+        "Mốc này đến rất gần sau Rush I. Account ít shard nên tính cả hai mốc cùng lúc, không nên xem riêng từng event.",
+        "::endevent",
+        "::event{icon=\"/raid-event-icons/champion-chase.svg\" name=\"Champion Chase Tournament\" dates=\"Aug 7-Aug 10\" fragments=\"tối đa 25 theo lịch\" tip=\"Champion fragment hoặc fusion đã để dành có thể rất hữu ích ở đây.\"}",
+        "Champion Chase cho điểm khi bạn nhận champion. Nếu đã giữ sẵn fragment champion hoặc fusion summon, mốc này có thể rẻ hơn việc đốt shard trực tiếp.",
+        "::endevent",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "::event{icon=\"/raid-event-icons/dungeon.svg\" name=\"Dungeon Tournaments\" dates=\"Dragon, Fire Knight, Ice Golem, Spider\" fragments=\"5 mỗi event\" tip=\"Ưu tiên dungeon mà account của bạn farm nhanh và ổn định nhất.\"}",
+        "Đây là các event farm đơn giản. Dragon và Spider thường dễ có giá trị tốt vì vừa lấy điểm vừa kiếm gear hoặc silver.",
+        "::endevent",
+        "::event{icon=\"/raid-event-icons/gear-enhancement.svg\" name=\"Gear Enhancement\" dates=\"3 đợt\" fragments=\"5 mỗi đợt\" tip=\"Giữ silver. Đừng nâng hết đồ ngay ngày đầu.\"}",
+        "Gear Enhancement là bài test về silver. Hãy roll gear từ từ và để dành đủ silver cho đợt thứ hai và thứ ba.",
+        "::endevent",
+        "::event{icon=\"/raid-event-icons/champion-training.svg\" name=\"Champion Training\" dates=\"Jul 30-Aug 3 và Aug 6-Aug 10\" fragments=\"giá trị cao\" tip=\"Chuẩn bị food champion trước khi bắt đầu.\"}",
+        "Champion Training là nguồn fragment khá an toàn vì dùng food, brews, energy và thời gian, thay vì phụ thuộc hoàn toàn vào shard.",
+        "::endevent",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Kế hoạch đơn giản nhất**[/color]",
+        "1. Lấy trước các fragment dễ từ dungeon, arena, gear và training.",
+        "2. Xem leaderboard fragments là bonus, không nên phụ thuộc.",
+        "3. Giữ shard cho Summon Rush I, Summon Rush II và Champion Chase.",
+        "4. Giữ silver cho cả 3 Gear Enhancement events.",
+        "5. Trước khi dùng tài nguyên, hãy tính xem bạn có thể đạt bao nhiêu fragments nếu không thắng leaderboard.",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Checklist tài nguyên**[/color]",
+        "- **Shards:** giữ lại cho đúng cửa sổ summon.",
+        "- **Silver:** chuẩn bị cho 3 lần Gear Enhancement.",
+        "- **Energy:** Dragon, Fire Knight, Ice Golem, Spider và Training đều cần energy.",
+        "- **Food:** chuẩn bị champion food trước tuần cuối.",
+        "- **Arena tokens:** dùng token miễn phí hằng ngày cho cả hai Classic Arena events.",
+        "- **Saved summons:** nếu có fragment champion để dành, giữ lại cho Champion Chase.",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Tanne verdict**[/color]",
+        "Lịch này khá dễ chịu vì có **150 fragments**, nhưng vẫn có thể khiến người chơi tốn tài nguyên nếu dùng shard quá sớm. Cách an toàn nhất là lấy các fragment ổn định trước, không phụ thuộc leaderboard, rồi chờ điểm yêu cầu thật của Summon Rush và Champion Chase trước khi quyết định.",
+        "Nếu bạn cần một support/reviver Ogryn trâu bò, Khamir rất đáng để lên kế hoạch. Nhưng đừng đuổi theo mọi mốc một cách mù quáng. Hãy dựng lộ trình 100 fragments, giữ shard sạch sẽ, và luôn kiểm tra timer trong game vì lịch có thể thay đổi.",
+      ].join("\n\n"),
+    },
+  ]),
   blocks: [
     {
       type: "image",
