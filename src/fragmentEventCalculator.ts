@@ -2,7 +2,13 @@ function updateCalculator(calculator: HTMLElement): void {
   const target = Number.parseInt(calculator.dataset.target || "100", 10);
   const total = Number.parseInt(calculator.dataset.total || "150", 10);
   const isVi = calculator.dataset.locale === "vi";
-  const checked = [...calculator.querySelectorAll<HTMLInputElement>(".fragment-calc-checkbox:checked")];
+  const checkboxes = [...calculator.querySelectorAll<HTMLInputElement>(".fragment-calc-checkbox")];
+
+  for (const checkbox of checkboxes) {
+    checkbox.closest<HTMLElement>(".fragment-calc-option")?.classList.toggle("fragment-calc-option-selected", checkbox.checked);
+  }
+
+  const checked = checkboxes.filter((checkbox) => checkbox.checked);
   const score = checked.reduce((sum, checkbox) => {
     return sum + Number.parseInt(checkbox.dataset.fragments || "0", 10);
   }, 0);

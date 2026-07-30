@@ -755,8 +755,8 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: 70% 31%;
-  transform: scale(2.25);
+  object-position: center 28%;
+  transform: scale(1.08);
 }
 
 .fragment-event-button-title {
@@ -843,6 +843,142 @@
   padding-right: 0.2rem;
 }
 
+.fragment-calc-action {
+  min-height: 40px;
+  border-radius: 999px;
+  border: 1px solid rgba(127, 233, 255, 0.3);
+  background: rgba(127, 233, 255, 0.1);
+  padding: 0.55rem 0.8rem;
+  color: #e8fbff;
+  font-size: 12px;
+  font-weight: 900;
+  transition:
+    transform 160ms ease,
+    border-color 160ms ease,
+    background 160ms ease,
+    color 160ms ease;
+}
+
+.fragment-calc-action:hover {
+  transform: translateY(-1px);
+  border-color: rgba(127, 233, 255, 0.6);
+  background: rgba(24, 119, 242, 0.18);
+  color: #ffffff;
+}
+
+.fragment-calc-option {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 0.75rem;
+  align-items: center;
+  min-height: 58px;
+  cursor: pointer;
+  border: 1px solid rgba(127, 233, 255, 0.22);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.065);
+  padding: 0.75rem 2.65rem 0.75rem 0.75rem;
+  color: #ffffff;
+  transition:
+    transform 160ms ease,
+    border-color 160ms ease,
+    background 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.fragment-calc-option::after {
+  content: "✓";
+  position: absolute;
+  right: 0.78rem;
+  top: 50%;
+  display: grid;
+  width: 1.45rem;
+  height: 1.45rem;
+  place-items: center;
+  border-radius: 999px;
+  background: #22c55e;
+  color: #04130a;
+  font-size: 0.95rem;
+  font-weight: 1000;
+  opacity: 0;
+  transform: translateY(-50%) scale(0.68);
+  box-shadow: 0 0 22px rgba(34, 197, 94, 0.6);
+  transition:
+    opacity 160ms ease,
+    transform 180ms cubic-bezier(0.2, 0.9, 0.2, 1.2);
+}
+
+.fragment-calc-option:hover {
+  transform: translateY(-1px);
+  border-color: rgba(127, 233, 255, 0.5);
+  background: rgba(127, 233, 255, 0.11);
+}
+
+.fragment-calc-option-selected,
+.fragment-calc-option:has(.fragment-calc-checkbox:checked) {
+  border-color: rgba(34, 197, 94, 0.82);
+  background:
+    linear-gradient(135deg, rgba(34, 197, 94, 0.18), rgba(24, 119, 242, 0.1)),
+    rgba(255, 255, 255, 0.07);
+  box-shadow:
+    0 0 0 1px rgba(34, 197, 94, 0.2),
+    0 12px 30px rgba(34, 197, 94, 0.12);
+}
+
+.fragment-calc-option-selected::after,
+.fragment-calc-option:has(.fragment-calc-checkbox:checked)::after {
+  opacity: 1;
+  transform: translateY(-50%) scale(1);
+}
+
+.fragment-calc-checkbox {
+  width: 18px;
+  height: 18px;
+  accent-color: #22c55e;
+}
+
+.fragment-calc-option-name {
+  display: block;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 900;
+  line-height: 1.25;
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.32);
+}
+
+.fragment-calc-option-date {
+  display: block;
+  margin-top: 0.15rem;
+  color: rgba(232, 246, 255, 0.84);
+  font-size: 11px;
+  font-weight: 750;
+}
+
+.fragment-calc-option-side {
+  display: grid;
+  justify-items: end;
+  gap: 0.15rem;
+  color: #ffe8a8;
+  font-size: 13px;
+}
+
+.fragment-calc-option-badge {
+  border-radius: 999px;
+  border: 1px solid rgba(255, 170, 0, 0.3);
+  background: rgba(255, 170, 0, 0.13);
+  padding: 0.16rem 0.4rem;
+  color: #fff0bd;
+  font-size: 9px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+#floating-contact .fragment-event-paper,
+#floating-contact .fragment-event-option-list {
+  color: #ffffff;
+}
+
 #floating-contact .floating-fragment-event {
   position: relative;
 }
@@ -900,8 +1036,8 @@
 }
 
 #floating-contact .fragment-event-avatar img {
-  object-position: 70% 31%;
-  transform: scale(2.1);
+  object-position: center 28%;
+  transform: scale(1.08);
 }
 
 #floating-contact .fragment-event-button > span.hidden {
@@ -1234,6 +1370,140 @@
   .fragment-event-paper {
     max-height: min(70dvh, 620px);
     padding: 0.9rem;
+  }
+
+  #floating-contact {
+    right: max(0.75rem, env(safe-area-inset-right, 0px));
+    bottom: max(0.75rem, env(safe-area-inset-bottom, 0px));
+  }
+
+  #floating-contact .floating-fragment-event {
+    margin-bottom: 0.65rem;
+  }
+
+  #floating-contact .fragment-event-button {
+    min-width: min(76vw, 220px);
+    min-height: 62px;
+    gap: 0.65rem;
+    border-radius: 18px;
+    padding: 0.48rem 0.74rem 0.48rem 0.48rem;
+  }
+
+  #floating-contact .fragment-event-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+  }
+
+  #floating-contact .fragment-event-button-title {
+    font-size: 10px;
+    letter-spacing: 0.06em;
+  }
+
+  #floating-contact .fragment-event-countdown {
+    font-size: 14px;
+  }
+
+  #floating-contact .fragment-event-panel {
+    position: fixed;
+    left: max(0.75rem, env(safe-area-inset-left, 0px));
+    right: max(0.75rem, env(safe-area-inset-right, 0px));
+    top: auto;
+    bottom: calc(max(0.75rem, env(safe-area-inset-bottom, 0px)) + 8.6rem);
+    z-index: 92;
+    width: auto;
+    max-width: none;
+    transform: translateY(10px) scale(0.98);
+    transform-origin: bottom center;
+  }
+
+  #floating-contact .fragment-event-open .fragment-event-panel {
+    transform: translateY(0) scale(1);
+  }
+
+  #floating-contact .fragment-event-paper {
+    max-height: min(66dvh, 560px);
+    border-radius: 18px;
+    padding: 0.8rem;
+  }
+
+  #floating-contact .fragment-event-paper > div:first-child {
+    gap: 0.75rem;
+  }
+
+  #floating-contact .fragment-event-paper h3 {
+    font-size: 1rem;
+    line-height: 1.15;
+  }
+
+  #floating-contact .fragment-event-paper p {
+    line-height: 1.35;
+  }
+
+  #floating-contact .fragment-calc-compact {
+    margin-top: 0.8rem;
+  }
+
+  #floating-contact .fragment-calc-compact > div:first-child {
+    gap: 0.55rem;
+  }
+
+  #floating-contact .fragment-calc-compact > div:first-child > div:first-child {
+    padding: 0.8rem;
+  }
+
+  #floating-contact .fragment-calc-action {
+    min-height: 34px;
+    padding: 0.42rem 0.62rem;
+    font-size: 11px;
+  }
+
+  #floating-contact .fragment-event-option-list {
+    max-height: min(38dvh, 320px);
+    gap: 0.5rem;
+    padding-right: 0.15rem;
+  }
+
+  #floating-contact .fragment-calc-option {
+    min-height: 54px;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 0.58rem;
+    border-radius: 13px;
+    padding: 0.62rem 2.35rem 0.62rem 0.62rem;
+  }
+
+  #floating-contact .fragment-calc-option::after {
+    right: 0.62rem;
+    width: 1.35rem;
+    height: 1.35rem;
+    font-size: 0.86rem;
+  }
+
+  #floating-contact .fragment-calc-checkbox {
+    width: 18px;
+    height: 18px;
+  }
+
+  #floating-contact .fragment-calc-option-name {
+    font-size: 12px;
+  }
+
+  #floating-contact .fragment-calc-option-date {
+    font-size: 10px;
+  }
+
+  #floating-contact .fragment-calc-option-side {
+    grid-column: 2;
+    justify-items: start;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 12px;
+  }
+
+  #floating-contact .fragment-calc-option-badge {
+    font-size: 8px;
+    padding: 0.12rem 0.34rem;
   }
 
   .promo-latest-card,

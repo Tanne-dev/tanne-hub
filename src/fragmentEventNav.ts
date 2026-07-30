@@ -138,7 +138,7 @@ export function renderNavbarFragmentEventHtml(): string {
       title="${escapeHtml(copy.title)}"
     >
       <span class="fragment-event-avatar">
-        <img src="/news-images/khamir-scald-eye.webp" alt="" loading="lazy" decoding="async" />
+        <img src="/news-images/khamir-scald-eye-avatar.png" alt="" loading="lazy" decoding="async" />
       </span>
       <span class="hidden min-w-0 sm:grid">
         <span class="fragment-event-button-title">${escapeHtml(copy.label)}</span>
