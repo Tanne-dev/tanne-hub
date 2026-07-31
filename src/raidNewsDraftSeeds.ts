@@ -2669,7 +2669,306 @@ export const haggibahNestmaidFusionAnalysisDraftJul012026: {
   ],
 };
 
+export const vergumkaarDanagSkullreapRebalance1170DraftJul312026: {
+  id: string;
+  title: string;
+  caption: string;
+  titleVi: string;
+  captionVi: string;
+  contentVi: string;
+  blocks: PostBodyBlock[];
+} = {
+  id: "raid-news-2026-07-31-vergumkaar-danag-skullreap-1170-rebalance",
+  title: "Update 11.70 Rebalance Review: Vergumkaar and Danag Skullreap get meaningful upgrades",
+  caption:
+    "Tanne Hub early review of the 11.70 rebalance for Vergumkaar and Danag Skullreap, including best content ratings, build direction, and practical value after the changes.",
+  titleVi: "Đánh giá rebalance 11.70: Vergumkaar và Danag Skullreap được buff đáng chú ý",
+  captionVi:
+    "Đánh giá sớm của Tanne Hub về rebalance 11.70 cho Vergumkaar và Danag Skullreap, gồm xếp hạng content, hướng build và giá trị thực tế sau khi được sửa.",
+  contentVi: JSON.stringify([
+    {
+      type: "image",
+      url: "/news-images/vergumkaar-1170-rebalance.webp",
+      caption: "Vergumkaar được tăng mạnh khả năng cleanse, bảo vệ team, strip buff, miễn nhiễm Stun và tăng base Speed.",
+      align: "full",
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Tóm tắt nhanh**[/color]",
+        "- Update **11.70** buff đáng kể cho **Vergumkaar** và **Danag Skullreap**.",
+        "- Vergumkaar trở thành support sạch hơn: cleanse tốt hơn, Shield mạnh hơn, passive phản ứng tốt hơn, miễn nhiễm Stun và base Speed cao hơn.",
+        "- Danag Skullreap trở thành damage dealer nguy hiểm hơn, đặc biệt khi đánh vào High Elves, Dark Elves và Sylvan Watchers.",
+        "- Hai champion này chưa chắc thành must-build cho mọi account, nhưng sau đợt sửa này mỗi con đã có vai trò rõ hơn rất nhiều.",
+        "- Phản ứng cộng đồng vẫn còn sớm, nên đây là đánh giá ban đầu của Tanne Hub dựa trên rebalance note 11.70 và giá trị thực tế cho account.",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Đánh giá Vergumkaar sau rebalance**[/color]",
+        "Vergumkaar từ trước đã có ý tưởng kit khá thú vị, nhưng thường bị cảm giác chậm và hơi hẹp vai trò. Một support tốt cần bảo vệ team đúng lúc, cleanse đúng lúc, hoặc trừng phạt đối thủ đủ mạnh để xứng đáng chiếm slot. Những thay đổi trong 11.70 giúp Vergumkaar tiến gần hơn tới vai trò đó.",
+        "Nâng cấp quan trọng nhất là A2 giờ **xoá toàn bộ debuff khỏi toàn bộ đồng minh**. Đây là chức năng support rất thực tế. Trước đây hắn chủ yếu xoá Provoke và một debuff ngẫu nhiên, khá hạn chế. Bây giờ Vergumkaar có thể đóng vai trò cleanser thật sự trong Doom Tower waves, Faction Wars, Cursed City và một số kèo Arena.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Vergumkaar được sửa gì?**[/color]",
+        "- **A1 Bejeweled Bulk:** tỉ lệ Stun tốt hơn và dễ kích hoạt hơn khi mục tiêu có ít nhất một buff.",
+        "- **A2 Honored Ancient:** xoá toàn bộ debuff khỏi toàn bộ đồng minh, sau đó đặt Increase DEF và Shield mạnh hơn.",
+        "- **A3 Crushing Trample:** giờ có 75% cơ hội xoá toàn bộ buff khỏi toàn bộ kẻ địch, thay vì chỉ xoá buff ngẫu nhiên.",
+        "- **Passive Saurian Stoic:** Vergumkaar miễn nhiễm Provoke và Stun. Hắn tăng Turn Meter khi địch cố đặt các debuff đó lên mình, và cũng tăng Turn Meter khi đồng minh nhận Provoke hoặc Stun.",
+        "- **Base SPD:** tăng từ 99 lên 104, giúp hắn xoay vòng kỹ năng nhanh hơn và dễ build support hơn.",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Content phù hợp nhất cho Vergumkaar**[/color]",
+        "| Content | Đánh giá | Lý do |",
+        "| --- | --- | --- |",
+        "| Faction Wars | ★★★★★ | Giá trị support của Lizardmen tăng mạnh nhờ full cleanse, Increase DEF, Shield và strip buff. |",
+        "| Cursed City | ★★★★☆ | Pick chuyên dụng tốt hơn khi stage giới hạn Lizardmen, Spirit, Support hoặc cần buff control. |",
+        "| Doom Tower Waves | ★★★★☆ | Cleanse kết hợp strip toàn bộ buff địch giúp ổn định các wave khó. |",
+        "| Arena Offense | ★★★☆☆ | Có ích khi gặp team nhiều buff, nhưng vẫn cần Accuracy và timing đúng. |",
+        "| Arena Defense | ★★★☆☆ | Passive có thể gây khó chịu với Provoke/Stun, nhưng chưa phải anchor defense chắc chắn. |",
+        "| Hydra | ★★★☆☆ | Full buff strip và support có ích, nhưng không phải Hydra specialist hàng đầu. |",
+        "| Dungeons | ★★★☆☆ | Hữu dụng cho progression, ít quan trọng hơn với team farm nhanh. |",
+        "| Clan Boss | ★★☆☆☆ | Không phải content chính. Kit không xoay quanh rotation damage boss dài hạn. |",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Build Vergumkaar sau buff**[/color]",
+        "Vergumkaar nên được build như một defensive support, không phải damage dealer. Giá trị của hắn đến từ sống sót, lấy lượt, cleanse team, bảo vệ đồng minh và strip buff địch.",
+        "**Ưu tiên chỉ số:** Speed, HP, DEF, Accuracy, sau đó thêm Resistance nếu có thể. Nếu dùng chủ yếu làm cleanser PvE, Speed và độ trâu quan trọng nhất. Nếu muốn A3 strip buff ổn định, Accuracy sẽ quan trọng hơn nhiều.",
+        "**Set đề xuất:** Speed, Perception, Stoneskin, Protection, Bolster, Immortal, Resilience hoặc các set support mix mạnh. Trong Arena, Stoneskin giúp hắn sống qua lượt mở đầu. Trong PvE, Perception và Speed thường dễ dùng hơn.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Kết luận Vergumkaar**[/color]",
+        "Vergumkaar tốt hơn rõ rệt sau rebalance này. Full-team cleanse là thay đổi quan trọng nhất, vì nó cho hắn một công việc rõ ràng thay vì chỉ là champion anti-Provoke ngách. Shield mạnh hơn, phản ứng Turn Meter tốt hơn, miễn nhiễm Stun và Speed cao hơn đều giúp hắn hiện đại hơn.",
+        "Tuy vậy, mình vẫn chưa gọi Vergumkaar là must-build cho mọi account. Hắn cần Accuracy nếu bạn muốn strip buff, và vẫn cạnh tranh với rất nhiều support mạnh khác. Nhưng với Lizardmen Faction Wars, Cursed City, Doom Tower waves và account cần cleanser trâu bò, Vergumkaar rất đáng được xem lại.",
+        "Đây là ý kiến cá nhân của Tanne Hub. Nếu bài đánh giá này giúp bạn quyết định có nên build Vergumkaar hay không, hãy thả một Like để Tanne Hub biết nên làm thêm các bài phân tích rebalance như thế này.",
+      ].join("\n\n"),
+    },
+    {
+      type: "image",
+      url: "/news-images/danag-skullreap-1170-rebalance.webp",
+      caption: "Danag Skullreap được tăng damage, giảm phụ thuộc Accuracy, mở rộng anti-Elf và có A3 nổ sát thương mạnh hơn.",
+      align: "full",
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Đánh giá Danag Skullreap sau rebalance**[/color]",
+        "Rebalance của Danag Skullreap thiên về tấn công nhiều hơn Vergumkaar. Thay vì trở thành support sạch hơn, Danag trở thành một damage champion mang màu PvP rõ rệt hơn: trừng phạt các faction Elf và xuyên qua nhiều hiệu ứng phòng thủ khó chịu.",
+        "Điểm thiết kế thú vị nhất là một số debuff của Danag có thể không bị kháng nếu **Crit Damage của Danag cao hơn mục tiêu**. Điều này giúp người chơi build ít Accuracy hơn và tập trung nhiều hơn vào sát thương. Với nuker, đây là thay đổi rất lớn vì nuker thường rất ghét bị ép phải build Accuracy.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Danag Skullreap được sửa gì?**[/color]",
+        "- **A1 Shatter Confidence:** tỉ lệ Decrease DEF cao hơn, và debuff có thể không bị block/kháng khi đánh faction Elf nếu Crit Damage của Danag cao hơn.",
+        "- **A2 Bane of Elves:** vẫn là AoE Decrease ACC và True Fear, nhưng điều kiện không bị kháng giờ dựa vào Crit Damage và mở rộng sang High Elves, Dark Elves, Sylvan Watchers.",
+        "- **A3 Battle Flow:** tự đặt Increase Crit Damage trước khi đánh, ignore Shield, Unkillable, Strengthen và một phần DEF mục tiêu. Nếu mục tiêu thuộc faction Elf, ignore DEF còn mạnh hơn.",
+        "- **Passive Healthy Grudge:** vẫn hồi máu sau khi giết địch, nhận Extra Turn khi giết champion faction Elf, và giờ phản công khi bị High Elves, Dark Elves hoặc Sylvan Watchers đánh.",
+        "- **Stats:** Accuracy cũ bớt quan trọng hơn vì khi 6 sao ascended, ACC được chuyển sang RES, phù hợp với hướng debuff dựa trên Crit Damage.",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Content phù hợp nhất cho Danag**[/color]",
+        "| Content | Đánh giá | Lý do |",
+        "| --- | --- | --- |",
+        "| Arena Offense | ★★★★☆ | Burst mạnh hơn, Ignore DEF, chống Shield/Unkillable/Strengthen và ít cần Accuracy hơn. |",
+        "| Live Arena | ★★★★☆ | Có thể draft như counter-pick vào champion Elf hoặc team nhiều buff phòng thủ. |",
+        "| Tag Arena | ★★★★☆ | Dễ nhét vào team Arena thứ hai/thứ ba như một specialist nuker. |",
+        "| Faction Wars | ★★★★☆ | Orcs có thêm damage option tốt hơn, đặc biệt nếu bạn thiếu nuker wave mạnh. |",
+        "| Cursed City | ★★★★☆ | Có giá trị khi stage cho phép Orcs, Magic, Attack hoặc cần damage anti-buff. |",
+        "| Doom Tower Waves | ★★★☆☆ | Damage và control có ích, nhưng hắn vẫn thiên về PvP hơn wave-control thuần. |",
+        "| Dungeons | ★★★☆☆ | Có thể dọn wave, nhưng khó thay thế team farm nhanh đã tối ưu. |",
+        "| Hydra | ★★☆☆☆ | Giá trị hạn chế. Kit không tập trung vào nhu cầu cốt lõi của Hydra. |",
+        "| Clan Boss | ★☆☆☆☆ | Không khuyến nghị. Cơ chế mạnh nhất của hắn không dành cho Clan Boss. |",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Build Danag sau buff**[/color]",
+        "Danag bây giờ nên được build giống một nuker thật sự hơn. Điều kiện Crit Damage rất quan trọng: nếu Crit Damage của hắn cao hơn mục tiêu, debuff sẽ đáng tin hơn mà không cần build Accuracy thông thường. Điều này biến Crit Damage thành chỉ số hai công dụng.",
+        "**Ưu tiên chỉ số:** 100% Crit Rate, Crit Damage cao, Attack, Speed, sau đó là sống sót. Accuracy ít quan trọng hơn nếu bạn đi theo hướng Crit Damage check mới. Với PvP, speed tune phụ thuộc vào việc Danag đi sau setup champion hay chơi kiểu Stoneskin/slow nuker.",
+        "**Set đề xuất:** Savage, Lethal, Merciless, Cruel, Instinct, Stoneskin hoặc các set damage mix có Crit Damage mạnh. Nếu muốn dùng làm Arena specialist, hãy ưu tiên damage và setup ổn định hơn là chỉ số PvE chung chung.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Kết luận Danag Skullreap**[/color]",
+        "Danag Skullreap trông thú vị hơn rất nhiều sau rebalance này. Increase Crit Damage trên A3, Ignore DEF, thêm nhiều hiệu ứng ignore và mở rộng điều kiện anti-Elf giúp hắn có vai trò rõ hơn. Hắn không còn chỉ là một Legendary cũ có concept thú vị, mà đã có lý do để được test trong Arena và Live Arena.",
+        "Điểm hạn chế là một phần sức mạnh vẫn có điều kiện. Danag đẹp nhất khi đánh High Elves, Dark Elves, Sylvan Watchers, hoặc khi Crit Damage check giúp hắn bỏ qua yêu cầu Accuracy thông thường. Gặp mục tiêu trung lập, vẫn cần test damage thực tế trước khi gọi hắn là top-tier. Nhưng nếu bạn đã có Danag, rebalance này rất đáng test trước khi tiếp tục để hắn nằm kho.",
+        "Đây là ý kiến cá nhân của Tanne Hub. Nếu bài đánh giá này giúp bạn quyết định có nên build Danag Skullreap hay không, hãy thả một Like để Tanne Hub biết nên làm thêm các bài phân tích rebalance như thế này.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Ghi chú cuối từ Tanne Hub**[/color]",
+        "Vergumkaar là nâng cấp an toàn và thực tế hơn cho progression và faction content. Danag Skullreap là nâng cấp gây hứng thú hơn cho người chơi PvP và những ai thích counter-pick chuyên dụng.",
+        "Nếu account của bạn cần support, cleanse và bảo vệ team, hãy test Vergumkaar trước. Nếu account cần thêm một damage option Arena và bạn đã có gear mạnh, Danag là dự án bùng nổ hơn.",
+      ].join("\n\n"),
+    },
+  ]),
+  blocks: [
+    {
+      type: "image",
+      url: "/news-images/vergumkaar-1170-rebalance.webp",
+      caption: "Vergumkaar receives stronger cleanse, protection, buff strip pressure, Stun immunity, and higher base Speed.",
+      align: "full",
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Quick summary**[/color]",
+        "- Update **11.70** gives meaningful buffs to **Vergumkaar** and **Danag Skullreap**.",
+        "- Vergumkaar becomes a cleaner support champion: better cleanse, stronger Shield, improved passive reaction, Stun immunity, and higher base Speed.",
+        "- Danag Skullreap becomes a much more dangerous damage dealer, especially into High Elves, Dark Elves, and Sylvan Watchers.",
+        "- These changes do not turn both champions into universal must-builds, but they finally give each champion a clearer purpose.",
+        "- Community discussion is still early, so this is an early Tanne Hub evaluation based on the 11.70 rebalance notes and practical account value.",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Vergumkaar rebalance review**[/color]",
+        "Vergumkaar has always had an interesting idea behind his kit, but before this rebalance he often felt too slow and too narrow. A support champion needs to either protect the team at the right moment, cleanse at the right moment, or punish the enemy hard enough that the slot feels justified. The 11.70 changes push him much closer to that identity.",
+        "The biggest practical upgrade is that his A2 now removes **all debuffs from all allies**. That is a real support function. Before, he was more limited because he removed Provoke and only one random debuff. Now he can act as a true team cleanser, which matters in Doom Tower waves, Faction Wars, Cursed City, and some Arena situations.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**What changed for Vergumkaar**[/color]",
+        "- **A1 Bejeweled Bulk:** Stun chance is improved and becomes easier to trigger when the target has at least one buff.",
+        "- **A2 Honored Ancient:** now removes all debuffs from all allies, then places Increase DEF and a stronger Shield.",
+        "- **A3 Crushing Trample:** now has a 75% chance to remove all buffs from all enemies, instead of removing only random buffs.",
+        "- **Passive Saurian Stoic:** Vergumkaar is now immune to Provoke and Stun. He gains Turn Meter when enemies try to place those debuffs on him, and also when allies receive Provoke or Stun.",
+        "- **Base SPD:** increased from 99 to 104, helping him cycle faster and making support builds feel less painful.",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Vergumkaar best content after rebalance**[/color]",
+        "| Content | Rating | Why |",
+        "| --- | --- | --- |",
+        "| Faction Wars | ★★★★★ | Lizardmen support value improves a lot with full cleanse, Increase DEF, Shield, and buff strip. |",
+        "| Cursed City | ★★★★☆ | Stronger specialist pick when restrictions allow Lizardmen, Spirit, Support, or buff control tools. |",
+        "| Doom Tower Waves | ★★★★☆ | Cleanse plus full enemy buff strip can stabilize difficult wave floors. |",
+        "| Arena Offense | ★★★☆☆ | Useful into buff-heavy teams, but still needs Accuracy and correct timing. |",
+        "| Arena Defense | ★★★☆☆ | Passive can annoy Provoke/Stun plans, but he is not a guaranteed meta defense anchor. |",
+        "| Hydra | ★★★☆☆ | Full buff strip and support tools can help, but he is not a top Hydra specialist. |",
+        "| Dungeons | ★★★☆☆ | Useful for progression, less important for fast farming. |",
+        "| Clan Boss | ★★☆☆☆ | Not his main content. His kit is not built around long boss damage rotations. |",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**How to build Vergumkaar now**[/color]",
+        "Vergumkaar should be built as a defensive support, not as a damage dealer. His value comes from surviving, taking turns, cleansing the team, protecting allies, and landing his buff strip.",
+        "**Stat priority:** Speed, HP, DEF, Accuracy, then Resistance if you can afford it. If you use him mostly as a cleanser in PvE, Speed and survivability come first. If you expect his A3 to strip enemy buffs, Accuracy becomes much more important.",
+        "**Recommended sets:** Speed, Perception, Stoneskin, Protection, Bolster, Immortal, Resilience, or any strong mixed support setup. For Arena, Stoneskin can help him survive the opening turn. For PvE, Perception and Speed are usually more comfortable.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Vergumkaar verdict**[/color]",
+        "Vergumkaar is much better after this rebalance. The full-team cleanse is the change that matters most, because it gives him a clean job instead of making him feel like a niche anti-Provoke champion. The stronger Shield, better Turn Meter reaction, Stun immunity, and improved Speed all help him feel more modern.",
+        "I still would not call him a universal must-build for every account. He needs Accuracy if you care about the buff strip, and he still competes with many strong supports. But for Lizardmen Faction Wars, Cursed City restrictions, Doom Tower waves, and accounts that need a durable cleanser, Vergumkaar is finally worth a serious second look.",
+        "This is Tanne Hub's personal opinion. If this review helps you decide whether to build Vergumkaar, leave one Like so Tanne Hub knows to make more rebalance breakdowns like this.",
+      ].join("\n\n"),
+    },
+    {
+      type: "image",
+      url: "/news-images/danag-skullreap-1170-rebalance.webp",
+      caption: "Danag Skullreap gains higher damage pressure, conditional no-ACC debuffs, stronger anti-Elf identity, and a more explosive A3.",
+      align: "full",
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Danag Skullreap rebalance review**[/color]",
+        "Danag Skullreap's rebalance is more aggressive than Vergumkaar's. Instead of becoming a cleaner support, Danag becomes a sharper PvP-style damage champion with a very specific identity: punish Elven factions and break through defensive effects.",
+        "The most interesting design change is that several of his debuffs can become impossible to resist if Danag's **Crit Damage is higher than the target's**. That means players can build him with less focus on Accuracy and more focus on damage. This is a big deal because nukers usually hate being forced into Accuracy builds. Danag now has a path where damage stats also support his debuff reliability.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**What changed for Danag Skullreap**[/color]",
+        "- **A1 Shatter Confidence:** higher Decrease DEF chance, and the debuff can become unblockable/unresistable against Elven factions when Danag's Crit Damage is higher.",
+        "- **A2 Bane of Elves:** AoE Decrease ACC and True Fear remain, but the no-resist condition now checks Crit Damage and includes High Elves, Dark Elves, and Sylvan Watchers.",
+        "- **A3 Battle Flow:** now places Increase Crit Damage before attacking, ignores Shield, Unkillable, Strengthen, and part of the target's DEF. It ignores even more DEF against Elven factions.",
+        "- **Passive Healthy Grudge:** still heals Danag after kills, grants Extra Turn after killing Elven faction enemies, and now counterattacks when attacked by High Elves, Dark Elves, or Sylvan Watchers.",
+        "- **Stats:** his old Accuracy is effectively less important because at 6-star ascension his ACC reallocates to RES, supporting the new Crit Damage-based debuff condition.",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Danag best content after rebalance**[/color]",
+        "| Content | Rating | Why |",
+        "| --- | --- | --- |",
+        "| Arena Offense | ★★★★☆ | Stronger burst, Ignore DEF, anti-Shield/Unkillable/Strengthen tools, and less need for Accuracy. |",
+        "| Live Arena | ★★★★☆ | Can be drafted as a counter-pick into Elven champions or defensive buff teams. |",
+        "| Tag Arena | ★★★★☆ | Easier to fit into a second or third Arena team as a specialist nuker. |",
+        "| Faction Wars | ★★★★☆ | Orcs damage option improves, especially for players lacking stronger wave nukers. |",
+        "| Cursed City | ★★★★☆ | Valuable when restrictions allow Orcs, Magic, Attack, or anti-buff damage. |",
+        "| Doom Tower Waves | ★★★☆☆ | Damage and control can help, but he is more PvP-flavored than wave-control specialist. |",
+        "| Dungeons | ★★★☆☆ | Can clear waves, but not likely to replace optimized speed farming teams. |",
+        "| Hydra | ★★☆☆☆ | Limited value. He is not built around Hydra's core needs. |",
+        "| Clan Boss | ★☆☆☆☆ | Not recommended. His strongest mechanics are not made for Clan Boss. |",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**How to build Danag after the buff**[/color]",
+        "Danag should now be built much more like a real nuker. The Crit Damage condition is important: if his Crit Damage is higher than the target's, his debuffs become far more reliable without needing a normal Accuracy build. That makes high Crit Damage a double-purpose stat.",
+        "**Stat priority:** 100% Crit Rate, high Crit Damage, Attack, Speed, then survivability. Accuracy is much less important if you are leaning into the new Crit Damage check. For PvP, Speed tuning matters depending on whether he goes after your setup champion or operates inside Stoneskin/slow nuker teams.",
+        "**Recommended sets:** Savage, Lethal, Merciless, Cruel, Instinct, Stoneskin, or mixed damage sets with strong Crit Damage. If you want him to be a specialist Arena threat, prioritize damage and reliable setup over generic PvE stats.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Danag verdict**[/color]",
+        "Danag Skullreap looks much more exciting after this rebalance. The added Increase Crit Damage on A3, Ignore DEF, extra ignore effects, and expanded anti-Elf conditions give him a much clearer role. He is no longer just an old Legendary with an interesting theme; he now has a reason to be tested as an Arena and Live Arena specialist.",
+        "The limitation is that part of his identity is still conditional. He looks best when fighting High Elves, Dark Elves, or Sylvan Watchers, or when his Crit Damage check lets him ignore normal Accuracy requirements. Against neutral targets, he may still need real damage testing before we call him top-tier. But for players who already own Danag, this rebalance is absolutely worth testing before leaving him in the vault.",
+        "This is Tanne Hub's personal opinion. If this review helps you decide whether to build Danag Skullreap, leave one Like so Tanne Hub knows to make more rebalance breakdowns like this.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Final Tanne Hub note**[/color]",
+        "Vergumkaar is the safer practical upgrade for progression and faction content. Danag Skullreap is the more exciting damage upgrade for PvP players and anyone who enjoys specialist counter-picks.",
+        "If your account needs support, cleanse, and protection, test Vergumkaar first. If your account needs a new Arena damage option and you already have strong gear, Danag is the more explosive project.",
+      ].join("\n\n"),
+    },
+  ],
+};
+
 export const raidNewsDraftSeeds = [
+  vergumkaarDanagSkullreapRebalance1170DraftJul312026,
   khamirFragmentEventCalendarDraftJul282026,
   khamirScaldEyeFragmentGuideDraftJul242026,
   varkosHeadsplitterChampionGuideDraftJul162026,

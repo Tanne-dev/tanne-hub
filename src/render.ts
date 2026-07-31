@@ -2,7 +2,7 @@ import { ACCOUNT_HERO_MORE_EPIC_LABEL, ACCOUNT_HERO_MORE_LEGENDARY_LABEL } from 
 import { pageInner } from "./layout";
 import { escapeHtml, renderPostArticleBodyHtml } from "./postBody";
 import { bindHelpfulReactionButtons, renderHelpfulButton } from "./postHelpfulReactions";
-import { getPostByIdRemote, getPosts, savePosts } from "./postsStore";
+import { getPostByIdRemote, getPosts, savePosts, type PostItem } from "./postsStore";
 import { getSellingAccounts } from "./sellingAccountsStore";
 import { renderLazySectionPlaceholder } from "./lazySections";
 import { renderHeader } from "./sections/header";
@@ -13,6 +13,23 @@ import { HONEYGAIN_REFERRAL_URL } from "./referralLinks";
 import { getLocalizedPost, getNewsLanguage, postHasVietnamese, siteText } from "./newsLanguage";
 import { setPostSocialMeta } from "./socialMeta";
 import { bindFragmentEventCalculators } from "./fragmentEventCalculator";
+
+const refreshedPostDetailIds = new Set<string>();
+
+function shouldRefreshCachedPost(current: PostItem | undefined, remote: PostItem): boolean {
+  if (!current) return true;
+  return (
+    current.title !== remote.title ||
+    current.caption !== remote.caption ||
+    current.content !== remote.content ||
+    current.titleVi !== remote.titleVi ||
+    current.captionVi !== remote.captionVi ||
+    current.contentVi !== remote.contentVi ||
+    current.imageUrl !== remote.imageUrl ||
+    current.imagePosition !== remote.imagePosition ||
+    current.createdAt !== remote.createdAt
+  );
+}
 
 /**
  * Ghép trang từ từng phần trong `src/sections/`.
@@ -437,11 +454,16 @@ export function renderPostDetail(root: HTMLElement, postId: string): void {
   bindHelpfulReactionButtons();
   bindFragmentEventCalculators(root);
 
-  if (post) return;
+  if (refreshedPostDetailIds.has(postId)) return;
+  refreshedPostDetailIds.add(postId);
 
   void getPostByIdRemote(postId).then((remotePost) => {
     if (!remotePost) return;
-    const refreshed = getPosts().filter((item) => item.id !== remotePost.id);
+    const posts = getPosts();
+    const current = posts.find((item) => item.id === remotePost.id);
+    if (!shouldRefreshCachedPost(current, remotePost)) return;
+
+    const refreshed = posts.filter((item) => item.id !== remotePost.id);
     refreshed.unshift(remotePost);
     savePosts(refreshed);
     renderPostDetail(root, postId);
