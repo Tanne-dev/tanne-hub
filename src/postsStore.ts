@@ -191,17 +191,28 @@ export async function updatePostRemote(
   if (patch.titleVi !== undefined) row.title_vi = patch.titleVi || null;
   if (patch.captionVi !== undefined) row.caption_vi = patch.captionVi || null;
   if (patch.contentVi !== undefined) row.content_vi = patch.contentVi || null;
-  const { error } = await supabaseClient.from("posts").update(row).eq("id", postId);
+  const { data, error } = await supabaseClient
+    .from("posts")
+    .update(row)
+    .eq("id", postId)
+    .select("id")
+    .maybeSingle();
   if (error) {
     if (isMissingVietnameseColumnError(error.message)) {
-      const retry = await supabaseClient
+      const { data: retryData, error: retryError } = await supabaseClient
         .from("posts")
         .update(rowWithoutVietnamese(row))
-        .eq("id", postId);
-      if (!retry.error) return { ok: true, translationsSkipped: true };
-      return { ok: false, error: retry.error.message };
+        .eq("id", postId)
+        .select("id")
+        .maybeSingle();
+      if (!retryError && retryData) return { ok: true, translationsSkipped: true };
+      if (!retryError) return { ok: false, error: "Post was not updated. It may not exist in the database or the current user has no update permission." };
+      return { ok: false, error: retryError.message };
     }
     return { ok: false, error: error.message };
+  }
+  if (!data) {
+    return { ok: false, error: "Post was not updated. It may not exist in the database or the current user has no update permission." };
   }
   return { ok: true };
 }
