@@ -2967,7 +2967,302 @@ export const vergumkaarDanagSkullreapRebalance1170DraftJul312026: {
   ],
 };
 
+export const covetousPassionMythicalRelicReviewDraftAug022026: {
+  id: string;
+  title: string;
+  caption: string;
+  titleVi: string;
+  captionVi: string;
+  contentVi: string;
+  blocks: PostBodyBlock[];
+} = {
+  id: "raid-news-2026-08-02-covetous-passion-mythical-relic",
+  title: "Covetous' Passion Mythical Relic Review: Shatter burst, Fallen Path value, and best users",
+  caption:
+    "Tanne Hub reviews the Mythical Covetous' Passion relic from the Fallen Path Hero's Path event, including its Shatter pressure, best users, and whether it is worth chasing.",
+  titleVi: "Đánh giá Mythical Relic Covetous' Passion: Shatter, sát thương mở round và có đáng săn không?",
+  captionVi:
+    "Tanne Hub phân tích Mythical Relic Covetous' Passion trong Fallen Path Hero's Path event: sức mạnh Shatter, tướng phù hợp và có đáng tiêu tài nguyên để lấy không.",
+  blocks: [
+    {
+      type: "image",
+      url: "/news-images/covetous-passion-mythical-relic.png",
+      caption: "Mythical relics are rare chase items, and Covetous' Passion is the headline offensive relic appearing in this Fallen Path event window.",
+      align: "full",
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**What is Covetous' Passion?**[/color]",
+        "Covetous' Passion is a **Mythical Relic** currently shown inside the Fallen Path Hero's Path event. From the in-game relic panel, its main effect is built around **Shatter**, an offensive buff that increases the wearer's pressure when a fight starts and can return again after the wearer secures a kill.",
+        "The version shown in the event is a 4-star Mythical relic with visible starter stats including **ATK +53**, plus locked stat lines that open later through upgrades. The important part is not only the stats; it is the tempo effect. Covetous' Passion gives the wearer immediate Shatter pressure at the start of a round, then rewards kill momentum with another chance to apply Shatter again.",
+      ].join("\n\n"),
+    },
+    {
+      type: "image",
+      url: "/news-images/covetous-passion-storage.png",
+      caption: "Covetous' Passion shown in Relic Storage with its Shatter-based effect and upgrade path.",
+      align: "full",
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Relic effect explained**[/color]",
+        "Based on the in-game text shown in the screenshot:",
+        "- The wearer receives a **15% Shatter buff for 2 turns** at the start of a round.",
+        "- The wearer has a **30% chance** to place a **15% Shatter buff for 1 turn** after killing an enemy.",
+        "Shatter is the whole reason this relic matters. A 15% Shatter buff means the wearer gains more Ignore DEF, so the best users are champions that already deal real damage and want to break through tanky targets faster.",
+        "This is not a general support relic. It is a burst relic for champions that can open a round, kill something, and then keep moving.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Quick summary**[/color]",
+        "| Category | Tanne Hub take |",
+        "| --- | --- |",
+        "| Relic name | Covetous' Passion |",
+        "| Rarity | Mythical |",
+        "| Main mechanic | Shatter buff |",
+        "| Best style | Fast burst, wave clear, PvP nuking |",
+        "| Best users | Damage dealers that can secure kills |",
+        "| Weakest use | Long boss fights with few kill triggers |",
+        "| Value | High for Arena/wave accounts, optional for early-game accounts |",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Why Shatter changes the value**[/color]",
+        "Shatter is valuable because it improves Ignore DEF instead of only adding a normal damage stat. That makes it especially useful on nukers who already have high Crit Rate, high Crit Damage, and skills built to delete enemies.",
+        "The opening 2-turn Shatter window is the important part. In Arena and wave content, most fights are decided in the first rotation. If your nuker kills during that window, Covetous' Passion can also roll its kill-trigger effect and keep the pressure active for another target.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Best champions for Covetous' Passion**[/color]",
+        "| Champion type | Fit | Why it works |",
+        "| --- | --- | --- |",
+        "| **Seer** | ★★★★★ | Seer is one of the cleanest wave-clear users. Shatter helps her Karma Burn style damage push through defense and delete waves faster. |",
+        "| **Sun Wukong** | ★★★★★ | Wukong is already a strong PvP damage threat. Extra Ignore DEF pressure makes his burst and clean-up turns more dangerous. |",
+        "| **Siegfrund the Nephilim** | ★★★★★ | A premium damage champion that wants to secure kills quickly. Covetous' Passion supports his snowball style very well. |",
+        "| **Kurosa the Covetous** | ★★★★☆ | Her kit already connects with Shatter, so this relic fits her identity and helps her damage form hit harder. |",
+        "| **High-end Arena nukers** | ★★★★☆ | Any nuker with 100% Crit Rate, high Crit Damage, and reliable kill pressure can use the opening Shatter window. |",
+        "| **Boss-only DPS** | ★☆☆☆☆ | Not recommended. The start-of-round value and kill trigger are much weaker in long boss fights. |",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Who should avoid it?**[/color]",
+        "- Do not put it on pure supports, revivers, cleansers, or tanks.",
+        "- Do not prioritize it for Clan Boss damage dealers.",
+        "- Do not force it onto a champion that cannot secure kills.",
+        "- Do not chase the relic if your account lacks a strong nuker to carry it.",
+      ].join("\n"),
+    },
+    {
+      type: "image",
+      url: "/news-images/fallen-path-event-relic.png",
+      caption: "The Fallen Path event route includes relic rewards, Soulstone objectives, artifact/accessory objectives, and event currency decisions.",
+      align: "full",
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Fallen Path event value**[/color]",
+        "The only event question that matters is simple: **do you have a champion that can use this relic right now?**",
+        "If you have Seer, Sun Wukong, Siegfrund, Kurosa, or another properly geared nuker, this relic can be worth chasing. If your best damage dealers are still undergeared, the relic may sit in storage doing very little.",
+        "Because the event route involves artifact/accessory objectives and Soulstone objectives, do not spend blindly. This relic is a strong chase item for developed accounts, not a must-have for every new player.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Best content ratings**[/color]",
+        "| Content | Rating | Why |",
+        "| --- | --- | --- |",
+        "| Arena Offense | ★★★★★ | Opening Shatter pressure fits fast nuking perfectly. |",
+        "| Tag Arena | ★★★★★ | Great for building a dangerous second or third nuker team. |",
+        "| Live Arena | ★★★★☆ | Strong if drafted on a champion that can secure kills, but matchups still matter. |",
+        "| Doom Tower Waves | ★★★★☆ | Helps wave nukers push damage from the start of each round. |",
+        "| Cursed City | ★★★★☆ | Valuable when restrictions allow your best damage dealer. |",
+        "| Dungeons | ★★★☆☆ | Useful for wave speed, less important for boss damage. |",
+        "| Hydra | ★★☆☆☆ | Kill-trigger value is limited and Hydra needs specialized utility. |",
+        "| Clan Boss | ★☆☆☆☆ | Not recommended; the relic is not designed around long boss rotations. |",
+        "| Collection value | ★★★★★ | Mythical relics are rare, and offensive ones can age well. |",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Strengths**[/color]",
+        "- Immediate Shatter pressure at the start of each round.",
+        "- Strong fit for Arena and wave nukers.",
+        "- Can snowball after kills.",
+        "- Especially good on Seer, Sun Wukong, Siegfrund, Kurosa, and similar nukers.",
+        "- Works best in content where fights are decided quickly.",
+        "## [color=#ffaa00]**Weaknesses**[/color]",
+        "- The kill-trigger Shatter is chance-based.",
+        "- Less valuable in long boss fights.",
+        "- Needs a strong damage dealer to justify the slot.",
+        "- Event path may be expensive depending on your resource situation.",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Tanne verdict**[/color]",
+        "Covetous' Passion looks like a high-ceiling offensive relic, not a universal relic for every champion. Its value is clear: start the round with Shatter, hit harder early, and try to keep pressure going after kills. For Arena players, Tag Arena teams, and wave-clear accounts, this can be a very exciting chase item.",
+        "But it is not something every player should destroy resources for. If your account cannot use the relic on a real nuker, or if you need Soulstones and event coins for more important progression goals, it is completely fine to skip. A powerful relic is only powerful when your account has the champion, gear, and team setup to activate its value.",
+        "My personal Tanne Hub take: **Covetous' Passion is worth chasing for PvP and wave-focused accounts, but optional for early-game players and boss-focused accounts.**",
+        "This is Tanne Hub's personal opinion. If this review helps you decide whether to chase the relic, leave one Like so Tanne Hub knows to make more relic breakdowns like this.",
+      ].join("\n\n"),
+    },
+  ],
+  contentVi: JSON.stringify([
+    {
+      type: "image",
+      url: "/news-images/covetous-passion-mythical-relic.png",
+      caption: "Mythical Relic là nhóm relic rất hiếm, và Covetous' Passion đang là món đáng chú ý trong Fallen Path event lần này.",
+      align: "full",
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Covetous' Passion là relic gì?**[/color]",
+        "Covetous' Passion là một **Mythical Relic** đang xuất hiện trong Fallen Path Hero's Path event. Dựa trên phần mô tả trong game, relic này xoay quanh hiệu ứng **Shatter**, giúp người đeo có thêm áp lực sát thương ngay từ đầu round và có cơ hội tiếp tục duy trì áp lực sau khi kết liễu mục tiêu.",
+        "Phiên bản hiển thị trong ảnh là relic Mythical 4 sao, có dòng chỉ số mở đầu như **ATK +53**, kèm các dòng chỉ số bị khóa sẽ mở khi nâng cấp. Nhưng điểm quan trọng nhất không nằm ở chỉ số ban đầu, mà nằm ở cơ chế tempo: vào round là có Shatter, giết được địch thì có cơ hội kích lại Shatter.",
+      ].join("\n\n"),
+    },
+    {
+      type: "image",
+      url: "/news-images/covetous-passion-storage.png",
+      caption: "Covetous' Passion trong Relic Storage với hiệu ứng Shatter và các mốc nâng cấp.",
+      align: "full",
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Hiệu ứng relic hoạt động thế nào?**[/color]",
+        "Theo mô tả trong ảnh:",
+        "- Người đeo nhận **15% Shatter trong 2 lượt** ở đầu mỗi round.",
+        "- Khi người đeo giết được kẻ địch, có **30% cơ hội** đặt **15% Shatter trong 1 lượt** lên bản thân.",
+        "Shatter là lý do chính khiến relic này đáng chú ý. 15% Shatter giúp người đeo có thêm Ignore DEF, vì vậy relic này mạnh nhất trên champion đã có sát thương thật sự và cần phá qua mục tiêu trâu bò nhanh hơn.",
+        "Đây không phải relic support chung chung. Đây là relic burst dành cho champion có thể mở round, giết mục tiêu và tiếp tục snowball.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Tóm tắt nhanh**[/color]",
+        "| Hạng mục | Đánh giá Tanne Hub |",
+        "| --- | --- |",
+        "| Tên relic | Covetous' Passion |",
+        "| Độ hiếm | Mythical |",
+        "| Cơ chế chính | Shatter buff |",
+        "| Lối chơi hợp nhất | Burst nhanh, clear wave, PvP nuker |",
+        "| Người đeo tốt nhất | Champion gây sát thương có khả năng kết liễu |",
+        "| Nội dung yếu nhất | Boss fight dài, ít mục tiêu để giết |",
+        "| Giá trị | Cao cho account Arena/wave, không bắt buộc cho early game |",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Vì sao Shatter làm relic này đáng giá?**[/color]",
+        "Shatter đáng giá vì nó tăng khả năng Ignore DEF thay vì chỉ cộng một chỉ số sát thương bình thường. Điều này đặc biệt hợp với nuker đã có Crit Rate, Crit Damage và bộ skill sinh ra để xoá mục tiêu.",
+        "Cửa sổ Shatter 2 lượt đầu round là phần quan trọng nhất. Trong Arena và wave content, đa số trận được quyết định ngay trong vòng đánh đầu tiên. Nếu nuker của bạn giết được mục tiêu trong thời gian đó, Covetous' Passion còn có thể kích thêm hiệu ứng sau khi giết để giữ áp lực lên mục tiêu kế tiếp.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Champion phù hợp nhất với Covetous' Passion**[/color]",
+        "| Champion / nhóm tướng | Độ hợp | Vì sao phù hợp |",
+        "| --- | --- | --- |",
+        "| **Seer** | ★★★★★ | Seer là một trong những tướng clear wave mạnh nhất. Shatter giúp kiểu sát thương Karma Burn phá qua DEF tốt hơn và dọn wave nhanh hơn. |",
+        "| **Sun Wukong** | ★★★★★ | Wukong vốn đã là damage threat rất mạnh trong PvP. Thêm Ignore DEF từ Shatter khiến burst và khả năng dọn mục tiêu nguy hiểm hơn. |",
+        "| **Siegfrund the Nephilim** | ★★★★★ | Damage champion cao cấp, muốn giết nhanh và snowball. Covetous' Passion hỗ trợ rất tốt lối chơi này. |",
+        "| **Kurosa the Covetous** | ★★★★☆ | Bộ kit đã có liên hệ với Shatter, nên relic này hợp với identity của cô ấy và giúp dạng damage đánh đau hơn. |",
+        "| **Arena nuker mạnh** | ★★★★☆ | Bất kỳ nuker nào có 100% Crit Rate, Crit Damage cao và khả năng kết liễu ổn đều tận dụng tốt Shatter đầu round. |",
+        "| **DPS chỉ dùng cho boss** | ★☆☆☆☆ | Không khuyến nghị. Giá trị đầu round và hiệu ứng sau khi giết yếu hơn rất nhiều trong boss fight dài. |",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Ai không nên dùng relic này?**[/color]",
+        "- Không nên đặt lên support thuần, reviver, cleanser hoặc tanker.",
+        "- Không nên ưu tiên cho champion chuyên Clan Boss.",
+        "- Không nên ép dùng trên champion không có khả năng kết liễu.",
+        "- Không nên chase nếu account chưa có nuker đủ mạnh để tận dụng relic.",
+      ].join("\n"),
+    },
+    {
+      type: "image",
+      url: "/news-images/fallen-path-event-relic.png",
+      caption: "Fallen Path event có nhiều nhánh phần thưởng, yêu cầu cân nhắc tài nguyên trước khi chase relic.",
+      align: "full",
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Giá trị trong Fallen Path event**[/color]",
+        "Câu hỏi quan trọng nhất trong event này rất đơn giản: **bạn có champion dùng được relic này ngay bây giờ không?**",
+        "Nếu bạn có Seer, Sun Wukong, Siegfrund, Kurosa hoặc một nuker đã build tốt, relic này đáng cân nhắc. Nếu damage dealer của bạn vẫn thiếu gear, relic có thể chỉ nằm trong kho và chưa tạo khác biệt rõ ràng.",
+        "Vì event route có objective về artifact/accessory và Soulstone, đừng tiêu tài nguyên mù quáng. Đây là món đáng săn cho account đã phát triển, không phải thứ bắt buộc với mọi người chơi mới.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Bảng đánh giá content**[/color]",
+        "| Content | Điểm | Lý do |",
+        "| --- | --- | --- |",
+        "| Arena Offense | ★★★★★ | Shatter đầu round rất hợp với lối đánh nuker nhanh. |",
+        "| Tag Arena | ★★★★★ | Tốt để xây thêm đội nuker thứ hai hoặc thứ ba. |",
+        "| Live Arena | ★★★★☆ | Mạnh nếu draft đúng champion có khả năng kết liễu, nhưng vẫn phụ thuộc matchup. |",
+        "| Doom Tower Waves | ★★★★☆ | Giúp wave nuker tăng áp lực sát thương ngay từ đầu round. |",
+        "| Cursed City | ★★★★☆ | Có giá trị khi restriction cho phép dùng damage dealer phù hợp. |",
+        "| Dungeons | ★★★☆☆ | Có ích cho tốc độ dọn wave, ít quan trọng hơn ở boss. |",
+        "| Hydra | ★★☆☆☆ | Giá trị kill-trigger thấp, Hydra cần utility chuyên biệt hơn. |",
+        "| Clan Boss | ★☆☆☆☆ | Không khuyến nghị, vì relic không sinh ra cho boss rotation dài. |",
+        "| Giá trị sưu tầm | ★★★★★ | Mythical relic hiếm và relic tấn công thường giữ giá trị lâu dài. |",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Điểm mạnh**[/color]",
+        "- Có Shatter ngay đầu mỗi round.",
+        "- Rất hợp với Arena và wave nuker.",
+        "- Có khả năng snowball sau khi giết mục tiêu.",
+        "- Đặc biệt hợp với Seer, Sun Wukong, Siegfrund, Kurosa và các nuker tương tự.",
+        "- Hợp với các trận quyết định nhanh.",
+        "## [color=#ffaa00]**Điểm yếu**[/color]",
+        "- Phần kích lại Shatter sau khi giết là cơ hội, không đảm bảo.",
+        "- Giá trị thấp hơn trong boss fight dài.",
+        "- Cần damage dealer mạnh để đáng dùng.",
+        "- Event path có thể tốn tài nguyên tùy vị trí phần thưởng.",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Tanne verdict**[/color]",
+        "Covetous' Passion là một relic tấn công có trần sức mạnh cao, nhưng không phải relic quốc dân cho mọi champion. Giá trị của nó rất rõ: vào round có Shatter, đánh mạnh hơn từ sớm, và nếu giết được mục tiêu thì có cơ hội duy trì áp lực. Với người chơi Arena, Tag Arena hoặc account chuyên clear wave, đây là món rất đáng chú ý.",
+        "Tuy nhiên, không phải ai cũng nên đốt tài nguyên để lấy. Nếu account của bạn chưa có nuker đủ mạnh, hoặc bạn đang cần Soulstone/event coin cho mục tiêu quan trọng hơn, bỏ qua vẫn hoàn toàn ổn. Relic mạnh chỉ thật sự mạnh khi account có champion, gear và đội hình để khai thác nó.",
+        "Ý kiến cá nhân của Tanne Hub: **Covetous' Passion đáng săn với account PvP hoặc wave-focused, nhưng không bắt buộc với early game và account chuyên boss.**",
+        "Đây là ý kiến cá nhân của Tanne Hub. Nếu bài viết này giúp bạn quyết định có nên chase relic hay không, hãy thả 1 Like để Tanne Hub biết nên làm thêm các bài phân tích relic kiểu này.",
+      ].join("\n\n"),
+    },
+  ] satisfies PostBodyBlock[]),
+};
+
 export const raidNewsDraftSeeds = [
+  covetousPassionMythicalRelicReviewDraftAug022026,
   vergumkaarDanagSkullreapRebalance1170DraftJul312026,
   khamirFragmentEventCalendarDraftJul282026,
   khamirScaldEyeFragmentGuideDraftJul242026,
