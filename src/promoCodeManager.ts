@@ -53,6 +53,11 @@ function filterPromoCodes(query: string): void {
   let visible = 0;
 
   rows.forEach((row) => {
+    const section = row.closest<HTMLElement>("[data-promo-code-section]");
+    if (section?.classList.contains("hidden")) {
+      row.classList.add("hidden");
+      return;
+    }
     const haystack = row.dataset.promoSearch ?? "";
     const show = !needle || haystack.includes(needle);
     row.classList.toggle("hidden", !show);
@@ -60,6 +65,26 @@ function filterPromoCodes(query: string): void {
   });
 
   empty?.classList.toggle("hidden", visible !== 0);
+}
+
+function setPromoCategory(category: string): void {
+  const list = document.querySelector<HTMLElement>("#promo-code-list");
+  const tabs = [...document.querySelectorAll<HTMLButtonElement>("[data-promo-category]")];
+  const sections = [...document.querySelectorAll<HTMLElement>("[data-promo-code-section]")];
+  const search = document.querySelector<HTMLInputElement>("#promo-code-search");
+  if (!list || tabs.length === 0 || sections.length === 0) return;
+
+  list.dataset.activePromoCategory = category;
+  tabs.forEach((tab) => {
+    const active = tab.dataset.promoCategory === category;
+    tab.classList.toggle("promo-category-tab-active", active);
+    tab.setAttribute("aria-selected", active ? "true" : "false");
+  });
+  sections.forEach((section) => {
+    section.classList.toggle("hidden", section.dataset.promoCodeSection !== category);
+  });
+  if (search) search.value = "";
+  filterPromoCodes("");
 }
 
 function bindNavbarPromoCode(): void {
@@ -78,6 +103,13 @@ function bindNavbarPromoCode(): void {
   });
   search?.addEventListener("input", () => {
     filterPromoCodes(search.value);
+  });
+  wrap.querySelectorAll<HTMLButtonElement>("[data-promo-category]").forEach((categoryButton) => {
+    categoryButton.addEventListener("click", () => {
+      const category = categoryButton.dataset.promoCategory;
+      if (!category) return;
+      setPromoCategory(category);
+    });
   });
   wrap.querySelectorAll<HTMLButtonElement>("[data-promo-copy]").forEach((copyButton) => {
     copyButton.addEventListener("click", () => {
