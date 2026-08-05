@@ -3261,7 +3261,332 @@ export const covetousPassionMythicalRelicReviewDraftAug022026: {
   ] satisfies PostBodyBlock[]),
 };
 
+export const update1170ChampionProvingGroundsOverviewDraftAug052026: {
+  id: string;
+  title: string;
+  caption: string;
+  titleVi: string;
+  captionVi: string;
+  contentVi: string;
+  blocks: PostBodyBlock[];
+} = {
+  id: "raid-news-2026-08-05-update-1170-champion-proving-grounds-overview",
+  title: "Update 11.70 Overview: Champion Proving Grounds, Anomalous Accessories, and Coalescence Relics",
+  caption:
+    "A gamer-style Tanne Hub overview of Raid Shadow Legends Update 11.70, covering the new permanent Champion Proving Grounds dungeon, rotation scoring, Anomalous Accessories, and faction relics.",
+  titleVi: "Tổng quan Update 11.70: Champion Proving Grounds, Anomalous Accessories và Relic Coalescence",
+  captionVi:
+    "Tanne Hub tóm gọn Update 11.70 theo góc nhìn gamer: dungeon mới Champion Proving Grounds, cách tính điểm rotation, Anomalous Accessories và nhóm relic faction Coalescence.",
+  blocks: [
+    {
+      type: "image",
+      url: "/news-images/update-1170-champion-proving-grounds-map.webp",
+      caption: "Champion Proving Grounds becomes a new permanent dungeon on the Dungeon Map for level 60+ players.",
+      align: "full",
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Why Update 11.70 actually matters**[/color]",
+        "Update 11.70 is not just another small patch. The big headline is **Champion Proving Grounds**, a new permanent dungeon made for players who already have a deeper champion roster and want a reason to use more than the same five champions everywhere.",
+        "The idea is simple but spicy: every rotation gives you different Champion Pools, different score multipliers, 27 stages, boss pairings, stars, milestones, leaderboards, and exclusive rewards. This is Raid asking players to prove their account depth, not only their fastest farming team.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Quick update summary**[/color]",
+        "| Feature | What it means |",
+        "| --- | --- |",
+        "| Champion Proving Grounds | Permanent level 60+ dungeon with 27 stages. |",
+        "| Rotation system | Each rotation lasts 28 days and changes Champion Pools. |",
+        "| Champion Pools | Primary Pool gives bigger multipliers, Secondary Pool gives smaller multipliers. |",
+        "| Keys | 3 Proving Keys and 3 Rematch Keys daily. Keys are only spent after a 1-star clear. |",
+        "| Stars | Higher score means more stars, better milestones, and leaderboard pressure. |",
+        "| Anomalous Accessories | New exclusive accessories with PvE/PvP/Boss/Dungeon damage or damage reduction substats. |",
+        "| Coalescence Relics | New faction relic group with bonuses that activate on matching factions. |",
+      ].join("\n"),
+    },
+    {
+      type: "image",
+      url: "/news-images/update-1170-proving-grounds-stages.webp",
+      caption: "Each rotation has stages, stars, milestone rewards, Champion Pools, and leaderboard progression.",
+      align: "full",
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Champion Proving Grounds in gamer words**[/color]",
+        "Think of this mode as a monthly exam for your account. You can bring any champions, but the game rewards you for using champions from the current **Primary** and **Secondary** pools. Primary Pool champions give the big multiplier, Secondary Pool champions give a smaller boost, and off-pool champions still work but do not help your score.",
+        "That makes the mode interesting because the strongest team on paper may not always be the best scoring team. Sometimes you will use a slightly worse champion because that champion gives a multiplier and pushes you from 2 stars to 3 stars.",
+      ].join("\n\n"),
+    },
+    {
+      type: "image",
+      url: "/news-images/update-1170-proving-grounds-team-setup.webp",
+      caption: "Team building matters: stage score, boss pairing, champion multipliers, and survival all compete for the same slots.",
+      align: "full",
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**The best part: it rewards roster depth**[/color]",
+        "This is the part I like most. Raid has many champions that sit in the vault because one meta team solves everything. Champion Proving Grounds gives Plarium a clean way to say: build more champions, keep your fusions, do not instantly ignore guaranteed event champions, and prepare for the next rotation.",
+        "The mode also shows the **next rotation pool**, which is a good quality-of-life detail. If you see a champion becoming valuable next rotation, you can start gearing or booking early instead of panicking on day one.",
+      ].join("\n\n"),
+    },
+    {
+      type: "image",
+      url: "/news-images/update-1170-proving-grounds-next-rotation.webp",
+      caption: "The next rotation pool gives players time to prepare useful champions before the reset.",
+      align: "full",
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Anomalous Accessories: the real chase reward**[/color]",
+        "The new **Anomalous Accessories** are probably the most exciting long-term reward from this mode. They can keep parent set bonuses, but their substats can roll new special boons like extra PvE damage, PvP damage, Boss damage, Dungeon damage, or reduced damage taken in those areas.",
+        "That is huge because accessories have always been powerful, but often boring. Now a ring, amulet, or banner can become more specialized. A Hydra champion may want damage reduction. A dungeon speed farmer may want Dungeon damage. An Arena nuker may want PvP damage. This gives gear nerds something new to chase.",
+        "The jewelry storage increase by 200 slots also makes sense, because this new accessory layer would be painful without more room.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Coalescence Relics: faction identity gets louder**[/color]",
+        "Champion Proving Grounds also introduces crafting materials for the **Coalescence** relic group. These relics work like normal relics, but each one has faction bonuses that only activate when equipped by champions from the matching faction.",
+        "That means the same relic can be usable on anyone, but it becomes much more special on the right faction. This is a smart design direction because it makes factions matter without completely locking the item away from other champions.",
+      ].join("\n\n"),
+    },
+    {
+      type: "image",
+      url: "/news-images/update-1170-relic-sibilant-gold.webp",
+      caption: "Sibilant Gold looks like a damage relic built around Ignore DEF and faction damage bonuses.",
+      align: "full",
+    },
+    {
+      type: "image",
+      url: "/news-images/update-1170-relic-gauntlet-of-ruin.webp",
+      caption: "Gauntlet of Ruin rewards debuff-heavy damage setups and looks very spicy for offensive factions.",
+      align: "full",
+    },
+    {
+      type: "image",
+      url: "/news-images/update-1170-relic-fleshmelter-lash.webp",
+      caption: "Fleshmelter Lash focuses on out-of-turn attacks, making counterattack and ally attack teams more interesting.",
+      align: "full",
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Relics that stand out early**[/color]",
+        "| Relic | Early Tanne Hub impression |",
+        "| --- | --- |",
+        "| **Sibilant Gold** | Looks dangerous for damage dealers that stack buffs and want more Ignore DEF. Sacred Order, Undead Hordes, and Dwarves all get very clear offensive value. |",
+        "| **Gauntlet of Ruin** | Very strong concept for debuff-based damage. Dark Elves, Orcs, and Argonites get bonuses that can turn debuff-heavy fights into real damage pressure. |",
+        "| **Fleshmelter Lash** | The fun one for out-of-turn attacks. Counterattack, ally attack, and follow-up style teams may get a big glow-up. |",
+        "| **Sempiternal Anchor** | Turn Meter control relic. If your champion steals or reduces Turn Meter, this can make bosses and wave enemies feel slower and safer to handle. |",
+        "| **Bloatshield Totem** | Defensive anti-Ignore DEF relic. It looks like a strong answer to the modern damage meta, especially on buff-heavy supports. |",
+        "| **Lifespring Skull** | Healer/sustain relic. The instant turn and critical heal ideas could make some support champions feel much smoother. |",
+      ].join("\n"),
+    },
+    {
+      type: "image",
+      url: "/news-images/update-1170-relic-sempiternal-anchor.webp",
+      caption: "Sempiternal Anchor supports Turn Meter control champions and could become valuable for PvE control teams.",
+      align: "full",
+    },
+    {
+      type: "image",
+      url: "/news-images/update-1170-relic-bloatshield-totem.webp",
+      caption: "Bloatshield Totem is a defensive relic aimed at reducing enemy Ignore DEF pressure.",
+      align: "full",
+    },
+    {
+      type: "image",
+      url: "/news-images/update-1170-relic-lifespring-skull.webp",
+      caption: "Lifespring Skull gives healer-style factions a more interesting sustain identity.",
+      align: "full",
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**What kind of players should care?**[/color]",
+        "- **Endgame players:** this is a new monthly optimization puzzle with leaderboards and exclusive rewards.",
+        "- **Roster collectors:** old fusion and guaranteed champions may suddenly matter again because of Champion Pools.",
+        "- **Gear nerds:** Anomalous Accessories create a new layer of min-maxing.",
+        "- **Faction specialists:** Coalescence relics can make certain factions feel more unique.",
+        "- **Newer players:** you probably should not stress about this immediately, because the mode starts at level 60 and rewards deeper accounts.",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Tanne verdict**[/color]",
+        "Update 11.70 looks like one of those updates that may not feel massive on day one, but could matter a lot over time. Champion Proving Grounds gives players a reason to build wider rosters, Anomalous Accessories add a new chase layer to gearing, and Coalescence relics push faction identity in a healthier direction.",
+        "The only concern is time pressure. A 28-day rotation, daily keys, rematch keys, milestones, and leaderboards can feel like another checklist if the rewards are too mandatory. But if the balance is fair, this mode could become one of the better endgame additions Raid has had in a while.",
+        "My gamer take: **this update is exciting because it rewards account depth instead of only raw speed farming.** If you enjoy building teams, testing weird champions, and squeezing stars out of limited rosters, Champion Proving Grounds is probably going to be your new playground.",
+        "This is Tanne Hub's personal opinion. If this update overview helped you understand 11.70 faster, leave one Like so Tanne Hub knows to make more compact patch breakdowns like this.",
+      ].join("\n\n"),
+    },
+  ],
+  contentVi: JSON.stringify([
+    {
+      type: "image",
+      url: "/news-images/update-1170-champion-proving-grounds-map.webp",
+      caption: "Champion Proving Grounds trở thành dungeon vĩnh viễn mới trên Dungeon Map dành cho người chơi cấp 60 trở lên.",
+      align: "full",
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Vì sao Update 11.70 đáng chú ý?**[/color]",
+        "Update 11.70 không chỉ là một patch nhỏ thêm vài phần thưởng. Điểm chính là **Champion Proving Grounds**, một dungeon vĩnh viễn mới dành cho người chơi đã có roster sâu hơn và muốn có lý do dùng nhiều champion hơn thay vì cứ spam một đội hình meta mãi.",
+        "Ý tưởng khá cuốn: mỗi rotation có Champion Pools khác nhau, hệ số điểm khác nhau, 27 stage, cặp boss, sao, milestone, leaderboard và reward độc quyền. Nói kiểu gamer thì đây là mode kiểm tra độ sâu account, không chỉ kiểm tra team farm nhanh nhất.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Tóm tắt update nhanh**[/color]",
+        "| Tính năng | Ý nghĩa |",
+        "| --- | --- |",
+        "| Champion Proving Grounds | Dungeon vĩnh viễn cho level 60+, gồm 27 stage. |",
+        "| Rotation system | Mỗi rotation kéo dài 28 ngày và đổi Champion Pools. |",
+        "| Champion Pools | Primary Pool cho multiplier lớn, Secondary Pool cho multiplier nhỏ hơn. |",
+        "| Keys | Mỗi ngày có 3 Proving Keys và 3 Rematch Keys. Key chỉ mất khi clear được ít nhất 1 sao. |",
+        "| Stars | Điểm càng cao càng nhiều sao, mở milestone và cạnh tranh leaderboard tốt hơn. |",
+        "| Anomalous Accessories | Phụ kiện mới có substat kiểu PvE/PvP/Boss/Dungeon damage hoặc giảm damage nhận vào. |",
+        "| Coalescence Relics | Nhóm relic faction mới, bonus đặc biệt kích hoạt khi đúng faction. |",
+      ].join("\n"),
+    },
+    {
+      type: "image",
+      url: "/news-images/update-1170-proving-grounds-stages.webp",
+      caption: "Mỗi rotation có stage, sao, milestone reward, Champion Pools và tiến trình leaderboard riêng.",
+      align: "full",
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Champion Proving Grounds hiểu đơn giản là gì?**[/color]",
+        "Hãy tưởng tượng đây là bài kiểm tra hàng tháng cho account của bạn. Bạn được dùng bất kỳ champion nào, nhưng game sẽ thưởng điểm tốt hơn nếu bạn dùng champion trong **Primary Pool** hoặc **Secondary Pool**. Primary Pool cho multiplier lớn, Secondary Pool cho multiplier nhỏ hơn, còn champion ngoài pool vẫn dùng được nhưng không cộng thêm điểm.",
+        "Điều này làm mode thú vị hơn vì team mạnh nhất chưa chắc là team ăn điểm tốt nhất. Đôi khi bạn sẽ dùng một champion hơi yếu hơn chỉ vì nó có multiplier và giúp bạn đẩy từ 2 sao lên 3 sao.",
+      ].join("\n\n"),
+    },
+    {
+      type: "image",
+      url: "/news-images/update-1170-proving-grounds-team-setup.webp",
+      caption: "Team building sẽ quan trọng hơn: stage score, boss pairing, champion multiplier và sống sót đều tranh slot trong cùng một team.",
+      align: "full",
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Điểm hay nhất: roster sâu được thưởng**[/color]",
+        "Đây là phần mình thích nhất. Raid có rất nhiều champion bị vứt trong vault vì một đội meta giải quyết gần như mọi thứ. Champion Proving Grounds tạo lý do để người chơi build nhiều champion hơn, giữ lại fusion cũ, chú ý champion guaranteed event và chuẩn bị cho rotation tiếp theo.",
+        "Mode này còn hiển thị **pool của rotation kế tiếp**, đây là chi tiết rất tốt. Nếu bạn thấy một champion sẽ có giá trị ở rotation sau, bạn có thể chuẩn bị gear hoặc book trước thay vì đến ngày đầu mới hoảng.",
+      ].join("\n\n"),
+    },
+    {
+      type: "image",
+      url: "/news-images/update-1170-proving-grounds-next-rotation.webp",
+      caption: "Next rotation pool giúp người chơi chuẩn bị champion trước khi reset.",
+      align: "full",
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Anomalous Accessories: phần thưởng đáng săn nhất**[/color]",
+        "**Anomalous Accessories** có thể là reward lâu dài hấp dẫn nhất của mode này. Chúng vẫn giữ set bonus gốc nếu có, nhưng substat có thể xuất hiện các boon mới như tăng sát thương PvE, PvP, Boss, Dungeon hoặc giảm sát thương nhận vào trong các khu vực đó.",
+        "Điều này rất lớn vì phụ kiện trước giờ mạnh nhưng hơi nhàm. Giờ một ring, amulet hoặc banner có thể chuyên biệt hơn. Champion Hydra có thể cần giảm damage. Team farm dungeon có thể cần Dungeon damage. Nuker Arena có thể cần PvP damage. Người thích min-max gear sẽ có thêm thứ để săn.",
+        "Việc tăng Jewelry storage thêm 200 slot cũng hợp lý, vì nếu thêm một lớp phụ kiện mới mà không thêm chỗ chứa thì rất đau đầu.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Coalescence Relics: faction bắt đầu có cá tính hơn**[/color]",
+        "Champion Proving Grounds cũng cho nguyên liệu craft relic thuộc nhóm **Coalescence**. Các relic này hoạt động như relic bình thường, nhưng có thêm faction bonus chỉ kích hoạt khi đeo cho champion đúng faction.",
+        "Điều này khá thông minh: relic vẫn dùng được cho nhiều champion, nhưng khi đúng faction thì nó mới thật sự phát huy bản sắc riêng. Đây là hướng thiết kế giúp faction có ý nghĩa hơn mà không khóa item quá cứng.",
+      ].join("\n\n"),
+    },
+    {
+      type: "image",
+      url: "/news-images/update-1170-relic-sibilant-gold.webp",
+      caption: "Sibilant Gold là relic thiên về sát thương, Ignore DEF và bonus faction.",
+      align: "full",
+    },
+    {
+      type: "image",
+      url: "/news-images/update-1170-relic-gauntlet-of-ruin.webp",
+      caption: "Gauntlet of Ruin rất hấp dẫn cho đội hình sát thương dựa trên debuff.",
+      align: "full",
+    },
+    {
+      type: "image",
+      url: "/news-images/update-1170-relic-fleshmelter-lash.webp",
+      caption: "Fleshmelter Lash tập trung vào out-of-turn attack, mở thêm hướng cho counterattack và ally attack.",
+      align: "full",
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Những relic nổi bật ban đầu**[/color]",
+        "| Relic | Cảm nhận nhanh của Tanne Hub |",
+        "| --- | --- |",
+        "| **Sibilant Gold** | Nguy hiểm cho damage dealer có nhiều buff và muốn thêm Ignore DEF. Sacred Order, Undead Hordes và Dwarves đều có bonus tấn công rõ ràng. |",
+        "| **Gauntlet of Ruin** | Ý tưởng rất mạnh cho damage dựa trên debuff. Dark Elves, Orcs và Argonites có thể biến debuff thành áp lực sát thương thật. |",
+        "| **Fleshmelter Lash** | Relic vui nhất cho out-of-turn attack. Counterattack, ally attack và follow-up team có thể được buff mạnh. |",
+        "| **Sempiternal Anchor** | Relic Turn Meter control. Nếu champion của bạn giảm hoặc steal Turn Meter, relic này giúp boss/wave chậm và dễ kiểm soát hơn. |",
+        "| **Bloatshield Totem** | Relic phòng thủ chống Ignore DEF. Có vẻ là câu trả lời tốt cho meta damage hiện tại, đặc biệt trên support nhiều buff. |",
+        "| **Lifespring Skull** | Relic healer/sustain. Cơ chế critical heal và instant turn có thể khiến support mượt hơn nhiều. |",
+      ].join("\n"),
+    },
+    {
+      type: "image",
+      url: "/news-images/update-1170-relic-sempiternal-anchor.webp",
+      caption: "Sempiternal Anchor hỗ trợ champion kiểm soát Turn Meter và có thể rất hữu ích trong PvE control.",
+      align: "full",
+    },
+    {
+      type: "image",
+      url: "/news-images/update-1170-relic-bloatshield-totem.webp",
+      caption: "Bloatshield Totem là relic phòng thủ nhằm giảm áp lực Ignore DEF từ đối thủ.",
+      align: "full",
+    },
+    {
+      type: "image",
+      url: "/news-images/update-1170-relic-lifespring-skull.webp",
+      caption: "Lifespring Skull giúp các faction thiên về hồi máu có identity sustain rõ hơn.",
+      align: "full",
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Ai nên quan tâm update này?**[/color]",
+        "- **Endgame player:** đây là bài toán tối ưu hàng tháng với leaderboard và reward độc quyền.",
+        "- **Người sưu tầm roster:** fusion cũ và champion guaranteed event có thể bất ngờ hữu dụng trở lại.",
+        "- **Người mê gear:** Anomalous Accessories tạo thêm một tầng min-max mới.",
+        "- **Người thích faction:** Coalescence relics làm faction có màu sắc riêng hơn.",
+        "- **Newbie:** chưa cần quá căng thẳng, vì mode mở từ level 60 và reward thiên về account đã phát triển.",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Tanne verdict**[/color]",
+        "Update 11.70 có thể không phải kiểu update khiến bạn choáng ngay ngày đầu, nhưng về lâu dài nó có thể rất quan trọng. Champion Proving Grounds cho người chơi lý do build roster rộng hơn, Anomalous Accessories mở thêm tầng gear mới, còn Coalescence relics giúp faction có cá tính rõ hơn.",
+        "Điểm mình hơi lo là áp lực thời gian. Rotation 28 ngày, key hằng ngày, rematch key, milestone và leaderboard có thể trở thành checklist mới nếu reward quá bắt buộc. Nhưng nếu cân bằng hợp lý, đây có thể là một trong những addition endgame tốt hơn của Raid trong thời gian gần đây.",
+        "Góc nhìn gamer của mình: **update này hấp dẫn vì nó thưởng cho độ sâu account thay vì chỉ thưởng cho tốc độ farm.** Nếu bạn thích build team, test champion lạ và cố vắt từng sao từ roster đang có, Champion Proving Grounds có thể sẽ là sân chơi mới rất đáng thử.",
+        "Đây là ý kiến cá nhân của Tanne Hub. Nếu bài tổng quan 11.70 này giúp bạn hiểu update nhanh hơn, hãy thả 1 Like để Tanne Hub biết nên làm thêm các bài tóm tắt patch kiểu này.",
+      ].join("\n\n"),
+    },
+  ] satisfies PostBodyBlock[]),
+};
+
 export const raidNewsDraftSeeds = [
+  update1170ChampionProvingGroundsOverviewDraftAug052026,
   covetousPassionMythicalRelicReviewDraftAug022026,
   vergumkaarDanagSkullreapRebalance1170DraftJul312026,
   khamirFragmentEventCalendarDraftJul282026,
