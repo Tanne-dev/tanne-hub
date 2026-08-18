@@ -986,12 +986,13 @@
 
 #floating-contact .fragment-event-button {
   min-height: 70px;
-  min-width: min(72vw, 230px);
-  gap: 0.8rem;
+  min-width: min(62vw, 190px);
+  justify-content: center;
+  gap: 0;
   border-width: 1.5px;
   border-color: rgba(255, 199, 72, 0.82);
   border-radius: 20px;
-  padding: 0.55rem 0.9rem 0.55rem 0.55rem;
+  padding: 0.7rem 1.2rem;
   background:
     radial-gradient(circle at 18% 24%, rgba(255, 220, 110, 0.38), transparent 38%),
     radial-gradient(circle at 88% 72%, rgba(255, 91, 21, 0.24), transparent 34%),
@@ -1043,6 +1044,8 @@
 
 #floating-contact .fragment-event-button > span.hidden {
   display: grid;
+  justify-items: center;
+  text-align: center;
 }
 
 #floating-contact .fragment-event-button-title {
@@ -1530,11 +1533,11 @@
   }
 
   #floating-contact .fragment-event-button {
-    min-width: min(76vw, 220px);
+    min-width: min(58vw, 176px);
     min-height: 62px;
-    gap: 0.65rem;
+    gap: 0;
     border-radius: 18px;
-    padding: 0.48rem 0.74rem 0.48rem 0.48rem;
+    padding: 0.62rem 1rem;
   }
 
   #floating-contact .fragment-event-avatar {

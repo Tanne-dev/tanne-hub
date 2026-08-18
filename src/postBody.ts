@@ -382,6 +382,82 @@ function normalizeLegacyLineBreakTags(text: string): string {
     .replace(/<\/p>$/gi, "");
 }
 
+function escapeRegExp(value: string): string {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+type LegacySkillCardSpec = {
+  key: string;
+  name: string;
+  icon: string;
+  cooldown?: string;
+  tags: string;
+};
+
+const dorothyLegacySkillCards: LegacySkillCardSpec[] = [
+  {
+    key: "A1",
+    name: "Emerald Blast",
+    icon: "/raid-skill-icons/dorothy-gale/emerald-blast.png",
+    tags: "Buff removal|Weaken|Single target",
+  },
+  {
+    key: "A2",
+    name: "Windstorm",
+    icon: "/raid-skill-icons/dorothy-gale/windstorm.png",
+    cooldown: "5",
+    tags: "AoE|Decrease DEF|Decrease ACC|Wave control",
+  },
+  {
+    key: "A3",
+    name: "Furious Tornado",
+    icon: "/raid-skill-icons/dorothy-gale/furious-tornado.png",
+    cooldown: "6",
+    tags: "AoE|Buff steal|Buff spread|Stun|Oz synergy",
+  },
+  {
+    key: "PASSIVE",
+    name: "True Friend",
+    icon: "/raid-skill-icons/dorothy-gale/true-friend.png",
+    tags: "Ally team up|Revive trigger|A3 activation|HP and SPD stacking",
+  },
+];
+
+function skillDirectiveFor(spec: LegacySkillCardSpec): string {
+  const cooldown = spec.cooldown ? ` cooldown="${spec.cooldown}"` : "";
+  return `::skill{key="${spec.key}" name="${spec.name}" icon="${spec.icon}"${cooldown} tags="${spec.tags}"}`;
+}
+
+function upgradeLegacyDorothySkillCards(text: string): string {
+  if (text.includes("::skill{") || !/Dorothy|Emerald Blast|Windstorm|Furious Tornado|True Friend/i.test(text)) {
+    return text;
+  }
+
+  let upgraded = text;
+  for (let index = 0; index < dorothyLegacySkillCards.length; index += 1) {
+    const spec = dorothyLegacySkillCards[index];
+    const nextNames = dorothyLegacySkillCards
+      .slice(index + 1)
+      .map((next) => escapeRegExp(next.name));
+    nextNames.push("Best Places to Use Dorothy", "Best places to use Dorothy", "Nơi dùng Dorothy tốt nhất");
+
+    const heading = escapeRegExp(spec.name);
+    const nextHeading = nextNames.join("|");
+    const nextHeadingPrefix = String.raw`(?:#{1,4}\s+)?(?:\[color=[^\]]+\])?(?:\*\*)?`;
+    const pattern = new RegExp(
+      `(^|\\n)(?:#{1,4}\\s+)?${heading}\\s*\\n+([\\s\\S]*?)(?=\\n+${nextHeadingPrefix}(?:${nextHeading})(?:\\*\\*)?(?:\\[/color\\])?(?:\\s*\\n|$))`,
+      "i",
+    );
+
+    upgraded = upgraded.replace(pattern, (_match, prefix: string, body: string) => {
+      const cleanBody = body.trim();
+      return `${prefix}${skillDirectiveFor(spec)}\n${cleanBody}\n::endskill\n`;
+    });
+  }
+
+  return upgraded;
+}
+
 
 function isMarkdownTable(lines: string[]): boolean {
   if (lines.length < 2) return false;
@@ -416,7 +492,7 @@ function renderMarkdownTable(lines: string[]): string {
 }
 
 function renderTextBlockHtml(text: string): string[] {
-  const normalized = normalizeLegacyLineBreakTags(text);
+  const normalized = upgradeLegacyDorothySkillCards(normalizeLegacyLineBreakTags(text));
   const parts = normalized
     .split(/\n{2,}/)
     .map((p) => p.trim())

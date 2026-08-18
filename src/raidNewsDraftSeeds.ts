@@ -3261,6 +3261,620 @@ export const covetousPassionMythicalRelicReviewDraftAug022026: {
   ] satisfies PostBodyBlock[]),
 };
 
+export const echoesOfOzSummonEventOverviewDraftAug172026: {
+  id: string;
+  title: string;
+  caption: string;
+  titleVi: string;
+  captionVi: string;
+  contentVi: string;
+  blocks: PostBodyBlock[];
+} = {
+  id: "raid-news-2026-08-17-echoes-of-oz-summon-event-overview",
+  title: "Echoes of Oz Event Preview: Dorothy Login, shard champions, Event Dungeon, and rewards",
+  caption:
+    "A gamer-style Tanne Hub breakdown of the Echoes of Oz campaign, covering Dorothy Gale, The Tin Woodman, The Scarecrow, Ozilda, the Event Dungeon, Chronophage gear, and the final collection gift.",
+  titleVi: "Tổng quan Echoes of Oz: Dorothy miễn phí, champion từ shard, Event Dungeon và phần thưởng đặc biệt",
+  captionVi:
+    "Tanne Hub tóm gọn chiến dịch Echoes of Oz theo góc nhìn gamer: Dorothy Gale, Tin Woodman, Scarecrow, Ozilda, Event Dungeon, set Chronophage và quà khi sưu tầm đủ champion.",
+  blocks: [
+    {
+      type: "image",
+      url: "/news-images/echoes-of-oz-event-overview.webp",
+      caption: "Echoes of Oz runs from August 19, 2026 to November 10, 2026.",
+      align: "full",
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Echoes of Oz in one minute**[/color]",
+        "Raid is going full fantasy storybook with the **Echoes of Oz** campaign. This is not just a simple x2 weekend or one shard event. It is a full campaign window with new thematic Legendary champions, a 14-day loyalty champion, a returning Event Dungeon, limited gear, relic rewards, and a collection gift for players who manage to grab the full group.",
+        "The campaign duration shown is **August 19, 2026 to November 10, 2026**, so this looks like a long seasonal-style event rather than something you finish in one weekend.",
+      ].join("\n\n"),
+    },
+    {
+      type: "image",
+      url: "/news-images/echoes-of-oz-champions.webp",
+      caption: "The Echoes of Oz champion lineup: Cowardly Lion, Dorothy Gale, Tin Woodman, Scarecrow, and Ozilda.",
+      align: "full",
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Champion release plan**[/color]",
+        "| Champion | How to get | Tanne Hub quick take |",
+        "| --- | --- | --- |",
+        "| **Dorothy Gale** | 14-day Loyalty Program, also from shards until Nov 10 | The safe value pick because every player can chase her by logging in. |",
+        "| **The Tin Woodman** | Drops from shards starting Aug 19 | Defense Legendary with ally attack pressure and team damage protection. |",
+        "| **The Scarecrow** | Drops from shards starting Aug 19 | Support Legendary with cooldown help, revive tools, ACC/RES utility, and anti-control flavor. |",
+        "| **The Cowardly Lion** | Mixed Fusion, also from shards starting Sep 4 | Likely the big resource-check champion of the campaign. |",
+        "| **Ozilda the Wicked** | Drops from shards until Nov 10, Event Dungeon boss | Main dungeon threat and thematic boss of this campaign. |",
+      ].join("\n"),
+    },
+    {
+      type: "image",
+      url: "/news-images/echoes-of-oz-dorothy-loyalty.webp",
+      caption: "Dorothy Gale is the loyalty champion: claim the champion on Day 7 and Perfect Soul on Day 14.",
+      align: "full",
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Dorothy Gale is the player-friendly part**[/color]",
+        "The biggest win for regular players is **Dorothy Gale**. According to the event info, both new and existing players can obtain her through the 14-day Loyalty Program. The champion can be claimed on **Day 7**, and her **Perfect Soul** can be claimed on **Day 14**.",
+        "That is the kind of reward structure I like: log in, collect the champion, then keep going for the soul and extra resources. Phase 2 also appears to add objective-based rewards after Phase 1, so there should be more to do than simply pressing collect every day.",
+        "If you are a low spender or free-to-play player, Dorothy is probably the champion you should not miss. Even if she is not account-changing, a free Legendary Support with a Perfect Soul path has real value.",
+      ].join("\n\n"),
+    },
+    {
+      type: "image",
+      url: "/news-images/echoes-of-oz-tin-woodman-showcase.webp",
+      caption: "The Tin Woodman is a Legendary Magic Defense champion from Banner Lords.",
+      align: "full",
+    },
+    {
+      type: "image",
+      url: "/news-images/echoes-of-oz-tin-woodman-skills.webp",
+      caption: "Tin Woodman brings DEF scaling, ally team-up attacks, Shatter, Revive on Death, and damage redirection.",
+      align: "full",
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**The Tin Woodman: defensive bruiser with team-up pressure**[/color]",
+        "Tin Woodman looks like the bruiser of the group. He is a **Legendary Defense champion from Banner Lords**, and his kit leans into DEF scaling, self-healing, ally team-up attacks, Shatter, Revive on Death, and damage redirection.",
+        "The most interesting part is the way he protects key allies while still creating kill pressure. His kit mentions reduced damage taken by Dorothy Gale, Tin Woodman, Scarecrow, and Cowardly Lion, with Tin Woodman taking that damage instead. That is very thematic, but also potentially useful if the full Oz team has real synergy.",
+        "Early Tanne Hub read: Tin Woodman is not just a wall. He looks like a tank that wants to punch back, call allies in, and punish enemies when his team gets momentum.",
+      ].join("\n\n"),
+    },
+    {
+      type: "image",
+      url: "/news-images/echoes-of-oz-scarecrow-showcase.webp",
+      caption: "The Scarecrow is a Legendary Spirit Support champion from Undead Hordes.",
+      align: "full",
+    },
+    {
+      type: "image",
+      url: "/news-images/echoes-of-oz-scarecrow-skills.webp",
+      caption: "Scarecrow brings cooldown reduction, Increase RES, Increase ACC, revive utility, Fortify, and anti-control immunity.",
+      align: "full",
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**The Scarecrow: support value and second-life tricks**[/color]",
+        "The Scarecrow is a **Legendary Spirit Support champion from Undead Hordes**. His kit looks more technical than flashy: cooldown reduction, Increase RES, Increase ACC, revive utility, Block Damage on a revived ally, Fortify, and a passive-style effect that can make him immune to Fear, True Fear, Provoke, and Petrification after an ally has died.",
+        "That makes him feel like a support for longer fights, wave content, and annoying control-heavy situations. The revive with Turn Meter can be clutch, and cooldown reduction is always one of the strongest support effects in Raid when the rest of the team has good skills worth cycling.",
+        "Early Tanne Hub read: Scarecrow may not be the champion that gets the loudest hype, but support kits age well. If his cooldowns and AI are clean, he could become the practical champion of the group.",
+      ].join("\n\n"),
+    },
+    {
+      type: "image",
+      url: "/news-images/echoes-of-oz-event-dungeon.webp",
+      caption: "Ozilda the Wicked is the Event Dungeon boss from August 19 to November 10, 2026.",
+      align: "full",
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Event Dungeon: Ozilda is the real test**[/color]",
+        "The Event Dungeon returns with **Ozilda the Wicked** as the boss, available for players level 6+. The event notes describe her as an aggressive Support champion who pressures your team with buff strips and debuffs while empowering allies.",
+        "The important gameplay note is simple: **do not tunnel the boss immediately**. The event text reminds players to take down the minions before focusing Ozilda herself. Mercurial and Protection sets are called out as useful, and cleansers or champions with Decrease Debuff Duration should help a lot.",
+        "For newer players, this probably means the lower stages are worth farming for resources and gear. For stronger accounts, the question becomes whether Chronophage pieces are worth energy investment.",
+      ].join("\n\n"),
+    },
+    {
+      type: "image",
+      url: "/news-images/echoes-of-oz-chronophage-set.webp",
+      caption: "Chronophage is a limited 9-piece Artifact and Accessories set from the Event Dungeon.",
+      align: "full",
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Chronophage set: speed, resistance, and Immutable stacks**[/color]",
+        "The limited **Chronophage** set is the gear chase from this event. It is a 9-piece Artifact and Accessories set, and the stat ladder is very clear: RES, SPD, more RES, more SPD, and Immutable stacks at 4, 6, and 9 pieces.",
+        "| Pieces | Bonus |",
+        "| --- | --- |",
+        "| 1 | +20 RES |",
+        "| 2 | +10% SPD |",
+        "| 3 | +20 RES |",
+        "| 4 | Starts the round with 1 Immutable Stack |",
+        "| 5 | +10% SPD |",
+        "| 6 | Starts the round with 2 Immutable Stacks |",
+        "| 7 | +20 RES |",
+        "| 8 | +12% SPD |",
+        "| 9 | Starts the round with 3 Immutable Stacks |",
+        "This set screams support/control protection. The updated Immutable effect blocks attempts to increase a champion's skill cooldown, so Chronophage can be very annoying on champions that must take turns reliably.",
+      ].join("\n"),
+    },
+    {
+      type: "image",
+      url: "/news-images/echoes-of-oz-gift.webp",
+      caption: "Players who collect all event champions by November 10, 2026 can receive a special gift bundle.",
+      align: "full",
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Collection gift: nice, but probably whale territory**[/color]",
+        "Players who manage to get all Event Champions by **November 10, 2026 at 23:59 UTC** will receive a special gift package. The listed rewards include a thematic profile background, limited avatar frame, Legendary Relic **Last Laugh Amulet**, and three gemstones: Critical Strategy, Uncontrollable, and Carved Open.",
+        "This is cool, but let us be honest: collecting every champion in a campaign like this is probably not a realistic target for every account. If you are free-to-play, do not let the final gift bait you into destroying your shards unless your account is already stacked.",
+        "The smarter route is to decide your priority early: Dorothy for everyone, Event Dungeon farming if the gear is useful to your account, and shard champions only if you were already prepared to pull.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Tanne verdict**[/color]",
+        "Echoes of Oz looks like a strong campaign because it has something for different player types. Casual players get Dorothy through login. Farmers get Event Dungeon and Chronophage gear. Collectors get a full champion set to chase. Spend-heavy players get a bigger collection gift target.",
+        "My personal priority would be: **Dorothy first**, then test the Event Dungeon, then decide if Tin Woodman or Scarecrow is worth shard investment after seeing real testing. The final collection gift is attractive, but I would treat it as a bonus for players already chasing everything, not the main reason to spend.",
+        "This is Tanne Hub's personal opinion. If this Echoes of Oz breakdown helped you understand the event faster, leave one Like so Tanne Hub knows to make more quick gamer-style event guides.",
+      ].join("\n\n"),
+    },
+  ],
+  contentVi: JSON.stringify([
+    {
+      type: "image",
+      url: "/news-images/echoes-of-oz-event-overview.webp",
+      caption: "Echoes of Oz kéo dài từ 19/08/2026 đến 10/11/2026.",
+      align: "full",
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Echoes of Oz tóm gọn trong 1 phút**[/color]",
+        "Raid đang làm một campaign kiểu fantasy storybook với tên **Echoes of Oz**. Đây không phải chỉ là một event shard nhỏ. Nó là cả một campaign dài với champion Legendary theo chủ đề, champion loyalty 14 ngày, Event Dungeon, gear giới hạn, relic reward và quà đặc biệt nếu sưu tầm đủ nhóm champion.",
+        "Thời gian hiển thị là **19/08/2026 đến 10/11/2026**, nên đây giống một seasonal campaign kéo dài hơn là event cuối tuần.",
+      ].join("\n\n"),
+    },
+    {
+      type: "image",
+      url: "/news-images/echoes-of-oz-champions.webp",
+      caption: "Lineup Echoes of Oz: Cowardly Lion, Dorothy Gale, Tin Woodman, Scarecrow và Ozilda.",
+      align: "full",
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Cách nhận champion**[/color]",
+        "| Champion | Cách nhận | Nhận xét nhanh |",
+        "| --- | --- | --- |",
+        "| **Dorothy Gale** | Loyalty Program 14 ngày, cũng có trong shard đến 10/11 | Giá trị an toàn nhất vì mọi người đều có cơ hội lấy bằng đăng nhập. |",
+        "| **The Tin Woodman** | Drop từ shard từ 19/08 | Defense Legendary có ally attack, bảo vệ team và sát thương theo DEF. |",
+        "| **The Scarecrow** | Drop từ shard từ 19/08 | Support Legendary có giảm cooldown, revive, ACC/RES utility và chống control. |",
+        "| **The Cowardly Lion** | Mixed Fusion, drop từ shard từ 04/09 | Có vẻ là champion kiểm tra tài nguyên của campaign. |",
+        "| **Ozilda the Wicked** | Drop từ shard đến 10/11, boss Event Dungeon | Boss chính và mối đe dọa của Event Dungeon. |",
+      ].join("\n"),
+    },
+    {
+      type: "image",
+      url: "/news-images/echoes-of-oz-dorothy-loyalty.webp",
+      caption: "Dorothy Gale là champion loyalty: nhận champion ngày 7 và Perfect Soul ngày 14.",
+      align: "full",
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Dorothy Gale là phần thân thiện nhất với người chơi**[/color]",
+        "Điểm ngon nhất cho người chơi bình thường là **Dorothy Gale**. Theo thông tin event, cả người chơi mới và cũ đều có thể nhận cô ấy qua Loyalty Program 14 ngày. Champion nhận ở **ngày 7**, còn **Perfect Soul** nhận ở **ngày 14**.",
+        "Đây là kiểu reward mình thích: đăng nhập lấy champion, sau đó tiếp tục lấy soul và resource. Phase 2 còn có vẻ thêm objective reward sau Phase 1, nên event không chỉ là bấm collect mỗi ngày.",
+        "Nếu bạn là F2P hoặc low spender, Dorothy là phần không nên bỏ lỡ. Dù chưa biết cô ấy có phá meta không, một Legendary Support miễn phí kèm Perfect Soul path vẫn có giá trị thật.",
+      ].join("\n\n"),
+    },
+    {
+      type: "image",
+      url: "/news-images/echoes-of-oz-tin-woodman-showcase.webp",
+      caption: "The Tin Woodman là Legendary Magic Defense champion thuộc Banner Lords.",
+      align: "full",
+    },
+    {
+      type: "image",
+      url: "/news-images/echoes-of-oz-tin-woodman-skills.webp",
+      caption: "Tin Woodman có DEF scaling, ally team-up attack, Shatter, Revive on Death và damage redirection.",
+      align: "full",
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**The Tin Woodman: tank nhưng vẫn có áp lực sát thương**[/color]",
+        "Tin Woodman là **Legendary Defense champion của Banner Lords**. Kit của hắn xoay quanh DEF scaling, tự hồi máu, gọi đồng đội đánh chung, Shatter, Revive on Death và chuyển sát thương từ đồng minh về bản thân.",
+        "Điểm thú vị nhất là hắn vừa bảo vệ đồng đội quan trọng vừa tạo áp lực kill. Kit có nhắc đến việc giảm sát thương cho Dorothy Gale, Tin Woodman, Scarecrow và Cowardly Lion, còn Tin Woodman sẽ nhận phần damage đó thay họ. Rất đúng chủ đề, và có thể mạnh nếu full team Oz có synergy tốt.",
+        "Nhận xét sớm của Tanne Hub: Tin Woodman không chỉ là tường chắn. Hắn giống kiểu tank biết phản công, gọi team đánh phụ và snowball nếu combat đi đúng hướng.",
+      ].join("\n\n"),
+    },
+    {
+      type: "image",
+      url: "/news-images/echoes-of-oz-scarecrow-showcase.webp",
+      caption: "The Scarecrow là Legendary Spirit Support champion thuộc Undead Hordes.",
+      align: "full",
+    },
+    {
+      type: "image",
+      url: "/news-images/echoes-of-oz-scarecrow-skills.webp",
+      caption: "Scarecrow có giảm cooldown, Increase RES, Increase ACC, revive, Fortify và chống control.",
+      align: "full",
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**The Scarecrow: support thực dụng và nhiều mẹo sống lại**[/color]",
+        "Scarecrow là **Legendary Spirit Support của Undead Hordes**. Kit nhìn không quá màu mè nhưng khá thực dụng: giảm cooldown cho đồng minh, Increase RES, Increase ACC, revive, Block Damage cho mục tiêu được hồi sinh, Fortify và hiệu ứng giúp miễn Fear, True Fear, Provoke, Petrification sau khi có đồng minh chết.",
+        "Điều này khiến hắn giống support cho fight dài, wave content và các tình huống nhiều control khó chịu. Revive kèm Turn Meter có thể cứu combat, còn giảm cooldown luôn là hiệu ứng support rất mạnh nếu team có skill đáng để xoay vòng nhanh.",
+        "Nhận xét sớm của Tanne Hub: Scarecrow có thể không phải champion hype to nhất, nhưng support tốt thường giữ giá trị lâu. Nếu AI và cooldown ổn, đây có thể là champion thực dụng nhất trong nhóm.",
+      ].join("\n\n"),
+    },
+    {
+      type: "image",
+      url: "/news-images/echoes-of-oz-event-dungeon.webp",
+      caption: "Ozilda the Wicked là boss Event Dungeon từ 19/08 đến 10/11/2026.",
+      align: "full",
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Event Dungeon: Ozilda mới là bài test thật**[/color]",
+        "Event Dungeon trở lại với **Ozilda the Wicked** làm boss, mở cho người chơi level 6+. Thông tin event mô tả cô ta là Support boss rất hung hăng, liên tục gây áp lực bằng buff strip, debuff và buff cho đồng minh.",
+        "Ghi chú gameplay quan trọng rất đơn giản: **đừng lao vào đánh boss ngay**. Event nhắc người chơi nên xử lý minion trước rồi mới tập trung Ozilda. Mercurial và Protection set được nhắc là hữu ích, cleanser và champion có Decrease Debuff Duration cũng sẽ giúp nhiều.",
+        "Với người chơi mới, stage thấp có thể đáng farm để lấy resource và gear. Với account mạnh hơn, câu hỏi chính là Chronophage có đáng đốt energy hay không.",
+      ].join("\n\n"),
+    },
+    {
+      type: "image",
+      url: "/news-images/echoes-of-oz-chronophage-set.webp",
+      caption: "Chronophage là set Artifact và Accessories giới hạn 9 món từ Event Dungeon.",
+      align: "full",
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Chronophage set: tốc độ, kháng và Immutable stacks**[/color]",
+        "**Chronophage** là set gear giới hạn của event này. Đây là set 9 món gồm Artifact và Accessories, bonus xoay quanh RES, SPD và Immutable stacks ở mốc 4, 6, 9 món.",
+        "| Số món | Bonus |",
+        "| --- | --- |",
+        "| 1 | +20 RES |",
+        "| 2 | +10% SPD |",
+        "| 3 | +20 RES |",
+        "| 4 | Bắt đầu round với 1 Immutable Stack |",
+        "| 5 | +10% SPD |",
+        "| 6 | Bắt đầu round với 2 Immutable Stacks |",
+        "| 7 | +20 RES |",
+        "| 8 | +12% SPD |",
+        "| 9 | Bắt đầu round với 3 Immutable Stacks |",
+        "Set này rõ ràng sinh ra cho support/control protection. Immutable mới có thể chặn việc bị tăng cooldown skill, nên Chronophage sẽ rất khó chịu trên champion bắt buộc phải được đi lượt đều.",
+      ].join("\n"),
+    },
+    {
+      type: "image",
+      url: "/news-images/echoes-of-oz-gift.webp",
+      caption: "Người chơi lấy đủ Event Champions trước 10/11/2026 sẽ nhận gói quà đặc biệt.",
+      align: "full",
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Quà sưu tầm đủ: hấp dẫn nhưng không dành cho mọi người**[/color]",
+        "Người chơi lấy đủ Event Champions trước **23:59 UTC ngày 10/11/2026** sẽ nhận gói quà đặc biệt gồm profile background, avatar frame giới hạn, Legendary Relic **Last Laugh Amulet** và ba gemstone: Critical Strategy, Uncontrollable, Carved Open.",
+        "Nghe rất ngon, nhưng nói thật: lấy đủ toàn bộ champion trong campaign kiểu này chắc chắn không phải mục tiêu thực tế cho mọi account. Nếu bạn F2P, đừng để phần quà cuối kéo bạn đốt sạch shard nếu account chưa sẵn tài nguyên.",
+        "Hướng thông minh hơn là đặt ưu tiên sớm: Dorothy cho tất cả mọi người, test Event Dungeon nếu gear có ích, còn champion shard thì chỉ nên kéo nếu bạn đã chuẩn bị tài nguyên từ trước.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Tanne verdict**[/color]",
+        "Echoes of Oz nhìn khá ổn vì nó có thứ cho nhiều nhóm người chơi khác nhau. Casual player có Dorothy qua login. Người thích farm có Event Dungeon và Chronophage gear. Collector có full set champion để chase. Người chơi spender mạnh có mục tiêu quà sưu tầm cuối.",
+        "Ưu tiên cá nhân của mình sẽ là: **Dorothy trước**, sau đó test Event Dungeon, rồi mới quyết định Tin Woodman hoặc Scarecrow có đáng dùng shard sau khi có test thực tế không. Quà sưu tầm đủ rất hấp dẫn, nhưng mình xem nó là bonus cho người đã định chase tất cả, không phải lý do chính để tiêu tài nguyên.",
+        "Đây là ý kiến cá nhân của Tanne Hub. Nếu bài tóm tắt Echoes of Oz này giúp bạn hiểu event nhanh hơn, hãy thả 1 Like để Tanne Hub biết nên làm thêm các bài hướng dẫn event kiểu gamer như thế này.",
+      ].join("\n\n"),
+    },
+  ] satisfies PostBodyBlock[]),
+};
+
+export const dorothyGaleLoyaltyChampionSpotlightDraftAug172026: {
+  id: string;
+  title: string;
+  caption: string;
+  titleVi: string;
+  captionVi: string;
+  contentVi: string;
+  blocks: PostBodyBlock[];
+} = {
+  id: "raid-news-2026-08-17-dorothy-gale-loyalty-champion-spotlight",
+  title: "Dorothy Gale Champion Spotlight: free Legendary Support, buff strip, Stun control, and simple build advice",
+  caption:
+    "A simple Tanne Hub gamer-style breakdown of Dorothy Gale, the Echoes of Oz loyalty Legendary Support champion.",
+  titleVi: "Tiêu điểm Dorothy Gale: Legendary Support miễn phí, strip buff, khống chế Stun và hướng build dễ hiểu",
+  captionVi:
+    "Tanne Hub phân tích Dorothy Gale theo phong cách gamer: champion loyalty miễn phí trong Echoes of Oz, dễ hiểu cho người mới và mid game.",
+  blocks: [
+    {
+      type: "image",
+      url: "/news-images/dorothy-gale-loyalty-champion.webp",
+      caption: "Dorothy Gale is the Echoes of Oz loyalty Legendary Support champion.",
+      align: "full",
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Dorothy Gale in one minute**[/color]",
+        "Dorothy Gale is a **Legendary Spirit Support** champion from the **Banner Lords** faction, released during the **Echoes of Oz** campaign. The important part for most players is simple: she is a loyalty champion, so you do not need to win a tournament or gamble your whole shard stack just to get her.",
+        "Her kit is built around control and team utility: remove buffs, place Weaken, place Decrease DEF and Decrease ACC, steal enemy buffs, spread her own buffs to allies, and potentially Stun the whole enemy team. She is not a classic nuker. Think of her more like a tempo support who makes enemies easier to kill while making your team harder to shut down.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Quick overview**[/color]",
+        "| Detail | Value |",
+        "|---|---|",
+        "| Faction | Banner Lords |",
+        "| Rarity | Legendary |",
+        "| Affinity | Spirit |",
+        "| Role | Support / control |",
+        "| Best for | Arena, Faction Wars, wave PvE, progression teams |",
+        "| Main stats | Speed, Accuracy, HP, DEF |",
+        "| Tanne rating | Strong free support, especially for newer accounts |",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Why she matters**[/color]",
+        "- She can remove buffs from enemies, which is always useful in modern Raid.",
+        "- She brings Weaken on A1, helping your team deal more damage.",
+        "- Her A2 gives AoE Decrease DEF and Decrease ACC, great for wave control and progression.",
+        "- Her A3 can steal all enemy buffs and spread her own buffs to the team.",
+        "- She has AoE Stun pressure, which can swing Arena and wave fights.",
+        "- Her passive can punish enemies when she dies and instantly activate her A3 after revive.",
+        "- She gains HP and Speed over time, so she can become annoying in longer fights.",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Skill analysis**[/color]",
+        "::skill{key=\"A1\" name=\"Emerald Blast\" icon=\"/raid-skill-icons/dorothy-gale/emerald-blast.png\" tags=\"Buff removal|Weaken|Single target\"}",
+        "Her A1 is not flashy, but it is useful. Dorothy attacks one enemy, can remove a random buff, and can place **Weaken**. For a support champion, that is exactly the kind of basic skill you want: it still does something valuable even when her bigger skills are on cooldown.",
+        "::endskill",
+        "::skill{key=\"A2\" name=\"Windstorm\" icon=\"/raid-skill-icons/dorothy-gale/windstorm.png\" cooldown=\"5\" tags=\"AoE|Decrease DEF|Decrease ACC|Wave control\"}",
+        "This is the simple progression button. AoE **Decrease DEF** makes enemies easier to kill, while **Decrease ACC** makes enemy debuffs less reliable. For Dungeon waves, Faction Wars, Doom Tower waves, and early Arena, this is a very clean support skill.",
+        "::endskill",
+        "::skill{key=\"A3\" name=\"Furious Tornado\" icon=\"/raid-skill-icons/dorothy-gale/furious-tornado.png\" cooldown=\"6\" tags=\"AoE|Buff steal|Buff spread|Stun|Oz synergy\"}",
+        "This is her real identity skill. She attacks all enemies, steals all buffs, spreads her own buffs to allies, and has a chance to place **Stun**. If you bring more Echoes of Oz allies, the skill gets extra bonuses, but even without the full themed team, the base effect is already interesting.",
+        "::endskill",
+        "::skill{key=\"PASSIVE\" name=\"True Friend\" icon=\"/raid-skill-icons/dorothy-gale/true-friend.png\" tags=\"Ally team up|Revive trigger|A3 activation|HP and SPD stacking\"}",
+        "Her passive is the part that makes her annoying. When Dorothy dies, allies team up to attack the enemy that killed her. When she is revived, her Furious Tornado activates immediately. That means killing her can become risky if your team has revive support or if the fight is already close.",
+        "::endskill",
+        "::skill{key=\"AURA\" name=\"Ally SPD in all Battles +19%\" icon=\"/raid-skill-icons/dorothy-gale/speed-aura.png\" tags=\"All battles|Speed aura|Progression\"}",
+        "Her aura is simple but useful: **19% Ally Speed in all Battles**. It is not the highest Arena aura in the game, but it is flexible and very friendly for early and mid-game accounts that need one leader for many places.",
+        "::endskill",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Best places to use Dorothy**[/color]",
+        "| Content | Rating | Why |",
+        "|---|---:|---|",
+        "| Faction Wars | ★★★★★ | Banner Lords support with control, debuffs, and buff interaction. |",
+        "| Arena Offense | ★★★★☆ | Useful into buff-heavy teams if built fast and accurate. |",
+        "| Tag Arena | ★★★★☆ | Good utility pick for secondary control teams. |",
+        "| Doom Tower Waves | ★★★★☆ | AoE debuffs, Stun pressure, and buff control are valuable. |",
+        "| Dungeons | ★★★☆☆ | Good wave support, but boss value depends on the dungeon. |",
+        "| Hydra | ★★★☆☆ | Buff strip is useful, but she is not a complete Hydra specialist by herself. |",
+        "| Clan Boss | ★★☆☆☆ | Not her main job. Clan Boss usually wants more specialized kits. |",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Simple build advice**[/color]",
+        "Do not build Dorothy like a damage dealer. Her job is to take turns, land effects, and stay alive.",
+        "- **Speed**: first priority. She needs to move before the fight is already over.",
+        "- **Accuracy**: needed for Weaken, Decrease DEF, Decrease ACC, buff removal, buff steal, and Stun.",
+        "- **HP and DEF**: keeps her alive long enough to cycle skills.",
+        "- **Resistance**: optional for Arena or harder control matchups.",
+        "Recommended sets: **Speed**, **Perception**, **Accuracy**, **Protection**, **Supersonic**, **Stoneskin**, or any mixed gear that gives the right stats. For most players, stats are more important than forcing a perfect set.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Who should invest in her?**[/color]",
+        "- New players who need a real Legendary Support.",
+        "- Mid-game players who lack buff strip or AoE Decrease DEF options.",
+        "- Players pushing Banner Lords Faction Wars.",
+        "- Arena players who enjoy control teams instead of pure speed nuking.",
+        "- Echoes of Oz collectors who want to test the full themed team synergy.",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Pros and cons**[/color]",
+        "### Pros",
+        "- Free loyalty Legendary path.",
+        "- Useful support kit for many accounts.",
+        "- Buff strip and buff steal are always relevant.",
+        "- AoE Decrease DEF helps team damage.",
+        "- AoE Decrease ACC improves team safety.",
+        "- Stun pressure can win wave and Arena fights.",
+        "- Good Banner Lords Faction Wars value.",
+        "### Cons",
+        "- Needs Accuracy to feel reliable.",
+        "- Not a Clan Boss specialist.",
+        "- Some effects are chance-based.",
+        "- Full Oz synergy may require other event champions.",
+        "- Damage is not the reason you build her.",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Tanne verdict**[/color]",
+        "Dorothy Gale looks like a very solid free Legendary Support. She is not the type of champion that deletes the enemy team alone, but that is not her job. Her job is to make the fight easier: remove buffs, place useful debuffs, create Stun pressure, and give your team better tempo.",
+        "For newer accounts, she is absolutely worth claiming and testing. A free Legendary with Speed aura, control, Weaken, Decrease DEF, Decrease ACC, buff steal, and team interaction has real account value. For late-game players, she may become more of a toolbox champion, especially for Faction Wars, Tag Arena, and specific buff-heavy matchups.",
+        "My simple take: **Dorothy is not a must-book instantly for every account, but she is definitely a must-claim champion.** Build her fast, accurate, and tanky first. After that, test whether she earns books based on your roster.",
+        "This is Tanne Hub's personal opinion. If this quick Dorothy Gale spotlight helped you, leave one Like so Tanne Hub knows to make more simple champion breakdowns.",
+      ].join("\n\n"),
+    },
+  ],
+  contentVi: JSON.stringify([
+    {
+      type: "image",
+      url: "/news-images/dorothy-gale-loyalty-champion.webp",
+      caption: "Dorothy Gale là Legendary Support loyalty trong Echoes of Oz.",
+      align: "full",
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Dorothy Gale tóm gọn trong 1 phút**[/color]",
+        "Dorothy Gale là **Legendary Spirit Support** thuộc **Banner Lords**, xuất hiện trong campaign **Echoes of Oz**. Điểm quan trọng nhất với đa số người chơi là cô ấy đi theo dạng loyalty champion, nghĩa là bạn không cần phải thắng tournament hay đốt sạch shard mới có cơ hội lấy.",
+        "Kit của Dorothy tập trung vào control và hỗ trợ team: gỡ buff, đặt Weaken, đặt Decrease DEF và Decrease ACC, cướp buff địch, lan buff của bản thân cho đồng đội, và có khả năng Stun toàn đội địch. Cô ấy không phải nuker. Hãy xem Dorothy như support giữ nhịp trận đấu, làm địch dễ chết hơn và khiến team bạn khó bị bắt bài hơn.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Bảng tóm tắt nhanh**[/color]",
+        "| Thông tin | Giá trị |",
+        "|---|---|",
+        "| Faction | Banner Lords |",
+        "| Rarity | Legendary |",
+        "| Affinity | Spirit |",
+        "| Vai trò | Support / control |",
+        "| Nội dung hợp nhất | Arena, Faction Wars, wave PvE, team progression |",
+        "| Chỉ số chính | Speed, Accuracy, HP, DEF |",
+        "| Đánh giá Tanne | Support miễn phí mạnh, đặc biệt tốt cho account mới |",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Vì sao Dorothy đáng chú ý?**[/color]",
+        "- Có thể gỡ buff của địch, rất hữu dụng trong meta hiện tại.",
+        "- A1 có Weaken giúp team gây thêm sát thương.",
+        "- A2 có AoE Decrease DEF và Decrease ACC, rất tốt cho wave và progression.",
+        "- A3 có thể cướp toàn bộ buff địch và lan buff của Dorothy cho đồng đội.",
+        "- Có áp lực AoE Stun, hữu dụng trong Arena và wave fight.",
+        "- Passive khiến đối thủ phải cẩn thận khi giết Dorothy nếu team bạn có revive.",
+        "- Tự tăng HP và Speed theo thời gian nên càng đánh lâu càng khó chịu.",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Phân tích skill đơn giản**[/color]",
+        "::skill{key=\"A1\" name=\"Emerald Blast\" icon=\"/raid-skill-icons/dorothy-gale/emerald-blast.png\" tags=\"Gỡ buff|Weaken|Đánh đơn mục tiêu\"}",
+        "A1 không quá hào nhoáng nhưng rất thực dụng. Dorothy đánh 1 mục tiêu, có thể gỡ 1 buff ngẫu nhiên và đặt **Weaken**. Với một support, basic skill như vậy là ổn vì kể cả khi skill lớn đang hồi, cô ấy vẫn tạo giá trị.",
+        "::endskill",
+        "::skill{key=\"A2\" name=\"Windstorm\" icon=\"/raid-skill-icons/dorothy-gale/windstorm.png\" cooldown=\"5\" tags=\"AoE|Decrease DEF|Decrease ACC|Control wave\"}",
+        "Đây là nút progression rất dễ hiểu. AoE **Decrease DEF** giúp team gây damage tốt hơn, còn **Decrease ACC** làm debuff của địch kém ổn định hơn. Dùng tốt ở Dungeon wave, Faction Wars, Doom Tower wave và Arena đầu/mid game.",
+        "::endskill",
+        "::skill{key=\"A3\" name=\"Furious Tornado\" icon=\"/raid-skill-icons/dorothy-gale/furious-tornado.png\" cooldown=\"6\" tags=\"AoE|Cướp buff|Lan buff|Stun|Synergy Oz\"}",
+        "Đây là skill định danh Dorothy. Cô ấy đánh toàn bộ địch, cướp buff, lan buff của bản thân cho đồng đội và có cơ hội đặt **Stun**. Nếu đi cùng nhiều tướng Echoes of Oz thì skill có thêm bonus, nhưng kể cả đứng riêng thì hiệu ứng gốc đã khá ngon.",
+        "::endskill",
+        "::skill{key=\"PASSIVE\" name=\"True Friend\" icon=\"/raid-skill-icons/dorothy-gale/true-friend.png\" tags=\"Ally team up|Kích khi revive|Kích A3|Tăng HP và SPD\"}",
+        "Passive là phần khiến Dorothy khó chịu. Khi Dorothy chết, đồng đội sẽ team up đánh kẻ đã giết cô ấy. Khi được hồi sinh, cô ấy kích hoạt ngay Furious Tornado. Điều đó biến việc giết Dorothy thành một quyết định có rủi ro nếu team bạn có revive.",
+        "::endskill",
+        "::skill{key=\"AURA\" name=\"Ally SPD in all Battles +19%\" icon=\"/raid-skill-icons/dorothy-gale/speed-aura.png\" tags=\"All battles|Aura Speed|Progression\"}",
+        "Aura của Dorothy rất dễ dùng: **tăng 19% Speed cho đồng minh trong mọi trận**. Nó không phải aura Arena cao nhất game, nhưng rất linh hoạt và thân thiện với account mới hoặc mid game cần một leader dùng được ở nhiều nơi.",
+        "::endskill",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Dorothy hợp đánh ở đâu?**[/color]",
+        "| Content | Đánh giá | Lý do |",
+        "|---|---:|---|",
+        "| Faction Wars | ★★★★★ | Banner Lords support có control, debuff và xử lý buff. |",
+        "| Arena Offense | ★★★★☆ | Hợp khi gặp team nhiều buff nếu build nhanh và đủ Accuracy. |",
+        "| Tag Arena | ★★★★☆ | Có thể dùng trong team control phụ. |",
+        "| Doom Tower Waves | ★★★★☆ | AoE debuff, Stun và buff control đều có giá trị. |",
+        "| Dungeons | ★★★☆☆ | Tốt ở wave, còn boss tùy dungeon. |",
+        "| Hydra | ★★★☆☆ | Buff strip có ích, nhưng cô ấy không phải Hydra specialist hoàn chỉnh. |",
+        "| Clan Boss | ★★☆☆☆ | Không phải nơi chính của Dorothy. |",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Hướng build dễ hiểu**[/color]",
+        "Đừng build Dorothy như damage dealer. Việc của cô ấy là đi lượt, đặt hiệu ứng và sống đủ lâu.",
+        "- **Speed**: ưu tiên đầu tiên.",
+        "- **Accuracy**: cần cho Weaken, Decrease DEF, Decrease ACC, gỡ buff, cướp buff và Stun.",
+        "- **HP và DEF**: giúp sống lâu để xoay skill.",
+        "- **Resistance**: tùy chọn nếu dùng Arena hoặc gặp team control nặng.",
+        "Set gợi ý: **Speed**, **Perception**, **Accuracy**, **Protection**, **Supersonic**, **Stoneskin**, hoặc mix gear miễn là đủ chỉ số. Với phần lớn người chơi, stat đúng quan trọng hơn ép set đẹp.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Ai nên đầu tư Dorothy?**[/color]",
+        "- Người mới cần một Legendary Support thật sự.",
+        "- Mid-game thiếu buff strip hoặc AoE Decrease DEF.",
+        "- Người đang đẩy Banner Lords Faction Wars.",
+        "- Người chơi Arena thích control thay vì chỉ speed nuke.",
+        "- Người muốn test synergy full Echoes of Oz.",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Ưu và nhược điểm**[/color]",
+        "### Ưu điểm",
+        "- Có đường lấy miễn phí qua loyalty.",
+        "- Kit support dùng được cho nhiều account.",
+        "- Buff strip và buff steal luôn có giá trị.",
+        "- AoE Decrease DEF giúp team gây damage tốt hơn.",
+        "- AoE Decrease ACC tăng độ an toàn.",
+        "- Stun có thể xoay chuyển wave và Arena.",
+        "- Rất có ích cho Banner Lords Faction Wars.",
+        "### Nhược điểm",
+        "- Cần Accuracy để ổn định.",
+        "- Không phải tướng Clan Boss.",
+        "- Một số hiệu ứng phụ thuộc tỷ lệ.",
+        "- Full synergy Oz cần thêm champion event khác.",
+        "- Không nên kỳ vọng Dorothy gây damage chính.",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Tanne verdict**[/color]",
+        "Dorothy Gale nhìn giống một Legendary Support miễn phí rất ổn. Cô ấy không phải kiểu tự xóa team địch, nhưng đó không phải nhiệm vụ chính. Nhiệm vụ của Dorothy là làm trận đấu dễ kiểm soát hơn: gỡ buff, đặt debuff quan trọng, tạo áp lực Stun và giúp team giữ nhịp.",
+        "Với account mới, Dorothy rất đáng nhận và test. Một Legendary miễn phí có aura Speed, control, Weaken, Decrease DEF, Decrease ACC, buff steal và tương tác team là giá trị thật. Với late game, cô ấy có thể là champion toolbox cho Faction Wars, Tag Arena và những kèo nhiều buff.",
+        "Kết luận đơn giản của mình: **Dorothy chưa chắc phải book ngay cho mọi account, nhưng chắc chắn nên lấy.** Build nhanh, chính xác và trâu trước. Sau đó test trong roster của bạn rồi mới quyết định có đáng book không.",
+        "Đây là ý kiến cá nhân của Tanne Hub. Nếu bài tiêu điểm Dorothy Gale này giúp bạn hiểu champion nhanh hơn, hãy thả 1 Like để Tanne Hub biết nên làm thêm các bài phân tích champion ngắn gọn kiểu này.",
+      ].join("\n\n"),
+    },
+  ] satisfies PostBodyBlock[]),
+};
+
 export const update1170ChampionProvingGroundsOverviewDraftAug052026: {
   id: string;
   title: string;
@@ -3586,6 +4200,8 @@ export const update1170ChampionProvingGroundsOverviewDraftAug052026: {
 };
 
 export const raidNewsDraftSeeds = [
+  dorothyGaleLoyaltyChampionSpotlightDraftAug172026,
+  echoesOfOzSummonEventOverviewDraftAug172026,
   update1170ChampionProvingGroundsOverviewDraftAug052026,
   covetousPassionMythicalRelicReviewDraftAug022026,
   vergumkaarDanagSkullreapRebalance1170DraftJul312026,
