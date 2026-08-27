@@ -3591,6 +3591,261 @@ export const echoesOfOzSummonEventOverviewDraftAug172026: {
   ] satisfies PostBodyBlock[]),
 };
 
+
+export const tinWoodmanChampionSpotlightDraftAug272026: {
+  id: string;
+  title: string;
+  caption: string;
+  titleVi: string;
+  captionVi: string;
+  contentVi: string;
+  blocks: PostBodyBlock[];
+} = {
+  id: "raid-news-2026-08-27-the-tin-woodman-champion-spotlight",
+  title: "The Tin Woodman Champion Spotlight: DEF nuker, Ally Attack pressure, and Echoes of Oz team protection",
+  caption:
+    "A Tanne Hub gamer-style spotlight for The Tin Woodman, the Echoes of Oz Legendary Defense champion from Banner Lords.",
+  titleVi: "Tiêu điểm The Tin Woodman: DEF nuker, Ally Attack và bảo vệ team Echoes of Oz",
+  captionVi:
+    "Tanne Hub phân tích The Tin Woodman theo phong cách gamer: lore, bộ kỹ năng, vị trí phù hợp và hướng build dễ hiểu.",
+  blocks: [
+    {
+      type: "image",
+      url: "/news-images/echoes-of-oz-tin-woodman-showcase.webp",
+      caption: "The Tin Woodman is a Legendary Magic Defense champion from Banner Lords in the Echoes of Oz campaign.",
+      align: "full",
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Tin Woodman in one minute**[/color]",
+        "The Tin Woodman is a **Legendary Magic Defense** champion from the **Banner Lords** faction. On paper, he is not just a tank. He is a DEF-scaling bruiser who wants to protect key allies, hit hard with team-up pressure, and punish enemies when the fight starts turning in your favor.",
+        "His kit fits the Echoes of Oz theme very well: he is hard to break, he can redirect damage from important allies, and he becomes more dangerous when fighting beside Dorothy Gale, The Scarecrow, and The Cowardly Lion. If Dorothy is the support tempo piece, Tin Woodman is the metal wall that can still swing an axe back at you.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Quick overview**[/color]",
+        "| Detail | Value |",
+        "|---|---|",
+        "| Faction | Banner Lords |",
+        "| Rarity | Legendary |",
+        "| Affinity | Magic |",
+        "| Role | Defense / DEF damage dealer / team protector |",
+        "| Best for | Faction Wars, Fire Knight, Arena bruiser teams, Echoes of Oz synergy |",
+        "| Main stats | DEF, 100% Crit Rate, Crit Damage, Speed, HP |",
+        "| Tanne rating | Very interesting if his multipliers are strong |",
+      ].join("\n"),
+    },
+    {
+      type: "image",
+      url: "/news-images/echoes-of-oz-tin-woodman-skills.webp",
+      caption: "Tin Woodman brings DEF scaling, ally team-up attacks, Shatter, Revive on Death, and damage redirection.",
+      align: "full",
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Lore spotlight: the man inside the metal**[/color]",
+        "Before becoming The Tin Woodman, he was just a lonely man living near Tilshire. A wounded arm pushed him into the hands of an old woman who was much more dangerous than she looked. She saved him, but not out of kindness. She replaced his arm with tin, then slowly replaced more and more of him until his body became a machine of metal, crystal, gears, pistons, and polished glass eyes.",
+        "That is what makes his story hit harder than a normal monster origin. He was not born as a weapon. He was turned into one. Even after escaping the witch's fortress with his old axe, he believed he had lost the part of himself that could truly feel. Anger, loneliness, compassion: he remembered those emotions, but thought they were gone.",
+        "Then Dorothy Gale entered his path. Travelling with her gave him a reason to believe he was not empty after all. The Emerald Wizard later revealed the truth: Tin Woodman had never really lost his heart. His willingness to help suffering people proved that his compassion was still there, even if he experienced it differently now.",
+        "That lore matches his gameplay identity perfectly. He is built like metal, protects others like a shield, and still has enough heart to take punishment for his allies.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Skill analysis**[/color]",
+        "::skill{key=\"A1\" name=\"Hewing Ax\" icon=\"/raid-skill-icons/tin-woodman/hewing-ax.png\" tags=\"DEF scaling|Self heal|Single target\"}",
+        "His A1 is simple, but it fits the champion: hit one enemy and heal himself based on his MAX HP. It will not be the flashy reason you build him, but on a DEF bruiser that may be taking extra damage for allies, self-healing on the basic skill is useful.",
+        "::endskill",
+        "::skill{key=\"A2\" name=\"Fell It Now!\" icon=\"/raid-skill-icons/tin-woodman/fell-it-now.png\" cooldown=\"5\" tags=\"Ally Attack|Ignore DEF|Single target pressure|Cooldown reset\"}",
+        "This is the skill that makes Tin Woodman exciting. He attacks one enemy, scales extra damage and Ignore DEF from the buffs on himself, then calls allies to team up on the same target. That is already strong for boss pressure and single-target kill setups. The Oz synergy makes it even better because Dorothy, Tin Woodman, Scarecrow, and Cowardly Lion can gain extra value when joining the attack.",
+        "::endskill",
+        "::skill{key=\"A3\" name=\"Lumber Machine\" icon=\"/raid-skill-icons/tin-woodman/lumber-machine.png\" cooldown=\"4\" tags=\"AoE|Increase C.DMG|Shatter|DEF ignore|Revive on Death\"}",
+        "This is his big swing. Before attacking all enemies, he places Increase C.DMG and Shatter on himself, then ignores part of each target's DEF based on the buffs he has. If he kills someone, he gains Revive on Death. In Arena or wave content, this gives him the feeling of a tanky nuker who can survive after going in.",
+        "::endskill",
+        "::skill{key=\"PASSIVE\" name=\"True Heart\" icon=\"/raid-skill-icons/tin-woodman/true-heart.png\" tags=\"Damage redirection|Oz protection|DEF stacking|Revive on Death\"}",
+        "This passive is his identity. It reduces damage taken by allies, especially the Echoes of Oz group, and Tin Woodman receives that damage instead. If the redirected damage gets too high, he can place Revive on Death on himself. He also stacks DEF when he receives damage through this effect. That means he is designed to stand in front of the team and get stronger while doing it.",
+        "::endskill",
+        "::skill{key=\"AURA\" name=\"Ally DEF in all Battles +30%\" icon=\"/raid-skill-icons/tin-woodman/def-aura.png\" tags=\"All battles|DEF aura|Progression\"}",
+        "A 30% DEF aura in all battles is very practical. It helps Defense-based teams, makes Tin Woodman easier to build around, and gives newer accounts a simple leader aura for survival-heavy content.",
+        "::endskill",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Where he looks useful**[/color]",
+        "| Content | Rating | Why |",
+        "|---|---:|---|",
+        "| Faction Wars | ★★★★★ | Banner Lords DEF bruiser with protection and damage. |",
+        "| Fire Knight | ★★★★★ | Ally Attack is always valuable for breaking the shield faster. |",
+        "| Arena Offense | ★★★★☆ | Can work in bruiser teams if his damage multiplier is strong. |",
+        "| Tag Arena | ★★★★☆ | Good for slower tanky setups and surprise team-up pressure. |",
+        "| Doom Tower Waves | ★★★★☆ | AoE damage, Shatter, survivability, and team protection. |",
+        "| Hydra | ★★★☆☆ | Ally Attack and protection are useful, but he is not a full Hydra specialist by himself. |",
+        "| Clan Boss | ★★★☆☆ | Ally Attack can help, but his kit is not built purely for Clan Boss optimization. |",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Build direction**[/color]",
+        "Build him like a Defense nuker first, then add enough durability to let his passive matter.",
+        "- **DEF%**: main damage and survival stat.",
+        "- **100% Crit Rate**: required if you want consistent damage.",
+        "- **Crit Damage**: turns DEF scaling into real pressure.",
+        "- **Speed**: lets him cycle A2 and A3 instead of sitting there as a slow wall.",
+        "- **HP**: useful because he may receive redirected damage for allies.",
+        "Recommended sets: **Savage**, **Lethal**, **Merciless**, **Defiant**, **Stoneskin**, **Protection**, **Resilience**, or any mixed build with strong DEF/Crit stats. If you want damage, do not overbuild him like a pure support. If you want protection, do not ignore HP and Speed.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Best team synergies**[/color]",
+        "- **Dorothy Gale**: fits the Echoes of Oz package and benefits from his protection theme.",
+        "- **Ally Attack teams**: Tin Woodman can create more team-up pressure while adding his own DEF damage.",
+        "- **Buff-heavy supports**: more buffs on Tin Woodman can improve his Ignore DEF and damage ceiling.",
+        "- **Revive support**: helps abuse his protection role and keeps him available after taking too much pressure.",
+        "- **DEF-based teams**: his aura and stat profile make him natural beside other Defense champions.",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Pros and cons**[/color]",
+        "### Pros",
+        "- DEF scaling damage makes him easier to keep alive than classic Attack nukers.",
+        "- Ally Attack gives strong boss and single-target value.",
+        "- AoE burst with Shatter and self Increase C.DMG looks dangerous.",
+        "- Passive can protect key allies and stack his DEF.",
+        "- Strong theme synergy with Echoes of Oz champions.",
+        "### Cons",
+        "- Final value depends heavily on real damage multipliers.",
+        "- Wants many stats: DEF, Crit Rate, Crit Damage, Speed, and some HP.",
+        "- Passive protection may be harder to control in messy PvP fights.",
+        "- Full Oz synergy requires other limited champions.",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Tanne verdict**[/color]",
+        "The Tin Woodman is one of the more interesting Echoes of Oz champions because his identity is clear. He is not just a metal tank standing there waiting to die. He wants to protect allies, stack DEF, call the team into attacks, and hit hard from a defensive stat line.",
+        "If his multipliers are good, he could become a very valuable champion for Banner Lords, Fire Knight, Doom Tower waves, and bruiser-style Arena teams. If the multipliers are only average, he may still be useful because Ally Attack plus protection is never a bad foundation.",
+        "My early take: **Tin Woodman is worth watching closely, especially for players who like DEF-based nukers and team-up mechanics.** Do not judge him only as a tank. His best version is probably a bruiser build: enough damage to threaten kills, enough durability to absorb pressure, and enough Speed to actually play the game.",
+        "This is Tanne Hub's personal opinion. If this Tin Woodman spotlight helped you, leave one Like so Tanne Hub knows to make more quick champion breakdowns.",
+      ].join("\n\n"),
+    },
+  ],
+  contentVi: JSON.stringify([
+    {
+      type: "image",
+      url: "/news-images/echoes-of-oz-tin-woodman-showcase.webp",
+      caption: "The Tin Woodman là Legendary Magic Defense champion thuộc Banner Lords trong Echoes of Oz.",
+      align: "full",
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Tin Woodman tóm gọn trong 1 phút**[/color]",
+        "The Tin Woodman là **Legendary Magic Defense** thuộc **Banner Lords**. Nhìn qua thì hắn là một tank, nhưng kit thật sự không chỉ để đứng chịu đòn. Đây là kiểu DEF bruiser: vừa trâu, vừa gọi đồng đội đánh chung, vừa có khả năng tạo sát thương bằng DEF.",
+        "Trong nhóm Echoes of Oz, Tin Woodman giống như bức tường kim loại đứng trước team. Hắn có thể giảm sát thương cho đồng minh, nhận một phần damage thay họ, rồi biến lượng pressure đó thành DEF stack và phản công bằng những cú đánh khá đau.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Thông tin nhanh**[/color]",
+        "| Mục | Giá trị |",
+        "|---|---|",
+        "| Faction | Banner Lords |",
+        "| Độ hiếm | Legendary |",
+        "| Affinity | Magic |",
+        "| Vai trò | Defense / DEF damage dealer / bảo vệ team |",
+        "| Nội dung hợp | Faction Wars, Fire Knight, Arena bruiser, Echoes of Oz team |",
+        "| Chỉ số chính | DEF, 100% Crit Rate, Crit Damage, Speed, HP |",
+      ].join("\n"),
+    },
+    {
+      type: "image",
+      url: "/news-images/echoes-of-oz-tin-woodman-skills.webp",
+      caption: "Tin Woodman có DEF scaling, Ally Attack, Shatter, Revive on Death và cơ chế nhận damage thay đồng minh.",
+      align: "full",
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Lore: người đàn ông bên trong bộ giáp kim loại**[/color]",
+        "Trước khi trở thành Tin Woodman, hắn chỉ là một người đàn ông sống một mình gần Tilshire. Một vết thương nặng khiến hắn phải tìm đến bà lão hàng xóm, nhưng bà ta thực chất là một phù thủy nguy hiểm. Bà ta cứu hắn, nhưng không phải vì lòng tốt. Bà thay cánh tay của hắn bằng tay thiếc, rồi dần dần thay gần như toàn bộ cơ thể hắn bằng kim loại, pha lê, bánh răng và mắt kính.",
+        "Điểm hay của lore này là Tin Woodman không sinh ra để làm quái vật. Hắn bị biến thành một công cụ. Sau khi trốn khỏi pháo đài của phù thủy bằng chiếc rìu cũ, hắn tin rằng mình đã mất đi trái tim và cảm xúc con người.",
+        "Nhưng khi gặp Dorothy Gale, hành trình của hắn thay đổi. Emerald Wizard cho hắn hiểu rằng trái tim chưa từng thật sự biến mất. Việc hắn vẫn muốn giúp người đau khổ chứng minh bên trong lớp kim loại đó vẫn còn lòng trắc ẩn.",
+        "Và điều này khớp với gameplay: hắn là tướng chịu đòn, bảo vệ đồng đội, nhưng vẫn có đủ 'trái tim' để đứng chắn cho team.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Phân tích kỹ năng**[/color]",
+        "::skill{key=\"A1\" name=\"Hewing Ax\" icon=\"/raid-skill-icons/tin-woodman/hewing-ax.png\" tags=\"DEF scaling|Tự hồi máu|Đơn mục tiêu\"}",
+        "A1 đơn giản nhưng hợp vai trò: đánh một mục tiêu và tự hồi máu theo MAX HP. Không phải kỹ năng làm hắn nổi bật, nhưng rất ổn cho một tướng có thể nhận damage thay đồng minh.",
+        "::endskill",
+        "::skill{key=\"A2\" name=\"Fell It Now!\" icon=\"/raid-skill-icons/tin-woodman/fell-it-now.png\" cooldown=\"5\" tags=\"Ally Attack|Ignore DEF|Áp lực đơn mục tiêu|Reset cooldown\"}",
+        "Đây là kỹ năng đáng chú ý nhất. Tin Woodman đánh một mục tiêu, tăng sát thương và Ignore DEF dựa trên số buff của bản thân, rồi gọi đồng minh đánh chung. Với boss hoặc mục tiêu cần dứt điểm nhanh, Ally Attack luôn có giá trị rất cao.",
+        "::endskill",
+        "::skill{key=\"A3\" name=\"Lumber Machine\" icon=\"/raid-skill-icons/tin-woodman/lumber-machine.png\" cooldown=\"4\" tags=\"AoE|Increase C.DMG|Shatter|Ignore DEF|Revive on Death\"}",
+        "Đây là cú chém AoE chính. Trước khi đánh, hắn tự đặt Increase C.DMG và Shatter, sau đó ignore một phần DEF của mục tiêu dựa trên số buff đang có. Nếu hạ được địch, hắn nhận Revive on Death, rất hợp kiểu bruiser lao vào rồi vẫn có đường sống.",
+        "::endskill",
+        "::skill{key=\"PASSIVE\" name=\"True Heart\" icon=\"/raid-skill-icons/tin-woodman/true-heart.png\" tags=\"Nhận damage thay|Bảo vệ team Oz|Stack DEF|Revive on Death\"}",
+        "Passive là linh hồn của champion này. Hắn giảm damage cho đồng minh, đặc biệt là nhóm Echoes of Oz, rồi nhận phần damage đó về mình. Khi nhận damage kiểu này, hắn còn stack DEF, nghĩa là càng bị ép càng có thể trở nên cứng và nguy hiểm hơn.",
+        "::endskill",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Nơi dùng tốt nhất**[/color]",
+        "| Content | Đánh giá | Lý do |",
+        "|---|---:|---|",
+        "| Faction Wars | ★★★★★ | Banner Lords rất thích tướng DEF vừa trâu vừa có damage. |",
+        "| Fire Knight | ★★★★★ | Ally Attack giúp phá khiên nhanh hơn. |",
+        "| Arena Offense | ★★★★☆ | Có thể dùng trong team bruiser nếu damage đủ mạnh. |",
+        "| Tag Arena | ★★★★☆ | Hợp đội hình chậm, trâu và phản công bằng team-up attack. |",
+        "| Doom Tower Waves | ★★★★☆ | AoE damage, Shatter và khả năng sống sót tốt. |",
+        "| Hydra | ★★★☆☆ | Có giá trị, nhưng không phải Hydra specialist hoàn chỉnh. |",
+        "| Clan Boss | ★★★☆☆ | Ally Attack có ích, nhưng kit không sinh ra chỉ cho Clan Boss. |",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Hướng build đơn giản**[/color]",
+        "Hãy build hắn như một DEF nuker trước, sau đó thêm độ trâu để passive có đất diễn.",
+        "- **DEF%**: chỉ số sát thương và sinh tồn chính.",
+        "- **100% Crit Rate**: cần thiết nếu muốn damage ổn định.",
+        "- **Crit Damage**: biến DEF scaling thành sát thương thật.",
+        "- **Speed**: giúp xoay A2/A3 thay vì đứng im chịu đòn.",
+        "- **HP**: hữu ích vì hắn có thể nhận damage thay đồng minh.",
+        "Set nên cân nhắc: **Savage**, **Lethal**, **Merciless**, **Defiant**, **Stoneskin**, **Protection**, **Resilience** hoặc mix gear miễn là đủ DEF/Crit/Speed.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Tanne verdict**[/color]",
+        "The Tin Woodman là champion rất đáng chú ý vì identity rõ ràng. Hắn không chỉ là một cái tường kim loại. Hắn bảo vệ team, stack DEF, gọi đồng đội đánh chung và vẫn có thể gây damage bằng DEF scaling.",
+        "Nếu multiplier tốt, hắn có thể rất mạnh trong Banner Lords, Fire Knight, Doom Tower waves và Arena bruiser team. Nếu multiplier chỉ trung bình, nền tảng Ally Attack + bảo vệ team vẫn đủ khiến hắn có giá trị dùng thử.",
+        "Góc nhìn cá nhân của mình: **Tin Woodman đáng theo dõi, nhất là với người thích DEF nuker và cơ chế Ally Attack.** Đừng build hắn như support thuần. Phiên bản hay nhất có lẽ là bruiser: đủ damage để dọa kill, đủ trâu để nhận pressure, và đủ Speed để thật sự được chơi.",
+        "Đây là ý kiến cá nhân của Tanne Hub. Nếu bài spotlight Tin Woodman này hữu ích, hãy thả 1 Like để Tanne Hub biết nên làm thêm các bài tiêu điểm tướng nhanh gọn như thế này.",
+      ].join("\n\n"),
+    },
+  ] satisfies PostBodyBlock[]),
+};
+
 export const dorothyGaleLoyaltyChampionSpotlightDraftAug172026: {
   id: string;
   title: string;
@@ -4200,6 +4455,7 @@ export const update1170ChampionProvingGroundsOverviewDraftAug052026: {
 };
 
 export const raidNewsDraftSeeds = [
+  tinWoodmanChampionSpotlightDraftAug272026,
   dorothyGaleLoyaltyChampionSpotlightDraftAug172026,
   echoesOfOzSummonEventOverviewDraftAug172026,
   update1170ChampionProvingGroundsOverviewDraftAug052026,
