@@ -4454,7 +4454,199 @@ export const update1170ChampionProvingGroundsOverviewDraftAug052026: {
   ] satisfies PostBodyBlock[]),
 };
 
+export const mercurialTotalGuardRobarAbbessRebalanceDraftSep022026 = {
+  id: "raid-news-2026-09-02-mercurial-total-guard-robar-abbess-rebalance",
+  title: "Mercurial Set & Total Guard Rebalance: Provoke gets stronger, Robar and Abbess get real upgrades",
+  caption:
+    "Tanne Hub breakdown of the Total Guard change, Mercurial Set impact, and the Robar plus Abbess rebalance after the latest Raid update.",
+  titleVi:
+    "Mercurial Set & Total Guard Rebalance: Provoke mạnh hơn, Robar và Abbess được buff đáng chú ý",
+  captionVi:
+    "Tanne Hub phân tích thay đổi Total Guard, ảnh hưởng tới Mercurial Set, và đánh giá Robar cùng Abbess sau đợt rebalance mới.",
+  blocks: [
+    {
+      type: "image",
+      url: "/news-images/rebalance-total-guard-mercurial.png",
+      caption:
+        "Provoke now bypasses Total Guard, and provoked champions cannot apply or refresh new Total Guard stacks at the beginning of their turn.",
+      align: "full",
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Quick summary**[/color]",
+        "- **Total Guard got a direct counter:** Provoke now bypasses Total Guard.",
+        "- A champion under **Provoke** cannot apply or refresh new Total Guard stacks at the beginning of their turn.",
+        "- The rest of **Total Guard** stays the same.",
+        "- The wider **Mercurial Gear Set** is not being reworked.",
+        "- **Robar** gets faster, more self-buffing, stronger AoE pressure, better cycling, and a new passive.",
+        "- **Abbess** gets buff steal, stronger AoE nuking, Ignore DEF, Ignore Shield, Extra Turn potential, and a new scaling passive.",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**What changed with Total Guard?**[/color]",
+        "The important part is simple: **Provoke now goes through Total Guard.** Before this change, Total Guard could feel like a very annoying defensive layer because it helped champions sit behind protection while refreshing stacks. Now, Provoke gives players a clean way to interrupt that plan.",
+        "If a champion is under Provoke, they also cannot apply or refresh new Total Guard stacks at the start of their turn. That means Provoke is not only stopping skill choice, it is also stopping the champion from rebuilding that specific defensive mechanic.",
+        "This does not delete Mercurial Set from the game. The set still keeps its wider value, and Total Guard still has its other effects. But the matchup is healthier now because control teams have a clearer answer.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Mercurial Set impact**[/color]",
+        "Mercurial is still a strong set, especially on champions that want tempo, protection, or annoying defensive value. The difference is that it is no longer as comfortable into Provoke-heavy teams. If your champion depends on Total Guard stacks to survive or keep momentum, you now need to respect Provoke much more.",
+        "For Arena, this is a small but meaningful meta shift. Champions with reliable AoE Provoke, protected Provoke setups, or fast control openers become more interesting. Players who were leaning too hard on Mercurial safety now have to think about cleansing, immunity, Stoneskin timing, or simply banning Provoke threats in Live Arena.",
+      ].join("\n\n"),
+    },
+    {
+      type: "image",
+      url: "/news-images/rebalance-robar-abbess-update.png",
+      caption:
+        "Robar and Abbess both move toward more practical damage roles after the rebalance.",
+      align: "full",
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Robar after rebalance**[/color]",
+        "Robar was always a champion with a cool idea: Orc damage, control pressure, and punishing enemies when the fight gets messy. The problem was that his old kit did not always feel modern enough. This rebalance gives him more speed, more self-setup, and more ways to create pressure without needing the whole team to baby him.",
+        "**Base SPD going from 97 to 102** is a real quality-of-life buff. Five Speed may not look huge, but in Raid it matters. It makes him easier to tune, easier to push into Arena builds, and less painful to use in wave content.",
+        "His new **Wild Swing** is much better than before. Instead of only attacking all enemies and trying to place Decrease DEF, Robar now buffs himself with **Increase ACC** and **Increase ATK** before attacking. Then he can place **Decrease DEF** and **True Fear** for 2 turns. That means the skill now helps itself land, helps itself hit harder, and adds control pressure.",
+        "**Merciless Assault** is also cleaner now. Ignoring 20% DEF and Shield buffs gives him more real kill pressure, and dropping the cooldown from 4 turns to 3 turns makes the skill cycle much better.",
+        "The new passive, **Orc Brotherhood**, is the part that gives Robar identity. He gains Turn Meter when control debuffs land on allies, fills all allies' Turn Meter when he places Stun, and counterattacks with Stunning Strength when an Orc ally is attacked once per turn. This makes him much more interesting in Orc-heavy teams and messy PvP fights.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Robar strengths after the update**[/color]",
+        "- Better base Speed makes him easier to build.",
+        "- Self **Increase ACC** helps him land debuffs more reliably.",
+        "- Self **Increase ATK** improves his damage setup.",
+        "- AoE **Decrease DEF** plus **True Fear** gives both damage support and control.",
+        "- A3 ignoring DEF and Shield makes his burst more dangerous.",
+        "- Shorter A3 cooldown means better rotation.",
+        "- New passive gives him Turn Meter value in control-heavy fights.",
+        "- Orc teams now have a more interesting PvP-style bruiser/control piece.",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Robar weaknesses after the update**[/color]",
+        "- He still needs good gear to become scary.",
+        "- His best passive value wants specific situations or Orc allies.",
+        "- He is stronger, but not automatically a top-tier universal nuker.",
+        "- In boss content, parts of his control kit lose value.",
+        "- If he fails to land debuffs, he feels much less threatening.",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Best content for Robar**[/color]",
+        "| Content | Rating | Why |",
+        "| --- | --- | --- |",
+        "| Faction Wars | ★★★★★ | Orc faction value, control, AoE Decrease DEF, and better tempo. |",
+        "| Arena Offense | ★★★★☆ | Stronger setup and more kill pressure, especially into Shield teams. |",
+        "| Live Arena | ★★★☆☆ | Can surprise people, but draft dependency is still real. |",
+        "| Doom Tower Waves | ★★★★☆ | AoE control and Decrease DEF are useful in wave fights. |",
+        "| Dungeons | ★★★☆☆ | Good wave pressure, less special on bosses. |",
+        "| Hydra | ★★☆☆☆ | Some utility, but not where his kit looks best. |",
+        "| Clan Boss | ★☆☆☆☆ | Not the main place to use him. |",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Abbess after rebalance**[/color]",
+        "Abbess gets the kind of rebalance that makes her much easier to understand: she is now more clearly an AoE damage dealer with buff interaction and better ignore mechanics. Before, her kit had interesting scaling ideas, but it could feel awkward. After the update, she has a cleaner job: set up damage, ignore protection, and punish enemies when her ATK is high enough.",
+        "Her A1, **Arrow of Rebuke**, now has a **100% chance to steal 1 random buff** from the target, and the damage multiplier is increased. That makes her basic skill much better in longer fights. Even when her big AoE skills are down, she can still remove something useful from an enemy.",
+        "**Mass Impalement** is a much bigger threat now. It places Decrease DEF before attacking, ignores 15% DEF and Shield buffs, and grants an Extra Turn if it kills. That is exactly the kind of flow a nuker wants: set up, hit, then move again if the kill happens.",
+        "**Divine Wrath** also becomes more reliable. It attacks all enemies, ignores 15% DEF by default, ignores 30% DEF if Abbess has more ATK than the target's DEF, and ignores Unkillable. The ascended version also places **Increase ATK** on herself before attacking. That makes the condition easier to meet and gives her a much cleaner burst turn.",
+        "Her new passive, **The Brightest Light**, lets her ignore 25% RES if her ATK is higher than the target's ATK, and increases her ATK by 5% for every buff she receives or steals, stacking up to 50%. This is a big deal because it rewards buff-heavy setups and makes her scale harder as the fight develops.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Abbess strengths after the update**[/color]",
+        "- Much better buff interaction.",
+        "- A1 stealing a buff at 100% chance gives real value.",
+        "- AoE Decrease DEF before attacking is a major upgrade.",
+        "- Ignore DEF plus Ignore Shield helps against defensive teams.",
+        "- Extra Turn on kill gives snowball potential.",
+        "- Divine Wrath now has clearer damage logic.",
+        "- Ascended A3 self Increase ATK helps her own condition.",
+        "- New passive rewards buff-heavy teams and stolen buffs.",
+        "- Ignore Unkillable gives her better finishing power.",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Abbess weaknesses after the update**[/color]",
+        "- She still wants high-end damage stats.",
+        "- Her best value depends on ATK comparisons, so weak builds will feel average.",
+        "- She can still struggle into very tanky mitigation if she cannot secure kills.",
+        "- Needs setup or strong gear to shine in serious Arena.",
+        "- Not a Clan Boss champion.",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Best content for Abbess**[/color]",
+        "| Content | Rating | Why |",
+        "| --- | --- | --- |",
+        "| Arena Offense | ★★★★★ | AoE damage, Ignore Shield, Ignore DEF, Extra Turn, and Ignore Unkillable. |",
+        "| Tag Arena | ★★★★☆ | Good as a damage option when you need multiple teams. |",
+        "| Live Arena | ★★★☆☆ | Dangerous if drafted well, but can be controlled or banned around. |",
+        "| Faction Wars | ★★★★★ | Sacred Order damage carry with better buff steal and AoE control pressure. |",
+        "| Doom Tower Waves | ★★★★☆ | Strong wave clearing and buff steal utility. |",
+        "| Dungeons | ★★★☆☆ | Good wave nuker, but not always boss-specialized. |",
+        "| Hydra | ★★☆☆☆ | Some value, but not her best stage. |",
+        "| Clan Boss | ★☆☆☆☆ | Not recommended. |",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Who benefits most from this patch?**[/color]",
+        "- **Arena players:** Provoke becoming a cleaner answer to Total Guard is the biggest meta point.",
+        "- **Mercurial users:** the set is still good, but now you must respect Provoke.",
+        "- **Orc players:** Robar finally feels more complete and more modern.",
+        "- **Sacred Order players:** Abbess becomes a much more serious damage option.",
+        "- **Faction Wars accounts:** both champions gain practical value for their factions.",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]**Tanne verdict**[/color]",
+        "This rebalance is healthy. Total Guard is not deleted, Mercurial Set is not destroyed, but Provoke now has a real job into that mechanic. That is good for the game because defensive layers should have answers. If every protection mechanic only stacks with no clean counter, Arena becomes slow and annoying.",
+        "For the champions, **Robar looks much more fun after the patch**. He is faster, self-buffs before his AoE, brings Decrease DEF and True Fear, cycles his A3 faster, and has a passive that gives him a real Orc identity. I would not call him broken, but I would absolutely re-check him if he is sitting in your vault.",
+        "**Abbess may be the bigger winner for pure damage players.** Buff steal, AoE Decrease DEF before hit, Ignore Shield, Ignore DEF, Extra Turn on kill, Ignore Unkillable, and ATK stacking all push her into a cleaner nuker role. She still needs gear, but her direction is much clearer now.",
+        "My personal Tanne Hub take: **Abbess is the champion I would test first for damage, Robar is the champion I would test first for fun control pressure.** If this breakdown helped you understand the patch faster, leave one Like so Tanne Hub knows to keep making quick rebalance reviews.",
+      ].join("\n\n"),
+    },
+  ] satisfies PostBodyBlock[],
+  contentVi: [
+    "## [color=#ffaa00]**Tóm tắt nhanh**[/color]\n- **Total Guard giờ có counter rõ hơn:** Provoke có thể bypass Total Guard.\n- Champion đang bị **Provoke** sẽ không thể tạo hoặc làm mới stack Total Guard ở đầu lượt.\n- Những hiệu ứng khác của **Total Guard** vẫn giữ nguyên.\n- **Mercurial Gear Set** không bị rework toàn bộ.\n- **Robar** được tăng Speed, tự buff tốt hơn, AoE nguy hiểm hơn và có passive mới.\n- **Abbess** được buff steal, AoE nuke sạch hơn, Ignore DEF, Ignore Shield, Extra Turn và passive tăng ATK.",
+    "## [color=#ffaa00]**Total Guard thay đổi gì?**[/color]\nĐiểm quan trọng nhất rất đơn giản: **Provoke giờ xuyên qua Total Guard.** Nếu một champion đang bị Provoke, champion đó cũng không thể tạo hoặc refresh stack Total Guard mới ở đầu lượt.\n\nĐiều này không làm Mercurial Set biến mất khỏi meta. Set vẫn còn giá trị. Nhưng từ giờ những đội hình dựa quá nhiều vào Total Guard phải tôn trọng Provoke hơn, đặc biệt trong Arena và Live Arena.",
+    "## [color=#ffaa00]**Robar sau rebalance**[/color]\nRobar được buff theo hướng thực dụng hơn. Base SPD từ 97 lên 102 giúp build dễ chịu hơn. **Wild Swing** giờ tự đặt Increase ACC và Increase ATK trước khi đánh, sau đó có thể đặt Decrease DEF và True Fear. Đây là nâng cấp rất rõ vì skill vừa tự hỗ trợ độ chính xác, vừa tăng damage, vừa thêm control.\n\n**Merciless Assault** giờ ignore 20% DEF và Shield, cooldown giảm từ 4 xuống 3 turn. Passive mới **Orc Brotherhood** giúp Robar có thêm Turn Meter khi đồng minh bị dính các debuff khống chế, đồng thời hỗ trợ team khi hắn đặt Stun.",
+    "## [color=#ffaa00]**Điểm mạnh của Robar**[/color]\n- Dễ build hơn nhờ Speed cao hơn.\n- Tự có Increase ACC và Increase ATK.\n- AoE Decrease DEF kèm True Fear.\n- A3 cooldown ngắn hơn.\n- Có ignore DEF và ignore Shield.\n- Passive mới hợp với đội hình Orc và các trận PvP hỗn loạn.\n\n## [color=#ffaa00]**Điểm yếu của Robar**[/color]\n- Vẫn cần gear tốt.\n- Passive cần đúng tình huống hoặc đồng minh Orc để tối ưu.\n- Không phải lựa chọn mạnh cho Clan Boss.\n- Boss content không tận dụng hết phần control.",
+    "## [color=#ffaa00]**Abbess sau rebalance**[/color]\nAbbess có lẽ là người thắng lớn hơn nếu xét về damage. A1 giờ có 100% cơ hội steal 1 buff, giúp cô không bị vô dụng khi skill lớn đang cooldown.\n\n**Mass Impalement** giờ đặt Decrease DEF trước khi đánh, ignore 15% DEF và Shield, đồng thời cho Extra Turn nếu giết mục tiêu. **Divine Wrath** cũng rõ ràng hơn: ignore DEF mặc định, ignore nhiều hơn nếu ATK của Abbess vượt DEF mục tiêu, và ignore Unkillable. Bản ascended còn tự đặt Increase ATK trước khi đánh.",
+    "## [color=#ffaa00]**Điểm mạnh của Abbess**[/color]\n- Buff steal tốt hơn.\n- AoE Decrease DEF trước khi đánh.\n- Ignore DEF, Shield và Unkillable.\n- Có Extra Turn khi giết mục tiêu.\n- Passive mới tăng ATK theo buff nhận hoặc buff steal.\n- Rất đáng thử trong Arena Offense và Faction Wars.\n\n## [color=#ffaa00]**Điểm yếu của Abbess**[/color]\n- Cần chỉ số damage cao.\n- Nếu build yếu, cơ chế so ATK sẽ không phát huy.\n- Không phải champion Clan Boss.\n- Vẫn cần setup tốt trong Arena cao.",
+    "## [color=#ffaa00]**Đánh giá content phù hợp**[/color]\n| Champion | Arena | Faction Wars | Doom Tower | Dungeon | Hydra | Clan Boss |\n| --- | --- | --- | --- | --- | --- | --- |\n| **Robar** | ★★★★☆ | ★★★★★ | ★★★★☆ | ★★★☆☆ | ★★☆☆☆ | ★☆☆☆☆ |\n| **Abbess** | ★★★★★ | ★★★★★ | ★★★★☆ | ★★★☆☆ | ★★☆☆☆ | ★☆☆☆☆ |",
+    "## [color=#ffaa00]**Tanne verdict**[/color]\nĐợt rebalance này khá hợp lý. Total Guard không bị xoá khỏi game, Mercurial Set không bị phá, nhưng Provoke giờ có vai trò counter rõ ràng hơn. Đây là điều tốt vì một mechanic phòng thủ mạnh nên có cách xử lý.\n\nVề champion, **Robar đáng test lại nếu bạn thích đội hình Orc hoặc control pressure**. Còn **Abbess là lựa chọn mình muốn thử trước nếu cần damage**, vì cô được thêm quá nhiều công cụ để nuke sạch hơn: buff steal, Ignore Shield, Ignore DEF, Extra Turn và Ignore Unkillable.\n\nĐây là ý kiến cá nhân của Tanne Hub. Nếu bài phân tích này giúp bạn hiểu update nhanh hơn, hãy thả 1 Like để Tanne Hub biết nên làm thêm các bài rebalance review kiểu này.",
+  ].join("\n\n"),
+};
+
 export const raidNewsDraftSeeds = [
+  mercurialTotalGuardRobarAbbessRebalanceDraftSep022026,
   tinWoodmanChampionSpotlightDraftAug272026,
   dorothyGaleLoyaltyChampionSpotlightDraftAug172026,
   echoesOfOzSummonEventOverviewDraftAug172026,
