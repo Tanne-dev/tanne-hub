@@ -1,15 +1,4 @@
-import { initLegitReviewsManager } from "./legitReviewsManager";
-import { initMemberAlertsManager } from "./memberAlertsManager";
 import { siteText } from "./newsLanguage";
-import { initPostsManager } from "./postsManager";
-import { initSellingAccountsManager } from "./sellingAccountsManager";
-import { renderLegitCheck } from "./sections/legitCheck";
-import { renderMemberAlerts } from "./sections/memberAlerts";
-import { renderPopularAccounts } from "./sections/popularAccounts";
-import { renderPromos } from "./sections/promos";
-import { renderRaidNewsSection } from "./sections/raidNews";
-import { renderSafeTrading } from "./sections/safeTrading";
-import { renderTrustpilotReviews } from "./sections/trustpilotReviews";
 
 type LazySectionKey =
   | "raid-news"
@@ -20,35 +9,65 @@ type LazySectionKey =
   | "trustpilot"
   | "promos";
 
-const sectionRenderers: Record<LazySectionKey, () => string> = {
-  "raid-news": renderRaidNewsSection,
-  "member-alerts": renderMemberAlerts,
-  "popular-accounts": renderPopularAccounts,
-  "safe-trading": renderSafeTrading,
-  "legit-check": renderLegitCheck,
-  trustpilot: renderTrustpilotReviews,
-  promos: renderPromos,
-};
+async function renderLazySection(key: LazySectionKey): Promise<string> {
+  if (key === "raid-news") {
+    const { renderRaidNewsSection } = await import("./sections/raidNews");
+    return renderRaidNewsSection();
+  }
+  if (key === "member-alerts") {
+    const { renderMemberAlerts } = await import("./sections/memberAlerts");
+    return renderMemberAlerts();
+  }
+  if (key === "popular-accounts") {
+    const { renderPopularAccounts } = await import("./sections/popularAccounts");
+    return renderPopularAccounts();
+  }
+  if (key === "safe-trading") {
+    const { renderSafeTrading } = await import("./sections/safeTrading");
+    return renderSafeTrading();
+  }
+  if (key === "legit-check") {
+    const { renderLegitCheck } = await import("./sections/legitCheck");
+    return renderLegitCheck();
+  }
+  if (key === "trustpilot") {
+    const { renderTrustpilotReviews } = await import("./sections/trustpilotReviews");
+    return renderTrustpilotReviews();
+  }
+  const { renderPromos } = await import("./sections/promos");
+  return renderPromos();
+}
 
-function initLoadedSection(key: LazySectionKey): void {
-  if (key === "raid-news") initPostsManager();
-  else if (key === "popular-accounts") initSellingAccountsManager();
-  else if (key === "member-alerts") initMemberAlertsManager();
-  else if (key === "legit-check") initLegitReviewsManager();
+async function initLoadedSection(key: LazySectionKey): Promise<void> {
+  if (key === "raid-news") {
+    const { initPostsManager } = await import("./postsManager");
+    initPostsManager();
+  } else if (key === "popular-accounts") {
+    const { initSellingAccountsManager } = await import("./sellingAccountsManager");
+    initSellingAccountsManager();
+  } else if (key === "member-alerts") {
+    const { initMemberAlertsManager } = await import("./memberAlertsManager");
+    initMemberAlertsManager();
+  } else if (key === "legit-check") {
+    const { initLegitReviewsManager } = await import("./legitReviewsManager");
+    initLegitReviewsManager();
+  }
 }
 
 function loadLazySection(host: HTMLElement): void {
   const key = host.dataset.lazySection as LazySectionKey | undefined;
   if (!key || host.dataset.loaded === "1") return;
-  const render = sectionRenderers[key];
-  if (!render) return;
 
   host.dataset.loaded = "1";
   host.classList.add("lazy-section-loading");
 
   window.requestAnimationFrame(() => {
-    host.outerHTML = render();
-    window.requestAnimationFrame(() => initLoadedSection(key));
+    void renderLazySection(key).then((html) => {
+      host.outerHTML = html;
+      window.requestAnimationFrame(() => {
+        void initLoadedSection(key);
+      });
+    });
   });
 }
 

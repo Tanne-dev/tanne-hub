@@ -1,7 +1,7 @@
 /**
  * Tối ưu tải ảnh không cần lưu binary trong DB (chỉ URL trong DB vẫn OK).
  * - preconnect tới origin Supabase → ảnh Storage/remote nhanh hơn.
- * - preload ảnh hero/logo mặc định (light) để LCP nền sớm hơn một chút.
+ * - preload logo nhỏ, không preload ảnh nền lớn trên mọi route.
  */
 
 function appendUniqueLink(rel: string, href: string, extra?: Record<string, string>) {
@@ -28,9 +28,8 @@ function preconnectSupabase(): void {
   }
 }
 
-/** Preload ảnh nền / logo thường gặp (theme light mặc định). */
+/** Preload logo nhỏ; ảnh hero tự tải khi trang chủ thật sự render. */
 function preloadCriticalStaticImages(): void {
-  appendUniqueLink("preload", "/rsl-main-background.png", { as: "image" });
   appendUniqueLink("preload", "/logo.png", { as: "image" });
 }
 

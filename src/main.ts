@@ -1,6 +1,5 @@
 import "./style.css";
 import { inject } from "@vercel/analytics";
-import { initAdminDashboardPage } from "./adminDashboardPage";
 import {
   renderAdminDashboardPage,
   renderExchangePage,
@@ -11,18 +10,10 @@ import {
   renderRaidAccountsPage,
 } from "./render";
 import { initLogin } from "./login";
-import { initNewsArchive } from "./newsArchive";
-import { initPostsManager } from "./postsManager";
 import { initTheme } from "./theme";
-import { initAccountStockUi } from "./accountStockUi";
-import { initSellingAccountsManager } from "./sellingAccountsManager";
 import { initWelcomeLetter } from "./welcomeLetter";
 import { initImageOptimizations } from "./initImageOptimizations";
-import { initHeroHotNews } from "./heroHotNews";
 import { initPromoCodeManager } from "./promoCodeManager";
-import { initLegitReviewsManager } from "./legitReviewsManager";
-import { initMemberAlertsManager } from "./memberAlertsManager";
-import { initExchangeCalculator } from "./exchangeCalculator";
 import { initFloatingContact } from "./floatingContact";
 import { initWelcomeChoiceOverlay } from "./welcomeChoiceOverlay";
 import { initLazySections } from "./lazySections";
@@ -57,31 +48,30 @@ if (postId) {
   renderPostDetail(root, postId);
 } else if (page === "news") {
   renderNewsArchive(root);
+  void import("./newsArchive").then(({ initNewsArchive }) => initNewsArchive());
 } else if (page === "raid-accounts") {
   renderRaidAccountsPage(root);
+  void import("./accountStockUi").then(({ initAccountStockUi }) => initAccountStockUi());
+  void import("./sellingAccountsManager").then(({ initSellingAccountsManager }) =>
+    initSellingAccountsManager(),
+  );
 } else if (page === "honeygain") {
   renderHoneygainPage(root);
 } else if (page === "exchange") {
   renderExchangePage(root);
+  void import("./exchangeCalculator").then(({ initExchangeCalculator }) => initExchangeCalculator());
 } else if (page === "dashboard") {
   renderAdminDashboardPage(root);
+  void import("./adminDashboardPage").then(({ initAdminDashboardPage }) => initAdminDashboardPage());
 } else {
   renderLanding(root);
+  void import("./heroHotNews").then(({ initHeroHotNews }) => initHeroHotNews());
 }
 
 initLogin();
-initPostsManager();
-initHeroHotNews();
-initNewsArchive();
-initAdminDashboardPage();
 initTheme();
 initWelcomeLetter();
-initAccountStockUi();
-initSellingAccountsManager();
 initPromoCodeManager();
-initLegitReviewsManager();
-initMemberAlertsManager();
-initExchangeCalculator();
 initFloatingContact();
 initWelcomeChoiceOverlay();
 initLazySections();
