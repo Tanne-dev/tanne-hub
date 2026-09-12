@@ -4722,7 +4722,219 @@ export const update1175ProvokeTotalGuardMetaDraftSep032026 = {
   contentVi: "[{\"type\":\"image\",\"url\":\"/news-images/update-1175-provoke-total-guard-meta.png\",\"caption\":\"Update 11.75 giúp Provoke có vai trò rõ hơn khi đối đầu Total Guard và đội hình Mercurial.\",\"align\":\"full\"},{\"type\":\"text\",\"text\":\"## [color=#ffaa00]**10 tướng Provoke đáng chú ý sau Update 11.75**[/color]\\n\\nUpdate 11.75 thay đổi một tương tác PvP rất quan trọng: **Provoke giờ có thể bypass Total Guard**.\\n\\nĐiều này không có nghĩa Mercurial chết. Nhưng những đội hình dựa vào việc refresh Total Guard liên tục giờ đã có một counter rõ ràng hơn: **Provoke**.\\n\\nTóm tắt nhanh:\\n- Provoke có thể bypass Total Guard.\\n- Gắn Provoke sẽ không tiêu hao stack Total Guard.\\n- Champion đang bị Provoke không thể tự gắn hoặc refresh Total Guard ở đầu lượt.\\n- Các hiệu ứng khác của Total Guard và bộ Mercurial vẫn giữ nguyên.\\n\\nVấn đề bây giờ không phải là Mercurial có còn mạnh không. Câu hỏi đúng hơn là: **champion Provoke nào đáng được chú ý hơn sau update này?**\"},{\"type\":\"image\",\"url\":\"/news-images/update-1175-provoke-counter-champions.png\",\"caption\":\"Provoke không xoá meta Mercurial, nhưng nó cho người chơi một cách phản công rõ ràng hơn.\",\"align\":\"full\"},{\"type\":\"text\",\"text\":\"## [color=#ffaa00]**Bảng xếp hạng nhanh**[/color]\\n\\n| Hạng | Champion | Lợi ích sau update | Dùng tốt nhất |\\n| --- | --- | --- | --- |\\n| 1 | Bayek | Rất cao | Khống chế AoE Provoke, ép Mercurial |\\n| 2 | Anaxia the Reborn | Rất cao | Vòng lặp Counterattack + Provoke |\\n| 3 | Gharol Bloodmaul | Rất cao | Go-second control và phản đòn |\\n| 4 | Galleus Bloodcrest | Rất cao | Tank Provoke 2 lượt |\\n| 5 | Storm Herald Hekaton | Cao, có điều kiện | Đội giữ lợi thế buff |\\n| 6 | Tormin the Cold | Cao | Đội phòng thủ Freeze/control |\\n| 7 | Gaspard the Accused | Cao | Đội phòng thủ AoE Provoke |\\n| 8 | Harima | Rất cao khi gặp Demonspawn | Counter theo kèo đấu |\\n| 9 | Freyja Fateweaver | Khá cao | Bảo kê + Provoke có RNG |\\n| 10 | Alaz the Sunbearer | Khá cao | Khoá một mục tiêu quan trọng |\"},{\"type\":\"text\",\"text\":\"## [color=#ffaa00]**1. Bayek - Người hưởng lợi lớn nhất?**[/color]\\n\\nBayek là cái tên rất dễ được nhắc tới đầu tiên. A2 của Bayek có thể đánh toàn bộ kẻ địch và mang theo **Decrease ACC**, **Decrease RES**, cùng **Provoke**.\\n\\nĐiểm đáng sợ là thời lượng Provoke. Nếu mục tiêu có đủ debuff, Bayek có thể kéo Provoke lên **2 lượt**, rất khó chịu cho những đội hình cần refresh Total Guard ở đầu lượt.\\n\\nVì sao phù hợp:\\n- Decrease RES giúp Provoke dễ vào hơn.\\n- Provoke 2 lượt làm chậm nhịp refresh Total Guard.\\n- A3 có Increase ACC giúp cả team ổn định hơn.\\n- Extra Turn cho phép buff xong dùng A2 ngay.\\n\\nĐiểm yếu là Bayek vẫn cần Accuracy rất cao, đặc biệt khi gặp support Mercurial build RES dày.\\n\\n**Lợi ích sau update: Rất cao.**\"},{\"type\":\"text\",\"text\":\"## [color=#ffaa00]**2. Anaxia the Reborn - Bộ kit gần như sinh ra cho kiểu meta này**[/color]\\n\\nỞ Base Form, Anaxia có thể đánh toàn bộ kẻ địch, đặt **Leech** và **Provoke**, rồi tự đặt **Counterattack**.\\n\\nNó tạo thành một vòng lặp rất khó chịu: **AoE Provoke -> địch buộc đánh Anaxia -> Anaxia phản đòn -> tiếp tục gây áp lực debuff**.\\n\\nUpdate này giúp combo đó có đất diễn hơn, vì Total Guard không còn chặn hoàn toàn hướng chơi Provoke như trước.\\n\\nVì sao phù hợp:\\n- Có AoE Provoke.\\n- Counterattack trừng phạt địch bị ép dùng A1.\\n- Leech giúp tạo áp lực hồi phục.\\n- Có tương tác ignore một phần RES nên đáng tin hơn nhiều provoker thường.\\n\\n**Lợi ích sau update: Rất cao.**\"},{\"type\":\"text\",\"text\":\"## [color=#ffaa00]**3. Gharol Bloodmaul - Nguy hiểm hơn trong Arena go-second**[/color]\\n\\nGharol ở Base Form đã là kiểu champion muốn sống lâu, khống chế, rồi phản đòn. Khi Provoke đi cùng **Unkillable** và **Counterattack**, mọi thứ rất hợp với update này.\\n\\nKẻ địch bị ép đánh A1 vào Gharol, trong khi Gharol lại có công cụ sống sót và phản công.\\n\\nVì sao phù hợp:\\n- AoE Provoke khống chế ngay lập tức.\\n- Unkillable giúp chịu focus tốt hơn.\\n- Counterattack biến lượt đánh A1 của địch thành cơ hội phản đòn.\\n- Passive có thể giảm thời lượng buff của kẻ địch khi chúng đánh cô ấy.\\n- Sau khi kiểm soát xong có thể đổi form để gây sát thương.\\n\\n**Lợi ích sau update: Rất cao.**\"},{\"type\":\"text\",\"text\":\"## [color=#ffaa00]**4. Galleus Bloodcrest - Provoke 2 lượt kèm khả năng chịu đòn**[/color]\\n\\nGalleus là một trong những người thắng rõ nhất vì có bộ công cụ rất đúng bài: **Provoke 2 lượt**, **Unkillable**, và **Counterattack**.\\n\\nProvoke 2 lượt rất giá trị vì nó khiến mục tiêu không thể refresh Total Guard trong nhiều lượt hơn. Trong lúc đó Galleus không quá sợ bị cả team địch đánh vào.\\n\\nVì sao phù hợp:\\n- Thời lượng Provoke dài.\\n- Có công cụ sống sót tốt.\\n- Counterattack tạo áp lực.\\n- Phản sát thương khiến địch trả giá khi bị ép đánh.\\n- Có thể đổi form để kết thúc trận.\\n\\n**Lợi ích sau update: Rất cao.**\"},{\"type\":\"text\",\"text\":\"## [color=#ffaa00]**5. Storm Herald Hekaton - Mạnh nhưng có điều kiện**[/color]\\n\\nHekaton thú vị vì A1 có **Provoke** và **Enfeeble**. Nếu đủ điều kiện để A1 biến thành AoE, hắn có thể khống chế cả team địch.\\n\\nĐiều kiện nằm ở số lượng buff: địch cần có số buff bằng hoặc ít hơn Hekaton. Nếu team bạn giữ được lợi thế buff, Hekaton sẽ cực kỳ khó chịu.\\n\\nVì sao phù hợp:\\n- Provoke + Enfeeble là combo phòng thủ rất mạnh.\\n- Enfeeble làm các đòn A1 bị ép trở nên yếu hơn.\\n- Counterattack có thể tạo thêm nhiều lần Provoke.\\n- Hỗ trợ Turn Meter giúp xoay vòng kỹ năng nhanh hơn.\\n\\n**Lợi ích sau update: Cao, nhưng có điều kiện.**\"},{\"type\":\"text\",\"text\":\"## [color=#ffaa00]**6. Tormin the Cold - Có cơ hội quay lại Arena**[/color]\\n\\nTormin luôn là champion gây khó chịu nhờ Freeze, chống buff và khả năng phá nhịp đối thủ.\\n\\nUpdate 11.75 không biến Tormin thành meta số một ngay lập tức, nhưng giúp Provoke của hắn có giá trị hơn khi gặp đội hình Mercurial.\\n\\nVì sao phù hợp:\\n- Gây áp lực lên đội nhiều buff và tăng Turn Meter.\\n- Provoke giờ có ý nghĩa hơn khi gặp Total Guard.\\n- Hợp với đội hình tanky go-second.\\n- Không nhất thiết phải đi lượt đầu để gây khó chịu.\\n\\nTormin vẫn sợ high RES, Block Debuffs, cleanser, giảm thời lượng debuff và Polymorph.\\n\\n**Lợi ích sau update: Cao.**\"},{\"type\":\"text\",\"text\":\"## [color=#ffaa00]**7. Freyja Fateweaver - Nhiều cơ hội Provoke hơn, nhưng không chắc chắn**[/color]\\n\\nFreyja không phải counter chắc chắn nhất, nhưng A1 của cô ấy có thể đánh AoE và có cơ hội đặt Provoke.\\n\\nĐiểm hay là sự lặp lại. Khi Shield bị phá, Freyja có thể counterattack, tức là có thêm cơ hội đặt Provoke. Sau update, những lần Provoke này có giá trị hơn trước.\\n\\nVì sao phù hợp:\\n- A1 AoE có thể tạo Provoke nhiều lần.\\n- Counterattack giúp tăng số lần thử.\\n- Bộ kỹ năng bảo kê vốn đã phù hợp với đội Arena chậm.\\n- Hợp khi bạn muốn vừa bảo vệ vừa tạo control khó chịu.\\n\\nĐiểm trừ là RNG. Nếu cần counter Mercurial chắc chắn, Freyja chưa phải lựa chọn sạch nhất.\\n\\n**Lợi ích sau update: Khá cao.**\"},{\"type\":\"text\",\"text\":\"## [color=#ffaa00]**8. Harima - Counter chuyên kèo, không phải control toàn diện**[/color]\\n\\nHarima cần được nhìn đúng vai trò. Cô ấy không phải AoE Provoke toàn diện, nhưng trong đúng kèo thì cực kỳ nguy hiểm.\\n\\nKhi gặp Demonspawn, tương tác Provoke của Harima có thể trở nên rất khó bị chặn hoặc kháng. Sau Update 11.75, Total Guard không còn bảo vệ các mục tiêu đó như trước.\\n\\nVì sao phù hợp:\\n- Rất mạnh trong kèo Demonspawn.\\n- Có những tình huống không cần thắng cuộc chiến RES.\\n- Vẫn là DEF nuker mạnh.\\n- Có khả năng giảm DEF và làm yếu hiệu quả Ignore DEF của đối thủ.\\n\\n**Lợi ích sau update: Rất cao khi gặp Demonspawn.**\"},{\"type\":\"text\",\"text\":\"## [color=#ffaa00]**9. Gaspard the Accused - Provoke kèm tự bảo vệ**[/color]\\n\\nGaspard thực tế vì có thể đặt AoE Provoke rồi tự bảo vệ bằng **Increase DEF** và **Shield**.\\n\\nCông thức rất dễ hiểu: Provoke bypass Total Guard, địch buộc dùng A1, Gaspard cố sống sót để team bạn kiểm soát trận đấu.\\n\\nVì sao phù hợp:\\n- Có AoE Provoke trực tiếp.\\n- Buff phòng thủ giúp sống sót tốt hơn.\\n- Có giá trị trong trận dài nhờ revive và phản ứng với revive.\\n- Hợp đội đánh lâu hơn là đội one-shot.\\n\\nGaspard vẫn cần Accuracy để đặt Provoke và chỉ số phòng thủ đủ dày để chịu đòn.\\n\\n**Lợi ích sau update: Cao.**\"},{\"type\":\"text\",\"text\":\"## [color=#ffaa00]**10. Alaz the Sunbearer - Khoá một mục tiêu quan trọng**[/color]\\n\\nAlaz không phải câu trả lời AoE, nên đừng kỳ vọng hắn khoá cả đội Mercurial một mình. Giá trị của Alaz là khoá đúng một mục tiêu nguy hiểm.\\n\\nỞ Base Form, Alaz có thể đặt **Provoke 2 lượt** lên một mục tiêu. Nếu mục tiêu dưới 50% HP, Provoke không thể bị kháng. Sau đó hắn còn đặt Counterattack và Block Damage cho team.\\n\\nVì sao phù hợp:\\n- Provoke 2 lượt có thể chặn một mục tiêu quan trọng refresh Total Guard.\\n- Điều kiện không thể bị kháng rất mạnh khi kích hoạt.\\n- Block Damage bảo vệ team trong khoảng control.\\n- Rất tốt để cô lập support hoặc nuker nguy hiểm.\\n\\n**Lợi ích sau update: Khá cao khi cần khoá mục tiêu chính.**\"},{\"type\":\"text\",\"text\":\"## [color=#ffaa00]**Những champion này có xoá sổ Mercurial không?**[/color]\\n\\nKhông. Đây là điểm quan trọng.\\n\\nProvoke giờ có vai trò thật sự khi gặp Total Guard, nhưng Mercurial vẫn còn nhiều lớp phòng thủ:\\n- Resistance cao.\\n- Block Debuffs.\\n- Cleanser.\\n- Giảm thời lượng debuff.\\n- Polymorph.\\n- Weak hit nếu Provoke đến từ đòn đánh.\\n- Champion miễn nhiễm Provoke.\\n\\nVà nhớ rằng: **Provoke không xoá stack Total Guard đang có**. Nó bypass stack đó và ngăn mục tiêu tự gắn hoặc refresh stack mới khi đang bị Provoke.\\n\\nMeta không chết. Nó chỉ bớt một chiều hơn. Thay vì chỉ là cuộc đua Speed hoặc tường Total Guard, giờ chúng ta có thêm một cuộc chiến chỉ số mới:\\n\\n**Accuracy của Provoker vs Resistance của support Mercurial.**\\n\\n## [color=#ffaa00]**Tanne Hub Verdict**[/color]\\n\\nTheo mình, đây là update tốt cho Arena vì nó cho người chơi một cách phản công rõ ràng hơn mà không xoá Mercurial khỏi game. Những người thắng lớn nhất có vẻ là Bayek, Anaxia, Gharol và Galleus vì họ có thể gây áp lực nhiều mục tiêu và trừng phạt đối thủ bị ép dùng A1.\\n\\nHarima và Alaz thiên về kèo đấu hơn, nhưng đúng trận thì cực kỳ khó chịu. Freyja và Hekaton phụ thuộc điều kiện/RNG nhiều hơn, nhưng sau update những lần Provoke của họ đáng giá hơn trước.\\n\\nĐây là ý kiến cá nhân của Tanne Hub. Nếu bài viết hữu ích, hãy thả một Like để mình biết nên làm thêm các bài phân tích meta kiểu này.\\n\\n**Câu hỏi:** Bạn nghĩ ai sẽ là counter mạnh nhất sau thay đổi này: Bayek, Anaxia hay Galleus?\"}]",
 };
 
+export const tinWoodmanDeckOfFateGuideDraftSep122026 = {
+  id: "raid-news-2026-09-12-tin-woodman-deck-of-fate-fragment-guide",
+  title: "The Tin Woodman Deck of Fate guide: 100 fragments, Soulstones, gear farming, and risk check",
+  caption:
+    "A Tanne Hub gamer-style breakdown of The Tin Woodman Deck of Fate event, how the 100 fragments are spread, and what resources to prepare before flipping cards.",
+  titleVi:
+    "Hướng dẫn Deck of Fate The Tin Woodman: 100 mảnh, Soulstone, farm đồ và rủi ro cần biết",
+  captionVi:
+    "Tanne Hub tóm gọn Deck of Fate The Tin Woodman: cách 100 mảnh được chia, tài nguyên nên chuẩn bị và rủi ro khi lật bài.",
+  blocks: [
+    {
+      type: "image",
+      url: "/news-images/tin-woodman-deck-of-fate-sep-2026.jpg",
+      caption:
+        "The Tin Woodman Deck of Fate starts September 14, 2026 and can reward all 100 fragments.",
+      align: "full",
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]Event in one minute[/color]",
+        "The Tin Woodman Deck of Fate is the next big resource check for RAID players. The event is expected to begin on **September 14, 2026** and run for **96 hours**.",
+        "The main prize is simple: **100 fragments for The Tin Woodman**. The tricky part is how those fragments are hidden inside the deck. You earn Fate Points by summoning Souls from Soulstones and by obtaining Artifacts or Accessories, then spend those points to flip cards.",
+        "This is not the type of event where I would gamble casually. If you want the champion, plan like you may need to clear the full deck.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]Quick event summary[/color]",
+        "| Event detail | What it means |",
+        "|---|---|",
+        "| Start | September 14, 2026 |",
+        "| Duration | 96 hours |",
+        "| Main reward | 100 The Tin Woodman fragments |",
+        "| Fate Point sources | Soulstones, Artifacts, Accessories |",
+        "| Fragment cards | 21 cards total |",
+        "| Key warning | Card rarity cannot be pinned |",
+        "| Tanne Hub advice | Prepare for the full deck if you want the champion |",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]How the 100 fragments are split[/color]",
+        "The fragment spread is the part players need to understand before spending resources.",
+        "- **3 Epic cards** give **10 fragments each** for 30 total fragments.",
+        "- **8 Rare cards** give **5 fragments each** for 40 total fragments.",
+        "- **10 Common cards** give **3 fragments each** for 30 total fragments.",
+        "That means the full 100 fragments are spread across **21 different cards**. You cannot just pull the big Epic cards and call it done. The smaller cards matter a lot, and missing several of them can leave you short.",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]Why this Deck of Fate is risky[/color]",
+        "The problem with Deck of Fate events is not only the total cost. The real problem is randomness.",
+        "If this follows the usual 40-card structure at around **1,000 Fate Points per card**, a full clear may require around **40,000 Fate Points**. The exact live cost should still be checked once the event appears in game.",
+        "Based on the fragment-card spread, the chance to reveal every fragment card before the end can feel brutal:",
+        "| Cards flipped | Chance to find all 21 fragment cards |",
+        "|---|---:|",
+        "| 30 cards | Around 0.01% |",
+        "| 35 cards | Around 1.77% |",
+        "| 37 cards | Around 9.81% |",
+        "| 38 cards | Around 21.92% |",
+        "| 39 cards | Around 47.5% |",
+        "| 40 cards | 100% |",
+        "The painful number is this: there is roughly a **52.5% chance** that at least one fragment card sits on the final card. So if your plan is to stop early and hope, you are playing against the deck more than the event.",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]Resource plan before the event starts[/color]",
+        "If you are going for The Tin Woodman, save resources now instead of spending them early.",
+        "- Save **Mortal, Immortal, and Eternal Soulstones**.",
+        "- Do not open Soulstones before the event goes live.",
+        "- Save Soul Coins if they help you reach more Soulstones during the event.",
+        "- Stockpile energy, gems, inbox energy, multi-battles, clan shop energy, and bazaar energy.",
+        "- Clear artifact storage so dungeon farming does not become annoying halfway through.",
+        "- Wait for the live point values before committing everything.",
+        "For most players, the safest route is to combine Soulstones with normal gear farming. Trying to brute-force the entire event from only one source can become very expensive very quickly.",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]Is The Tin Woodman worth chasing?[/color]",
+        "The Tin Woodman is a **Legendary Magic Defense champion from Banner Lords**. His identity is a DEF-based tanky damage dealer with team-up attack value and strong Echoes of Oz flavor.",
+        "He looks most interesting for players who want:",
+        "- Banner Lords faction value.",
+        "- A defensive champion that can still hit hard.",
+        "- Ally attack pressure for single-target damage setups.",
+        "- More Echoes of Oz collection progress.",
+        "- A champion that can help in Faction Wars and selected PvE/PvP teams.",
+        "But this is not a free login champion. If your resources are low, chasing a Deck of Fate can damage your account more than skipping the champion. The event is good only if you can realistically finish it.",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]Tanne verdict[/color]",
+        "This Deck of Fate is exciting because it gives a direct path to all **100 The Tin Woodman fragments**, but it is also one of those events where players need discipline.",
+        "If you have saved Soulstones and enough energy to farm gear, this can be a strong event to push. The extra Titan Event value also makes it more attractive for players already chasing the Courageous Titan rewards.",
+        "If you are low on Soulstones, gems, or energy, be careful. The fragment cards are spread across too many cards to rely on good luck. My honest advice is simple: only commit if you are prepared to go deep, and check the live point requirements before spending your best resources.",
+        "This is Tanne Hub's personal take. If this guide helped you plan the event, drop a Like so I know to keep making short event breakdowns like this.",
+      ].join("\n\n"),
+    },
+  ] satisfies PostBodyBlock[],
+  contentVi: JSON.stringify([
+    {
+      type: "image",
+      url: "/news-images/tin-woodman-deck-of-fate-sep-2026.jpg",
+      caption:
+        "Deck of Fate The Tin Woodman bắt đầu ngày 14 tháng 9 năm 2026 và có thể cho đủ 100 mảnh.",
+      align: "full",
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]Tóm tắt nhanh event[/color]",
+        "Deck of Fate The Tin Woodman là một event kiểm tra tài nguyên khá nặng. Event dự kiến bắt đầu vào **ngày 14 tháng 9 năm 2026** và kéo dài **96 giờ**.",
+        "Phần thưởng chính là **100 mảnh The Tin Woodman**. Bạn kiếm Fate Points bằng cách mở Soulstone và nhận Artifact hoặc Accessory, sau đó dùng điểm để lật bài.",
+        "Đây không phải event nên chơi kiểu cầu may. Nếu muốn lấy champion, hãy chuẩn bị như thể bạn phải lật gần như toàn bộ deck.",
+      ].join("\n\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]Bảng thông tin nhanh[/color]",
+        "| Nội dung | Chi tiết |",
+        "|---|---|",
+        "| Bắt đầu | 14 tháng 9, 2026 |",
+        "| Thời lượng | 96 giờ |",
+        "| Phần thưởng chính | 100 mảnh The Tin Woodman |",
+        "| Nguồn Fate Points | Soulstone, Artifact, Accessory |",
+        "| Số lá có mảnh | 21 lá |",
+        "| Cảnh báo quan trọng | Không thể ghim rarity của lá bài |",
+        "| Lời khuyên Tanne Hub | Muốn lấy champion thì nên chuẩn bị cho phương án clear full deck |",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]100 mảnh được chia như thế nào?[/color]",
+        "Điểm quan trọng nhất của event này là cách mảnh champion được chia trong deck.",
+        "- **3 lá Epic** cho **10 mảnh mỗi lá**, tổng 30 mảnh.",
+        "- **8 lá Rare** cho **5 mảnh mỗi lá**, tổng 40 mảnh.",
+        "- **10 lá Common** cho **3 mảnh mỗi lá**, tổng 30 mảnh.",
+        "Tức là đủ 100 mảnh nằm rải trong **21 lá bài khác nhau**. Bạn không thể chỉ trông chờ vào lá Epic. Các lá nhỏ cũng rất quan trọng, thiếu vài lá là có thể hụt mảnh ngay.",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]Vì sao event này rủi ro?[/color]",
+        "Deck of Fate nguy hiểm vì không chỉ tốn tài nguyên, mà còn có yếu tố may rủi rất lớn.",
+        "Nếu event đi theo dạng 40 lá và khoảng **1.000 Fate Points mỗi lá**, full deck có thể cần khoảng **40.000 Fate Points**. Con số chính xác vẫn nên kiểm tra khi event live trong game.",
+        "Tỷ lệ tìm đủ toàn bộ 21 lá mảnh có thể rất khó chịu:",
+        "| Số lá đã lật | Cơ hội tìm đủ 21 lá mảnh |",
+        "|---|---:|",
+        "| 30 lá | Khoảng 0.01% |",
+        "| 35 lá | Khoảng 1.77% |",
+        "| 37 lá | Khoảng 9.81% |",
+        "| 38 lá | Khoảng 21.92% |",
+        "| 39 lá | Khoảng 47.5% |",
+        "| 40 lá | 100% |",
+        "Con số đáng sợ nhất là khoảng **52.5% khả năng** vẫn còn ít nhất một lá mảnh nằm ở lá cuối. Vì vậy nếu bạn định dừng sớm và cầu may, hãy hiểu rằng deck này không hề hiền.",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]Nên chuẩn bị gì trước event?[/color]",
+        "Nếu bạn muốn lấy The Tin Woodman, hãy giữ tài nguyên ngay từ bây giờ.",
+        "- Giữ lại **Mortal, Immortal và Eternal Soulstones**.",
+        "- Không mở Soulstone trước khi event bắt đầu.",
+        "- Giữ Soul Coins nếu nó giúp bạn đổi thêm Soulstone trong event.",
+        "- Tích energy, gem, energy trong inbox, multi-battle, clan shop và bazaar.",
+        "- Dọn kho đồ trước để farm Artifact/Accessory không bị gián đoạn.",
+        "- Đợi event live rồi kiểm tra điểm thật trước khi xả tài nguyên lớn.",
+        "Cách an toàn nhất thường là kết hợp mở Soulstone với farm đồ. Cố gắng kéo toàn bộ event bằng một nguồn tài nguyên duy nhất sẽ rất đắt.",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]The Tin Woodman có đáng lấy không?[/color]",
+        "The Tin Woodman là **Legendary Magic Defense champion thuộc Banner Lords**. Điểm chính của hắn là kiểu champion thủ trâu nhưng vẫn có sát thương theo DEF, có giá trị team-up attack và liên quan đến chủ đề Echoes of Oz.",
+        "Champion này đáng chú ý nếu bạn cần:",
+        "- Giá trị cho Banner Lords.",
+        "- Một champion DEF nhưng vẫn gây sát thương tốt.",
+        "- Ally attack pressure cho các đội đánh đơn mục tiêu.",
+        "- Tiến độ bộ sưu tập Echoes of Oz.",
+        "- Thêm lựa chọn cho Faction Wars và một số đội PvE/PvP.",
+        "Nhưng đây không phải champion login miễn phí. Nếu tài nguyên của bạn đang yếu, Deck of Fate có thể làm account chậm phát triển hơn là giúp mạnh lên. Event này chỉ đáng chơi khi bạn thật sự có khả năng hoàn thành.",
+      ].join("\n"),
+    },
+    {
+      type: "text",
+      text: [
+        "## [color=#ffaa00]Tanne verdict[/color]",
+        "Deck of Fate lần này hấp dẫn vì có đường lấy đủ **100 mảnh The Tin Woodman**, nhưng đây cũng là kiểu event cần tính toán rất kỹ.",
+        "Nếu bạn đã tích Soulstone và có đủ energy để farm đồ, đây có thể là event đáng đẩy. Phần điểm cho Courageous Titan Event cũng làm event này có giá trị hơn với người đang theo Titan reward.",
+        "Nếu bạn thiếu Soulstone, gem hoặc energy, hãy cẩn thận. Mảnh champion bị rải trên quá nhiều lá, nên đừng quá tin vào may mắn. Lời khuyên của mình: chỉ all-in khi bạn có thể đi sâu, và luôn kiểm tra điểm thật khi event live trước khi xả tài nguyên.",
+        "Đây là ý kiến cá nhân của Tanne Hub. Nếu bài viết hữu ích, hãy thả một Like để mình biết nên tiếp tục làm các bài tóm tắt event kiểu này.",
+      ].join("\n\n"),
+    },
+  ] satisfies PostBodyBlock[]),
+};
+
 export const raidNewsDraftSeeds = [
+  tinWoodmanDeckOfFateGuideDraftSep122026,
   update1175ProvokeTotalGuardMetaDraftSep032026,
   mercurialTotalGuardRobarAbbessRebalanceDraftSep022026,
   tinWoodmanChampionSpotlightDraftAug272026,
