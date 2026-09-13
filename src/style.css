@@ -756,8 +756,8 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 28%;
-  transform: scale(1.08);
+  object-position: 50% 7%;
+  transform: scale(1.12);
 }
 
 .fragment-event-button-title {
@@ -1038,8 +1038,8 @@
 }
 
 #floating-contact .fragment-event-avatar img {
-  object-position: center 28%;
-  transform: scale(1.08);
+    object-position: 50% 7%;
+    transform: scale(1.12);
 }
 
 #floating-contact .fragment-event-button > span.hidden {
