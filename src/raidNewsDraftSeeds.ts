@@ -1,3 +1,4 @@
+import { tekteonArenaDraft } from "./tekteonArenaDraft";
 import type { PostBodyBlock } from "./postBody";
 
 export const raidNewsDraftMay162026: {
@@ -4934,6 +4935,7 @@ export const tinWoodmanDeckOfFateGuideDraftSep122026 = {
 };
 
 export const raidNewsDraftSeeds = [
+  tekteonArenaDraft,
   tinWoodmanDeckOfFateGuideDraftSep122026,
   update1175ProvokeTotalGuardMetaDraftSep032026,
   mercurialTotalGuardRobarAbbessRebalanceDraftSep022026,

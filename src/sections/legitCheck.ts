@@ -8,8 +8,9 @@ function renderStars(rating: number): string {
 }
 
 function averageRating(reviews: LegitReview[]): string {
-  if (reviews.length === 0) return "5.0";
-  const avg = reviews.reduce((sum, item) => sum + item.rating, 0) / reviews.length;
+  const rated = reviews.filter((item): item is LegitReview & { rating: number } => item.rating !== null);
+  if (rated.length === 0) return "—";
+  const avg = rated.reduce((sum, item) => sum + item.rating, 0) / rated.length;
   return avg.toFixed(1);
 }
 
@@ -22,7 +23,7 @@ function countryFlag(countryCode?: string): string {
 function renderReviewCard(review: LegitReview): string {
   const starLabel = siteText("starsOutOfFive").replace("{count}", String(review.rating));
   const flag = countryFlag(review.countryCode);
-  const countryTitle = review.countryCode ? `Country: ${escapeHtml(review.countryCode)}` : "Country not provided";
+  const countryTitle = review.countryCode ? `Country: ${escapeHtml(review.countryName || review.countryCode)}` : "Country not provided";
   return `
     <article class="rounded-lg border border-[var(--admin-border)] bg-[var(--panel-bg)] p-3">
       <div class="flex items-start justify-between gap-2">
@@ -30,14 +31,14 @@ function renderReviewCard(review: LegitReview): string {
           <div class="flex min-w-0 flex-wrap items-center gap-2">
             <span class="truncate text-[15px] font-black text-[#36b8ff]">${escapeHtml(review.displayName)}</span>
             <span class="inline-flex shrink-0 items-center gap-1 rounded-sm border border-[#52d6aa]/45 bg-[#52d6aa]/15 px-1.5 py-0.5 text-[10px] font-black uppercase tracking-[0.06em] text-[#7ff0c8]">
-              <span class="grid h-3.5 w-3.5 place-items-center rounded-full bg-[#52d6aa] text-[10px] leading-none text-[#083225]">✓</span>
-              Trusted
+              ${review.source ? escapeHtml(review.source) : '<span class="grid h-3.5 w-3.5 place-items-center rounded-full bg-[#52d6aa] text-[10px] leading-none text-[#083225]">✓</span> Trusted'}
             </span>
             <span class="inline-flex h-5 min-w-8 shrink-0 items-center justify-center rounded-[2px] border border-white/15 bg-white/10 px-1 text-base leading-none shadow-sm" title="${countryTitle}">${flag}</span>
           </div>
+          ${review.countryName ? `<p class="mt-0.5 text-[11px] text-[var(--panel-muted)]">${escapeHtml(review.countryName)}</p>` : ""}
           ${review.orderRef ? `<p class="mt-0.5 text-[11px] font-semibold text-[var(--panel-muted)]">${escapeHtml(review.orderRef)}</p>` : ""}
         </div>
-        <p class="shrink-0 text-[12px] font-bold text-[#f6c44c]" aria-label="${starLabel}">${renderStars(review.rating)}</p>
+        <p class="shrink-0 text-[12px] font-bold text-[#f6c44c]" aria-label="${review.rating === null ? "No star rating provided" : starLabel}">${review.rating === null ? "" : renderStars(review.rating)}</p>
       </div>
       <p class="mt-2 line-clamp-3 text-[13px] leading-snug text-[var(--panel-muted)]">${escapeHtml(review.message)}</p>
     </article>`;

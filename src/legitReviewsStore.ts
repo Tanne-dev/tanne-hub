@@ -1,10 +1,13 @@
+import { epicnpcReviews } from "./epicnpcReviews";
 import { isSupabaseReady, supabaseClient } from "./supabase";
 
 export type LegitReview = {
   id: string;
   displayName: string;
   countryCode?: string;
-  rating: number;
+  countryName?: string;
+  source?: "EpicNPC";
+  rating: number | null;
   message: string;
   orderRef?: string;
   createdAt: number;
@@ -396,7 +399,7 @@ const TODAY_REVIEWS: LegitReview[] = [
   createdAt: Date.now() - 1000 * 60 * (index * 7 + 5),
 })) as LegitReview[];
 
-DEFAULT_REVIEWS.push(...TODAY_REVIEWS, ...EXTRA_EXCHANGE_MIDDLEMAN_REVIEWS);
+DEFAULT_REVIEWS.push(...TODAY_REVIEWS, ...EXTRA_EXCHANGE_MIDDLEMAN_REVIEWS, ...epicnpcReviews);
 
 type LegitReviewRow = {
   id: string;
@@ -417,7 +420,9 @@ function sanitizeReview(item: LegitReview): LegitReview {
     id: item.id,
     displayName: item.displayName.trim().slice(0, 48) || "Verified buyer",
     countryCode: item.countryCode?.trim().toUpperCase().slice(0, 2) || undefined,
-    rating: clampRating(item.rating),
+    countryName: item.countryName?.trim(),
+    source: item.source === "EpicNPC" ? "EpicNPC" : undefined,
+    rating: item.rating === null ? null : clampRating(item.rating),
     message: item.message.trim().slice(0, 260),
     orderRef: item.orderRef?.trim().slice(0, 60) || undefined,
     createdAt: Number.isFinite(item.createdAt) ? item.createdAt : Date.now(),
