@@ -1,3 +1,4 @@
+import { CONTACT_EMAIL } from "../contactLinks";
 import { brandLogoImg } from "../partials/brandLogo";
 import { pageInner } from "../layout";
 import { getNewsLanguage, type NewsLanguage } from "../newsLanguage";
@@ -55,8 +56,8 @@ export function renderHeader(): string {
     raidAccounts: isVi ? "Tài khoản Raid Shadow Legends" : "Raid Shadow Legends",
     raidNews: isVi ? "Tin Raid" : "Raid News",
     rewards: isVi ? "Kiếm thưởng Internet" : "Idle Internet Rewards",
-    supportMobile: isVi ? "24/7" : "24/7",
-    supportDesktop: isVi ? "Hỗ trợ 24/7" : "24/7 Live Support",
+    supportMobile: isVi ? "Liên hệ" : "Contact",
+    supportDesktop: isVi ? "Liên hệ hỗ trợ" : "Contact support",
   };
 
   return `
@@ -199,7 +200,7 @@ export function renderHeader(): string {
               </a>
             </nav>
 
-            <div class="flex shrink-0 items-center justify-between gap-2 border-t border-[var(--header-nav-border)] pt-2 text-[13px] text-[var(--header-muted)] sm:justify-end sm:border-t-0 sm:pt-0 sm:text-sm">
+            <div class="flex min-w-0 flex-wrap items-center justify-between gap-2 border-t border-[var(--header-nav-border)] pt-2 text-[13px] text-[var(--header-muted)] sm:justify-end sm:border-t-0 sm:pt-0 sm:text-sm">
               <div class="inline-flex shrink-0 rounded-md border border-[var(--header-nav-border)] bg-black/10 p-1" aria-label="Site language">
                 <a
                   href="${languageUrl("en")}"
@@ -215,11 +216,11 @@ export function renderHeader(): string {
                 >🇻🇳</a>
               </div>
               ${promoHtml}
-              <span class="inline-flex items-center gap-1.5">
+              <a href="mailto:${CONTACT_EMAIL}" class="inline-flex items-center gap-1.5">
                 <span class="text-[var(--header-brand-text)]" aria-hidden="true">◷</span>
                 <span class="sm:hidden">${copy.supportMobile}</span>
                 <span class="hidden sm:inline">${copy.supportDesktop}</span>
-              </span>
+              </a>
               <button
                 id="theme-toggle"
                 type="button"

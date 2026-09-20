@@ -8,8 +8,6 @@ type HelpfulState = {
 };
 
 const STORAGE_KEY = "tanne-post-helpful-reactions-v1";
-const MIN_BASE_LIKES = 45;
-const MAX_BASE_LIKES = 70;
 
 type HydratedLike = {
   remoteCount: number;
@@ -42,17 +40,9 @@ function helpfulLabel(count: number): string {
   return `${count} likes`;
 }
 
-function baseLikeCount(postId: string): number {
-  let hash = 0;
-  for (let i = 0; i < postId.length; i += 1) {
-    hash = (hash * 31 + postId.charCodeAt(i)) >>> 0;
-  }
-  return MIN_BASE_LIKES + (hash % (MAX_BASE_LIKES - MIN_BASE_LIKES + 1));
-}
-
 function displayCount(postId: string, state: HelpfulState): number {
   const remote = remoteLikes.get(postId);
-  return baseLikeCount(postId) + (remote?.remoteCount ?? state.counts[postId] ?? 0);
+  return Math.max(0, remote?.remoteCount ?? state.counts[postId] ?? 0);
 }
 
 function isPostLiked(postId: string, state: HelpfulState): boolean {

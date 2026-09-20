@@ -1,3 +1,4 @@
+import { initEngagementAnalytics } from "./engagementAnalytics";
 import "./style.css";
 import { inject } from "@vercel/analytics";
 import {
@@ -75,3 +76,5 @@ initPromoCodeManager();
 initFloatingContact();
 initWelcomeChoiceOverlay();
 initLazySections();
+
+initEngagementAnalytics();

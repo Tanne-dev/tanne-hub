@@ -34,6 +34,7 @@ function getCountdownLabel(): string {
 }
 
 export function renderNavbarFragmentEventHtml(): string {
+  if (Date.now() >= new Date(EVENT_END_ISO).getTime()) return "";
   const isVi = getNewsLanguage() === "vi";
   const copy = isVi
     ? {
@@ -110,6 +111,10 @@ export function setFragmentEventOpen(open: boolean): void {
 }
 
 export function updateCountdowns(): void {
+  if (Date.now() >= new Date(EVENT_END_ISO).getTime()) {
+    document.getElementById("navbar-fragment-event")?.remove();
+    return;
+  }
   const countdown = formatCountdown();
   document.querySelectorAll<HTMLElement>("[data-fragment-event-countdown]").forEach((node) => {
     node.textContent = countdown;

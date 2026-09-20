@@ -1,3 +1,4 @@
+import { CONTACT_EMAIL } from "../contactLinks";
 /** Hai thẻ niềm tin cho shop nhỏ. */
 import { siteText } from "../newsLanguage";
 
@@ -8,7 +9,7 @@ export function renderPromos(): string {
             <div>
               <h3 class="text-[19px] font-bold text-[var(--panel-text)]">${siteText("checkedAccountDetails")}</h3>
               <p class="text-sm text-[var(--panel-muted)] md:text-[15px]">${siteText("checkedAccountDetailsDescription")}</p>
-              <button type="button" class="mt-3 rounded-full bg-gray-900 px-4 py-2.5 text-sm font-bold text-white transition hover:bg-gray-800">${siteText("learnMore")}</button>
+              <a href="/?page=raid-accounts" class="mt-3 rounded-full bg-gray-900 px-4 py-2.5 text-sm font-bold text-white transition hover:bg-gray-800">${siteText("learnMore")}</a>
             </div>
             <div class="text-[42px] leading-none select-none" aria-hidden="true">🛡️</div>
           </section>
@@ -17,7 +18,7 @@ export function renderPromos(): string {
             <div>
               <h3 class="text-[19px] font-bold text-[var(--panel-text)]">${siteText("directSupport")}</h3>
               <p class="text-sm text-[var(--panel-muted)] md:text-[15px]">${siteText("directSupportDescription")}</p>
-              <button type="button" class="mt-3 rounded-full bg-gray-900 px-4 py-2.5 text-sm font-bold text-white transition hover:bg-gray-800">${siteText("getHelp")}</button>
+              <a href="mailto:${CONTACT_EMAIL}" class="mt-3 rounded-full bg-gray-900 px-4 py-2.5 text-sm font-bold text-white transition hover:bg-gray-800">${siteText("getHelp")}</a>
             </div>
             <div class="text-[42px] leading-none select-none" aria-hidden="true">🧑‍💻</div>
           </section>

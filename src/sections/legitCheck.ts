@@ -1,3 +1,4 @@
+import { CONTACT_EPICNPC_PROFILE_URL } from "../contactLinks";
 import { escapeHtml } from "../postBody";
 import { getLegitReviews, type LegitReview } from "../legitReviewsStore";
 import { siteText } from "../newsLanguage";
@@ -31,7 +32,7 @@ function renderReviewCard(review: LegitReview): string {
           <div class="flex min-w-0 flex-wrap items-center gap-2">
             <span class="truncate text-[15px] font-black text-[#36b8ff]">${escapeHtml(review.displayName)}</span>
             <span class="inline-flex shrink-0 items-center gap-1 rounded-sm border border-[#52d6aa]/45 bg-[#52d6aa]/15 px-1.5 py-0.5 text-[10px] font-black uppercase tracking-[0.06em] text-[#7ff0c8]">
-              ${review.source ? escapeHtml(review.source) : '<span class="grid h-3.5 w-3.5 place-items-center rounded-full bg-[#52d6aa] text-[10px] leading-none text-[#083225]">✓</span> Trusted'}
+              ${review.source ? escapeHtml(review.source) : "Feedback"}
             </span>
             <span class="inline-flex h-5 min-w-8 shrink-0 items-center justify-center rounded-[2px] border border-white/15 bg-white/10 px-1 text-base leading-none shadow-sm" title="${countryTitle}">${flag}</span>
           </div>
@@ -63,7 +64,7 @@ export function renderLegitCheck(): string {
             <span class="pb-1 text-sm font-bold text-[#f6c44c]">/ 5 ★</span>
           </div>
           <p id="legit-check-count" class="mt-1 text-xs font-semibold text-[var(--panel-muted)]">${reviewCount}</p>
-          <p class="mt-3 text-[13px] leading-snug text-[var(--panel-muted)]">${siteText("buyerFeedbackDescription")}</p>
+          <p class="mt-3 text-[13px] leading-snug text-[var(--panel-muted)]">${siteText("buyerFeedbackDescription")}</p><a href="${CONTACT_EPICNPC_PROFILE_URL}" target="_blank" rel="noopener noreferrer" class="mt-3 inline-block text-sm font-semibold underline text-[var(--header-accent)]">${siteText("readArticle") === "Read article" ? "View Tanne on EpicNPC ↗" : "Xem hồ sơ Tanne trên EpicNPC ↗"}</a>
         </div>
 
         <div class="grid gap-3">

@@ -1,3 +1,4 @@
+import { CONTACT_EMAIL, CONTACT_EPICNPC_PROFILE_URL } from "../contactLinks";
 import { pageInner } from "../layout";
 import { siteText } from "../newsLanguage";
 import { brandLogoImg } from "../partials/brandLogo";
@@ -6,16 +7,16 @@ import { brandLogoImg } from "../partials/brandLogo";
 export function renderSiteFooter(): string {
   const footerLinkColumns: { href: string; label: string }[][] = [
     [
-      { href: "#", label: siteText("helpCenter") },
-      { href: "#", label: siteText("cookiePolicy") },
+      { href: "mailto:" + CONTACT_EMAIL, label: siteText("helpCenter") },
+      { href: "/?page=news", label: siteText("latestRaidUpdates") },
     ],
     [
-      { href: "#", label: siteText("sell") },
-      { href: "#", label: siteText("privacyPolicy") },
+      { href: "/?page=raid-accounts", label: siteText("browseRaidAccounts") },
+      { href: CONTACT_EPICNPC_PROFILE_URL, label: "EpicNPC" },
     ],
     [
-      { href: "#", label: siteText("contactUs") },
-      { href: "#", label: siteText("careers") },
+      { href: "mailto:" + CONTACT_EMAIL, label: siteText("contactUs") },
+      { href: "/?page=exchange", label: "Exchange / Middleman" },
     ],
   ];
   const columnsHtml = footerLinkColumns

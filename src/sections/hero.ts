@@ -1,6 +1,6 @@
 /** Khối banner: nội dung chính bên trái + Hot News cố định ở cột phải trên desktop. */
 import { pageInner } from "../layout";
-import { siteText } from "../newsLanguage";
+import { getNewsLanguage, siteText } from "../newsLanguage";
 import { renderWelcomeLetter } from "./welcomeLetter";
 
 export function renderHero(): string {
@@ -30,20 +30,25 @@ export function renderHero(): string {
                     class="pointer-events-none absolute inset-x-0 bottom-0 h-20"
                     style="background: linear-gradient(to top, color-mix(in srgb, var(--page-bg, #f4f6fb) 70%, transparent), rgba(0,0,0,0));"
                   ></div>
-                  <h1 class="sr-only">${siteText("heroTitle")}</h1>
+                  <div class="absolute inset-0 bg-gradient-to-t from-[#071827] via-[#071827]/70 to-[#071827]/15"></div>
+                  <div class="relative z-10 flex min-h-[52vh] flex-col justify-end p-6 sm:p-8 lg:min-h-[min(58vh,540px)]">
+                    <p class="mb-3 text-xs font-bold uppercase tracking-widest text-[#7fe9ff]">RAID • TANNE HUB</p>
+                    <h1 class="max-w-xl text-3xl font-extrabold leading-tight text-white sm:text-4xl">${getNewsLanguage() === "vi" ? "Chơi RAID với những quyết định tốt hơn." : "Make smarter moves in RAID."}</h1>
+                    <p class="mt-4 max-w-lg text-base leading-relaxed text-slate-200">${getNewsLanguage() === "vi" ? "Hướng dẫn champion, thông tin sự kiện và mã promo — để bạn biết nên ưu tiên điều gì tiếp theo." : "Practical champion guides, event insights, and promo codes to help you plan your next move."}</p>
+                  </div>
                 </div>
                 <div class="mt-3 flex flex-col gap-2.5 rounded-2xl border border-white/12 bg-[#071827]/72 p-3 shadow-[0_10px_28px_rgba(0,0,0,0.18)] backdrop-blur sm:flex-row sm:flex-wrap sm:items-center sm:justify-center sm:gap-3">
                   <a
-                    href="/?page=raid-accounts"
+                    href="/?page=news" data-analytics="hero_guides"
                     class="inline-flex min-h-11 w-full items-center justify-center rounded-lg bg-[#101d33] px-4 py-2.5 text-[14px] font-extrabold text-white transition hover:bg-[#172842] active:opacity-90 sm:w-auto"
                   >
-                    ${siteText("browseRaidAccounts")}
+                    ${getNewsLanguage() === "vi" ? "Đọc hướng dẫn RAID" : "Read RAID guides"}
                   </a>
                   <a
-                    href="/?page=news"
+                    href="/?page=news" data-open-promo data-analytics="hero_promo"
                     class="inline-flex min-h-11 w-full items-center justify-center rounded-lg border border-[#7fe9ff]/70 bg-[#061b31] px-4 py-2.5 text-[14px] font-extrabold text-[#aeefff] shadow-[0_0_0_1px_rgba(127,233,255,0.24),0_0_18px_rgba(127,233,255,0.14)] transition hover:-translate-y-0.5 hover:bg-[#0b2743] hover:text-white active:opacity-90 sm:w-auto"
                   >
-                    ${siteText("readLatestInfo")}
+                    ${getNewsLanguage() === "vi" ? "Xem mã promo" : "Check promo codes"}
                   </a>
                   <button
                     type="button"

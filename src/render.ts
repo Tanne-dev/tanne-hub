@@ -1,3 +1,4 @@
+import { renderRelatedArticles } from "./relatedArticles";
 import { ACCOUNT_HERO_MORE_EPIC_LABEL, ACCOUNT_HERO_MORE_LEGENDARY_LABEL } from "./content";
 import { pageInner } from "./layout";
 import { escapeHtml, renderPostArticleBodyHtml } from "./postBody";
@@ -432,7 +433,7 @@ export function renderPostDetail(root: HTMLElement, postId: string): void {
                     ${renderHelpfulButton(post.id)}
                     <span class="text-xs" style="color: color-mix(in srgb, var(--news-card-text) 68%, transparent);">Members can tap Like if this article helped.</span>
                   </div>
-                  <div class="raid-article-body mt-5 text-[var(--news-card-text)]">${renderPostArticleBodyHtml(localizedPost!)}</div>
+                  <div data-reading-post="${escapeHtml(post.id)}" class="raid-article-body mt-5 text-[var(--news-card-text)]">${renderPostArticleBodyHtml(localizedPost!)}</div>
                   <div class="mt-6 rounded-xl border border-[#1877f2]/30 bg-[#1877f2]/10 px-4 py-3">
                     <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
                       <div>
@@ -442,7 +443,7 @@ export function renderPostDetail(root: HTMLElement, postId: string): void {
                       ${renderHelpfulButton(post.id)}
                     </div>
                   </div>
-                  <p class="mt-4 text-xs" style="color: color-mix(in srgb, var(--news-card-text) 72%, transparent);">By Tanne Hub · ${new Date(post.createdAt).toLocaleString()}</p>
+                  ${renderRelatedArticles(post, getPosts(), lang)}<a href="/?page=news" data-analytics="article_more_guides" class="mt-5 inline-flex min-h-11 items-center rounded-lg border border-[#7fe9ff]/45 px-4 py-2 font-semibold text-[var(--news-card-text)]">${lang === "vi" ? "Đọc thêm hướng dẫn RAID →" : "Explore more RAID guides →"}</a><p class="mt-4 text-xs" style="color: color-mix(in srgb, var(--news-card-text) 72%, transparent);">By Tanne Hub · ${new Date(post.createdAt).toLocaleString()}</p>
                 </article>`
           }
         </main>
